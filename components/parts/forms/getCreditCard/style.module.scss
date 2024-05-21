@@ -1,0 +1,96 @@
+@import "/styles/mixins";
+
+.secureLoanTodayBox {
+  border-radius: 8px;
+  background: var(--globalWhite);
+  box-shadow: 0px 3px 12px 0px rgba(38, 143, 68, 0.1);
+  padding: 32px;
+  @include flexContainer($gap: 24px);
+  flex-direction: column;
+  h4 {
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
+  }
+  form {
+    @include flexContainer($gap: 24px);
+    flex-direction: column;
+    width: 100%;
+    > div {
+      width: 100%;
+      > p {
+        color: #475467;
+        font-size: 12px !important;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 18px !important;
+        @include flexContainer($justifyContent: flex-start, $gap: 12px);
+        svg {
+          flex: 0 0 24px;
+        }
+      }
+    }
+    .inputBlock {
+      @include flexContainer($gap: 16px);
+      flex-direction: column;
+      > div {
+        width: 100%;
+        input,
+        select {
+          width: 100%;
+          border-radius: 4px;
+          background: #f7f8fb;
+          border: none;
+          &:focus {
+            outline: none;
+          }
+        }
+        input {
+          padding: 16px;
+        }
+        select {
+          padding: 16px 8px;
+          border-radius: 4px 0px 0px 4px;
+          background: #eceef4;
+          flex: 1 0 70px;
+        }
+        .agreeTerms {
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 18px;
+          margin: 0;
+          a {
+            color: var(--primaryColor);
+            text-decoration: underline !important;
+          }
+        }
+      }
+      .phoneNumberField {
+        @include flexContainer($gap: 0);
+        input {
+          border-radius: 0px 4px 4px 0px;
+        }
+      }
+    }
+    .btnContainer {
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .secureLoanTodayBox {
+    padding: 16px;
+    gap: 20px;
+    h4 {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+}

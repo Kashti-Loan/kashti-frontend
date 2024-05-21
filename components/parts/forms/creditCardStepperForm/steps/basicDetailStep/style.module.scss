@@ -1,0 +1,54 @@
+@import "/styles/mixins";
+
+.stepSection {
+    max-width: 387px;
+    margin: 0 auto;
+    form {
+        @include flexContainer($gap: 24px);
+        flex-direction: column;
+        width: 100%;
+        > div {
+          width: 100%;
+        }
+        .inputBlock {
+          @include flexContainer($gap: 16px);
+          flex-direction: column;
+          > div {
+            width: 100%;
+            input,
+            select {
+              width: 100%;
+              border-radius: 4px;
+            //   background: #f7f8fb;
+              border: 1px solid #D0D5DD;
+              &:focus {
+                outline: none;
+              }
+            }
+            input {
+              padding: 14px 16px;
+            }
+            select {
+              padding: 16px 8px;
+              border-radius: 4px 0px 0px 4px;
+              background: #eceef4;
+              flex: 1 0 70px;
+            }
+          }
+          .phoneNumberField {
+            @include flexContainer($gap: 0);
+            input {
+              border-radius: 0px 4px 4px 0px;
+            }
+          }
+        }
+        .btnContainer {
+          button {
+            width: 100%;
+            max-width: 184px;
+            margin: 0 auto;
+            display: block;
+          }
+        }
+      }
+}

@@ -1,0 +1,38 @@
+@import "/styles/mixins";
+
+.inputTag {
+  width: 100%;
+  @include flexContainer($gap: 4px, $alignItems: flex-start);
+  flex-direction: column;
+  > div {
+    width: 100%;
+  }
+  .inputLabel {
+    @include flexContainer($justifyContent: flex-start, $gap: 4px);
+    label {
+      font-size: 14px;
+      line-height: 21px;
+      color: var(--globalBlack);
+    }
+  }
+  .inputBlock {
+    input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #d0d5dd !important;
+      border-radius: 4px;
+      &::placeholder {
+        color: #8793a6;
+        font-size: 16px;
+        line-height: 24px;
+      }
+      &:focus {
+        outline: none !important;
+      }
+    }
+  }
+  .note {
+    font-size: 14px;
+    line-height: 21px;
+  }
+}

@@ -1,0 +1,80 @@
+@import "/styles/mixins";
+
+.formSection {
+  form {
+    max-width: 793px;
+    margin: 48px auto 0;
+    .inputBlock {
+      @include flexContainer($alignItems: flex-start);
+    }
+    .radioGrpBlock {
+      margin-top: 20px;
+      h3 {
+        font-size: 14px;
+        line-height: 21px;
+        color: var(--globalBlack);
+        font-weight: 600;
+      }
+      .radioGrpInner {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        column-gap: 20px;
+        row-gap: 24px;
+        > label {
+          width: 100%;
+        }
+      }
+    }
+    .submitBlock {
+      margin-top: 48px;
+      button {
+        width: 100%;
+        max-width: 387px;
+      }
+    }
+  }
+  .dataSafetyInfo {
+    @include flexContainer($gap: 4px);
+    color: #475467;
+    margin-top: 24px;
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .formSection {
+    form {
+      margin-top: 20px;
+      .submitBlock {
+        margin-top: 24px;
+      }
+      .inputBlock {
+        flex-direction: column;
+      }
+      .radioGrpBlock {
+        h3 {
+          font-size: 16px;
+          line-height: 24px;
+        }
+        .radioGrpInner {
+          grid-template-columns: repeat(3, 1fr);
+          margin-top: 20px;
+        }
+      }
+    }
+    .dataSafetyInfo {
+      gap: 8px;
+      svg {
+        width: 20px;
+        height: 20px;
+        flex: 0 0 20px;
+      }
+      span {
+        text-align: left;
+        font-size: 12px;
+        line-height: 18px;
+      }
+    }
+  }
+}

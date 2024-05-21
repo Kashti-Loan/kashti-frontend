@@ -1,0 +1,109 @@
+@import "/styles/mixins";
+
+.disclaimerPage {
+  margin-top: -90px;
+  padding-top: 100px;
+  padding-bottom: 60px;
+  background: linear-gradient(180deg, #eaebf3 0%, #ffffff 100%);
+  .headerSection {
+    > div {
+      min-height: 182px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 14% 0;
+      @include flexContainer($gap: 0, $justifyContent: flex-start);
+      flex-direction: column;
+      > div {
+        width: 100%;
+        &:nth-of-type(1) {
+          margin-bottom: 28px;
+          > div {
+            .breadCrumbs {
+              @include flexContainer($justifyContent: flex-start);
+              svg {
+                width: 12px;
+                height: 12px;
+              }
+              span {
+                font-size: 14px;
+                line-height: 19.6px;
+                &:nth-of-type(1) {
+                  color: #5d6579;
+                }
+                &:nth-of-type(2) {
+                  color: #1d2939;
+                  font-weight: 600;
+                }
+              }
+            }
+          }
+        }
+        > div {
+          h1,
+          p {
+            text-align: center;
+          }
+          p {
+            margin-top: 12px;
+          }
+        }
+      }
+    }
+  }
+  .disclaimerContentSection {
+    padding-top: 40px;
+    > div {
+      > div {
+        .disclaimerContent {
+          padding: 32px;
+          border-radius: 12px;
+          background-color: var(--globalWhite);
+          p {
+            margin-bottom: 32px;
+          }
+          h3 {
+            font-size: 18px;
+            line-height: 28px;
+            color: #1d2939;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .disclaimerPage {
+    .headerSection {
+      > div {
+        background-image: unset !important;
+        min-height: unset;
+        > div {
+          > div {
+            padding-inline: 16px;
+            h1 {
+              font-size: 18px;
+              line-height: 28px;
+            }
+            p {
+              font-size: 14px;
+              line-height: 19px;
+            }
+          }
+        }
+      }
+    }
+    .disclaimerContentSection {
+      > div {
+        > div {
+          > div {
+            padding-inline: 16px;
+            .disclaimerContent {
+              padding: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

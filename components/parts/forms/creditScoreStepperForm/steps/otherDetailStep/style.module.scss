@@ -1,0 +1,94 @@
+@import "/styles/mixins";
+
+.stepSection {
+  h3 {
+    font-size: 16px;
+    line-height: 24px;
+    color: #475467;
+    max-width: 1092px;
+    margin: 0 auto;
+  }
+  .otherDetailBlock {
+    @include flexContainer($alignItems: stretch);
+    margin: 20px auto 0;
+    max-width: 1092px;
+    > div {
+      width: 100%;
+    }
+    .otherDetailBox {
+      border: 1px solid #d0d5ddb2;
+      padding: 16px 12px 12px;
+      border-radius: 8px;
+      position: relative;
+      background-color: var(--globalWhite);
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+      .otherDetailTitle {
+        @include flexContainer($justifyContent: space-between);
+        margin-bottom: 16px;
+        h4 {
+          font-size: 16px;
+          line-height: 24px;
+          color: #1d2939;
+          margin: 0;
+        }
+        svg {
+          width: 30px;
+          height: 30px;
+        }
+      }
+      p {
+        font-size: 12px;
+        line-height: 18px;
+        color: #475467;
+      }
+    }
+  }
+  .submitBtn {
+    text-align: center;
+    margin-top: 60px;
+    button {
+      width: 100%;
+      max-width: 184px;
+    }
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .stepSection {
+    .otherDetailBlock {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .stepSection {
+    h3 {
+      text-align: center;
+    }
+    .otherDetailBlock {
+      flex-direction: column;
+      margin-bottom: 0;
+      .otherDetailBox {
+        min-height: unset;
+        max-width: 80%;
+        margin: 0 auto;
+        svg {
+          top: 12px;
+          bottom: unset;
+        }
+        h4 {
+          font-size: 14px;
+          line-height: 20px;
+          max-width: 70%;
+        }
+        p {
+          font-size: 12px;
+          line-height: 18px;
+          max-width: 70%;
+        }
+      }
+    }
+  }
+}

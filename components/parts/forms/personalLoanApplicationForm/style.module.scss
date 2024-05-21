@@ -1,0 +1,135 @@
+@import "/styles/mixins";
+
+.personalLoanStepper {
+  .mobileHeading,
+  .mobileFormStepSection {
+    display: none;
+  }
+  .formStepSection {
+    max-width: 690px;
+    margin: 32px auto 0;
+    @include flexContainer($justifyContent: space-between, $gap: 0px);
+    .stepBox {
+      @include flexContainer($gap: 8px);
+      flex-direction: column;
+      &:nth-of-type(3) {
+        .currentStep {
+          svg {
+            path {
+              fill: none !important;
+              stroke: var(--globalWhite) !important;
+            }
+          }
+        }
+      }
+      //   .completed {
+      //     background-color: #1f6530 !important;
+      //   }
+      .currentStep,
+      .completed {
+        background-color: var(--primaryColor) !important;
+        svg {
+          path {
+            fill: var(--globalWhite) !important;
+          }
+        }
+      }
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #ededed;
+        svg {
+          width: 24px;
+          height: 24px;
+        }
+      }
+      h4 {
+        font-size: 14px;
+        line-height: 21px;
+        color: #1d2939;
+      }
+      &:nth-of-type(1) {
+        span {
+          background-color: var(--primaryColor);
+        }
+      }
+    }
+    > span {
+      flex: 1;
+      height: 2px;
+      border-bottom: 2px dashed #d0d5dd;
+      align-self: flex-start;
+      display: inline-block;
+      margin-top: 20px;
+    }
+    .completedLine {
+      border-bottom: 2px solid var(--primaryColor);
+    }
+  }
+  .formContentSection {
+    margin-top: 32px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .personalLoanStepper {
+    box-shadow: unset;
+    padding-block: 20px;
+    padding-inline: 0px;
+    .mobileHeading {
+      display: block;
+      h2 {
+        font-size: 20px;
+        line-height: 30px;
+        font-weight: 600;
+        margin: 0;
+      }
+    }
+    > div {
+      &:nth-of-type(1) {
+        display: none;
+      }
+    }
+    .formStepSection {
+      display: none;
+    }
+    .mobileFormStepSection {
+      display: block;
+      .stepLabelSection {
+        @include flexContainer($justifyContent: space-between, $gap: 0px);
+        .stepName {
+          h4 {
+            font-size: 12px;
+            line-height: 18px;
+            color: #1d2939;
+            font-weight: 600;
+            margin: 0;
+          }
+        }
+        .viewAllSteps {
+          button {
+            background-color: transparent;
+            border: none;
+            color: var(--primaryColor);
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 18px;
+          }
+        }
+      }
+      .progressBar {
+        margin-top: 8px;
+        > div {
+          height: 4px;
+        }
+      }
+    }
+    .formContentSection {
+      margin-top: 0px;
+    }
+  }
+}

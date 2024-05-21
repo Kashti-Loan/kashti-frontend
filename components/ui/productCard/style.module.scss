@@ -1,0 +1,88 @@
+@import "/styles/mixins";
+
+.productCard {
+  border-radius: 8px;
+  background: var(--globalWhite);
+  box-shadow: 0px 3px 12px 0px rgba(42, 52, 133, 0.1);
+  padding: 20px;
+  transition: all 0.3s ease-in-out;
+  @include flexContainer($justifyContent: space-between);
+  flex-direction: column;
+  > div {
+    width: 100%;
+  }
+  .productInfo {
+    @include flexContainer($gap: 12px, $alignItems: flex-start);
+    flex-direction: column;
+    h4,
+    p {
+      width: 100%;
+    }
+    h4 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 28px;
+    }
+    p,
+    span {
+      font-size: 12px;
+      line-height: 18px;
+    }
+    span {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: #e9f4ec;
+      font-weight: 600;
+    }
+  }
+  .seeProductBtn {
+    @include flexContainer(
+      $justifyContent: space-between,
+      $alignItems: flex-end
+    );
+    > svg {
+      width: 72px;
+      &:nth-of-type(2) {
+        display: none;
+      }
+    }
+    a {
+      font-size: 12px;
+      padding: 4px 12px;
+    }
+  }
+  &:hover {
+    .productInfo {
+      h4,
+      p {
+        color: var(--globalWhite);
+      }
+    }
+    .seeProductBtn {
+      a {
+        color: var(--globalWhite);
+        border-color: var(--globalWhite);
+      }
+      > svg {
+        width: 72px;
+        &:nth-of-type(1) {
+          display: none;
+        }
+        &:nth-of-type(2) {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .productCard {
+    .seeProductBtn {
+      a {
+        font-size: 10px;
+      }
+    }
+  }
+}

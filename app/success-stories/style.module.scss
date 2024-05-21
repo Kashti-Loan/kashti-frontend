@@ -1,0 +1,270 @@
+@import "/styles/mixins";
+
+.successStoryPage {
+  .pageUpperBlock {
+    margin-top: -90px;
+    padding-bottom: 60px;
+    background: linear-gradient(180deg, #eaebf3 0%, #ffffff 100%);
+    .headerSection {
+      padding-bottom: 40px;
+      padding-top: 100px;
+      > div {
+        > div {
+          &:nth-of-type(1) {
+            margin-bottom: 28px;
+            > div {
+              .breadCrumbs {
+                @include flexContainer($justifyContent: flex-start);
+                svg {
+                  width: 12px;
+                  height: 12px;
+                }
+                span {
+                  font-size: 14px;
+                  line-height: 19.6px;
+                  &:nth-of-type(1) {
+                    color: #5d6579;
+                  }
+                  &:nth-of-type(2) {
+                    color: #1d2939;
+                    font-weight: 600;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .storiesImpressSection {
+      > div {
+        > div {
+          &:nth-of-type(1) {
+            align-items: center;
+            > div {
+              > p {
+                margin: 16px 0 24px;
+              }
+              img {
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+              }
+              .userInfo {
+                margin-top: 14px;
+                display: none !important;
+                @include flexContainer($justifyContent: flex-start, $gap: 10px);
+                .userImg {
+                  width: 56px;
+                  height: 56px;
+                  border-radius: 50%;
+                  overflow: hidden;
+                  img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                  }
+                }
+                .userName {
+                  h5 {
+                    color: #1d2939;
+                    font-size: 16px;
+                    line-height: 24px;
+                    margin: 0 0 7px;
+                    p {
+                      font-size: 14px;
+                      line-height: 21px;
+                    }
+                  }
+                }
+              }
+              &:nth-of-type(2) {
+                > a {
+                  display: none;
+                }
+              }
+            }
+          }
+          &:nth-of-type(2) {
+            margin-top: 40px;
+            > div {
+              .statBlock {
+                box-shadow: 0px 0px 1px 0px #00000033,
+                  0px 0px 32px -8px #0000001f, 0px 32px 32px -8px #00000014;
+                padding: 24px 39px;
+                border-radius: 4px;
+                background-color: var(--globalWhite);
+                @include flexContainer($justifyContent: space-between);
+                max-width: 996px;
+                margin: 0 auto;
+                > div {
+                  position: relative;
+                  &:after {
+                    content: "";
+                    width: 1px;
+                    height: 70%;
+                    background-color: #e8e8e8;
+                    position: absolute;
+                    top: 50%;
+                    right: -25%;
+                    transform: translateY(-50%);
+                    z-index: 3;
+                  }
+                  &:last-child {
+                    &:after {
+                      display: none;
+                    }
+                  }
+                  p {
+                    margin-top: 12px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .videoSection {
+    margin-top: 80px;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .successStorySection {
+    margin-top: 80px;
+    > div {
+      > div {
+        > div {
+          h2 {
+            text-align: center;
+          }
+          .storySliderContainer {
+            margin: 40px 0;
+          }
+        }
+      }
+    }
+  }
+  .reviewSection {
+    margin: 40px 0;
+    > div {
+      > div {
+        > div {
+          h2 {
+            text-align: center;
+          }
+          .reviewSliderContainer {
+            max-width: 854px;
+            margin: 24px auto;
+            > div {
+              > div {
+                padding-bottom: 40px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .successStoryPage {
+    .pageUpperBlock {
+      .headerSection {
+        > div {
+          > div {
+            > div {
+              padding-inline: 16px;
+            }
+            &:nth-of-type(1) {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+      .storiesImpressSection {
+        > div {
+          > div {
+            > div {
+              padding-inline: 16px;
+            }
+            &:nth-of-type(1) {
+              > div {
+                h1 {
+                  font-size: 24px;
+                  line-height: 36px;
+                  margin: 0;
+                }
+                > p {
+                  margin: 24px 0;
+                }
+                > a {
+                  display: none;
+                }
+                .userInfo {
+                  display: flex !important;
+                  margin-bottom: 32px;
+                }
+                &:nth-of-type(2) {
+                  > a {
+                    display: inline-block;
+                  }
+                }
+              }
+            }
+            &:nth-of-type(2) {
+              > div {
+                .statBlock {
+                  flex-wrap: wrap;
+                  > div {
+                    flex: 1 0 130px;
+                    &:nth-child(odd) {
+                      &:after {
+                        right: -5%;
+                      }
+                    }
+                    h2 {
+                      font-size: 20px;
+                      line-height: 28px;
+                    }
+                    p {
+                      margin-top: 4px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .videoSection {
+      margin-top: 0;
+      > div {
+        > div {
+          > div {
+            padding-inline: 16px;
+          }
+        }
+      }
+    }
+    .successStorySection {
+      margin-top: 40px;
+      > div {
+        > div {
+          > div {
+            padding-inline: 16px;
+            h2 {
+              font-size: 24px;
+              line-height: 38px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,126 @@
+@import "/styles/mixins";
+
+.formSection {
+  form {
+    max-width: 793px;
+    margin: 48px auto 0;
+    > div {
+      &:nth-of-type(1) {
+        margin-bottom: 24px;
+        @include flexContainer($justifyContent: flex-start, $gap: 4px);
+        h3 {
+          font-size: 14px;
+          line-height: 21px;
+          color: var(--globalBlack);
+          font-weight: 600;
+          margin: 0;
+        }
+      }
+    }
+    .inputBlock {
+      @include flexContainer($alignItems: flex-start);
+    }
+    .radioGrpBlock {
+      margin-top: 20px;
+      h3 {
+        font-size: 14px;
+        line-height: 21px;
+        color: var(--globalBlack);
+        font-weight: 600;
+      }
+      .radioGrpInner {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        column-gap: 20px;
+        row-gap: 24px;
+      }
+    }
+    .submitBlock {
+      margin-top: 48px;
+      button {
+        width: 100%;
+        max-width: 387px;
+      }
+    }
+  }
+  .dataSafetyInfo {
+    @include flexContainer($gap: 4px);
+    color: #475467;
+    margin-top: 24px;
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .formSection {
+    form {
+      margin-top: 20px;
+      .submitBlock {
+        margin-top: 24px;
+      }
+      > div {
+        &:nth-of-type(1) {
+          h3 {
+            font-size: 16px;
+            line-height: 24px;
+          }
+        }
+        &:nth-of-type(3) {
+          > div {
+            max-width: 100%;
+          }
+        }
+      }
+      .inputBlock {
+        flex-direction: column;
+      }
+      .radioGrpBlock {
+        > div {
+          &:nth-of-type(1) {
+            h3 {
+              font-size: 16px;
+              line-height: 24px;
+              color: var(--globalBlack);
+              font-weight: 600;
+              margin: 0;
+            }
+          }
+        }
+        .radioGrpInner {
+          grid-template-columns: repeat(3, 1fr);
+          > label {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+      .consentBlock {
+        label {
+          align-items: flex-start;
+          span {
+            &:nth-of-type(1) {
+              width: 22px;
+              margin-right: 8px;
+              height: 20px;
+              margin-top: 3px;
+            }
+          }
+        }
+      }
+    }
+    .dataSafetyInfo {
+      gap: 8px;
+      svg {
+        width: 20px;
+        height: 20px;
+        flex: 0 0 20px;
+      }
+      span {
+        text-align: left;
+        font-size: 12px;
+        line-height: 18px;
+      }
+    }
+  }
+}

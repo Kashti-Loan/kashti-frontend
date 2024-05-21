@@ -1,0 +1,80 @@
+@import "/styles/mixins";
+
+.stepSection {
+  // max-width: 387px;
+  // margin: 0 auto;
+  .applicationForm {
+    @include flexContainer($gap: 40px);
+    flex-direction: column;
+    > div {
+      width: 100%;
+    }
+    .personalDetailSection {
+      h3 {
+        font-size: 16px;
+        line-height: 24px;
+        color: var(--globalDark);
+        margin: 0 0 24px;
+      }
+      .inputBlock {
+        @include flexContainer($gap: 32px, $justifyContent: flex-start);
+        flex-wrap: wrap;
+        > div {
+          width: 100%;
+          flex: 1 0 351px;
+          max-width: 351px;
+        }
+      }
+    }
+    .submitBtn {
+      text-align: center;
+      button {
+        width: 100%;
+        max-width: 222px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .stepSection {
+    .applicationForm {
+      .personalDetailSection {
+        .inputBlock {
+          > div {
+            flex: 1 0 295px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .stepSection {
+    .applicationForm {
+      .personalDetailSection {
+        .inputBlock {
+          > div {
+            max-width: unset;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .stepSection {
+    .applicationForm {
+      margin-top: 24px;
+      .personalDetailSection {
+        .inputBlock {
+          > div {
+            flex-shrink: 1;
+          }
+        }
+      }
+    }
+  }
+}

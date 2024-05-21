@@ -1,0 +1,99 @@
+@import "/styles/mixins";
+
+.otpVerifcationPopup {
+  width: 100%;
+  @include flexContainer;
+  .verficationFormBox {
+    width: 100%;
+    max-width: 434px;
+    margin: 0 auto;
+    background-color: var(--globalWhite);
+    border-radius: 8px;
+    padding: 32px;
+    > h2 {
+      font-size: 20px;
+      line-height: 30px;
+      margin: 0 0 12px;
+      text-align: center;
+    }
+    > p:nth-of-type(1) {
+      font-size: 14px;
+      line-height: 21px;
+      text-align: center;
+      color: var(--globalBlack);
+    }
+    form {
+      margin-top: 24px;
+      .inputBlock {
+        @include flexContainer($gap: 12px);
+        > input {
+          width: 100%;
+          border: 1px solid #2A3485;
+          outline: none;
+          border-radius: 4px;
+          background-color: #fff;
+          @include flexContainer;
+          padding: 16px;
+        }
+      }
+      .resendTimer {
+        margin: 8px 0 24px;
+        p {
+          font-size: 14px;
+          line-height: 21px;
+          span {
+            color: #f47d20;
+            font-weight: 600;
+          }
+        }
+      }
+      button {
+        width: 100%;
+      }
+    }
+    .dataSafetyInfo {
+      @include flexContainer($gap: 6px);
+      color: #475467;
+      margin-top: 24px;
+      svg {
+        width: 24px;
+        height: 24px;
+        flex: 0 0 24px;
+      }
+      span {
+        font-size: 12px;
+        line-height: 18px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .otpVerifcationPopup {
+    padding-inline: 16px;
+    .verficationFormBox {
+      padding: 16px;
+      > h2 {
+        font-size: 14px;
+        line-height: 21px;
+      }
+      > p:nth-of-type(1) {
+        font-size: 12px;
+        line-height: 18px;
+      }
+      .dataSafetyInfo {
+        gap: 8px;
+        svg {
+          width: 20px;
+          height: 20px;
+          flex: 0 0 20px;
+        }
+        span {
+          text-align: left;
+          font-size: 10px;
+          line-height: 15px;
+        }
+      }
+    }
+  }
+}

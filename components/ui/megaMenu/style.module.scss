@@ -1,0 +1,43 @@
+@import "/styles/mixins";
+
+.megaMenuSection {
+  position: absolute;
+  width: 902px;
+  background-color: var(--globalWhite);
+  box-shadow: 0px 3px 12px 0px #2a34851a;
+  border-radius: 8px;
+  padding: 24px;
+  @include flexContainer($gap: 50px);
+  flex-wrap: wrap;
+  z-index: 10;
+  top: 100%;
+  left: -38px;
+  display: none;
+  &:hover {
+    display: flex;
+  }
+  > a {
+    flex: 1 0 402px;
+  }
+  .menuBox {
+    @include flexContainer($justifyContent: flex-start, $gap: 18px);
+    svg {
+      width: 44px;
+      height: 44px;
+    }
+    .menuInfo {
+      h5 {
+        font-size: 14px;
+        line-height: 21px;
+        color: #000;
+        margin: 0 0 4px;
+        text-align: left;
+      }
+      p {
+        font-size: 14px;
+        line-height: 20px;
+        text-align: left;
+      }
+    }
+  }
+}

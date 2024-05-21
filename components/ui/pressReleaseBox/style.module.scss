@@ -1,0 +1,114 @@
+@import "/styles/mixins";
+
+.pressBox {
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0px 8px 12px 0px #0000000d;
+  transform: scale(1);
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  &:hover {
+    transform: scale(1.05);
+  }
+  .pressImg {
+    img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+  }
+  .pressInfo {
+    background-color: var(--globalWhite);
+    padding: 16px;
+    flex: 1;
+    .pressName {
+      @include flexContainer($justifyContent: flex-start);
+      margin-bottom: 18px;
+      h4 {
+        font-size: 16px;
+        line-height: 24px;
+        color: #344054;
+        margin: 0;
+      }
+      p {
+        font-size: 14px;
+        line-height: 19px;
+      }
+    }
+    h3 {
+      font-size: 18px;
+      line-height: 28px;
+      color: var(--globalBlack);
+      margin: 0 0 16px;
+    }
+    .userInfo {
+      margin-top: 12px;
+      @include flexContainer($justifyContent: flex-start, $gap: 10px);
+      .userImg {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .userName {
+        @include flexContainer($justifyContent: space-between);
+        flex: 1;
+        h5 {
+          color: #1d2939;
+          font-size: 16px;
+          line-height: 24px;
+          margin: 0;
+          p {
+            font-size: 14px;
+            line-height: 21px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .pressBox {
+    flex-direction: row !important;
+    box-shadow: none;
+    border-radius: 0px;
+    gap: 16px;
+    .pressImg {
+      max-width: 130px;
+      img {
+        height: 100%;
+        border-radius: 3px;
+      }
+    }
+    .pressInfo {
+      background-color: transparent;
+      padding: 0px;
+      display: flex;
+      flex-direction: column-reverse;
+      > div, h3 {
+        width: 100%;
+      }
+      .pressName {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        margin: 0;
+      }
+      h3 {
+        font-size: 14px;
+        line-height: 20px;
+      }
+      .userInfo {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,90 @@
+@import "/styles/mixins";
+
+.mobileFilterContainer {
+  align-self: flex-end;
+  background-color: var(--globalWhite);
+  width: 100%;
+  @include flexContainer($gap: 0);
+  flex-direction: column;
+  border-radius: 8px 8px 0 0;
+  height: 90%;
+  > div {
+    width: 100%;
+  }
+  .filterList {
+    flex: 1 1 auto;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    > div {
+      &:nth-of-type(1) {
+        background-color: #eaebf3;
+        .filterParentList {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          li {
+            padding: 14px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 20px;
+            color: var(--globalBlack);
+          }
+          .activeFilter {
+            background-color: var(--globalWhite);
+            color: var(--prmaryColor);
+          }
+        }
+      }
+      .filterChildList {
+        padding: 16px 20px;
+        margin: 0;
+        list-style: none;
+        @include flexContainer($alignItems: flex-start, $justifyContent: flex-start, $gap: 24px);
+        flex-direction: column;
+        // max-height: 166px;
+        // overflow-y: auto;
+        // width: 100%;
+        // overflow-x: visible;
+        li {
+          width: 100%;
+          label {
+            span {
+                margin-right: 12px;
+            }
+          }
+        }
+        &::-webkit-scrollbar {
+          width: 4px;
+      }
+      &::-webkit-scrollbar-track {
+          background: #E4E4E4; 
+        }
+        &::-webkit-scrollbar-thumb {
+          background: #9CA2C8; 
+        }
+      }
+    }
+  }
+  .filterHeader {
+    padding: 16px 24px;
+    @include flexContainer($justifyContent: space-between, $gap: 0);
+    svg {
+      width: 30px;
+      height: 30px;
+      transform: rotate(45deg);
+    }
+    h2 {
+      font-size: 20px;
+      line-height: 30px;
+    }
+  }
+  .filterButtons {
+    padding: 12px 24px;
+    @include flexContainer($gap: 24px);
+    button {
+      width: 100%;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+}

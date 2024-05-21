@@ -1,0 +1,233 @@
+@import "/styles/mixins";
+
+.recommendedCardPage {
+  .headerSection {
+    background: linear-gradient(
+      178.72deg,
+      #0e1a77 8.13%,
+      rgba(34, 44, 128, 0.901042) 72.53%,
+      rgba(9, 27, 176, 0.5) 155.76%,
+      rgba(0, 21, 194, 0) 178.88%
+    );
+    min-height: 320px;
+    padding-top: 24px;
+    position: relative;
+    .applyCreditCard,
+    .whiteKashti {
+      position: absolute;
+      bottom: 0;
+    }
+    .applyCreditCard {
+      left: 0;
+    }
+    .whiteKashti {
+      right: 0;
+    }
+    > div {
+      > div {
+        > div {
+          &:nth-of-type(1) {
+            margin-bottom: 20px;
+            a {
+              @include flexContainer($justifyContent: flex-start, $gap: 12px);
+              color: var(--globalWhite);
+              svg {
+                width: 24px;
+                height: 24px;
+              }
+            }
+          }
+          &:nth-of-type(2) {
+            h1,
+            p {
+              text-align: center;
+              color: var(--globalWhite);
+            }
+            h1 {
+              font-size: 32px;
+              line-height: 48px;
+              margin: 0 0 8px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .cardList {
+    background-color: #f9f9f9;
+    padding-bottom: 32px;
+    > div {
+      margin-top: -97px;
+      position: relative;
+      z-index: 2;
+      > div {
+        > div {
+          > div {
+            > ul {
+              margin: 0;
+              padding: 0;
+              list-style: none;
+              @include flexContainer;
+              flex-direction: column;
+              > li {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .supportSection {
+    background-color: #f9f9f9;
+    padding-bottom: 30px;
+    > div {
+      > div {
+        > div {
+          &:nth-of-type(1) {
+            .supportBox {
+              p {
+                margin-bottom: 32px;
+              }
+            }
+          }
+          &:nth-of-type(2) {
+            .supportBox {
+              ul {
+                @include flexContainer($alignItems: flex-start);
+                flex-direction: column;
+                list-style: none;
+                margin: 24px 0 0;
+                padding: 0;
+                li {
+                  a {
+                    @include flexContainer(
+                      $justifyContent: flex-start,
+                      $gap: 23px
+                    );
+                    color: #000;
+                    span {
+                      font-size: 14px;
+                      line-height: 20px;
+                    }
+                    svg {
+                      width: 24px;
+                      height: 24px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .supportBox {
+            height: 100%;
+            background-color: var(--globalWhite);
+            box-shadow: 0px 3px 8px 0px #2a34851a;
+            border-radius: 8px;
+            @include flexContainer($gap: 0px, $alignItems: stretch);
+            > div {
+              &:nth-of-type(1) {
+                flex: 1 1 auto;
+                padding: 24px;
+                h3 {
+                  font-size: 20px;
+                  line-height: 30px;
+                  margin: 0 0 12px;
+                }
+                p {
+                  font-size: 14px;
+                  line-height: 20px;
+                }
+              }
+              &:nth-of-type(2) {
+                flex: 0 0 200px;
+                img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .recommendedCardPage {
+    .headerSection {
+      .applyCreditCard {
+        display: none;
+      }
+      .whiteKashti {
+        width: 70px;
+        height: 77px;
+        bottom: 115px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .recommendedCardPage {
+    .headerSection {
+      > div {
+        > div {
+          > div {
+            padding-inline: 16px;
+            &:nth-of-type(2) {
+              h1 {
+                font-size: 16px;
+                line-height: 24px;
+              }
+            }
+          }
+        }
+      }
+    }
+    // .questionairreSection {
+    //   > div {
+    //     > div {
+    //       > div {
+    //         padding-inline: 16px;
+    //       }
+    //     }
+    //   }
+    // }
+    .supportSection {
+      > div {
+        > div {
+          row-gap: 16px;
+          > div {
+            padding-inline: 16px;
+            .supportBox {
+              > div {
+                h3 {
+                  font-size: 14px;
+                  line-height: 21px;
+                }
+                p {
+                  font-size: 12px;
+                  line-height: 18px;
+                }
+                ul {
+                  li {
+                    svg {
+                      width: 20px !important;
+                      height: 20px !important;
+                    }
+                  }
+                }
+                &:nth-of-type(2) {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+@import "/styles/mixins";
+
+.stepSection {
+  .employmentTypeBlock {
+    @include flexContainer;
+    max-width: 591px;
+    margin: 0 auto;
+    > div {
+      width: 100%;
+    }
+    .employmentTypeBox {
+      min-height: 163px;
+      border: 1px solid #d0d5ddb2;
+      padding: 16px 12px 12px;
+      border-radius: 8px;
+      position: relative;
+      background-color: var(--globalWhite);
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+      &:hover {
+        &:nth-of-type(1) {
+          background-color: #fef2e9;
+        }
+        &:nth-of-type(2) {
+          background-color: #e9f4ec;
+        }
+        &:nth-of-type(3) {
+          background-color: #eaebf3;
+        }
+      }
+      svg {
+        position: absolute;
+        right: 12px;
+        bottom: 12px;
+      }
+      h4 {
+        font-size: 16px;
+        line-height: 24px;
+        color: #1d2939;
+        margin: 0 0 6px;
+      }
+      p {
+        font-size: 14px;
+        line-height: 21px;
+        color: #475467;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .stepSection {
+    .employmentTypeBlock {
+      flex-direction: column;
+      margin-bottom: 52px;
+      .employmentTypeBox {
+        min-height: unset;
+        max-width: 206px;
+        svg {
+          top: 12px;
+          bottom: unset;
+        }
+        h4 {
+          font-size: 14px;
+          line-height: 20px;
+          max-width: 70%;
+        }
+        p {
+          font-size: 12px;
+          line-height: 18px;
+          max-width: 70%;
+        }
+      }
+    }
+  }
+}
