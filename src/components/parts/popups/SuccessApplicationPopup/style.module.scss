@@ -1,0 +1,42 @@
+@import "/src/styles/mixins";
+
+.successSection {
+  width: 100%;
+  @include flexContainer;
+  .successBox {
+    width: 100%;
+    max-width: 497px;
+    margin: 0 auto;
+    background-color: var(--globalWhite);
+    border-radius: 8px;
+    padding: 40px;
+    @include flexContainer;
+    flex-direction: column;
+    p {
+        width: 100%;
+        text-align: center;
+        color: #000 !important;
+    }
+    a {
+        margin-top: 20px;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .successSection {
+    padding-inline: 16px;
+    .successBox {
+      padding: 24px;
+      > img {
+        max-width: 166px;
+        height: 130px;
+        object-fit: cover;
+      }
+      a {
+        width: 100%;
+        max-width: 222px;
+      }
+    }
+  }
+}

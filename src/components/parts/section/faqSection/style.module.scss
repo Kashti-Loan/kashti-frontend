@@ -1,0 +1,44 @@
+@import '/src/styles/mixins';
+
+.faqSection {
+    padding-block: 80px;
+    > div {
+      > div {
+        > div {
+          h2 {
+            text-align: center;
+          }
+          ul {
+            list-style: none;
+            padding: 0;
+            margin: 40px 0 0;
+            @include flexContainer($gap: 24px);
+            flex-direction: column;
+          }
+          .viewAllBtn {
+            text-align: center;
+            margin-top: 40px;
+            a {
+              padding-inline: 60px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .faqSection {
+      padding: 24px 16px;
+      > div {
+        > div {
+          > div {
+            padding-inline: 0;
+            h2 {
+              text-align: left;
+            }
+          }
+        }
+      }
+    }
+  }

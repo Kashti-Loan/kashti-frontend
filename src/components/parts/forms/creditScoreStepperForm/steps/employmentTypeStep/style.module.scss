@@ -1,0 +1,106 @@
+@import "/src/styles/mixins";
+
+.stepSection {
+  h3 {
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: var(--globalBlack);
+  }
+  .employmentTypeBlock {
+    @include flexContainer;
+    max-width: 760px;
+    margin: 20px auto 0;
+    > div {
+      width: 100%;
+    }
+    .employmentTypeBox {
+      min-height: 163px;
+      border: 1px solid #d0d5ddb2;
+      padding: 16px 12px 12px;
+      border-radius: 8px;
+      position: relative;
+      background-color: var(--globalWhite);
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+      &:hover {
+        &:nth-of-type(1) {
+          background-color: #fef2e9;
+        }
+        &:nth-of-type(2) {
+          background-color: #e9f4ec;
+        }
+        &:nth-of-type(3) {
+          background-color: #eaebf3;
+        }
+      }
+      svg {
+        position: absolute;
+        right: 12px;
+        bottom: 12px;
+      }
+      h4 {
+        font-size: 16px;
+        line-height: 24px;
+        color: #1d2939;
+        margin: 0 0 6px;
+      }
+      p {
+        font-size: 14px;
+        line-height: 21px;
+        color: #475467;
+      }
+    }
+  }
+  form {
+    @include flexContainer($gap: 32px);
+    flex-direction: column;
+    .salaryInputBlock {
+      @include flexContainer;
+      max-width: 794px;
+      margin: 32px auto 0;
+      width: 100%;
+      > div {
+        width: 100%;
+      }
+    }
+    button {
+      width: 100%;
+      max-width: 184px;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .stepSection {
+    .employmentTypeBlock {
+      flex-direction: column;
+      margin-bottom: 0;
+      .employmentTypeBox {
+        min-height: unset;
+        max-width: 206px;
+        svg {
+          top: 12px;
+          bottom: unset;
+        }
+        h4 {
+          font-size: 14px;
+          line-height: 20px;
+          max-width: 70%;
+        }
+        p {
+          font-size: 12px;
+          line-height: 18px;
+          max-width: 70%;
+        }
+      }
+    }
+    form {
+      .salaryInputBlock {
+        margin-top: 24px;
+        gap: 24px;
+        flex-direction: column;
+      }
+    }
+  }
+}

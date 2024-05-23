@@ -1,0 +1,18 @@
+@import "/src/styles/mixins";
+
+.inputBlock {
+  @include flexContainer($gap: 12px);
+  > input {
+    width: 100%;
+    border: 1px solid #2a3485;
+    outline: none;
+    border-radius: 4px;
+    background-color: #fff;
+    @include flexContainer;
+    padding: 16px;
+    text-align: center;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 600;
+  }
+}

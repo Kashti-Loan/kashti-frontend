@@ -1,0 +1,124 @@
+@import "/src/styles/mixins";
+
+.contactPage {
+  margin-top: -90px;
+  padding-top: 130px;
+  padding-bottom: 60px;
+  background: linear-gradient(180deg, #eaebf3 0%, #ffffff 100%);
+  .headerSection {
+    > div {
+      min-height: 182px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 14% 0;
+      @include flexContainer;
+      > div {
+        > div {
+          h1,
+          p {
+            text-align: center;
+          }
+          p {
+            margin-top: 12px;
+          }
+        }
+      }
+    }
+  }
+  .enquiryForm {
+    margin-block: 40px;
+    > div {
+      > div {
+        > div {
+          iframe {
+            width: 100%;
+            height: 100%;
+            box-shadow: 0px 3px 12px 0px #2a34851a;
+          }
+        }
+      }
+    }
+  }
+  .contactInfoSection {
+    margin-top: 80px;
+    > div {
+      > div {
+        > div {
+          .infoBox {
+            box-shadow: 0px 3px 12px 0px #2a34851a;
+            padding: 29px 24px;
+            background: var(--globalWhite);
+            border-radius: 8px;
+            height: 100%;
+            img {
+              margin-bottom: 24px;
+            }
+            h3 {
+              font-size: 14px;
+              line-height: 21px;
+              margin: 0 0 8px;
+            }
+            a {
+              font-size: 14px;
+              line-height: 20px;
+              color: #2a3485;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .contactPage {
+    .contactInfoSection {
+      > div {
+        > div {
+          row-gap: 30px;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .contactPage {
+    padding-top: 100px;
+    .headerSection {
+      > div {
+        background-image: unset !important;
+        min-height: unset;
+        > div {
+          > div {
+            padding-inline: 16px;
+            h1 {
+              font-size: 24px;
+              line-height: 36px;
+            }
+            p {
+              font-size: 14px;
+              line-height: 19px;
+            }
+          }
+        }
+      }
+    }
+    .enquiryForm {
+      > div {
+        > div {
+          > div {
+            padding-inline: 16px;
+            &:nth-of-type(2) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    .contactInfoSection {
+      display: none;
+    }
+  }
+}

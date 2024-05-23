@@ -1,0 +1,103 @@
+@import "/src/styles/mixins";
+
+.creditScorePage {
+  .headerSection {
+    background: #283487;
+    min-height: 320px;
+    padding-top: 24px;
+    position: relative;
+    .applyCreditCard,
+    .whiteKashti {
+      position: absolute;
+      bottom: 0;
+    }
+    .applyCreditCard {
+      left: 0;
+    }
+    .whiteKashti {
+      right: 0;
+    }
+    > div {
+      > div {
+        > div {
+          &:nth-of-type(1) {
+            margin-bottom: 20px;
+            a {
+              @include flexContainer($justifyContent: flex-start, $gap: 12px);
+              color: var(--globalWhite);
+              svg {
+                width: 24px;
+                height: 24px;
+              }
+            }
+          }
+          &:nth-of-type(2) {
+            h1,
+            p {
+              text-align: center;
+              color: var(--globalWhite);
+            }
+            h1 {
+              font-size: 32px;
+              line-height: 48px;
+              margin: 0 0 8px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .questionairreSection {
+    background-color: #f9f9f9;
+    padding-bottom: 32px;
+    > div {
+      margin-top: -97px;
+      position: relative;
+      z-index: 2;
+    }
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .creditScorePage {
+    .headerSection {
+      .applyCreditCard {
+        display: none;
+      }
+      .whiteKashti {
+        width: 70px;
+        height: 77px;
+        bottom: 115px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .creditScorePage {
+    .headerSection {
+      > div {
+        > div {
+          > div {
+            padding-inline: 16px;
+            &:nth-of-type(2) {
+              h1 {
+                font-size: 16px;
+                line-height: 24px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .questionairreSection {
+      > div {
+        > div {
+          > div {
+            padding-inline: 16px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,660 @@
+@import "/src/styles/mixins";
+
+.personalLoanPage {
+  margin-top: -90px;
+  .bannerSection {
+    background: linear-gradient(180deg, #e9f4ec 0%, #fff 100%);
+    padding-top: 150px;
+    padding-bottom: 72px;
+    > div {
+      > div {
+        > div {
+          h1 {
+            font-weight: 500;
+            span {
+              font-weight: 600;
+              font-size: 40px;
+            }
+          }
+          p {
+            font-size: 20px;
+            line-height: 32px;
+            margin: 12px 0 32px;
+          }
+          .bannerImgBlock {
+            @include flexContainer($gap: 0, $alignItems: flex-start);
+            > div {
+              width: 100%;
+              &:nth-of-type(1) {
+                @include flexContainer($gap: 16px, $justifyContent: flex-start);
+                // img {
+                //     width: 100%;
+                // }
+              }
+            }
+          }
+          &:nth-of-type(1) {
+            position: relative;
+            .bannerImg {
+              position: absolute;
+              width: 50%;
+              height: 65%;
+              bottom: 0;
+              right: 0;
+              img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+          &:nth-of-type(2) {
+            padding-left: 80px;
+          }
+        }
+      }
+    }
+  }
+  .tabSection {
+    background: #e9f4ec;
+    padding-block: 12px;
+    > div {
+      > div {
+        > div {
+          .tabBlock {
+            @include flexContainer;
+            a {
+              width: 100%;
+              border-radius: 30px;
+              background: #e9f4ec;
+              padding: 8px 26px;
+              text-align: center;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 24px;
+              color: var(--globalBlack);
+              transition: all 0.2s ease-in-out;
+              &:last-child {
+                background-color: var(--primaryColor) !important;
+                color: var(--globalWhite);
+              }
+              &:hover {
+                background: var(--globalWhite);
+              }
+            }
+            .active {
+              background: var(--globalWhite);
+            }
+          }
+        }
+      }
+    }
+  }
+  .whyKashtiSection {
+    padding-bottom: 80px;
+    padding-top: 40px;
+    > div {
+      > div {
+        &:nth-of-type(1) {
+          > div {
+            h2,
+            p {
+              text-align: center;
+            }
+            h2 {
+              line-height: 60px;
+              margin-bottom: 12px;
+            }
+          }
+        }
+        &:nth-of-type(2) {
+          justify-content: center;
+          row-gap: 80px;
+          margin-top: 50px;
+          > div {
+            padding-inline: 50px;
+            .whyKashtiBox {
+              @include flexContainer($gap: 0);
+              flex-direction: column;
+              h3,
+              p {
+                text-align: center;
+              }
+              img {
+                width: 80px;
+                height: 80px;
+              }
+              h3 {
+                margin: 32px 0 12px;
+                font-size: 20px;
+                line-height: 30px;
+                font-weight: 600;
+              }
+              p {
+                font-size: 14px;
+                line-height: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .keyBenefitsSection {
+    padding-top: 60px;
+    padding-bottom: 80px;
+    display: none;
+    > div {
+      > div {
+        > div {
+          ul {
+            margin: 33px 0 0;
+            padding: 0;
+            list-style: none;
+            @include flexContainer($gap: 32px);
+            flex-direction: column;
+            li {
+              width: 100%;
+              @include flexContainer(
+                $gap: 16px,
+                $justifyContent: flex-start,
+                $alignItems: flex-start
+              );
+              span {
+                font-size: 16px;
+              }
+              svg {
+                flex: 0 0 24px;
+              }
+            }
+          }
+          &:nth-of-type(2) {
+            @include flexContainer(
+              $justifyContent: flex-end,
+              $alignItems: flex-end
+            );
+          }
+        }
+      }
+    }
+  }
+  .attractiveRatesSection {
+    padding-bottom: 80px;
+    > div {
+      > div {
+        > div {
+          h2 {
+            text-align: center;
+          }
+          .creditCardBlock {
+            @include flexContainer($alignItems: stretch);
+            flex-wrap: wrap;
+            margin-top: 32px;
+            row-gap: 40px;
+            > div {
+              flex: 1 0 calc(33% - 20px);
+            }
+          }
+          .viewAllCreditCard {
+            text-align: center;
+            margin-top: 40px;
+            a {
+              padding-inline: 60px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .eligibilityCriteriaSection {
+    padding-block: 80px;
+    background: #e9f4ec;
+    > div {
+      > div {
+        > div {
+          h2 {
+            margin-bottom: 12px;
+            color: var(--globalBlack);
+          }
+          .notes {
+            color: #6f6d6d;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+          }
+          .eligibilitySteps {
+            margin: 32px 0 24px;
+            @include flexContainer;
+            flex-wrap: wrap;
+            row-gap: 32px;
+            .eligibilityBox {
+              width: 100%;
+              border-radius: 8px;
+              border: 1px solid #d0d5dd;
+              background: #fff;
+              padding: 24px;
+              flex: 1 0 calc(33% - 20px);
+              @include flexContainer($justifyContent: space-between);
+              p {
+                margin: 0;
+                @include flexContainer($gap: 16px);
+                flex-direction: column;
+                span {
+                  width: 100%;
+                  &:nth-of-type(1) {
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 32px;
+                    color: #475467;
+                  }
+                  &:nth-of-type(2) {
+                    color: #000;
+                    font-size: 24px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 36px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .instantPersonalLoanSection {
+    padding: 113px 0 80px;
+    > div {
+      > div {
+        &:nth-of-type(1) {
+          margin-bottom: 40px;
+          p {
+            margin-top: 12px;
+          }
+        }
+        > div {
+          .instantPersonalLoanStepsList {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            @include flexContainer($gap: 40px);
+            flex-direction: column;
+            max-width: 439px;
+            li {
+              width: 100%;
+              @include flexContainer(
+                $gap: 32px,
+                $justifyContent: flex-start,
+                $alignItems: flex-start
+              );
+              &:nth-of-type(1) {
+                h4 {
+                  background: #e9f4ec;
+                }
+              }
+              &:nth-of-type(2) {
+                h4 {
+                  background: #a6d1b2;
+                }
+              }
+              &:nth-of-type(3) {
+                h4 {
+                  background: #81be93;
+                }
+              }
+              &:nth-of-type(4) {
+                h4 {
+                  background: #4ba264;
+                }
+              }
+              &:nth-of-type(5) {
+                h4 {
+                  background: #268f44;
+                  &::after {
+                    display: none;
+                  }
+                }
+              }
+              h4 {
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 32px;
+                color: #000;
+                flex: 0 0 56px;
+                border-radius: 8px;
+                padding-block: 12px;
+                @include flexContainer($gap: 0);
+                margin: 0;
+                position: relative;
+                &:after {
+                  content: "";
+                  width: 68px;
+                  height: 2px;
+                  border-top: 2px dashed #000;
+                  position: absolute;
+                  transform: rotate(90deg) translateY(63%);
+                  bottom: -63%;
+                }
+              }
+              > div {
+                width: 100%;
+                @include flexContainer($gap: 8px, $alignItems: flex-start);
+                flex-direction: column;
+                h3,
+                p {
+                  margin: 0;
+                }
+                h3 {
+                  font-size: 20px;
+                  font-style: normal;
+                  font-weight: 600;
+                  line-height: 30px;
+                  color: var(--globalBlack);
+                }
+                p {
+                  font-size: 14px;
+                  font-style: normal;
+                  font-weight: 400;
+                  line-height: 20px;
+                  color: #475467;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .quickLinksSection {
+    padding-bottom: 80px;
+    > div {
+      > div {
+        &:nth-of-type(2) {
+          margin-top: 24px;
+          > div {
+            .quickLinkBox {
+              height: 100%;
+              border-radius: 8px;
+              background: #fff;
+              box-shadow: 0px 3px 12px 0px rgba(42, 52, 133, 0.1);
+              padding: 20px;
+              h4 {
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 28px;
+                color: var(--globalBlack);
+                margin: 32px 0 10px;
+              }
+              p {
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 18px;
+                margin: 0;
+                color: #475467;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .mobileBannerContainer {
+    display: none;
+  }
+  .mobilePointerSection {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .personalLoanPage {
+    .bannerSection {
+      > div {
+        > div {
+          row-gap: 2rem;
+          > div {
+            &:nth-of-type(1) {
+              min-height: 500px;
+            }
+            &:nth-of-type(2) {
+              padding-inline: 80px !important;
+            }
+          }
+        }
+      }
+    }
+    .attractiveRatesSection {
+      > div {
+        > div {
+          > div {
+            .creditCardBlock {
+              > div {
+                flex: 1 0 calc(50% - 20px);
+              }
+            }
+          }
+        }
+      }
+    }
+    .instantPersonalLoanSection {
+      > div {
+        > div {
+          &:nth-of-type(2) {
+            > div {
+              .instantPersonalLoanStepsList {
+                max-width: 100%;
+              }
+              &:nth-of-type(2) {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .personalLoanPage {
+    margin-top: 0;
+    .bannerSection,
+    .whyKashtiSection {
+      display: none;
+    }
+    .mobileBannerContainer {
+      background: linear-gradient(180deg, #e9f4ec 0%, #fff 100%);
+      display: block;
+      > div {
+        padding: 31px 16px;
+        > div {
+          &:nth-of-type(1) {
+            margin-bottom: 10px;
+            align-items: center;
+            > div {
+              h1 {
+                font-size: 18px;
+                line-height: 140%;
+              }
+              img {
+                width: 100%;
+                height: 100%;
+              }
+              a {
+                padding: 10px 22px;
+                margin-top: 16px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .keyBenefitsSection {
+      padding: 24px 16px;
+      display: block;
+      > div {
+        > div {
+          > div {
+            padding-inline: 0;
+            &:nth-of-type(2) {
+              display: none;
+            }
+            ul {
+              li {
+                align-items: center;
+                font-size: 12px;
+                line-height: 18px;
+                svg {
+                  flex: 0 0 20px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .mobilePointerSection {
+      display: block;
+      padding: 24px 16px;
+      > div {
+        > div {
+          &:nth-of-type(1) {
+            > div {
+              h2 {
+                text-align: left;
+              }
+              p {
+                margin-top: 8px;
+              }
+            }
+          }
+          &:nth-of-type(2) {
+            margin-top: 12px;
+            > div {
+              &:nth-of-type(2) {
+                align-self: center;
+              }
+              img {
+                width: 100%;
+                height: auto;
+              }
+              ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                @include flexContainer($gap: 12px);
+                flex-direction: column;
+                li {
+                  width: 100%;
+                  @include flexContainer(
+                    $gap: 12px,
+                    $justifyContent: flex-start
+                  );
+                  span {
+                    font-size: 12px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 18px;
+                    color: var(--globalBlack);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .attractiveRatesSection {
+      padding: 24px 16px;
+      > div {
+        > div {
+          > div {
+            h2 {
+              text-align: left;
+            }
+            padding-inline: 0;
+            .creditCardBlock {
+              > div {
+                flex: 1 0 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+    .eligibilityCriteriaSection {
+      padding: 24px 16px;
+      > div {
+        > div {
+          > div {
+            padding-inline: 0;
+            p {
+              color: var(--globalBlack);
+            }
+            .eligibilitySteps {
+              .eligibilityBox {
+                flex: unset;
+                flex-direction: column-reverse;
+                align-items: flex-start;
+                gap: 10px;
+                > p {
+                  width: 100%;
+                }
+                img {
+                  width: 48px;
+                  height: 48px;
+                }
+                p {
+                  flex-direction: row;
+                  justify-content: flex-start;
+                  display: inline-flex;
+                  span {
+                    font-size: 16px !important;
+                    width: auto;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .instantPersonalLoanSection {
+      padding: 24px 16px;
+      > div {
+        > div {
+          > div {
+            padding-inline: 0;
+            .instantPersonalLoanStepsList {
+              li {
+                h4 {
+                  font-size: 16px;
+                  line-height: 24px;
+                  flex: 0 0 40px;
+                  padding-block: 9px;
+                  &:after {
+                    bottom: -72%;
+                  }
+                }
+                > div {
+                  h3 {
+                    font-size: 14px;
+                    line-height: 20px;
+                  }
+                  p {
+                    font-size: 12px;
+                    line-height: 18px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

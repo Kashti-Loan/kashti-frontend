@@ -1,0 +1,91 @@
+@import "/src/styles/mixins";
+
+.allStepsSection {
+  align-self: flex-end;
+  background-color: var(--globalWhite);
+  width: 100%;
+  @include flexContainer(
+    $gap: 0,
+    $justifyContent: flex-start,
+    $alignItems: flex-start
+  );
+  flex-direction: column;
+  border-radius: 8px 8px 0 0;
+  height: 100%;
+  max-height: 379px;
+  padding: 24px 16px;
+  .allStepHeader {
+    @include flexContainer($justifyContent: space-between, $gap: 0);
+    width: 100%;
+    h3 {
+      font-size: 18px;
+      line-height: 27px;
+      color: var(--globalBlack);
+      font-weight: 600;
+      margin: 0;
+    }
+    svg {
+      transform: rotate(45deg);
+    }
+  }
+  .stepSection {
+    ul {
+      margin: 24px 0 0;
+      padding: 0;
+      list-style: none;
+      @include flexContainer($gap: 32px, $alignItems: flex-start);
+      flex-direction: column;
+      li {
+        width: 100%;
+        @include flexContainer(
+          $justifyContent: flex-start,
+          $alignItems: flex-start
+        );
+        &:last-child {
+          span {
+            &:after {
+              display: none;
+            }
+          }
+        }
+        span {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          border: 1.55px solid #475467;
+          @include flexContainer($gap: 0);
+          background-color: var(--globalWhite);
+          font-size: 17px;
+          line-height: 25px;
+          color: var(--globalBlack);
+          position: relative;
+          &:after {
+            content: "";
+            width: 1px;
+            height: 46px;
+            // background-color: #1d2939;
+            border-right: 1px dashed #1d2939;
+            position: absolute;
+            bottom: -46px;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+        }
+        .stepDetail {
+          h4 {
+            font-size: 16px;
+            line-height: 24px;
+            color: #1d2939;
+            margin-bottom: 4px;
+            font-weight: 500;
+          }
+          p {
+            font-size: 12px;
+            line-height: 18px;
+            color: #1d2939;
+          }
+        }
+      }
+    }
+  }
+}
