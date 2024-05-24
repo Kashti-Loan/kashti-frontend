@@ -13,8 +13,23 @@ import { ProgressBar } from "react-bootstrap";
 import PopupPortal from "@components/parts/popups/popupPortal";
 import MobileFilter from "@components/parts/popups/mobileFilterPopup";
 import AllSteps from "@components/parts/popups/allSteps";
+import { usePersonalLoan } from "@context/PersonalLoanContext";
+import PersonalLoanQuestionairreApplication from "./personalLoanQuestionairreApplication";
 
-const PersonalLoanForm = () => {
+const PersonalLoanForm = (props) => {
+  const { apiKey, secretKey } = props;
+
+  const { setApiKey, setSecretKey, accessToken } = usePersonalLoan();
+
+  useEffect(() => {
+    if (apiKey && secretKey) {
+      setSecretKey(secretKey);
+      setApiKey(apiKey);
+    }
+  }, []);
+
+  console.log("accessToken", accessToken);
+
   return (
     <StepperContainer
       className={styles.personalLoanStepper}
@@ -26,13 +41,7 @@ const PersonalLoanForm = () => {
         <h2>Personal Loan</h2>
       </div>
       <div className={styles.formContentSection}>
-        <StepZero
-        // onSubmit={() => {
-        //   setCurrentStep((prev) => prev + 1);
-        //   setCompletedSteps((prev) => [...prev, 0]);
-        //   setProgress(6);
-        // }}
-        />
+        {accessToken ? <PersonalLoanQuestionairreApplication /> : <StepZero />}
       </div>
     </StepperContainer>
   );

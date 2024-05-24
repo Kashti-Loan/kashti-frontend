@@ -20,19 +20,17 @@ import {
 } from "@public/assets";
 import { routesConstant } from "@utils/routesConstant";
 import { bankLogoSliderSettings, bankingSliderSettings } from "@utils/constant";
+import { usePersonalLoan } from "@context/PersonalLoanContext";
 
-const Page = () => {
-  const [currentStep, setCurrentStep] = useState(1);
+const PersonalLoanQuestionairreApplication = () => {
+  const { currentStep, setCurrentStep } = usePersonalLoan();
+
   const [progress, setProgress] = useState(6);
   const [currentStepName, setCurrentStepName] = useState("Basic Details");
   const [currentTotalStep, setCurrentTotalStep] = useState(2);
   const [completedCurrentStep, setCompletedCurrentStep] = useState(1);
 
   useEffect(() => {
-    // if (currentStep === 2) {
-    //   setProgress((prev) => prev + 6);
-    //   setCompletedCurrentStep(2);
-    // }
     if (currentStep >= 1) {
       switch (currentStep) {
         case 1:
@@ -180,4 +178,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default PersonalLoanQuestionairreApplication;

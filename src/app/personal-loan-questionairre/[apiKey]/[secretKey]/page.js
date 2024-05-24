@@ -16,7 +16,7 @@ import {
 import { routesConstant } from "@utils/routesConstant";
 import { bankLogoSliderSettings, bankingSliderSettings } from "@utils/constant";
 
-const Page = () => {
+const Page = ({ params }) => {
   const [personalLoanAccordian, setPersonalLoanAccordian] = useState(false);
   const [
     personalLoanEligibilityAccordian,
@@ -57,7 +57,10 @@ const Page = () => {
         <Container>
           <Row>
             <Col xs={12} md={12} lg={11}>
-              <PersonalLoanForm />
+              <PersonalLoanForm
+                apiKey={params.apiKey}
+                secretKey={params.secretKey}
+              />
             </Col>
             <Col xs={12} md={12} lg={11}>
               <div className={`${styles.infoAccordian}`}>

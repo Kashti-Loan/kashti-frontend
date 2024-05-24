@@ -8,6 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Script from "next/script";
+import { PersonalLoanProvider } from "@context/PersonalLoanContext";
 
 export const metadata = {
   title: "Kashti",
@@ -35,10 +36,12 @@ export default function RootLayout({ children }) {
           ></iframe>
         </noscript>
         <div id={"popupContainer"}></div>
-        <Header />
-        <MobileHeader />
-        {children}
-        <Footer />
+        <PersonalLoanProvider>
+          <Header />
+          <MobileHeader />
+          {children}
+          <Footer />
+        </PersonalLoanProvider>
       </body>
     </html>
   );

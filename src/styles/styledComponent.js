@@ -196,3 +196,14 @@ export const RadioTextButtonWrapper = styled.label`
     font-weight: ${(props) => (props.checked ? "600" : "400")};
   }
 `;
+
+export const LinkText = styled.a((props) => ({
+  color: props.$color || "var(--secondaryColor)",
+  fontSize: props.$size || "16px",
+  fontWeight: props.$fontWeight || 500,
+  cursor: "pointer",
+  "@media (max-width: 600px)": {
+    fontSize: "12px",
+    lineHeight: "19.2px",
+  },
+}));
