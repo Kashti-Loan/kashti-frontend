@@ -87,6 +87,11 @@ const BasicDetailStep = (props) => {
                   note={
                     "If incorrect PAN is provided, the loan will be rejected"
                   }
+                  onChange={(event) => {
+                    setValue("pan", event.target.value.toUpperCase(), {
+                      shouldValidate: true,
+                    });
+                  }}
                   error={errors?.pan_no?.message || error?.message}
                 />
               )}

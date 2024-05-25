@@ -228,7 +228,25 @@ export function PersonalLoanProvider({ children }) {
     });
   };
 
-  console.log("Personal:", process.env);
+  const getStateCityUsingPincode = async (pincode) => {
+    return new Promise((resolve, reject) => {
+      fetch(`https://api.postalpincode.in/pincode/${pincode}`, {
+        method: "GET",
+      })
+        .then((res) => res.json())
+        .then((response) => {
+          if (response && response.length > 0) {
+            const pincodeData = response[0].PostOffice
+              ? response[0].PostOffice[0]
+              : null;
+            resolve(pincodeData);
+          }
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
+  };
 
   return (
     <PersonalLoanContext.Provider
@@ -250,6 +268,7 @@ export function PersonalLoanProvider({ children }) {
         pullBureauData,
         accessToken,
         loanData,
+        getStateCityUsingPincode,
       }}
     >
       {children}

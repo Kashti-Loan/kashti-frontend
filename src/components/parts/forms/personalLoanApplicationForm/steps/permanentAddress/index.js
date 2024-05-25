@@ -16,8 +16,12 @@ import SelectTag from "@components/ui/selectTag";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
 
 const PermanentAddress = (props) => {
-  const { setCurrentStep, setCompletedSteps, onAddCustomerData, leadDetail } =
-    usePersonalLoan();
+  const {
+    setCurrentStep,
+    setCompletedSteps,
+    onAddCustomerData,
+    getStateCityUsingPincode,
+  } = usePersonalLoan();
 
   const BasicSchema = Yup.object().shape({
     address: Yup.string().required("Address line 1 is required"),
@@ -57,6 +61,14 @@ const PermanentAddress = (props) => {
       return error;
     }
   }
+
+  const fetchCityState = async (pincode) => {
+    const response = await getStateCityUsingPincode(pincode);
+    if (response) {
+      setValue("state", response["State"], { shouldValidate: true });
+      setValue("city", response["District"], { shouldValidate: true });
+    }
+  };
 
   return (
     <div className={styles.formSection}>
@@ -109,6 +121,14 @@ const PermanentAddress = (props) => {
                   placeholder="560078"
                   error={error?.message}
                   maxLength={6}
+                  onChange={(event) => {
+                    setValue("pincode", event.target.value, {
+                      shouldValidate: true,
+                    });
+                    if (event.target.value.length === 6) {
+                      fetchCityState(event.target.value);
+                    }
+                  }}
                 />
               )}
             />

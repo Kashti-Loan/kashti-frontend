@@ -18,8 +18,13 @@ import { useRouter } from "next/navigation";
 import { routesConstant } from "@utils/routesConstant";
 
 const OfficeDetails = (props) => {
-  const { setCurrentStep, setCompletedSteps, onAddCustomerData, loanData } =
-    usePersonalLoan();
+  const {
+    setCurrentStep,
+    setCompletedSteps,
+    onAddCustomerData,
+    loanData,
+    getStateCityUsingPincode,
+  } = usePersonalLoan();
   const router = useRouter();
 
   const BasicSchema = Yup.object().shape({
@@ -58,6 +63,14 @@ const OfficeDetails = (props) => {
       return error;
     }
   }
+
+  const fetchCityState = async (pincode) => {
+    const response = await getStateCityUsingPincode(pincode);
+    if (response) {
+      setValue("office_state", response["State"], { shouldValidate: true });
+      setValue("office_city", response["District"], { shouldValidate: true });
+    }
+  };
 
   return (
     <div className={styles.formSection}>
@@ -110,6 +123,14 @@ const OfficeDetails = (props) => {
                   placeholder="560078"
                   error={error?.message}
                   maxLength={6}
+                  onChange={(event) => {
+                    setValue("pincode", event.target.value, {
+                      shouldValidate: true,
+                    });
+                    if (event.target.value.length === 6) {
+                      fetchCityState(event.target.value);
+                    }
+                  }}
                 />
               )}
             />

@@ -105,6 +105,15 @@ const CoApplicantDetails = (props) => {
                   name="coApplicantPAN"
                   placeholder="A B C T Y 1 2 3 4 D"
                   error={errors?.pan_no?.message || error?.message}
+                  onChange={(event) => {
+                    setValue(
+                      "coApplicantPAN",
+                      event.target.value.toUpperCase(),
+                      {
+                        shouldValidate: true,
+                      }
+                    );
+                  }}
                 />
               )}
             />

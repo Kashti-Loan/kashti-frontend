@@ -51,8 +51,12 @@ const CommunicationAddress = (props) => {
     },
   ];
 
-  const { setCurrentStep, setCompletedSteps, onAddCustomerData, leadDetail } =
-    usePersonalLoan();
+  const {
+    setCurrentStep,
+    setCompletedSteps,
+    onAddCustomerData,
+    getStateCityUsingPincode,
+  } = usePersonalLoan();
 
   const [isPermenentAddressSame, setIsPermenentAddressSame] = useState(false);
 
@@ -108,6 +112,14 @@ const CommunicationAddress = (props) => {
     }
   }
 
+  const fetchCityState = async (pincode) => {
+    const response = await getStateCityUsingPincode(pincode);
+    if (response) {
+      setValue("state", response["State"], { shouldValidate: true });
+      setValue("city", response["District"], { shouldValidate: true });
+    }
+  };
+
   return (
     <div className={styles.formSection}>
       <FormProvider {...methods}>
@@ -159,6 +171,14 @@ const CommunicationAddress = (props) => {
                   placeholder="560078"
                   error={error?.message}
                   maxLength={6}
+                  onChange={(event) => {
+                    setValue("pincode", event.target.value, {
+                      shouldValidate: true,
+                    });
+                    if (event.target.value.length === 6) {
+                      fetchCityState(event.target.value);
+                    }
+                  }}
                 />
               )}
             />
