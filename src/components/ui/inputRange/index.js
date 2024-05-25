@@ -1,5 +1,3 @@
-
-
 const InputRange = (props) => {
   const MAX = props.max;
   const getBackgroundSize = () => {
@@ -10,15 +8,16 @@ const InputRange = (props) => {
 
   return (
     <input
+      {...props}
       type="range"
       min="0"
       max={MAX}
       onChange={(e) => {
-        props.onChange(e.target.value)
+        props.onChange(e.target.value);
       }}
       style={getBackgroundSize()}
       value={props.value}
-      className={props.className || 'norangeClass'}
+      className={props.className || "norangeClass"}
     />
   );
 };

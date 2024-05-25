@@ -23,7 +23,7 @@ import { bankLogoSliderSettings, bankingSliderSettings } from "@utils/constant";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
 
 const PersonalLoanQuestionairreApplication = () => {
-  const { currentStep, setCurrentStep } = usePersonalLoan();
+  const { currentStep, setCurrentStep, completedSteps } = usePersonalLoan();
 
   const [progress, setProgress] = useState(6);
   const [currentStepName, setCurrentStepName] = useState("Basic Details");
@@ -169,6 +169,7 @@ const PersonalLoanQuestionairreApplication = () => {
                 setCurrentTotalStep={(val) => setCurrentTotalStep(val)}
                 completedCurrentStep={completedCurrentStep}
                 setCompletedCurrentStep={(val) => setCompletedCurrentStep(val)}
+                completedSteps={completedSteps}
               />
             </Col>
           </Row>

@@ -1,5 +1,9 @@
 "use client";
 import { useState } from "react";
+import * as Yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { Controller, FormProvider, useForm } from "react-hook-form";
+
 import InputTag from "@components/ui/inputTag";
 import styles from "./styles.module.scss";
 import PhoneInputTag from "@components/ui/moneyPhoneInputTag";
@@ -10,72 +14,108 @@ import { GenderFemale, GenderMale } from "@public/assets";
 import RadioImageButton from "@components/ui/radioImageButton";
 import SelectTag from "@components/ui/selectTag";
 import CommonTooltip from "@components/ui/commonTooltip";
+import { usePersonalLoan } from "@context/PersonalLoanContext";
 
 const CoApplicantDetails = (props) => {
-  const natureOfAddress = [
-    {
-      label: "Paying Guest",
-      value: "Paying Guest",
-    },
-    {
-      label: "Paying Guest",
-      value: "Paying Guest",
-    },
-    {
-      label: "Paying Guest",
-      value: "Paying Guest",
-    },
-    {
-      label: "Paying Guest",
-      value: "Paying Guest",
-    },
-  ];
+  const { setCurrentStep, setCompletedSteps, onAddCustomerData } =
+    usePersonalLoan();
+
+  const BasicSchema = Yup.object().shape({
+    coAppplicantDOB: Yup.date()
+      .max(new Date(), "You must be at least 21 years old.")
+      .required("Date of Birth is required"),
+    coApplicantName: Yup.string().required("Co-Applicant name is required."),
+    coApplicantPAN: Yup.string()
+      .matches(/[A-Z]{5}[0-9]{4}[A-Z]{1}/, "Invalid PAN Card number")
+      .required("PAN Card number is required"),
+  });
+
+  const methods = useForm({
+    resolver: yupResolver(BasicSchema),
+    // defaultValues,
+  });
+
+  const {
+    reset,
+    setError,
+    handleSubmit,
+    control,
+    setValue,
+    getValues,
+    formState: { errors, isSubmitting, isSubmitSuccessful },
+  } = methods;
+
+  async function onSubmit(data) {
+    try {
+      const response = await onAddCustomerData(data, 12, "CoApplicant Details");
+      setCurrentStep(13);
+      setCompletedSteps((prev) => [...prev, 12]);
+      return;
+    } catch (error) {
+      return error;
+    }
+  }
+
   return (
     <div className={styles.formSection}>
-      <form>
-        <div>
-          <h3>Add Co-Applicant Details</h3>
-          <CommonTooltip
-            id={"haveCoApplicant"}
-            content={"Hello World"}
-            place={"right"}
-          />
-        </div>
-        <div className={styles.inputBlock}>
-          <InputTag
-            label="Name"
-            type="text"
-            name="address_line"
-            placeholder="Marikolundu"
-          />
-          <InputTag
-            label="Date of Birth"
-            type="date"
-            name="date_of_birth"
-            tooltip
-            tooltipContent="Hello World"
-          />
-        </div>
-        <div className={styles.inputBlock}>
-          <InputTag
-            label="PAN Number"
-            type="text"
-            name="pan"
-            placeholder="A B C T Y 1 2 3 4 D"
-            tooltip
-            tooltipContent="Hello World!"
-          />
-        </div>
-        <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
-          <button
-            type="button"
-            className="primaryBtn"
-            onClick={() => props.onSubmit()}
-          >
-            Continue
-          </button>
-        </div>
-      </form>
+      <FormProvider {...methods}>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div>
+            <h3>Add Co-Applicant Details</h3>
+            <Text>Tell us about your co-applicant.</Text>
+          </div>
+          <div className={styles.inputBlock}>
+            <Controller
+              name="coApplicantName"
+              control={control}
+              render={({ field, fieldState: { error } }) => (
+                <InputTag
+                  {...field}
+                  label="Name*"
+                  type="text"
+                  name="coApplicantName"
+                  placeholder="Co-Applicant Name"
+                  error={error?.message}
+                />
+              )}
+            />
+            <Controller
+              name="coAppplicantDOB"
+              control={control}
+              render={({ field, fieldState: { error } }) => (
+                <InputTag
+                  {...field}
+                  label="Date of Birth"
+                  type="date"
+                  name="coAppplicantDOB"
+                  error={error?.message}
+                />
+              )}
+            />
+          </div>
+          <div className={styles.inputBlock}>
+            <Controller
+              name="coApplicantPAN"
+              control={control}
+              render={({ field, fieldState: { error } }) => (
+                <InputTag
+                  {...field}
+                  label="PAN Number*"
+                  type="text"
+                  name="coApplicantPAN"
+                  placeholder="A B C T Y 1 2 3 4 D"
+                  error={errors?.pan_no?.message || error?.message}
+                />
+              )}
+            />
+          </div>
+          <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
+            <button type="submit" className="primaryBtn">
+              {isSubmitting ? "Updating Data..." : "Continue"}
+            </button>
+          </div>
+        </form>
+      </FormProvider>
       <Text className={styles.dataSafetyInfo}>
         <DataSafetyIcon />
         <span>

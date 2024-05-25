@@ -38,15 +38,9 @@ const PersonalLoanApplicationForm = ({
   setCurrentTotalStep,
   completedCurrentStep,
   setCompletedCurrentStep,
+  completedSteps,
 }) => {
-  // const [currentStep, setCurrentStep] = useState(1);
-  const [completedSteps, setCompletedSteps] = useState([]);
-  // const [progress, setProgress] = useState(6);
-  // const [currentStepName, setCurrentStepName] = useState("Basic Details");
-  // const [currentTotalStep, setCurrentTotalStep] = useState(2);
-  // const [completedCurrentStep, setCompletedCurrentStep] = useState(1);
   const [viewSteps, setViewSteps] = useState(false);
-
   return (
     <StepperContainer
       className={styles.personalLoanStepper}

@@ -1,109 +1,249 @@
 "use client";
 import { useState } from "react";
+import { Controller, FormProvider, useForm } from "react-hook-form";
+import * as Yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import Link from "next/link";
+
 import InputTag from "@components/ui/inputTag";
 import styles from "./styles.module.scss";
 import PhoneInputTag from "@components/ui/moneyPhoneInputTag";
-import Link from "next/link";
 import { Text } from "@styles/styledComponent";
 import DataSafetyIcon from "@components/ui/svg/dataSafetyIcon";
 import { GenderFemale, GenderMale } from "@public/assets";
 import RadioImageButton from "@components/ui/radioImageButton";
 import SelectTag from "@components/ui/selectTag";
+import { usePersonalLoan } from "@context/PersonalLoanContext";
 
 const CommunicationAddress = (props) => {
   const natureOfAddress = [
     {
-      label: "Paying Guest",
-      value: "Paying Guest",
+      label: "Self-Owned",
+      value: "self_owned",
     },
     {
-      label: "Paying Guest",
-      value: "Paying Guest",
+      label: "With Parents",
+      value: "with_parents",
     },
     {
-      label: "Paying Guest",
-      value: "Paying Guest",
+      label: "With Relatives",
+      value: "with_relatives",
     },
     {
-      label: "Paying Guest",
-      value: "Paying Guest",
+      label: "With Friends",
+      value: "with_friends",
+    },
+    {
+      label: "Rented",
+      value: "rented",
+    },
+    {
+      label: "Paying guest",
+      value: "paying_guest",
+    },
+    {
+      label: "Lease",
+      value: "lease",
+    },
+    {
+      label: "Pagadi",
+      value: "pagadi",
     },
   ];
+
+  const { setCurrentStep, setCompletedSteps, onAddCustomerData, leadDetail } =
+    usePersonalLoan();
+
+  const [isPermenentAddressSame, setIsPermenentAddressSame] = useState(false);
+
+  const BasicSchema = Yup.object().shape({
+    address: Yup.string().required("Address line 1 is required"),
+    address2: Yup.string().required("Address line 2 is required"),
+    city: Yup.string().required("City is required"),
+    state: Yup.string().required("State is required"),
+    pincode: Yup.string().required("Pincode is required"),
+    nature_of_address: Yup.string().required("Nature of address is required"),
+    years_at_current_address: Yup.string().required(
+      "Years at current address is required"
+    ),
+  });
+
+  const defaultValues = {
+    nature_of_address: "self_owned",
+  };
+
+  const methods = useForm({
+    resolver: yupResolver(BasicSchema),
+    defaultValues,
+  });
+
+  const {
+    reset,
+    setError,
+    handleSubmit,
+    control,
+    setValue,
+    getValues,
+    formState: { errors, isSubmitting, isSubmitSuccessful },
+  } = methods;
+
+  async function onSubmit(data) {
+    try {
+      const requestData = isPermenentAddressSame
+        ? {
+            ...data,
+            permanent_address: `${data.address}, ${data.address2}, ${data.city}, ${data.pincode}, ${data.state}`,
+          }
+        : data;
+      const response = await onAddCustomerData(
+        requestData,
+        6,
+        "Communication Address"
+      );
+      isPermenentAddressSame ? setCurrentStep(8) : setCurrentStep(7);
+      setCompletedSteps((prev) => [...prev, 6]);
+      return;
+    } catch (error) {
+      return error;
+    }
+  }
+
   return (
     <div className={styles.formSection}>
-      <form>
-        <div>
-          <h3>Communication Address</h3>
-          <Text>Please enter communication address</Text>
-        </div>
-        <div className={styles.inputBlock}>
-          <InputTag
-            label="Address Line 1"
-            type="text"
-            name="address_line"
-            placeholder="Address Line 1"
-          />
-          <InputTag
-            label="Address Line 2"
-            type="text"
-            name="address_line"
-            placeholder="Address Line 2"
-          />
-        </div>
-        <div className={`${styles.inputBlock} ${styles.inputAddressDetail}`}>
-          <InputTag
-            label="Pincode"
-            type="text"
-            name="pincode"
-            placeholder="560078"
-          />
-          <InputTag
-            label="City"
-            type="text"
-            name="city"
-            placeholder="Bengaluru"
-          />
-          <InputTag
-            label="State"
-            type="text"
-            name="karnataka"
-            placeholder="Bengaluru"
-          />
-          <SelectTag
-            label="Nature of Address"
-            name="nature_of_address"
-            tooltip
-            tooltipContent="Hello World!"
-            options={natureOfAddress}
-          />
-        </div>
-        <div className={styles.inputBlock}>
-          <InputTag
-            label="Years at Current Address"
-            type="text"
-            name="years_at_address"
-            placeholder="12"
-            tooltip
-            tooltipContent="Hello World!"
-          />
-        </div>
-        <div className={`${styles.inputBlock} ${styles.consentBlock}`}>
-          <label className="material-checkbox">
-            <input type="checkbox" name={"consent"} id={"consent"} />
-            <span className="checkmark"></span>
-            <span>Permanent address same as communication address</span>
-          </label>
-        </div>
-        <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
-          <button
-            type="button"
-            className="primaryBtn"
-            onClick={() => props.onSubmit()}
-          >
-            Continue
-          </button>
-        </div>
-      </form>
+      <FormProvider {...methods}>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div>
+            <h3>Communication Address</h3>
+            <Text>Please enter communication address</Text>
+          </div>
+          <div className={styles.inputBlock}>
+            <Controller
+              name="address"
+              control={control}
+              render={({ field, fieldState: { error } }) => (
+                <InputTag
+                  {...field}
+                  label="Address Line 1"
+                  type="text"
+                  name="address"
+                  placeholder="Address Line 1"
+                  error={error?.message}
+                />
+              )}
+            />
+            <Controller
+              name="address2"
+              control={control}
+              render={({ field, fieldState: { error } }) => (
+                <InputTag
+                  {...field}
+                  label="Address Line 2"
+                  type="text"
+                  name="address2"
+                  placeholder="Address Line 2"
+                  error={error?.message}
+                />
+              )}
+            />
+          </div>
+          <div className={`${styles.inputBlock} ${styles.inputAddressDetail}`}>
+            <Controller
+              name="pincode"
+              control={control}
+              render={({ field, fieldState: { error } }) => (
+                <InputTag
+                  {...field}
+                  label="Pincode"
+                  type="text"
+                  name="pincode"
+                  placeholder="560078"
+                  error={error?.message}
+                  maxLength={6}
+                />
+              )}
+            />
+            <Controller
+              name="city"
+              control={control}
+              render={({ field, fieldState: { error } }) => (
+                <InputTag
+                  {...field}
+                  label="City"
+                  type="text"
+                  name="city"
+                  placeholder="Bengaluru"
+                  error={error?.message}
+                />
+              )}
+            />
+            <Controller
+              name="state"
+              control={control}
+              render={({ field, fieldState: { error } }) => (
+                <InputTag
+                  {...field}
+                  label="State"
+                  type="text"
+                  name="state"
+                  placeholder="Bengaluru"
+                  error={error?.message}
+                />
+              )}
+            />
+            <Controller
+              name="nature_of_address"
+              control={control}
+              render={({ field, fieldState: { error } }) => (
+                <SelectTag
+                  {...field}
+                  label="Nature of Address"
+                  name="nature_of_address"
+                  tooltip
+                  tooltipContent="Hello World!"
+                  options={natureOfAddress}
+                  error={error?.message}
+                />
+              )}
+            />
+          </div>
+          <div className={styles.inputBlock}>
+            <Controller
+              name="years_at_current_address"
+              control={control}
+              render={({ field, fieldState: { error } }) => (
+                <InputTag
+                  {...field}
+                  label="Years at Current Address"
+                  type="number"
+                  name="years_at_current_address"
+                  placeholder="12"
+                  tooltip
+                  tooltipContent="Hello World!"
+                  error={error?.message}
+                />
+              )}
+            />
+          </div>
+          <div className={`${styles.inputBlock} ${styles.consentBlock}`}>
+            <label className="material-checkbox">
+              <input
+                value={isPermenentAddressSame}
+                onChange={setIsPermenentAddressSame}
+                type="checkbox"
+                name={"consent"}
+                id={"consent"}
+              />
+              <span className="checkmark"></span>
+              <span>Permanent address same as communication address</span>
+            </label>
+          </div>
+          <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
+            <button type="submit" className="primaryBtn">
+              {isSubmitting ? "Updating Data..." : "Continue"}
+            </button>
+          </div>
+        </form>
+      </FormProvider>
       <Text className={styles.dataSafetyInfo}>
         <DataSafetyIcon />
         <span>

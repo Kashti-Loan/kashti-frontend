@@ -1,107 +1,176 @@
 "use client";
+import { useState } from "react";
+import { Controller, FormProvider, useForm } from "react-hook-form";
+import * as Yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+
 import InputTag from "@components/ui/inputTag";
 import styles from "./styles.module.scss";
 import MoneyPhoneInputTag from "@components/ui/moneyPhoneInputTag";
 import Link from "next/link";
 import { Text } from "@styles/styledComponent";
 import DataSafetyIcon from "@components/ui/svg/dataSafetyIcon";
-import { useState } from "react";
 import PopupPortal from "@components/parts/popups/popupPortal";
 import OtpVerfication from "@components/parts/popups/otpVerificaton";
 import SelectTag from "@components/ui/selectTag";
 import InputRange from "@components/ui/inputRange";
+import { usePersonalLoan } from "@context/PersonalLoanContext";
 
 const IncomeDetails = (props) => {
-  const [otpSent, setOtpSent] = useState(false);
-  const [loanAmount, setLoanAmount] = useState(100000);
+  const { setCurrentStep, setCompletedSteps, onAddCustomerData } =
+    usePersonalLoan();
 
   const salaryDemoData = [
     {
       label: "Bank Transfer",
-      value: "bank_transfer",
+      value: "Bank Transfer",
     },
     {
-      label: "Bank Transfer",
-      value: "bank_transfer",
+      label: "By Cash",
+      value: "By Cash",
     },
     {
-      label: "Bank Transfer",
-      value: "bank_transfer",
-    },
-    {
-      label: "Bank Transfer",
-      value: "bank_transfer",
+      label: "By Cheque",
+      value: "By Cheque",
     },
   ];
+
+  const BasicSchema = Yup.object().shape({
+    salary_type: Yup.string().required("Salary mode is required."),
+    monthly_income: Yup.string().required("Monthly salary is required."),
+  });
+
+  const defaultValues = {
+    your_desired_loan_amount: 100000,
+    salary_type: "Bank Transfer",
+  };
+
+  const methods = useForm({
+    resolver: yupResolver(BasicSchema),
+    defaultValues,
+  });
+
+  const {
+    reset,
+    setError,
+    handleSubmit,
+    control,
+    setValue,
+    getValues,
+    formState: { errors, isSubmitting, isSubmitSuccessful },
+  } = methods;
+
+  async function onSubmit(data) {
+    try {
+      const response = await onAddCustomerData(data, 3, "Income Details");
+      setCurrentStep(4);
+      setCompletedSteps((prev) => [...prev, 3]);
+      return;
+    } catch (error) {
+      return error;
+    }
+  }
+
   return (
     <div className={styles.formSection}>
-      <form>
-        <div>
-          <div className={styles.emiCalcSliderBox}>
-            <div className={styles.emiCalcSliderLabel}>
-              <label>Your Desired Loan Amount</label>
-              <div>
-                <span>₹</span>
-                <span>{loanAmount.toLocaleString("en-IN")}</span>
+      <FormProvider {...methods}>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div>
+            <div className={styles.emiCalcSliderBox}>
+              <div className={styles.emiCalcSliderLabel}>
+                <label>Your Desired Loan Amount</label>
+                <div>
+                  <span>₹</span>
+                  <span>
+                    {getValues("your_desired_loan_amount").toLocaleString(
+                      "en-IN"
+                    )}
+                  </span>
+                </div>
+              </div>
+              <div className={styles.mobileLoanInput}>
+                <Controller
+                  name="your_desired_loan_amount"
+                  control={control}
+                  render={({ field, fieldState: { error } }) => (
+                    <MoneyPhoneInputTag
+                      {...field}
+                      label="Your Desired Loan Amount*"
+                      type="number"
+                      name="your_desired_loan_amount"
+                      placeholder="20,000"
+                      initial="₹"
+                    />
+                  )}
+                />
+              </div>
+              <div className={styles.emiCalcSliderInput}>
+                <Controller
+                  name="your_desired_loan_amount"
+                  control={control}
+                  render={({ field, fieldState: { error } }) => (
+                    <InputRange
+                      {...field}
+                      onChange={(val) =>
+                        setValue("your_desired_loan_amount", val, {
+                          shouldValidate: true,
+                        })
+                      }
+                      max={"1000000"}
+                      name="your_desired_loan_amount"
+                      className={styles.incomeLoanSlider}
+                    />
+                  )}
+                />
+              </div>
+              <div className={styles.minMaxRange}>
+                <Text>
+                  Min <span>₹1000</span>
+                </Text>
+                <Text>
+                  Max <span>10 Locs</span>
+                </Text>
               </div>
             </div>
-            <div className={styles.mobileLoanInput}>
-              <MoneyPhoneInputTag
-                label="Your Desired Loan Amount*"
-                type="text"
-                name="monthly_income"
-                placeholder="20,000"
-                initial="₹"
-              />
-            </div>
-            <div className={styles.emiCalcSliderInput}>
-              <InputRange
-                onChange={(val) => setLoanAmount(val)}
-                max={"1000000"}
-                value={loanAmount}
-                className={styles.incomeLoanSlider}
-              />
-            </div>
-            <div className={styles.minMaxRange}>
-              <Text>
-                Min <span>₹1000</span>
-              </Text>
-              <Text>
-                Max <span>10 Locs</span>
-              </Text>
-            </div>
           </div>
-        </div>
-        <div className={styles.inputBlock}>
-          <MoneyPhoneInputTag
-            label="Monthly Income*"
-            type="text"
-            name="monthly_income"
-            placeholder="20,000"
-            initial="₹"
-            tooltip
-            tooltipContent={"Hello World!"}
-            note="Income entered must be verified by your bank"
-          />
-          <SelectTag
-            label="Salary Mode*"
-            type="text"
-            name="salary_mode"
-            options={salaryDemoData}
-            tooltip
-            tooltipContent={"Hello World!"}
-          />
-        </div>
-        <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
-          <button
-            type="button"
-            className="primaryBtn"
-            onClick={() => props.onSubmit()}
-          >
-            Continue
-          </button>
-        </div>
-      </form>
+          <div className={styles.inputBlock}>
+            <Controller
+              name="monthly_income"
+              control={control}
+              render={({ field, fieldState: { error } }) => (
+                <MoneyPhoneInputTag
+                  {...field}
+                  label="Monthly Income*"
+                  type="text"
+                  name="monthly_income"
+                  placeholder="20,000"
+                  initial="₹"
+                  note="Income entered must be verified by your bank"
+                  error={error?.message}
+                />
+              )}
+            />
+            <Controller
+              name="salary_type"
+              control={control}
+              render={({ field, fieldState: { error } }) => (
+                <SelectTag
+                  {...field}
+                  label="Salary Mode*"
+                  name="salary_type"
+                  options={salaryDemoData}
+                  error={error?.message}
+                />
+              )}
+            />
+          </div>
+          <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
+            <button type="submit" className="primaryBtn">
+              {isSubmitting ? "Updating Data..." : "Continue"}
+            </button>
+          </div>
+        </form>
+      </FormProvider>
       <Text className={styles.dataSafetyInfo}>
         <DataSafetyIcon />
         <span>

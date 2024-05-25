@@ -23,14 +23,27 @@ import {
   workingCapital,
 } from "@public/assets";
 import RadioImageButton from "@components/ui/radioImageButton";
+import { usePersonalLoan } from "@context/PersonalLoanContext";
 
 const PurposeLoan = (props) => {
-  const [selectedValue, setSelectedValue] = useState("");
+  const { setCurrentStep, setCompletedSteps, onAddCustomerData } =
+    usePersonalLoan();
 
-  const handleChange = (value) => {
-    setSelectedValue(value);
-    props.onSubmit();
-  };
+  async function onSubmit(data) {
+    try {
+      const response = await onAddCustomerData(
+        { purposeOfLoan: data },
+        4,
+        "Employment Details"
+      );
+      setCurrentStep(5);
+      setCompletedSteps((prev) => [...prev, 4]);
+      return;
+    } catch (error) {
+      return error;
+    }
+  }
+
   return (
     <div className={styles.formSection}>
       <form>
@@ -41,94 +54,66 @@ const PurposeLoan = (props) => {
             <RadioImageButton
               label="Home Building"
               icon={homeBulding}
-              checked={selectedValue === "Home Building"}
-              onChange={() => handleChange("Home Building")}
+              onChange={() => onSubmit("Home Building")}
             />
             <RadioImageButton
               label="Home Renovation"
               icon={homeRenovation}
-              checked={selectedValue === "Home Renovation"}
-              onChange={() => handleChange("Home Renovation")}
+              onChange={() => onSubmit("Home Renovation")}
             />
             <RadioImageButton
               label="Travel"
               icon={travel}
-              checked={selectedValue === "Travel"}
-              onChange={() => handleChange("Travel")}
+              onChange={() => onSubmit("Travel")}
             />
             <RadioImageButton
               label="Purchase of household"
               icon={purchaseHousehold}
-              checked={selectedValue === "Purchase of household"}
-              onChange={() => handleChange("Purchase of household")}
+              onChange={() => onSubmit("Purchase of household")}
             />
             <RadioImageButton
               label="Education"
               icon={education}
-              checked={selectedValue === "Education"}
-              onChange={() => handleChange("Education")}
+              onChange={() => onSubmit("Education")}
             />
             <RadioImageButton
               label="Occasion in Family"
               icon={familyOccasion}
-              checked={selectedValue === "Occasion in Family"}
-              onChange={() => handleChange("Occasion in Family")}
+              onChange={() => onSubmit("Occasion in Family")}
             />
             <RadioImageButton
               label="Business Use"
               icon={businessLoan}
-              checked={selectedValue === "Business Use"}
-              onChange={() => handleChange("Business Use")}
+              onChange={() => onSubmit("Business Use")}
             />
             <RadioImageButton
               label="Office Renovation"
               icon={officeRenovation}
-              checked={selectedValue === "Office Renovation"}
-              onChange={() => handleChange("Office Renovation")}
+              onChange={() => onSubmit("Office Renovation")}
             />
             <RadioImageButton
               label="Working Capital"
               icon={workingCapital}
-              checked={selectedValue === "Working Capital"}
-              onChange={() => handleChange("Working Capital")}
+              onChange={() => onSubmit("Working Capital")}
             />
             <RadioImageButton
               label="Marriage"
               icon={marriage}
-              checked={selectedValue === "Marriage"}
-              onChange={() => handleChange("Marriage")}
+              onChange={() => onSubmit("Marriage")}
             />
             <RadioImageButton
               label="Personal Crisis"
               icon={personalCrisis}
-              checked={selectedValue === "Personal Crisis"}
-              onChange={() => handleChange("Personal Crisis")}
+              onChange={() => onSubmit("Personal Crisis")}
             />
             <RadioImageButton
               label="Others"
               icon={others}
-              checked={selectedValue === "Others"}
-              onChange={() => handleChange("Others")}
+              onChange={() => onSubmit("Others")}
             />
           </div>
         </div>
-        {/* <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
-          <button
-            type="button"
-            className="primaryBtn"
-            onClick={() => props.onSubmit()}
-          >
-            Continue
-          </button>
-        </div> */}
       </form>
-      {/* <Text className={styles.dataSafetyInfo}>
-        <DataSafetyIcon />
-        <span>
-          Your data’s safety is our top priority. It is secured by cutting-edge
-          encryption and stringent privacy protocols.
-        </span>
-      </Text> */}
     </div>
   );
 };

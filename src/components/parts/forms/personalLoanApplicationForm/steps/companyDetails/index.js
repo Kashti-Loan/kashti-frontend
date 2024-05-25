@@ -1,5 +1,9 @@
 "use client";
 import { useState } from "react";
+import { Controller, FormProvider, useForm } from "react-hook-form";
+import * as Yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+
 import InputTag from "@components/ui/inputTag";
 import styles from "./styles.module.scss";
 import PhoneInputTag from "@components/ui/moneyPhoneInputTag";
@@ -9,64 +13,137 @@ import DataSafetyIcon from "@components/ui/svg/dataSafetyIcon";
 import { GenderFemale, GenderMale } from "@public/assets";
 import RadioImageButton from "@components/ui/radioImageButton";
 import SelectTag from "@components/ui/selectTag";
+import { usePersonalLoan } from "@context/PersonalLoanContext";
 
 const CompanyDetails = (props) => {
   const companyType = [
     {
-      label: "Private limited",
+      label: "Private Limited",
       value: "Private limited",
     },
     {
-      label: "Partnership",
-      value: "Partnership",
+      label: "Partnership Company",
+      value: "Partnership Company",
     },
     {
       label: "Proprietor",
       value: "Proprietor",
     },
     {
-      label: "Goverment",
-      value: "Goverment",
+      label: "Government/PSU",
+      value: "Government/PSU",
+    },
+    {
+      label: "LLP",
+      value: "LLP",
+    },
+    {
+      label: "Public",
+      value: "Public",
     },
   ];
+
+  const { setCurrentStep, setCompletedSteps, onAddCustomerData, loanData } =
+    usePersonalLoan();
+
+  console.log("loanData", loanData);
+
+  const BasicSchema = Yup.object().shape({
+    company_name: Yup.string().required("Company name is required"),
+    company_type: Yup.string().required("Compnay type is required"),
+    work_experience: Yup.string().required("Work experience is required"),
+  });
+
+  const defaultValues = {
+    company_type: "Private limited",
+  };
+
+  const methods = useForm({
+    resolver: yupResolver(BasicSchema),
+    defaultValues,
+  });
+
+  const {
+    reset,
+    setError,
+    handleSubmit,
+    control,
+    setValue,
+    getValues,
+    formState: { errors, isSubmitting, isSubmitSuccessful },
+  } = methods;
+
+  async function onSubmit(data) {
+    try {
+      const response = await onAddCustomerData(data, 9, "Company Detail");
+      setCurrentStep(10);
+      setCompletedSteps((prev) => [...prev, 9]);
+      return;
+    } catch (error) {
+      return error;
+    }
+  }
+
   return (
     <div className={styles.formSection}>
-      <form>
-        <div>
-          <h3>Company Details</h3>
-          <Text>Please enter your company details</Text>
-        </div>
-        <div className={styles.inputBlock}>
-          <InputTag
-            label="Company Name"
-            type="text"
-            name="compnay_name"
-            placeholder="Oakwood Finances"
-          />
-          <SelectTag
-            label="Company Type"
-            name="company_type"
-            options={companyType}
-          />
-        </div>
-        <div className={styles.inputBlock}>
-          <InputTag
-            label="Total Work Experience"
-            type="text"
-            name="years_at_address"
-            placeholder="12"
-          />
-        </div>
-        <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
-          <button
-            type="button"
-            className="primaryBtn"
-            onClick={() => props.onSubmit()}
-          >
-            Continue
-          </button>
-        </div>
-      </form>
+      <FormProvider {...methods}>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div>
+            <h3>Company Details</h3>
+            <Text>Please enter your company details</Text>
+          </div>
+          <div className={styles.inputBlock}>
+            <Controller
+              name="company_name"
+              control={control}
+              render={({ field, fieldState: { error } }) => (
+                <InputTag
+                  {...field}
+                  label="Company Name"
+                  type="text"
+                  name="company_name"
+                  placeholder="Oakwood Finances"
+                  error={error?.message}
+                />
+              )}
+            />
+            <Controller
+              name="company_type"
+              control={control}
+              render={({ field, fieldState: { error } }) => (
+                <SelectTag
+                  {...field}
+                  label="Company Type"
+                  name="company_type"
+                  options={companyType}
+                  error={error?.message}
+                />
+              )}
+            />
+          </div>
+          <div className={styles.inputBlock}>
+            <Controller
+              name="work_experience"
+              control={control}
+              render={({ field, fieldState: { error } }) => (
+                <InputTag
+                  {...field}
+                  label="Total Work Experience"
+                  type="text"
+                  name="work_experience"
+                  placeholder="12"
+                  error={error?.message}
+                />
+              )}
+            />
+          </div>
+          <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
+            <button type="submit" className="primaryBtn">
+              {isSubmitting ? "Updating Data..." : "Continue"}
+            </button>
+          </div>
+        </form>
+      </FormProvider>
       <Text className={styles.dataSafetyInfo}>
         <DataSafetyIcon />
         <span>

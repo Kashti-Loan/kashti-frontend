@@ -1,22 +1,35 @@
 "use client";
 import { useState } from "react";
+
 import InputTag from "@components/ui/inputTag";
 import styles from "./styles.module.scss";
 import PhoneInputTag from "@components/ui/moneyPhoneInputTag";
 import Link from "next/link";
 import { Text } from "@styles/styledComponent";
 import DataSafetyIcon from "@components/ui/svg/dataSafetyIcon";
-// import RadioButton from "@components/ui/radioImageButton";
 import { GenderFemale, GenderMale } from "@public/assets";
 import RadioTextButton from "@components/ui/radioTextButton";
+import { usePersonalLoan } from "@context/PersonalLoanContext";
 
 const EducationQualification = (props) => {
-  const [selectedValue, setSelectedValue] = useState("");
+  const { setCurrentStep, setCompletedSteps, onAddCustomerData } =
+    usePersonalLoan();
 
-  const handleChange = (value) => {
-    setSelectedValue(value);
-    props.onSubmit();
-  };
+  async function onSubmit(data) {
+    try {
+      const response = await onAddCustomerData(
+        { educational_qualification: data },
+        2,
+        "Educational Qualification"
+      );
+      setCurrentStep(3);
+      setCompletedSteps((prev) => [...prev, 2]);
+      return;
+    } catch (error) {
+      return error;
+    }
+  }
+
   return (
     <div className={styles.formSection}>
       <form>
@@ -26,49 +39,23 @@ const EducationQualification = (props) => {
           <div className={styles.radioGrpInner}>
             <RadioTextButton
               label="Undergraduate"
-              checked={selectedValue === "Undergraduate"}
-              onChange={() => handleChange("Undergraduate")}
+              onChange={() => onSubmit("Undergraduate")}
             />
             <RadioTextButton
               label="Graduate"
-              checked={selectedValue === "Graduate"}
-              onChange={() => handleChange("Graduate")}
+              onChange={() => onSubmit("Graduate")}
             />
             <RadioTextButton
               label="Post Graduate"
-              checked={selectedValue === "post-graduate"}
-              onChange={() => handleChange("post-graduate")}
+              onChange={() => onSubmit("post-graduate")}
             />
             <RadioTextButton
               label="Others"
-              checked={selectedValue === "others"}
-              onChange={() => handleChange("others")}
+              onChange={() => onSubmit("others")}
             />
-            {/* <RadioButton
-              label="Female"
-              icon={GenderFemale}
-              checked={selectedValue === "female"}
-              onChange={() => handleChange("female")}
-            /> */}
           </div>
         </div>
-        {/* <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
-          <button
-            type="button"
-            className="primaryBtn"
-            onClick={() => props.onSubmit()}
-          >
-            Continue
-          </button>
-        </div> */}
       </form>
-      {/* <Text className={styles.dataSafetyInfo}>
-        <DataSafetyIcon />
-        <span>
-          Your data’s safety is our top priority. It is secured by cutting-edge
-          encryption and stringent privacy protocols.
-        </span>
-      </Text> */}
     </div>
   );
 };

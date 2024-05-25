@@ -17,6 +17,7 @@ export function PersonalLoanProvider({ children }) {
   const [leadDetail, setLeadDetail] = useState(null);
   const [completedSteps, setCompletedSteps] = useState([]);
   const [accessToken, setAccessToken] = useState(null);
+  const [loanData, setLoanData] = useState(null);
 
   //Save Secret and API Key
   useEffect(() => {
@@ -131,6 +132,10 @@ export function PersonalLoanProvider({ children }) {
         )
         .then((response) => {
           console.log("Response:", response.data);
+          setLoanData((prevData) => ({
+            ...prevData,
+            ...data,
+          }));
           resolve(response.data);
           updateLastSlide(slideIndex, slideName, slideIcon);
         })
@@ -244,6 +249,7 @@ export function PersonalLoanProvider({ children }) {
         realTimeLeadPush,
         pullBureauData,
         accessToken,
+        loanData,
       }}
     >
       {children}
