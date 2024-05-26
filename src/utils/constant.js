@@ -339,3 +339,5 @@ export const bankLogoSliderSettings = {
     },
   ],
 };
+
+export const EMAIL_REGX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;

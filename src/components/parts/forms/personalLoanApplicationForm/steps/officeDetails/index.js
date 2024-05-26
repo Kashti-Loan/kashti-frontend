@@ -124,7 +124,7 @@ const OfficeDetails = (props) => {
                   error={error?.message}
                   maxLength={6}
                   onChange={(event) => {
-                    setValue("pincode", event.target.value, {
+                    setValue("officepincode", event.target.value, {
                       shouldValidate: true,
                     });
                     if (event.target.value.length === 6) {

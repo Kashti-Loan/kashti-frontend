@@ -38,9 +38,13 @@ const StepZero = (props) => {
       .oneOf([true], "The terms and conditions must be accepted."),
   });
 
+  const defaultValues = {
+    tcagree: false,
+  };
+
   const methods = useForm({
     resolver: yupResolver(BasicSchema),
-    // defaultValues,
+    defaultValues,
   });
 
   const {
@@ -48,6 +52,8 @@ const StepZero = (props) => {
     setError,
     handleSubmit,
     control,
+    getValues,
+    watch,
     formState: { errors, isSubmitting, isSubmitSuccessful },
   } = methods;
 
@@ -129,7 +135,12 @@ const StepZero = (props) => {
             </label>
           </div>
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
-            <button type="submit" className="primaryBtn">
+            <button
+              disabled={!watch("tcagree")}
+              type="submit"
+              className="primaryBtn"
+              style={{ opacity: watch("tcagree") ? 1 : 0.6 }}
+            >
               {isSubmitting ? `Sending OTP...` : `Proceed and Verify`}
             </button>
           </div>

@@ -21,6 +21,7 @@
     "highcharts": "^11.3.0",
     "highcharts-more": "^0.1.7",
     "highcharts-react-official": "^3.2.1",
+    "moment": "^2.30.1",
     "next": "14.0.4",
     "numeral": "^2.0.6",
     "probe-image-size": "^7.2.3",

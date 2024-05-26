@@ -14,6 +14,7 @@ import { GenderFemale, GenderMale } from "@public/assets";
 import RadioImageButton from "@components/ui/radioImageButton";
 import RadioTextButton from "@components/ui/radioTextButton";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
+import { EMAIL_REGX } from "@utils/constant";
 
 const EmploymentDetails = (props) => {
   const { setCurrentStep, setCompletedSteps, onAddCustomerData, leadDetail } =
@@ -21,10 +22,11 @@ const EmploymentDetails = (props) => {
 
   const BasicSchema = Yup.object().shape({
     email: Yup.string()
-      .required("Email is required")
-      .email("Email must be a valid email address"),
-    office_email: Yup.string().email(
-      "Office email must be a valid email address"
+      .matches(EMAIL_REGX, "Email must be a valid email address")
+      .required("Email is required"),
+    office_email: Yup.string().matches(
+      EMAIL_REGX,
+      "Email must be a valid email address"
     ),
     employment_type: Yup.string().required("Employment type is required"),
     marital_status: Yup.string().required("Martial status is required"),
@@ -155,6 +157,13 @@ const EmploymentDetails = (props) => {
                   />
                   <label for="Married">Married</label>
                 </div>
+              </div>
+              <div className={styles.errorBox}>
+                {errors?.marital_status?.message && (
+                  <p className={styles.error}>
+                    {errors?.marital_status?.message}
+                  </p>
+                )}
               </div>
             </fieldset>
           </div>

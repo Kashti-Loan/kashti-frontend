@@ -13,6 +13,7 @@ import { GenderFemale, GenderMale } from "@public/assets";
 import RadioImageButton from "@components/ui/radioImageButton";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
+import moment from "moment";
 
 const BasicDetailStep = (props) => {
   const { setCurrentStep, setCompletedSteps, onVerifyPAN, onAddCustomerData } =
@@ -20,7 +21,10 @@ const BasicDetailStep = (props) => {
 
   const BasicSchema = Yup.object().shape({
     date_of_birth: Yup.date()
-      .max(new Date(), "You must be at least 21 years old.")
+      .max(
+        new Date(Date.now() - 662695992000),
+        "You must be at least 21 years old."
+      )
       .required("Date of Birth is required"),
     gender: Yup.string().required("Gender is required."),
     pan: Yup.string()
@@ -44,6 +48,7 @@ const BasicDetailStep = (props) => {
   } = methods;
 
   async function onSubmit(data) {
+    data["date_of_birth"] = moment(data["date_of_birth"]).format("YYYY-MM-DD");
     try {
       const pan = await onVerifyPAN(data.pan);
       const response = await onAddCustomerData(data, 1, "Individual Details");

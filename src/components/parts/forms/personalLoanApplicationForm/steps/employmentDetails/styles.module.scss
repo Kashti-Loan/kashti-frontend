@@ -67,6 +67,15 @@
         max-width: 387px;
       }
     }
+    .errorBox {
+      height: 10px;
+    }
+    .error {
+      color: var(--globalRed);
+      font-size: 12px;
+      margin-bottom: 0px;
+      padding-left: 5px;
+    }
   }
   .dataSafetyInfo {
     @include flexContainer($gap: 4px);

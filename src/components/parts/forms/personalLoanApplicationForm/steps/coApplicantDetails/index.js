@@ -22,7 +22,10 @@ const CoApplicantDetails = (props) => {
 
   const BasicSchema = Yup.object().shape({
     coAppplicantDOB: Yup.date()
-      .max(new Date(), "You must be at least 21 years old.")
+      .max(
+        new Date(Date.now() - 662695992000),
+        "Co-applient age must be at least 21 years old."
+      )
       .required("Date of Birth is required"),
     coApplicantName: Yup.string().required("Co-Applicant name is required."),
     coApplicantPAN: Yup.string()
@@ -47,6 +50,9 @@ const CoApplicantDetails = (props) => {
 
   async function onSubmit(data) {
     try {
+      data["coAppplicantDOB"] = moment(data["coAppplicantDOB"]).format(
+        "YYYY-MM-DD"
+      );
       const response = await onAddCustomerData(data, 12, "CoApplicant Details");
       setCurrentStep(13);
       setCompletedSteps((prev) => [...prev, 12]);
@@ -89,6 +95,15 @@ const CoApplicantDetails = (props) => {
                   type="date"
                   name="coAppplicantDOB"
                   error={error?.message}
+                  onChange={(event) => {
+                    setValue(
+                      "coAppplicantDOB",
+                      moment(event.target.value).format("YYYY-MM-DD"),
+                      {
+                        shouldValidate: true,
+                      }
+                    );
+                  }}
                 />
               )}
             />
