@@ -8,7 +8,7 @@ import InputTag from "@components/ui/inputTag";
 import styles from "./styles.module.scss";
 import MoneyPhoneInputTag from "@components/ui/moneyPhoneInputTag";
 import Link from "next/link";
-import { Text } from "@styles/styledComponent";
+import { Input, Text } from "@styles/styledComponent";
 import DataSafetyIcon from "@components/ui/svg/dataSafetyIcon";
 import PopupPortal from "@components/parts/popups/popupPortal";
 import OtpVerfication from "@components/parts/popups/otpVerificaton";
@@ -79,14 +79,19 @@ const IncomeDetails = (props) => {
             <div className={styles.emiCalcSliderBox}>
               <div className={styles.emiCalcSliderLabel}>
                 <label>Your Desired Loan Amount</label>
-                <div>
-                  <span>₹</span>
-                  <span>
-                    {getValues("your_desired_loan_amount").toLocaleString(
-                      "en-IN"
-                    )}
-                  </span>
-                </div>
+                <Controller
+                  name="your_desired_loan_amount"
+                  control={control}
+                  render={({ field, fieldState: { error } }) => (
+                    <Input
+                      {...field}
+                      type="number"
+                      max={"2000000"}
+                      initial="₹"
+                      style={{ maxWidth: "120px" }}
+                    />
+                  )}
+                />
               </div>
               <div className={styles.mobileLoanInput}>
                 <Controller

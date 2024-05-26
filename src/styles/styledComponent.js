@@ -50,9 +50,10 @@ export const Input = styled.input((props) => ({
   color: props.$color || "#344054",
   lineHeight: props.$lineHeight || "24px",
   margin: 0,
-  border: "1px solid #D0D5DD",
   borderRadius: "4px",
+  border: `1px solid ${props.error ? "var(--globalRed)" : "#D0D5DD"}`,
   padding: "12px 16px",
+  flex: 1,
   "@media (max-width: 600px)": {
     fontSize: "14px",
     lineHeight: "20px",
