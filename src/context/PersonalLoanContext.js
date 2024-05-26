@@ -39,20 +39,27 @@ export function PersonalLoanProvider({ children }) {
     };
     setBasicDetail(data);
     return new Promise((resolve, reject) => {
-      axios.get(" https://api.db-ip.com/v2/free/self").then((response) => {
-        payload.ip = response.data.ipAddress;
-        loanAPI
-          .post("/customer/api/v2/customer/lead/", payload)
-          .then((response) => {
-            console.log("Response:", response.data);
-            setBasicDetail(data);
-            setLeadDetail(response.data.data);
-            resolve(response.data);
-          })
-          .catch((err) => {
-            reject(err);
-          });
-      });
+      fetch("https://api.db-ip.com/v2/free/self", {
+        method: "GET",
+      })
+        .then((res) => res.json())
+        .then((response) => {
+          payload.ip = response.ipAddress;
+          loanAPI
+            .post("/customer/api/v2/customer/lead/", payload)
+            .then((response) => {
+              console.log("Response:", response.data);
+              setBasicDetail(data);
+              setLeadDetail(response.data.data);
+              resolve(response.data);
+            })
+            .catch((err) => {
+              reject(err);
+            });
+        })
+        .catch((err) => {
+          reject(err);
+        });
     });
   };
 
