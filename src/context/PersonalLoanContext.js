@@ -58,7 +58,18 @@ export function PersonalLoanProvider({ children }) {
             });
         })
         .catch((err) => {
-          reject(err);
+          payload.ip = "220.158.156.86";
+          loanAPI
+            .post("/customer/api/v2/customer/lead/", payload)
+            .then((response) => {
+              console.log("Response:", response.data);
+              setBasicDetail(data);
+              setLeadDetail(response.data.data);
+              resolve(response.data);
+            })
+            .catch((err) => {
+              reject(err);
+            });
         });
     });
   };
@@ -186,7 +197,7 @@ export function PersonalLoanProvider({ children }) {
       })
         .then((response) => {
           console.log("Pre Approved Loans:", response.data);
-          resolve(response.data);
+          resolve(response.data?.data);
         })
         .catch((err) => {
           reject(err);

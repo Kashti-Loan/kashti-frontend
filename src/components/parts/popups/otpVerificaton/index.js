@@ -90,7 +90,7 @@ const OtpVerfication = (props) => {
   return (
     <div className={styles.otpVerifcationPopup}>
       <div className={styles.verficationFormBox}>
-        <SectionTitle>OTP Verfication</SectionTitle>
+        <SectionTitle>OTP Verification</SectionTitle>
         <Text>
           We have sent the 4-digit OTP to
           <br />
