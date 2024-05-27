@@ -24,8 +24,11 @@ import SelectTag from "@components/ui/selectTag";
 import CommonTooltip from "@components/ui/commonTooltip";
 import MoneyPhoneInputTag from "@components/ui/moneyPhoneInputTag";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
+import { useRouter } from "next/navigation";
+import { routesConstant } from "@utils/routesConstant";
 
 const MoreCoApplicantDetails = (props) => {
+  const router = useRouter();
   const [selectedValue, setSelectedValue] = useState("Spouse");
 
   const { setCurrentStep, setCompletedSteps, onAddCustomerData } =
@@ -65,8 +68,7 @@ const MoreCoApplicantDetails = (props) => {
         13,
         "More CoApplicant Details"
       );
-      setCurrentStep(14);
-      setCompletedSteps((prev) => [...prev, 13]);
+      router.replace(routesConstant.RECOMMENDED_PERSONAL_LOAN);
       return;
     } catch (error) {
       return error;

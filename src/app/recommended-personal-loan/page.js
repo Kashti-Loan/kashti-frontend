@@ -12,9 +12,10 @@ import {
   StepperContainer,
 } from "@components";
 import { applyPersonalLoan, whiteKashti } from "@public/assets";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { personalLoanData } from "@utils/data";
 import PersonalLoanDetailBox from "@components/parts/accordians/personalLoanDetailbox";
+import { usePersonalLoan } from "@context/PersonalLoanContext";
 
 const Page = () => {
   const [loanAmount, setLoanAmount] = useState(100000);
@@ -22,6 +23,12 @@ const Page = () => {
   const [interestRate, setInterestRate] = useState(15);
   const [activeFilter, setActiveFilter] = useState(1);
   const [active, setActive] = useState(0);
+  const { getPreApprovedLoans } = usePersonalLoan();
+
+  useEffect(() => {
+    getPreApprovedLoans();
+  }, []);
+
   return (
     <main className={styles.recommendedLoanPage}>
       {/* Header Section */}

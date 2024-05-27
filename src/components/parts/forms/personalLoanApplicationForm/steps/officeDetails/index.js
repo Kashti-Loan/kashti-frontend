@@ -54,7 +54,7 @@ const OfficeDetails = (props) => {
       const response = await onAddCustomerData(data, 8, "Office Address");
       setCompletedSteps((prev) => [...prev, 8]);
       if (loanData.employment_type === "Salaried") {
-        setCurrentStep(14);
+        router.replace(routesConstant.RECOMMENDED_PERSONAL_LOAN);
       } else {
         setCurrentStep(9);
       }

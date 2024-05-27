@@ -1,5 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+
 import StepperContainer from "@components/container/stepperContainer";
 import styles from "./style.module.scss";
 import { StepZero } from "./steps";
@@ -15,9 +17,11 @@ import MobileFilter from "@components/parts/popups/mobileFilterPopup";
 import AllSteps from "@components/parts/popups/allSteps";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
 import PersonalLoanQuestionairreApplication from "./personalLoanQuestionairreApplication";
+import { routesConstant } from "@utils/routesConstant";
 
 const PersonalLoanForm = (props) => {
   const { apiKey, secretKey } = props;
+  const router = useRouter();
 
   const { setApiKey, setSecretKey, accessToken } = usePersonalLoan();
 
@@ -28,7 +32,11 @@ const PersonalLoanForm = (props) => {
     }
   }, []);
 
-  console.log("accessToken", accessToken);
+  // useEffect(() => {
+  //   if (accessToken) {
+  //     router.replace(routesConstant.RECOMMENDED_PERSONAL_LOAN);
+  //   }
+  // }, [accessToken]);
 
   return (
     <StepperContainer
