@@ -14,8 +14,11 @@ import { GenderFemale, GenderMale } from "@public/assets";
 import RadioImageButton from "@components/ui/radioImageButton";
 import SelectTag from "@components/ui/selectTag";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
+import { useRouter } from "next/navigation";
+import { routesConstant } from "@utils/routesConstant";
 
 const CompanyDetails = (props) => {
+  const router = useRouter();
   const companyType = [
     {
       label: "Private Limited",
@@ -76,7 +79,11 @@ const CompanyDetails = (props) => {
   async function onSubmit(data) {
     try {
       const response = await onAddCustomerData(data, 9, "Company Detail");
-      setCurrentStep(10);
+      if (loanData.employment_type === "Salaried") {
+        router.replace(routesConstant.RECOMMENDED_PERSONAL_LOAN);
+      } else {
+        setCurrentStep(10);
+      }
       setCompletedSteps((prev) => [...prev, 9]);
       return;
     } catch (error) {

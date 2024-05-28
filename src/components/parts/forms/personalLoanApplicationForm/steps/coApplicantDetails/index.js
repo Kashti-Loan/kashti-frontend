@@ -95,15 +95,6 @@ const CoApplicantDetails = (props) => {
                   type="date"
                   name="coAppplicantDOB"
                   error={error?.message}
-                  onChange={(event) => {
-                    setValue(
-                      "coAppplicantDOB",
-                      moment(event.target.value).format("YYYY-MM-DD"),
-                      {
-                        shouldValidate: true,
-                      }
-                    );
-                  }}
                 />
               )}
             />
