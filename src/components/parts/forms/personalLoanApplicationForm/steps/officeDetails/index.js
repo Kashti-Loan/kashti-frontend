@@ -35,8 +35,17 @@ const OfficeDetails = (props) => {
     officepincode: Yup.string().required("Pincode is required"),
   });
 
+  const defaultValues = {
+    officeaddress1: loanData?.officeaddress1 || "",
+    officeaddress2: loanData?.officeaddress2 || "",
+    office_city: loanData?.office_city || "",
+    office_state: loanData?.office_state || "",
+    officepincode: loanData?.officepincode || "",
+  };
+
   const methods = useForm({
     resolver: yupResolver(BasicSchema),
+    defaultValues,
   });
 
   const {

@@ -16,8 +16,13 @@ import { usePersonalLoan } from "@context/PersonalLoanContext";
 import moment from "moment";
 
 const BasicDetailStep = (props) => {
-  const { setCurrentStep, setCompletedSteps, onVerifyPAN, onAddCustomerData } =
-    usePersonalLoan();
+  const {
+    setCurrentStep,
+    setCompletedSteps,
+    onVerifyPAN,
+    onAddCustomerData,
+    loanData,
+  } = usePersonalLoan();
 
   const BasicSchema = Yup.object().shape({
     date_of_birth: Yup.date()
@@ -32,9 +37,15 @@ const BasicDetailStep = (props) => {
       .required("PAN Card number is required"),
   });
 
+  const defaultValues = {
+    date_of_birth: loanData?.date_of_birth || "",
+    gender: loanData?.gender || "",
+    pan: loanData?.pan || "",
+  };
+
   const methods = useForm({
     resolver: yupResolver(BasicSchema),
-    // defaultValues,
+    defaultValues,
   });
 
   const {

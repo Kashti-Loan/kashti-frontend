@@ -26,7 +26,7 @@ import RadioImageButton from "@components/ui/radioImageButton";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
 
 const PurposeLoan = (props) => {
-  const { setCurrentStep, setCompletedSteps, onAddCustomerData } =
+  const { setCurrentStep, setCompletedSteps, onAddCustomerData, loanData } =
     usePersonalLoan();
 
   async function onSubmit(data) {
@@ -54,63 +54,84 @@ const PurposeLoan = (props) => {
             <RadioImageButton
               label="Home Building"
               icon={homeBulding}
+              checked={loanData?.purposeOfLoan == "Home Building"}
               onChange={() => onSubmit("Home Building")}
             />
             <RadioImageButton
               label="Home Renovation"
               icon={homeRenovation}
+              checked={loanData?.purposeOfLoan == "Home Renovation"}
               onChange={() => onSubmit("Home Renovation")}
             />
             <RadioImageButton
               label="Travel"
               icon={travel}
+              checked={loanData?.purposeOfLoan == "Travel"}
               onChange={() => onSubmit("Travel")}
             />
             <RadioImageButton
               label="Purchase of household"
               icon={purchaseHousehold}
+              checked={loanData?.purposeOfLoan == "Purchase of household"}
               onChange={() => onSubmit("Purchase of household")}
             />
             <RadioImageButton
               label="Education"
               icon={education}
+              checked={loanData?.purposeOfLoan == "Education"}
               onChange={() => onSubmit("Education")}
             />
             <RadioImageButton
               label="Occasion in Family"
               icon={familyOccasion}
+              checked={loanData?.purposeOfLoan == "Occasion in Family"}
               onChange={() => onSubmit("Occasion in Family")}
             />
             <RadioImageButton
               label="Business Use"
               icon={businessLoan}
+              checked={loanData?.purposeOfLoan == "Business Use"}
               onChange={() => onSubmit("Business Use")}
             />
             <RadioImageButton
               label="Office Renovation"
               icon={officeRenovation}
+              checked={loanData?.purposeOfLoan == "Office Renovation"}
               onChange={() => onSubmit("Office Renovation")}
             />
             <RadioImageButton
               label="Working Capital"
               icon={workingCapital}
+              checked={loanData?.purposeOfLoan == "Working Capital"}
               onChange={() => onSubmit("Working Capital")}
             />
             <RadioImageButton
               label="Marriage"
               icon={marriage}
+              checked={loanData?.purposeOfLoan == "Marriage"}
               onChange={() => onSubmit("Marriage")}
             />
             <RadioImageButton
               label="Personal Crisis"
               icon={personalCrisis}
+              checked={loanData?.purposeOfLoan == "Personal Crisis"}
               onChange={() => onSubmit("Personal Crisis")}
             />
             <RadioImageButton
               label="Others"
               icon={others}
+              checked={loanData?.purposeOfLoan == "Others"}
               onChange={() => onSubmit("Others")}
             />
+          </div>
+          <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
+            <button
+              onClick={() => onSubmit(loanData?.purposeOfLoan)}
+              type="button"
+              className="primaryBtn"
+            >
+              Continue
+            </button>
           </div>
         </div>
       </form>

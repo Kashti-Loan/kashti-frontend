@@ -17,23 +17,30 @@ import { usePersonalLoan } from "@context/PersonalLoanContext";
 import { EMAIL_REGX } from "@utils/constant";
 
 const EmploymentDetails = (props) => {
-  const { setCurrentStep, setCompletedSteps, onAddCustomerData, leadDetail } =
+  const { setCurrentStep, setCompletedSteps, onAddCustomerData, loanData } =
     usePersonalLoan();
 
   const BasicSchema = Yup.object().shape({
     email: Yup.string()
       .matches(EMAIL_REGX, "Email must be a valid email address")
       .required("Email is required"),
-    office_email: Yup.string().matches(
-      EMAIL_REGX,
-      "Email must be a valid email address"
-    ),
+    office_email: Yup.string()
+      .trim()
+      .nullable()
+      .notRequired()
+      .matches(EMAIL_REGX, {
+        message: "Email must be a valid email address",
+        excludeEmptyString: true,
+      }),
     employment_type: Yup.string().required("Employment type is required"),
     marital_status: Yup.string().required("Martial status is required"),
   });
 
   const defaultValues = {
-    employment_type: "Self-Employed",
+    email: loanData?.email || "",
+    office_email: loanData?.office_email || "",
+    employment_type: loanData?.employment_type || "",
+    marital_status: loanData?.marital_status || "",
   };
 
   const methods = useForm({
@@ -71,16 +78,6 @@ const EmploymentDetails = (props) => {
             <Text>Please select employment type</Text>
             <div className={styles.radioGrpInner}>
               <RadioTextButton
-                label="Self-Employed"
-                checked={getValues("employment_type") === "Self-Employed"}
-                onChange={() => {
-                  setValue("employment_type", "Self-Employed", {
-                    shouldValidate: true,
-                  });
-                }}
-                note="Run a business"
-              />
-              <RadioTextButton
                 label="Salaried"
                 checked={getValues("employment_type") === "Salaried"}
                 onChange={() => {
@@ -90,6 +87,23 @@ const EmploymentDetails = (props) => {
                 }}
                 note="Receive fixed amount of income every month"
               />
+              <RadioTextButton
+                label="Self-Employed"
+                checked={getValues("employment_type") === "Self-Employed"}
+                onChange={() => {
+                  setValue("employment_type", "Self-Employed", {
+                    shouldValidate: true,
+                  });
+                }}
+                note="Run a business"
+              />
+            </div>
+            <div className={styles.errorBox}>
+              {errors?.employment_type?.message && (
+                <p className={styles.error}>
+                  {errors?.employment_type?.message}
+                </p>
+              )}
             </div>
           </div>
           <div className={styles.inputBlock}>

@@ -23,7 +23,8 @@ import { bankLogoSliderSettings, bankingSliderSettings } from "@utils/constant";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
 
 const PersonalLoanQuestionairreApplication = () => {
-  const { currentStep, setCurrentStep, completedSteps } = usePersonalLoan();
+  const { currentStep, setCurrentStep, completedSteps, loanData } =
+    usePersonalLoan();
 
   const [progress, setProgress] = useState(6);
   const [currentStepName, setCurrentStepName] = useState("Basic Details");
@@ -128,7 +129,14 @@ const PersonalLoanQuestionairreApplication = () => {
             <Col lg={12}>
               <button
                 onClick={() =>
-                  currentStep !== 1 && setCurrentStep((prev) => prev - 1)
+                  currentStep !== 1 &&
+                  setCurrentStep((prev) => {
+                    if (loanData?.isPermenentAddressSame) {
+                      return prev - 2;
+                    } else {
+                      return prev - 1;
+                    }
+                  })
                 }
               >
                 <ArrowLeftShort /> <span>Personal Loan</span>

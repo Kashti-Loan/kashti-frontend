@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -56,6 +56,8 @@ const CommunicationAddress = (props) => {
     setCompletedSteps,
     onAddCustomerData,
     getStateCityUsingPincode,
+    loanData,
+    setLoanData,
   } = usePersonalLoan();
 
   const [isPermenentAddressSame, setIsPermenentAddressSame] = useState(false);
@@ -73,7 +75,13 @@ const CommunicationAddress = (props) => {
   });
 
   const defaultValues = {
-    nature_of_address: "self_owned",
+    nature_of_address: loanData?.nature_of_address || "self_owned",
+    address: loanData?.address || "",
+    address2: loanData?.address2 || "",
+    city: loanData?.city || "",
+    state: loanData?.state || "",
+    pincode: loanData?.pincode || "",
+    years_at_current_address: loanData?.years_at_current_address || "",
   };
 
   const methods = useForm({
@@ -91,6 +99,12 @@ const CommunicationAddress = (props) => {
     formState: { errors, isSubmitting, isSubmitSuccessful },
   } = methods;
 
+  useEffect(() => {
+    if (loanData?.isPermenentAddressSame) {
+      setIsPermenentAddressSame(true);
+    }
+  }, [loanData?.isPermenentAddressSame]);
+
   async function onSubmit(data) {
     try {
       const requestData = isPermenentAddressSame
@@ -99,6 +113,10 @@ const CommunicationAddress = (props) => {
             permanent_address: `${data.address}, ${data.address2}, ${data.city}, ${data.pincode}, ${data.state}`,
           }
         : data;
+      setLoanData((prevData) => ({
+        ...prevData,
+        isPermenentAddressSame,
+      }));
       const response = await onAddCustomerData(
         requestData,
         6,

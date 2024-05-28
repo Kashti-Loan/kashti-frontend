@@ -287,6 +287,7 @@ export function PersonalLoanProvider({ children }) {
         accessToken,
         loanData,
         getStateCityUsingPincode,
+        setLoanData,
       }}
     >
       {children}

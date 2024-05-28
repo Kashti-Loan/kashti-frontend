@@ -8,7 +8,7 @@ import CommonTooltip from "@components/ui/commonTooltip";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
 
 const HaveCoApplicant = (props) => {
-  const { setCurrentStep, setCompletedSteps, onAddCustomerData } =
+  const { setCurrentStep, setCompletedSteps, onAddCustomerData, loanData } =
     usePersonalLoan();
 
   const handleChange = async (value) => {
@@ -41,12 +41,23 @@ const HaveCoApplicant = (props) => {
           <div className={styles.radioGrpInner}>
             <RadioTextButton
               label="Yes, Add Co-Applicant"
+              checked={loanData?.has_coApplicant == true}
               onChange={() => handleChange(true)}
             />
             <RadioTextButton
               label="No, I don’t have a Co-Applicant"
+              checked={loanData?.has_coApplicant == false}
               onChange={() => handleChange(false)}
             />
+          </div>
+          <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
+            <button
+              onClick={() => handleChange(loanData?.has_coApplicant)}
+              type="button"
+              className="primaryBtn"
+            >
+              Continue
+            </button>
           </div>
         </div>
       </form>

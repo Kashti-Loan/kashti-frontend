@@ -31,7 +31,7 @@ const BusinessDetails = (props) => {
     },
   ];
 
-  const { setCurrentStep, setCompletedSteps, onAddCustomerData, leadDetail } =
+  const { setCurrentStep, setCompletedSteps, onAddCustomerData, loanData } =
     usePersonalLoan();
 
   const BasicSchema = Yup.object().shape({
@@ -42,7 +42,8 @@ const BusinessDetails = (props) => {
   });
 
   const defaultValues = {
-    nature_business: "Manufacturing",
+    date_of_incorporation: loanData?.date_of_incorporation || "",
+    nature_business: loanData?.nature_business || "Manufacturing",
   };
 
   const methods = useForm({

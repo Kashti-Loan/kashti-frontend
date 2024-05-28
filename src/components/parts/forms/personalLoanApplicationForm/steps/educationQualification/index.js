@@ -12,7 +12,7 @@ import RadioTextButton from "@components/ui/radioTextButton";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
 
 const EducationQualification = (props) => {
-  const { setCurrentStep, setCompletedSteps, onAddCustomerData } =
+  const { setCurrentStep, setCompletedSteps, onAddCustomerData, loanData } =
     usePersonalLoan();
 
   async function onSubmit(data) {
@@ -39,20 +39,33 @@ const EducationQualification = (props) => {
           <div className={styles.radioGrpInner}>
             <RadioTextButton
               label="Undergraduate"
+              checked={loanData?.educational_qualification == "Undergraduate"}
               onChange={() => onSubmit("Undergraduate")}
             />
             <RadioTextButton
               label="Graduate"
+              checked={loanData?.educational_qualification == "Graduate"}
               onChange={() => onSubmit("Graduate")}
             />
             <RadioTextButton
               label="Post Graduate"
+              checked={loanData?.educational_qualification == "post-graduate"}
               onChange={() => onSubmit("post-graduate")}
             />
             <RadioTextButton
               label="Others"
+              checked={loanData?.educational_qualification == "others"}
               onChange={() => onSubmit("others")}
             />
+          </div>
+          <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
+            <button
+              onClick={() => onSubmit(loanData?.educational_qualification)}
+              type="button"
+              className="primaryBtn"
+            >
+              Continue
+            </button>
           </div>
         </div>
       </form>

@@ -17,7 +17,7 @@ import InputRange from "@components/ui/inputRange";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
 
 const IncomeDetails = (props) => {
-  const { setCurrentStep, setCompletedSteps, onAddCustomerData } =
+  const { setCurrentStep, setCompletedSteps, onAddCustomerData, loanData } =
     usePersonalLoan();
 
   const salaryDemoData = [
@@ -41,8 +41,9 @@ const IncomeDetails = (props) => {
   });
 
   const defaultValues = {
-    your_desired_loan_amount: 100000,
-    salary_type: "Bank Transfer",
+    your_desired_loan_amount: loanData?.your_desired_loan_amount || 100000,
+    salary_type: loanData?.salary_type || "Bank Transfer",
+    monthly_income: loanData?.monthly_income || "",
   };
 
   const methods = useForm({

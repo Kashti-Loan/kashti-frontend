@@ -31,7 +31,7 @@ const MoreCoApplicantDetails = (props) => {
   const router = useRouter();
   const [selectedValue, setSelectedValue] = useState("Spouse");
 
-  const { setCurrentStep, setCompletedSteps, onAddCustomerData } =
+  const { setCurrentStep, setCompletedSteps, onAddCustomerData, loanData } =
     usePersonalLoan();
 
   const BasicSchema = Yup.object().shape({
@@ -46,9 +46,15 @@ const MoreCoApplicantDetails = (props) => {
     ),
   });
 
+  const defaultValues = {
+    coApplicantMobile: loanData?.coApplicantMobile || "",
+    coApplicantEmail: loanData?.coApplicantEmail || "",
+    coApplicantRelation: loanData?.coApplicantRelation || "",
+  };
+
   const methods = useForm({
     resolver: yupResolver(BasicSchema),
-    // defaultValues,
+    defaultValues,
   });
 
   const {

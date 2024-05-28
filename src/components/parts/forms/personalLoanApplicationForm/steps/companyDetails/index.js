@@ -58,7 +58,9 @@ const CompanyDetails = (props) => {
   });
 
   const defaultValues = {
-    company_type: "Private limited",
+    company_name: loanData?.company_name || "",
+    company_type: loanData?.company_type || "Private limited",
+    work_experience: loanData?.work_experience || "",
   };
 
   const methods = useForm({
