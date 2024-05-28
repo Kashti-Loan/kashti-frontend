@@ -15,6 +15,7 @@ import RadioImageButton from "@components/ui/radioImageButton";
 import SelectTag from "@components/ui/selectTag";
 import CommonTooltip from "@components/ui/commonTooltip";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
+import moment from "moment";
 
 const CoApplicantDetails = (props) => {
   const { setCurrentStep, setCompletedSteps, onAddCustomerData } =
@@ -58,9 +59,12 @@ const CoApplicantDetails = (props) => {
       setCompletedSteps((prev) => [...prev, 12]);
       return;
     } catch (error) {
+      console.log("error", error);
       return error;
     }
   }
+
+  console.log("errors", errors);
 
   return (
     <div className={styles.formSection}>
