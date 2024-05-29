@@ -27,7 +27,6 @@ const SecureLoanToday = ({ apiKey, secretKey }) => {
     phone: Yup.string()
       .matches(/^[0-9]{10}$/, "Mobile number must be exactly 10 digits")
       .required("Mobile number is required"),
-    tcagree: Yup.boolean().required("The terms and conditions must be accepted.").oneOf([true], "The terms and conditions must be accepted."),
   });
 
   const defaultValues = {

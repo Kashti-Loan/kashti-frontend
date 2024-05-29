@@ -39,18 +39,11 @@ const PersonalLoanForm = (props) => {
   // }, [accessToken]);
 
   return (
-    <StepperContainer
-      className={styles.personalLoanStepper}
-      label={"Personal Loan"}
-      color={"#FBCAA4"}
-      cornerColor={"#F79446"}
-    >
+    <StepperContainer className={styles.personalLoanStepper} label={"Personal Loan"} color={"#FBCAA4"} cornerColor={"#F79446"}>
       <div className={styles.mobileHeading}>
         <h2>Personal Loan</h2>
       </div>
-      <div className={styles.formContentSection}>
-        {accessToken ? <PersonalLoanQuestionairreApplication /> : <StepZero />}
-      </div>
+      <div className={styles.formContentSection}>{accessToken ? <PersonalLoanQuestionairreApplication /> : <StepZero />}</div>
     </StepperContainer>
   );
 };

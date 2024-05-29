@@ -5,26 +5,14 @@ import { Col, Container, Row } from "react-bootstrap";
 import { PageTitle, SectionTitle, Text } from "@styles/styledComponent";
 import Link from "next/link";
 import { ArrowLeftShort, ChevronDown } from "react-bootstrap-icons";
-import {
-  CustomImage,
-  CustomSlider,
-  PersonalLoanApplicationForm,
-  PersonalLoanForm,
-} from "@components";
-import {
-  applyPersonalLoan,
-  newicici,
-  newmuthoot,
-  newyes,
-  whiteKashti,
-} from "@public/assets";
+import { CustomImage, CustomSlider, PersonalLoanApplicationForm, PersonalLoanForm } from "@components";
+import { applyPersonalLoan, newicici, newmuthoot, newyes, whiteKashti } from "@public/assets";
 import { routesConstant } from "@utils/routesConstant";
 import { bankLogoSliderSettings, bankingSliderSettings } from "@utils/constant";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
 
 const PersonalLoanQuestionairreApplication = () => {
-  const { currentStep, setCurrentStep, completedSteps, loanData } =
-    usePersonalLoan();
+  const { currentStep, setCurrentStep, completedSteps, loanData } = usePersonalLoan();
 
   const [progress, setProgress] = useState(6);
   const [currentStepName, setCurrentStepName] = useState("Basic Details");
@@ -144,23 +132,12 @@ const PersonalLoanQuestionairreApplication = () => {
             </Col>
             <Col lg={12}>
               <PageTitle>Unlock Best Personal Loan Offers</PageTitle>
-              <Text>
-                Avail a Loan of Your Choice Instantly. Avail a Loan of Your
-                Choice Instantly
-              </Text>
+              <Text>Avail a Loan of Your Choice Instantly. Avail a Loan of Your Choice Instantly</Text>
             </Col>
           </Row>
         </Container>
-        <CustomImage
-          src={applyPersonalLoan}
-          alt="Personal Loan Questionnaire"
-          className={styles.applyPersonalLoan}
-        />
-        <CustomImage
-          src={whiteKashti}
-          alt="White Kashti"
-          className={styles.whiteKashti}
-        />
+        <CustomImage src={applyPersonalLoan} alt='Personal Loan Questionnaire' className={styles.applyPersonalLoan} />
+        <CustomImage src={whiteKashti} alt='White Kashti' className={styles.whiteKashti} />
       </section>
       <section className={styles.questionairreSection}>
         <Container>

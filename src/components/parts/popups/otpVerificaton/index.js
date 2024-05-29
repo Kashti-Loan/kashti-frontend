@@ -80,6 +80,7 @@ const OtpVerfication = (props) => {
     try {
       setVerifying(true);
       await props.onVerifyOTP(otpValues.join(""));
+
       setVerifying(false);
     } catch (e) {
       setVerifying(false);
