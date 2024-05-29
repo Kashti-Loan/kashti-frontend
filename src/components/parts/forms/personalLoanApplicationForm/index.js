@@ -26,6 +26,7 @@ import KycDetailIcon from "@components/ui/svg/kycDetailIcon";
 import { ProgressBar } from "react-bootstrap";
 import PopupPortal from "@components/parts/popups/popupPortal";
 import AllSteps from "@components/parts/popups/allSteps";
+import { ArrowLeftShort, ChevronDown } from "react-bootstrap-icons";
 
 const PersonalLoanApplicationForm = ({
   currentStep,
@@ -39,6 +40,7 @@ const PersonalLoanApplicationForm = ({
   completedCurrentStep,
   setCompletedCurrentStep,
   completedSteps,
+  onBack,
 }) => {
   const [viewSteps, setViewSteps] = useState(false);
   return (
@@ -100,6 +102,11 @@ const PersonalLoanApplicationForm = ({
           </span>
           <h4>KYC Details</h4>
         </div>
+      </div>
+      <div className={styles.backBox}>
+        <button onClick={onBack}>
+          <ArrowLeftShort /> <span>Back</span>
+        </button>
       </div>
       <div className={styles.mobileFormStepSection}>
         <div className={styles.stepLabelSection}>

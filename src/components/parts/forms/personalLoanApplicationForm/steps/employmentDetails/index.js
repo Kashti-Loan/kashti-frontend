@@ -17,20 +17,24 @@ import { usePersonalLoan } from "@context/PersonalLoanContext";
 import { EMAIL_REGX } from "@utils/constant";
 
 const EmploymentDetails = (props) => {
-  const { setCurrentStep, setCompletedSteps, onAddCustomerData, loanData } =
-    usePersonalLoan();
+  const { setCurrentStep, setCompletedSteps, onAddCustomerData, loanData } = usePersonalLoan();
 
   const BasicSchema = Yup.object().shape({
-    email: Yup.string()
-      .matches(EMAIL_REGX, "Email must be a valid email address")
-      .required("Email is required"),
+    email: Yup.string().matches(EMAIL_REGX, "Email must be a valid email address").required("Email is required"),
+    // office_email: Yup.string()
+    //   .trim()
+    //   .nullable()
+    //   .notRequired()
+    //   .matches(EMAIL_REGX, {
+    //     message: "Email must be a valid email address",
+    //     excludeEmptyString: true,
+    //   }),
     office_email: Yup.string()
-      .trim()
-      .nullable()
-      .notRequired()
-      .matches(EMAIL_REGX, {
-        message: "Email must be a valid email address",
-        excludeEmptyString: true,
+      .email("Invalid professional email format")
+      .required("Professional email is required")
+      .test("emails-not-same", "Email and professional email should be different", function (value) {
+        const { email } = this.parent;
+        return email !== value;
       }),
     employment_type: Yup.string().required("Employment type is required"),
     marital_status: Yup.string().required("Martial status is required"),
@@ -78,61 +82,57 @@ const EmploymentDetails = (props) => {
             <Text>Please select employment type</Text>
             <div className={styles.radioGrpInner}>
               <RadioTextButton
-                label="Salaried"
+                label='Salaried'
                 checked={getValues("employment_type") === "Salaried"}
                 onChange={() => {
                   setValue("employment_type", "Salaried", {
                     shouldValidate: true,
                   });
                 }}
-                note="Receive fixed amount of income every month"
+                note='Receive fixed amount of income every month'
               />
               <RadioTextButton
-                label="Self-Employed"
+                label='Self-Employed'
                 checked={getValues("employment_type") === "Self-Employed"}
                 onChange={() => {
                   setValue("employment_type", "Self-Employed", {
                     shouldValidate: true,
                   });
                 }}
-                note="Run a business"
+                note='Run a business'
               />
             </div>
             <div className={styles.errorBox}>
-              {errors?.employment_type?.message && (
-                <p className={styles.error}>
-                  {errors?.employment_type?.message}
-                </p>
-              )}
+              {errors?.employment_type?.message && <p className={styles.error}>{errors?.employment_type?.message}</p>}
             </div>
           </div>
           <div className={styles.inputBlock}>
             <Controller
-              name="email"
+              name='email'
               control={control}
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="Personal Email*"
-                  type="email"
-                  name="email"
-                  placeholder="marikolundu@oakwood.com"
-                  note="Please provide correct personal email"
+                  label='Personal Email*'
+                  type='email'
+                  name='email'
+                  placeholder='marikolundu@oakwood.com'
+                  note='Please provide correct personal email'
                   error={error?.message}
                 />
               )}
             />
             <Controller
-              name="office_email"
+              name='office_email'
               control={control}
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="Professional Email (Optional)"
-                  type="email"
-                  name="office_email"
-                  placeholder="marikolundu@oakwood.com"
-                  note="Please provide correct personal email"
+                  label='Professional Email (Optional)'
+                  type='email'
+                  name='office_email'
+                  placeholder='marikolundu@oakwood.com'
+                  note='Please provide correct personal email'
                   error={error?.message}
                 />
               )}
@@ -144,9 +144,9 @@ const EmploymentDetails = (props) => {
               <div>
                 <div>
                   <input
-                    type="radio"
-                    id="Unmarried"
-                    name="marital_status"
+                    type='radio'
+                    id='Unmarried'
+                    name='marital_status'
                     value={getValues("marital_status")}
                     onChange={() => {
                       setValue("marital_status", "Unmarried", {
@@ -154,14 +154,14 @@ const EmploymentDetails = (props) => {
                       });
                     }}
                   />
-                  <label for="Unmarried">Unmarried</label>
+                  <label for='Unmarried'>Unmarried</label>
                 </div>
 
                 <div>
                   <input
-                    type="radio"
-                    id="Married"
-                    name="marital_status"
+                    type='radio'
+                    id='Married'
+                    name='marital_status'
                     value={getValues("marital_status")}
                     onChange={() => {
                       setValue("marital_status", "Married", {
@@ -169,20 +169,16 @@ const EmploymentDetails = (props) => {
                       });
                     }}
                   />
-                  <label for="Married">Married</label>
+                  <label for='Married'>Married</label>
                 </div>
               </div>
               <div className={styles.errorBox}>
-                {errors?.marital_status?.message && (
-                  <p className={styles.error}>
-                    {errors?.marital_status?.message}
-                  </p>
-                )}
+                {errors?.marital_status?.message && <p className={styles.error}>{errors?.marital_status?.message}</p>}
               </div>
             </fieldset>
           </div>
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
-            <button type="submit" className="primaryBtn">
+            <button type='submit' className='primaryBtn'>
               {isSubmitting ? "Updating Data..." : "Continue"}
             </button>
           </div>
@@ -190,10 +186,7 @@ const EmploymentDetails = (props) => {
       </FormProvider>
       <Text className={styles.dataSafetyInfo}>
         <DataSafetyIcon />
-        <span>
-          Your data’s safety is our top priority. It is secured by cutting-edge
-          encryption and stringent privacy protocols.
-        </span>
+        <span>Your data’s safety is our top priority. It is secured by cutting-edge encryption and stringent privacy protocols.</span>
       </Text>
     </div>
   );

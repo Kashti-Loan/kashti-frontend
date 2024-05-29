@@ -62,7 +62,7 @@ const Page = () => {
                   color={"#FBCAA4"}
                   cornerColor={"#F79446"}
                 >
-                  <div className={styles.rangeFilterSection}>
+                  {/* <div className={styles.rangeFilterSection}>
                     <SectionTitle>Modify Preferences</SectionTitle>
                     <div className={styles.sliderBlock}>
                       <div className={styles.sliderBox}>
@@ -206,7 +206,7 @@ const Page = () => {
                         </div>
                       </div>
                     )}
-                  </div>
+                  </div> */}
                   {preApprovedLoanOffers &&
                     preApprovedLoanOffers.map((item, i) => (
                       <PersonalLoanDetailBox item={item} currentQues={active === item.id ? true : false} key={i} />

@@ -17,8 +17,7 @@ import InputRange from "@components/ui/inputRange";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
 
 const IncomeDetails = (props) => {
-  const { setCurrentStep, setCompletedSteps, onAddCustomerData, loanData } =
-    usePersonalLoan();
+  const { setCurrentStep, setCompletedSteps, onAddCustomerData, loanData } = usePersonalLoan();
 
   const salaryDemoData = [
     {
@@ -81,38 +80,32 @@ const IncomeDetails = (props) => {
               <div className={styles.emiCalcSliderLabel}>
                 <label>Your Desired Loan Amount</label>
                 <Controller
-                  name="your_desired_loan_amount"
+                  name='your_desired_loan_amount'
                   control={control}
                   render={({ field, fieldState: { error } }) => (
-                    <Input
-                      {...field}
-                      type="number"
-                      max={"2000000"}
-                      initial="₹"
-                      style={{ maxWidth: "120px" }}
-                    />
+                    <Input {...field} type='number' max={"2000000"} initial='₹' style={{ maxWidth: "120px" }} />
                   )}
                 />
               </div>
               <div className={styles.mobileLoanInput}>
                 <Controller
-                  name="your_desired_loan_amount"
+                  name='your_desired_loan_amount'
                   control={control}
                   render={({ field, fieldState: { error } }) => (
                     <MoneyPhoneInputTag
                       {...field}
-                      label="Your Desired Loan Amount*"
-                      type="number"
-                      name="your_desired_loan_amount"
-                      placeholder="20,000"
-                      initial="₹"
+                      label='Your Desired Loan Amount*'
+                      type='number'
+                      name='your_desired_loan_amount'
+                      placeholder='20,000'
+                      initial='₹'
                     />
                   )}
                 />
               </div>
               <div className={styles.emiCalcSliderInput}>
                 <Controller
-                  name="your_desired_loan_amount"
+                  name='your_desired_loan_amount'
                   control={control}
                   render={({ field, fieldState: { error } }) => (
                     <InputRange
@@ -123,7 +116,8 @@ const IncomeDetails = (props) => {
                         })
                       }
                       max={"1000000"}
-                      name="your_desired_loan_amount"
+                      name='your_desired_loan_amount'
+                      step={500}
                       className={styles.incomeLoanSlider}
                     />
                   )}
@@ -141,37 +135,31 @@ const IncomeDetails = (props) => {
           </div>
           <div className={styles.inputBlock}>
             <Controller
-              name="monthly_income"
+              name='monthly_income'
               control={control}
               render={({ field, fieldState: { error } }) => (
                 <MoneyPhoneInputTag
                   {...field}
-                  label="Monthly Income*"
-                  type="text"
-                  name="monthly_income"
-                  placeholder="20,000"
-                  initial="₹"
-                  note="Income entered must be verified by your bank"
+                  label='Monthly Income*'
+                  type='text'
+                  name='monthly_income'
+                  placeholder='20,000'
+                  initial='₹'
+                  note='Income entered must be verified by your bank'
                   error={error?.message}
                 />
               )}
             />
             <Controller
-              name="salary_type"
+              name='salary_type'
               control={control}
               render={({ field, fieldState: { error } }) => (
-                <SelectTag
-                  {...field}
-                  label="Salary Mode*"
-                  name="salary_type"
-                  options={salaryDemoData}
-                  error={error?.message}
-                />
+                <SelectTag {...field} label='Salary Mode*' name='salary_type' options={salaryDemoData} error={error?.message} />
               )}
             />
           </div>
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
-            <button type="submit" className="primaryBtn">
+            <button type='submit' className='primaryBtn'>
               {isSubmitting ? "Updating Data..." : "Continue"}
             </button>
           </div>
@@ -179,10 +167,7 @@ const IncomeDetails = (props) => {
       </FormProvider>
       <Text className={styles.dataSafetyInfo}>
         <DataSafetyIcon />
-        <span>
-          Your data’s safety is our top priority. It is secured by cutting-edge
-          encryption and stringent privacy protocols.
-        </span>
+        <span>Your data’s safety is our top priority. It is secured by cutting-edge encryption and stringent privacy protocols.</span>
       </Text>
     </div>
   );

@@ -133,3 +133,25 @@
     }
   }
 }
+
+.backBox {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  display: flex;
+  padding: 18px 0px;
+  button {
+    @include flexContainer($justifyContent: flex-start, $gap: 12px);
+    // color: var(--globalWhite);
+    background-color: transparent;
+    border: 1px solid var(--primaryColor) !important;
+    outline: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}

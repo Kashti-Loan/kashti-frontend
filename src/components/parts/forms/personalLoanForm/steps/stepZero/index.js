@@ -17,6 +17,7 @@ import MoneyPhoneInputTag from "@components/ui/moneyPhoneInputTag";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
 import CustomInput from "@components/ui/customInput";
 import PhoneNumberInput from "@components/ui/phoneNumberInput";
+import StepperContainer from "@components/container/stepperContainer";
 
 const StepZero = (props) => {
   const [otpSent, setOtpSent] = useState(false);
@@ -66,71 +67,76 @@ const StepZero = (props) => {
   }
 
   return (
-    <div className={styles.formSection}>
-      <FormProvider {...methods}>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className={styles.inputBlock}>
-            <Controller
-              name='full_name'
-              control={control}
-              render={({ field, fieldState: { error } }) => (
-                <InputTag
-                  {...field}
-                  label='Name (As per PAN Card)*'
-                  type='text'
-                  name='full_name'
-                  placeholder='Enter Name as per PAN'
-                  tooltip
-                  tooltipContent={"Name as per PAN"}
-                  error={error?.message}
-                />
-              )}
-            />
-            <Controller
-              name='phone'
-              control={control}
-              render={({ field, fieldState: { error } }) => (
-                <MoneyPhoneInputTag {...field} label='Mobile Number*' type='tel' placeholder='Mobile Number' initial='+91' error={error?.message} />
-              )}
-            />
-          </div>
-          <div className={`${styles.inputBlock} ${styles.consentBlock}`}>
-            <label className='material-checkbox'>
+    <StepperContainer className={styles.personalLoanStepper} label={"Personal Loan"} color={"#FBCAA4"} cornerColor={"#F79446"}>
+      <div className={styles.mobileHeading}>
+        <h2>Personal Loan</h2>
+      </div>
+      <div className={styles.formSection}>
+        <FormProvider {...methods}>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className={styles.inputBlock}>
               <Controller
-                name='tcagree'
+                name='full_name'
                 control={control}
                 render={({ field, fieldState: { error } }) => (
-                  <>
-                    <input {...field} type='checkbox' name='tcagree' id='tcagree' error={error?.message} />
-                  </>
+                  <InputTag
+                    {...field}
+                    label='Name (As per PAN Card)*'
+                    type='text'
+                    name='full_name'
+                    placeholder='Enter Name as per PAN'
+                    tooltip
+                    tooltipContent={"Name as per PAN"}
+                    error={error?.message}
+                  />
                 )}
               />
-              <span className='checkmark tcagree'></span>
-              <span>
-                By submitting this form, you have read and agreed to the <Link href='#'>Credit Report</Link>, <Link href='#'>Terms of Use</Link> and{" "}
-                <Link href='#'>Privacy Policy</Link>
-              </span>
-            </label>
-          </div>
-          <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
-            <button disabled={!watch("tcagree")} type='submit' className='primaryBtn' style={{ opacity: watch("tcagree") ? 1 : 0.6 }}>
-              {isSubmitting ? `Sending OTP...` : `Proceed and Verify`}
-            </button>
-          </div>
-        </form>
-      </FormProvider>
-      <Text className={styles.dataSafetyInfo}>
-        <DataSafetyIcon />
-        <span>Your data’s safety is our top priority. It is secured by cutting-edge encryption and stringent privacy protocols.</span>
-      </Text>
-      {otpSent && (
-        <PopupPortal display={otpSent}>
-          <div className='popupBox'>
-            <OtpVerfication basicDetail={basicDetail} onVerifyOTP={onVerifyOTP} onResendOTP={onResendOTP} />
-          </div>
-        </PopupPortal>
-      )}
-    </div>
+              <Controller
+                name='phone'
+                control={control}
+                render={({ field, fieldState: { error } }) => (
+                  <MoneyPhoneInputTag {...field} label='Mobile Number*' type='tel' placeholder='Mobile Number' initial='+91' error={error?.message} />
+                )}
+              />
+            </div>
+            <div className={`${styles.inputBlock} ${styles.consentBlock}`}>
+              <label className='material-checkbox'>
+                <Controller
+                  name='tcagree'
+                  control={control}
+                  render={({ field, fieldState: { error } }) => (
+                    <>
+                      <input {...field} type='checkbox' name='tcagree' id='tcagree' error={error?.message} />
+                    </>
+                  )}
+                />
+                <span className='checkmark tcagree'></span>
+                <span>
+                  By submitting this form, you have read and agreed to the <Link href='#'>Credit Report</Link>, <Link href='#'>Terms of Use</Link> and{" "}
+                  <Link href='#'>Privacy Policy</Link>
+                </span>
+              </label>
+            </div>
+            <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
+              <button disabled={!watch("tcagree")} type='submit' className='primaryBtn' style={{ opacity: watch("tcagree") ? 1 : 0.6 }}>
+                {isSubmitting ? `Sending OTP...` : `Proceed and Verify`}
+              </button>
+            </div>
+          </form>
+        </FormProvider>
+        <Text className={styles.dataSafetyInfo}>
+          <DataSafetyIcon />
+          <span>Your data’s safety is our top priority. It is secured by cutting-edge encryption and stringent privacy protocols.</span>
+        </Text>
+        {otpSent && (
+          <PopupPortal display={otpSent}>
+            <div className='popupBox'>
+              <OtpVerfication basicDetail={basicDetail} onVerifyOTP={onVerifyOTP} onResendOTP={onResendOTP} />
+            </div>
+          </PopupPortal>
+        )}
+      </div>
+    </StepperContainer>
   );
 };
 

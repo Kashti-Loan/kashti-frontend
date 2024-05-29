@@ -12,7 +12,7 @@ import { bankLogoSliderSettings, bankingSliderSettings } from "@utils/constant";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
 
 const PersonalLoanQuestionairreApplication = () => {
-  const { currentStep, setCurrentStep, completedSteps, loanData } = usePersonalLoan();
+  const { currentStep, setCurrentStep, completedSteps, loanData, setAccessToken } = usePersonalLoan();
 
   const [progress, setProgress] = useState(6);
   const [currentStepName, setCurrentStepName] = useState("Basic Details");
@@ -111,7 +111,7 @@ const PersonalLoanQuestionairreApplication = () => {
   return (
     <main className={styles.personalLoanQuestionnairePage}>
       {/* Header Section */}
-      <section className={styles.headerSection}>
+      {/* <section className={styles.headerSection}>
         <Container>
           <Row>
             <Col lg={12}>
@@ -138,28 +138,33 @@ const PersonalLoanQuestionairreApplication = () => {
         </Container>
         <CustomImage src={applyPersonalLoan} alt='Personal Loan Questionnaire' className={styles.applyPersonalLoan} />
         <CustomImage src={whiteKashti} alt='White Kashti' className={styles.whiteKashti} />
-      </section>
-      <section className={styles.questionairreSection}>
-        <Container>
-          <Row>
-            <Col xs={12} md={12} lg={11}>
-              <PersonalLoanApplicationForm
-                currentStep={currentStep}
-                setCurrentStep={(val) => setCurrentStep(val)}
-                progress={progress}
-                setProgress={(val) => setProgress(val)}
-                currentStepName={currentStepName}
-                setCurrentStepName={(val) => setCurrentStepName(val)}
-                currentTotalStep={currentTotalStep}
-                setCurrentTotalStep={(val) => setCurrentTotalStep(val)}
-                completedCurrentStep={completedCurrentStep}
-                setCompletedCurrentStep={(val) => setCompletedCurrentStep(val)}
-                completedSteps={completedSteps}
-              />
-            </Col>
-          </Row>
-        </Container>
-      </section>
+      </section> */}
+      {/* <section className={styles.questionairreSection}> */}
+      <PersonalLoanApplicationForm
+        currentStep={currentStep}
+        setCurrentStep={(val) => setCurrentStep(val)}
+        progress={progress}
+        setProgress={(val) => setProgress(val)}
+        currentStepName={currentStepName}
+        setCurrentStepName={(val) => setCurrentStepName(val)}
+        currentTotalStep={currentTotalStep}
+        setCurrentTotalStep={(val) => setCurrentTotalStep(val)}
+        completedCurrentStep={completedCurrentStep}
+        setCompletedCurrentStep={(val) => setCompletedCurrentStep(val)}
+        completedSteps={completedSteps}
+        onBack={() =>
+          currentStep !== 1
+            ? setCurrentStep((prev) => {
+                if (loanData?.isPermenentAddressSame) {
+                  return prev - 2;
+                } else {
+                  return prev - 1;
+                }
+              })
+            : setAccessToken(null)
+        }
+      />
+      {/* </section> */}
     </main>
   );
 };

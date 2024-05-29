@@ -194,7 +194,8 @@ export function PersonalLoanProvider({ children }) {
       })
         .then((response) => {
           console.log("Pre Approved Loans:", response.data);
-          resolve(response.data?.data);
+          const data = response.data?.data?.filter((item) => item?.rejected === 0);
+          resolve(data);
         })
         .catch((err) => {
           reject(err);
@@ -283,6 +284,7 @@ export function PersonalLoanProvider({ children }) {
         loanData,
         getStateCityUsingPincode,
         setLoanData,
+        setAccessToken,
       }}
     >
       {children}
