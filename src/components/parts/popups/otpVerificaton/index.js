@@ -87,6 +87,15 @@ const OtpVerfication = (props) => {
     }
   };
 
+  // const handleKeyDown = (index, e) => {
+  //   if (e.key === "Backspace" && otpValues[index] === "" && index > 0) {
+  //     inputRefs.current[index - 1].current.focus();
+  //     const newOTPValues = [...otpValues];
+  //     newOTPValues[index - 1] = "";
+  //     setOTPValues(newOTPValues);
+  //   }
+  // };
+
   return (
     <div className={styles.otpVerifcationPopup}>
       <div className={styles.verficationFormBox}>
@@ -102,9 +111,11 @@ const OtpVerfication = (props) => {
               <input
                 key={index}
                 ref={inputRef}
-                type="text"
+                type='tel'
+                autoComplete='one-time-code'
                 maxLength={1}
                 onChange={(e) => handleChange(index, e)}
+                // onKeyDown={(e) => handleKeyDown(index, e)}
                 style={{ textAlign: "center", fontWeight: "bold" }}
               />
             ))}
@@ -115,21 +126,16 @@ const OtpVerfication = (props) => {
                 Resend OTP in <span>00:{resendTimer}s</span>
               </Text>
             ) : (
-              <LinkText onClick={resentOTP}>
-                {isResendingOTP ? `Resending OTP...` : `Resend OTP`}
-              </LinkText>
+              <LinkText onClick={resentOTP}>{isResendingOTP ? `Resending OTP...` : `Resend OTP`}</LinkText>
             )}
           </div>
-          <button type="button" className="primaryBtn" onClick={onVerify}>
+          <button type='button' className='primaryBtn' onClick={onVerify}>
             {isVerifying ? `Verifying...` : `Verify OTP`}
           </button>
         </form>
         <Text className={styles.dataSafetyInfo}>
           <DataSafetyIcon />
-          <span>
-            Your data’s safety is our top priority. It is secured by
-            cutting-edge encryption and stringent privacy protocols.
-          </span>
+          <span>Your data’s safety is our top priority. It is secured by cutting-edge encryption and stringent privacy protocols.</span>
         </Text>
       </div>
     </div>

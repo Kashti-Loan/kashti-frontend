@@ -1,0 +1,43 @@
+.inputContainer {
+  position: relative;
+}
+.inputContainer label {
+  position: absolute;
+  background-color: var(--globalWhite);
+  font-size: 12px;
+  line-height: 18px;
+  color: #475467;
+  left: 12px;
+  top: -8px;
+  padding-inline: 4px;
+  display: none;
+}
+.inputContainer input {
+  width: 100%;
+}
+.inputContainer input:focus {
+  outline: none;
+}
+.inputContainer input:focus ~ label {
+  display: inline-block !important;
+}
+.inputContainer input:focus::-moz-placeholder {
+  color: #fff;
+}
+.inputContainer input:focus::placeholder {
+  color: #fff;
+}
+.inputContainer input::-moz-placeholder {
+  color: #94979c;
+}
+.inputContainer input::placeholder {
+  color: #94979c;
+}
+
+@media only screen and (max-width: 600px) {
+  .inputContainer input {
+    font-size: 14px;
+    line-height: 21px;
+    padding: 9px 12px;
+  }
+}/*# sourceMappingURL=style.module.css.map */

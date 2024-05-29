@@ -6,12 +6,7 @@ import { useState } from "react";
 
 import * as Yup from "yup";
 // form
-import {
-  Controller,
-  FormProvider,
-  useForm,
-  useFormContext,
-} from "react-hook-form";
+import { Controller, FormProvider, useForm, useFormContext } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { Text } from "@styles/styledComponent";
@@ -33,9 +28,7 @@ const StepZero = (props) => {
     phone: Yup.string()
       .matches(/^[0-9]{10}$/, "Mobile number must be exactly 10 digits")
       .required("Mobile number is required"),
-    tcagree: Yup.boolean()
-      .required("The terms and conditions must be accepted.")
-      .oneOf([true], "The terms and conditions must be accepted."),
+    tcagree: Yup.boolean().required("The terms and conditions must be accepted.").oneOf([true], "The terms and conditions must be accepted."),
   });
 
   const defaultValues = {
@@ -78,15 +71,15 @@ const StepZero = (props) => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.inputBlock}>
             <Controller
-              name="full_name"
+              name='full_name'
               control={control}
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="Name (As per PAN Card)*"
-                  type="text"
-                  name="full_name"
-                  placeholder="Enter Name as per PAN"
+                  label='Name (As per PAN Card)*'
+                  type='text'
+                  name='full_name'
+                  placeholder='Enter Name as per PAN'
                   tooltip
                   tooltipContent={"Name as per PAN"}
                   error={error?.message}
@@ -94,53 +87,33 @@ const StepZero = (props) => {
               )}
             />
             <Controller
-              name="phone"
+              name='phone'
               control={control}
               render={({ field, fieldState: { error } }) => (
-                <MoneyPhoneInputTag
-                  {...field}
-                  label="Mobile Number*"
-                  type="number"
-                  placeholder="Mobile Number"
-                  initial="+91"
-                  error={error?.message}
-                />
+                <MoneyPhoneInputTag {...field} label='Mobile Number*' type='tel' placeholder='Mobile Number' initial='+91' error={error?.message} />
               )}
             />
           </div>
           <div className={`${styles.inputBlock} ${styles.consentBlock}`}>
-            <label className="material-checkbox">
+            <label className='material-checkbox'>
               <Controller
-                name="tcagree"
+                name='tcagree'
                 control={control}
                 render={({ field, fieldState: { error } }) => (
                   <>
-                    <input
-                      {...field}
-                      type="checkbox"
-                      name="tcagree"
-                      id="tcagree"
-                      error={error?.message}
-                    />
+                    <input {...field} type='checkbox' name='tcagree' id='tcagree' error={error?.message} />
                   </>
                 )}
               />
-              <span className="checkmark tcagree"></span>
+              <span className='checkmark tcagree'></span>
               <span>
-                By submitting this form, you have read and agreed to the{" "}
-                <Link href="#">Credit Report</Link>,{" "}
-                <Link href="#">Terms of Use</Link> and{" "}
-                <Link href="#">Privacy Policy</Link>
+                By submitting this form, you have read and agreed to the <Link href='#'>Credit Report</Link>, <Link href='#'>Terms of Use</Link> and{" "}
+                <Link href='#'>Privacy Policy</Link>
               </span>
             </label>
           </div>
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
-            <button
-              disabled={!watch("tcagree")}
-              type="submit"
-              className="primaryBtn"
-              style={{ opacity: watch("tcagree") ? 1 : 0.6 }}
-            >
+            <button disabled={!watch("tcagree")} type='submit' className='primaryBtn' style={{ opacity: watch("tcagree") ? 1 : 0.6 }}>
               {isSubmitting ? `Sending OTP...` : `Proceed and Verify`}
             </button>
           </div>
@@ -148,19 +121,12 @@ const StepZero = (props) => {
       </FormProvider>
       <Text className={styles.dataSafetyInfo}>
         <DataSafetyIcon />
-        <span>
-          Your data’s safety is our top priority. It is secured by cutting-edge
-          encryption and stringent privacy protocols.
-        </span>
+        <span>Your data’s safety is our top priority. It is secured by cutting-edge encryption and stringent privacy protocols.</span>
       </Text>
       {otpSent && (
         <PopupPortal display={otpSent}>
-          <div className="popupBox">
-            <OtpVerfication
-              basicDetail={basicDetail}
-              onVerifyOTP={onVerifyOTP}
-              onResendOTP={onResendOTP}
-            />
+          <div className='popupBox'>
+            <OtpVerfication basicDetail={basicDetail} onVerifyOTP={onVerifyOTP} onResendOTP={onResendOTP} />
           </div>
         </PopupPortal>
       )}

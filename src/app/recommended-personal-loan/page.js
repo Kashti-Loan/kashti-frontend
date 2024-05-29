@@ -5,12 +5,7 @@ import Link from "next/link";
 import { ArrowLeftShort } from "react-bootstrap-icons";
 import { PageTitle, SectionTitle, Text } from "@styles/styledComponent";
 import { routesConstant } from "@utils/routesConstant";
-import {
-  CustomImage,
-  InputRange,
-  PersonalLoanCard,
-  StepperContainer,
-} from "@components";
+import { CustomImage, InputRange, PersonalLoanCard, StepperContainer } from "@components";
 import { applyPersonalLoan, whiteKashti } from "@public/assets";
 import { useEffect, useState } from "react";
 import PersonalLoanDetailBox from "@components/parts/accordians/personalLoanDetailbox";
@@ -22,7 +17,7 @@ const Page = () => {
   const [interestRate, setInterestRate] = useState(15);
   const [activeFilter, setActiveFilter] = useState(1);
   const [active, setActive] = useState(0);
-  const { getPreApprovedLoans } = usePersonalLoan();
+  const { getPreApprovedLoans, realTimeLeadPush } = usePersonalLoan();
   const [preApprovedLoanOffers, setPreapprovedLoanOffers] = useState([]);
 
   useEffect(() => {
@@ -30,6 +25,7 @@ const Page = () => {
   }, []);
 
   const getLoanList = async () => {
+    const leadPush = await realTimeLeadPush();
     const loanOffersList = await getPreApprovedLoans();
     setPreapprovedLoanOffers(loanOffersList);
   };
@@ -46,27 +42,13 @@ const Page = () => {
               </Link>
             </Col>
             <Col lg={12}>
-              <PageTitle>
-                {preApprovedLoanOffers.length} Personal Loan Recommendations
-                Based on your Profile
-              </PageTitle>
-              <Text>
-                Explore the loans, assess unique advantages, and effortlessly
-                avail a loan.
-              </Text>
+              <PageTitle>{preApprovedLoanOffers.length} Personal Loan Recommendations Based on your Profile</PageTitle>
+              <Text>Explore the loans, assess unique advantages, and effortlessly avail a loan.</Text>
             </Col>
           </Row>
         </Container>
-        <CustomImage
-          src={applyPersonalLoan}
-          alt="Personal Loan Questionnaire"
-          className={styles.applyPersonalLoan}
-        />
-        <CustomImage
-          src={whiteKashti}
-          alt="White Kashti"
-          className={styles.whiteKashti}
-        />
+        <CustomImage src={applyPersonalLoan} alt='Personal Loan Questionnaire' className={styles.applyPersonalLoan} />
+        <CustomImage src={whiteKashti} alt='White Kashti' className={styles.whiteKashti} />
       </section>
       {/* Questionnaire Section */}
       {preApprovedLoanOffers && preApprovedLoanOffers.length > 0 ? (
@@ -114,12 +96,7 @@ const Page = () => {
                             <span>{loanPeriod} Year</span>
                           </div>
                           <div className={styles.loanInput}>
-                            <InputRange
-                              onChange={(val) => setLoanPeriod(val)}
-                              max={"5"}
-                              value={loanPeriod}
-                              className={styles.loanRangeSlider}
-                            />
+                            <InputRange onChange={(val) => setLoanPeriod(val)} max={"5"} value={loanPeriod} className={styles.loanRangeSlider} />
                           </div>
                           <div className={styles.minMaxBox}>
                             <Text>
@@ -138,12 +115,7 @@ const Page = () => {
                             <span>{interestRate}%</span>
                           </div>
                           <div className={styles.loanInput}>
-                            <InputRange
-                              onChange={(val) => setInterestRate(val)}
-                              max={"25"}
-                              value={interestRate}
-                              className={styles.loanRangeSlider}
-                            />
+                            <InputRange onChange={(val) => setInterestRate(val)} max={"25"} value={interestRate} className={styles.loanRangeSlider} />
                           </div>
                           <div className={styles.minMaxBox}>
                             <Text>
@@ -159,34 +131,13 @@ const Page = () => {
                   </div>
                   <div className={styles.mobileRangeFilterSection}>
                     <div className={styles.mobileRangeHeader}>
-                      <button
-                        className={
-                          activeFilter === 1
-                            ? styles.activeFilter
-                            : styles.notActiveFilter
-                        }
-                        onClick={() => setActiveFilter(1)}
-                      >
+                      <button className={activeFilter === 1 ? styles.activeFilter : styles.notActiveFilter} onClick={() => setActiveFilter(1)}>
                         Loan Amount
                       </button>
-                      <button
-                        className={
-                          activeFilter === 2
-                            ? styles.activeFilter
-                            : styles.notActiveFilter
-                        }
-                        onClick={() => setActiveFilter(2)}
-                      >
+                      <button className={activeFilter === 2 ? styles.activeFilter : styles.notActiveFilter} onClick={() => setActiveFilter(2)}>
                         Loan Period
                       </button>
-                      <button
-                        className={
-                          activeFilter === 3
-                            ? styles.activeFilter
-                            : styles.notActiveFilter
-                        }
-                        onClick={() => setActiveFilter(3)}
-                      >
+                      <button className={activeFilter === 3 ? styles.activeFilter : styles.notActiveFilter} onClick={() => setActiveFilter(3)}>
                         Interest Rate
                       </button>
                     </div>
@@ -222,12 +173,7 @@ const Page = () => {
                             <span>{loanPeriod} Year</span>
                           </div>
                           <div className={styles.loanInput}>
-                            <InputRange
-                              onChange={(val) => setLoanPeriod(val)}
-                              max={"5"}
-                              value={loanPeriod}
-                              className={styles.loanRangeSlider}
-                            />
+                            <InputRange onChange={(val) => setLoanPeriod(val)} max={"5"} value={loanPeriod} className={styles.loanRangeSlider} />
                           </div>
                           <div className={styles.minMaxBox}>
                             <Text>
@@ -247,12 +193,7 @@ const Page = () => {
                             <span>{interestRate}%</span>
                           </div>
                           <div className={styles.loanInput}>
-                            <InputRange
-                              onChange={(val) => setInterestRate(val)}
-                              max={"25"}
-                              value={interestRate}
-                              className={styles.loanRangeSlider}
-                            />
+                            <InputRange onChange={(val) => setInterestRate(val)} max={"25"} value={interestRate} className={styles.loanRangeSlider} />
                           </div>
                           <div className={styles.minMaxBox}>
                             <Text>
@@ -268,11 +209,7 @@ const Page = () => {
                   </div>
                   {preApprovedLoanOffers &&
                     preApprovedLoanOffers.map((item, i) => (
-                      <PersonalLoanDetailBox
-                        item={item}
-                        currentQues={active === item.id ? true : false}
-                        key={i}
-                      />
+                      <PersonalLoanDetailBox item={item} currentQues={active === item.id ? true : false} key={i} />
                     ))}
                 </StepperContainer>
               </Col>
