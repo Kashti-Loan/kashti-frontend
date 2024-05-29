@@ -6,8 +6,10 @@ import { GenderFemale, GenderMale } from "@public/assets";
 import RadioTextButton from "@components/ui/radioTextButton";
 import CommonTooltip from "@components/ui/commonTooltip";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
+import { useRouter } from "next/navigation";
 
 const HaveCoApplicant = (props) => {
+  const router = useRouter();
   const { setCurrentStep, setCompletedSteps, onAddCustomerData, loanData } =
     usePersonalLoan();
 
@@ -18,7 +20,9 @@ const HaveCoApplicant = (props) => {
         11,
         "Have Co Applicant"
       );
-      value ? setCurrentStep(12) : setCurrentStep(14);
+      value
+        ? setCurrentStep(12)
+        : router.replace(routesConstant.RECOMMENDED_PERSONAL_LOAN);
       setCompletedSteps((prev) => [...prev, 11]);
       return;
     } catch (error) {

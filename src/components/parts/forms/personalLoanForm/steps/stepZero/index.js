@@ -29,7 +29,7 @@ const StepZero = (props) => {
   const { basicDetail, sendOtp, onVerifyOTP, onResendOTP } = usePersonalLoan();
 
   const BasicSchema = Yup.object().shape({
-    name: Yup.string().required("Name is required"),
+    full_name: Yup.string().required("Name is required"),
     phone: Yup.string()
       .matches(/^[0-9]{10}$/, "Mobile number must be exactly 10 digits")
       .required("Mobile number is required"),
@@ -78,14 +78,14 @@ const StepZero = (props) => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.inputBlock}>
             <Controller
-              name="name"
+              name="full_name"
               control={control}
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="Name*"
+                  label="Name (As per PAN Card)*"
                   type="text"
-                  name="name"
+                  name="full_name"
                   placeholder="Enter Name as per PAN"
                   tooltip
                   tooltipContent={"Name as per PAN"}

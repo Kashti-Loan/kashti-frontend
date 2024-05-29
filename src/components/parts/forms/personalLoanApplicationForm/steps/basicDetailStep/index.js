@@ -22,6 +22,7 @@ const BasicDetailStep = (props) => {
     onVerifyPAN,
     onAddCustomerData,
     loanData,
+    basicDetail,
   } = usePersonalLoan();
 
   const BasicSchema = Yup.object().shape({
@@ -60,6 +61,7 @@ const BasicDetailStep = (props) => {
 
   async function onSubmit(data) {
     data["date_of_birth"] = moment(data["date_of_birth"]).format("YYYY-MM-DD");
+    data["full_name"] = basicDetail?.full_name;
     try {
       const pan = await onVerifyPAN(data.pan);
       const response = await onAddCustomerData(data, 1, "Individual Details");
