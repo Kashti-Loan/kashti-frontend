@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@ashwinbande/validators@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@ashwinbande/validators/-/validators-1.0.7.tgz#3eb2cab49c61a67cd071936874328fa7ac47df56"
+  integrity sha512-R2P4d30pgNNqtMqp5fqTlawaIMDOuMZp5dfjuYdYqwV1oEMDV2xjUk4B1U+jqRPFZRRYjGJC/P2l71qfK+NSSw==
+
 "@babel/runtime@^7.21.0", "@babel/runtime@^7.22.5", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.8.7":
   version "7.24.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.24.5.tgz#230946857c053a36ccc66e1dd03b17dd0c4ed02c"
@@ -662,6 +667,11 @@ loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.4.0:
   integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
+
+luhn@^2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/luhn/-/luhn-2.4.1.tgz#9cf501c5d0e9f7ee79504338ae71c9bcc67c304a"
+  integrity sha512-p1eEWSb2RJAfv+BzrPEUqbUXV1H3ylHEAOk9yDM1L12ojD6OQQGrE29DqKLa0XYluJTIwXIOFmyzVOme3QSyww==
 
 mime-db@1.52.0:
   version "1.52.0"

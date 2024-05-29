@@ -33,6 +33,8 @@ const StepZero = (props) => {
   });
 
   const defaultValues = {
+    full_name: basicDetail?.full_name || "",
+    phone: basicDetail?.phone || "",
     tcagree: false,
   };
 

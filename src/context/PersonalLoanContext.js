@@ -14,6 +14,7 @@ export function PersonalLoanProvider({ children }) {
   const [currentStep, setCurrentStep] = useState(1);
   const [apiKey, setApiKey] = useState("");
   const [secretKey, setSecretKey] = useState("");
+  const [contactDetail, setContactDetail] = useState("");
   const [basicDetail, setBasicDetail] = useState(null);
   const [applicationDetail, setApplicationDetail] = useState(null);
   const [leadDetail, setLeadDetail] = useState(null);

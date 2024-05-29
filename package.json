@@ -12,6 +12,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ashwinbande/validators": "^1.0.7",
     "@fontsource-variable/inter": "^5.0.16",
     "@hookform/resolvers": "^3.3.4",
     "axios": "^1.6.8",
@@ -21,6 +22,7 @@
     "highcharts": "^11.3.0",
     "highcharts-more": "^0.1.7",
     "highcharts-react-official": "^3.2.1",
+    "luhn": "^2.4.1",
     "moment": "^2.30.1",
     "next": "14.0.4",
     "numeral": "^2.0.6",

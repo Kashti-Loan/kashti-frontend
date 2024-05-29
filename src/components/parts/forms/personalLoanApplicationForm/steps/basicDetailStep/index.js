@@ -13,19 +13,42 @@ import { GenderFemale, GenderMale } from "@public/assets";
 import RadioImageButton from "@components/ui/radioImageButton";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
+import isPanValid from "@ashwinbande/validators";
 import moment from "moment";
+
+// Custom function to check if the date makes the user at least 18 years old
+const isAdult = (value) => {
+  const today = new Date();
+  const birthDate = new Date(value);
+  const age = today.getFullYear() - birthDate.getFullYear();
+  const m = today.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    return age - 1;
+  }
+  return age;
+};
 
 const BasicDetailStep = (props) => {
   const { setCurrentStep, setCompletedSteps, onVerifyPAN, onAddCustomerData, loanData, basicDetail } = usePersonalLoan();
+  const currentDate = new Date();
 
+  // Calculate the future date 18 years from now
+  const futureDate = new Date(currentDate);
+  futureDate.setFullYear(futureDate.getFullYear() + 18);
+
+  // Get the timestamp for the future date
+  const EighteenYears = futureDate.getTime();
   const BasicSchema = Yup.object().shape({
     date_of_birth: Yup.date()
-      .max(new Date(Date.now() - 662695992000), "You must be at least 21 years old.")
-      .required("Date of Birth is required"),
+      .required("Date of birth is required")
+      .test("is-18-years-old", "You must be at least 18 years old", function (value) {
+        return isAdult(value) >= 18;
+      }),
     gender: Yup.string().required("Gender is required."),
     pan: Yup.string()
-      .matches(/[A-Z]{5}[0-9]{4}[A-Z]{1}/, "Invalid PAN Card number")
-      .required("PAN Card number is required"),
+      // .matches(/[A-Z]{5}[0-9]{4}[A-Z]{1}/, "Invalid PAN Card number")
+      .required("PAN Card number is required")
+      .test("pan-valid", "Invalid PAN Card number", isPanValid.pan),
   });
 
   const defaultValues = {

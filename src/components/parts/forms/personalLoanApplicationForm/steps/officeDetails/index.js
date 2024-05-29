@@ -18,13 +18,7 @@ import { useRouter } from "next/navigation";
 import { routesConstant } from "@utils/routesConstant";
 
 const OfficeDetails = (props) => {
-  const {
-    setCurrentStep,
-    setCompletedSteps,
-    onAddCustomerData,
-    loanData,
-    getStateCityUsingPincode,
-  } = usePersonalLoan();
+  const { setCurrentStep, setCompletedSteps, onAddCustomerData, loanData, getStateCityUsingPincode } = usePersonalLoan();
   const router = useRouter();
 
   const BasicSchema = Yup.object().shape({
@@ -87,29 +81,31 @@ const OfficeDetails = (props) => {
           </div>
           <div className={styles.inputBlock}>
             <Controller
-              name="officeaddress1"
+              name='officeaddress1'
               control={control}
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="Address Line 1"
-                  type="text"
-                  name="officeaddress1"
-                  placeholder="Address Line 1"
+                  label='Address Line 1'
+                  type='text'
+                  name='officeaddress1'
+                  autoComplete='address-line1'
+                  placeholder='Address Line 1'
                   error={error?.message}
                 />
               )}
             />
             <Controller
-              name="officeaddress2"
+              name='officeaddress2'
               control={control}
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="Address Line 2"
-                  type="text"
-                  name="officeaddress2"
-                  placeholder="Address Line 2"
+                  label='Address Line 2'
+                  type='text'
+                  name='officeaddress2'
+                  autoComplete='address-line2'
+                  placeholder='Address Line 2'
                   error={error?.message}
                 />
               )}
@@ -117,15 +113,16 @@ const OfficeDetails = (props) => {
           </div>
           <div className={styles.inputBlock}>
             <Controller
-              name="officepincode"
+              name='officepincode'
               control={control}
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="Pincode"
-                  type="text"
-                  name="officepincode"
-                  placeholder="560078"
+                  label='Pincode'
+                  type='text'
+                  name='officepincode'
+                  autoComplete='postal-code'
+                  placeholder='560078'
                   error={error?.message}
                   maxLength={6}
                   onChange={(event) => {
@@ -140,15 +137,16 @@ const OfficeDetails = (props) => {
               )}
             />
             <Controller
-              name="office_city"
+              name='office_city'
               control={control}
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="City"
-                  type="text"
-                  name="office_city"
-                  placeholder="Bengaluru"
+                  label='City'
+                  type='text'
+                  name='office_city'
+                  autoComplete='address-level2'
+                  placeholder='Bengaluru'
                   error={error?.message}
                 />
               )}
@@ -156,22 +154,23 @@ const OfficeDetails = (props) => {
           </div>
           <div className={styles.inputBlock}>
             <Controller
-              name="office_state"
+              name='office_state'
               control={control}
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="State"
-                  type="text"
-                  name="office_state"
-                  placeholder="Bengaluru"
+                  label='State'
+                  type='text'
+                  autoComplete='address-level1'
+                  name='office_state'
+                  placeholder='Bengaluru'
                   error={error?.message}
                 />
               )}
             />
           </div>
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
-            <button type="submit" className="primaryBtn">
+            <button type='submit' className='primaryBtn'>
               {isSubmitting ? "Updating Data..." : "Continue"}
             </button>
           </div>
@@ -179,10 +178,7 @@ const OfficeDetails = (props) => {
       </FormProvider>
       <Text className={styles.dataSafetyInfo}>
         <DataSafetyIcon />
-        <span>
-          Your data’s safety is our top priority. It is secured by cutting-edge
-          encryption and stringent privacy protocols.
-        </span>
+        <span>Your data’s safety is our top priority. It is secured by cutting-edge encryption and stringent privacy protocols.</span>
       </Text>
     </div>
   );
