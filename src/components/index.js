@@ -35,6 +35,7 @@ import OTPInput from "./ui/otpInput";
 import CommonTooltip from "./ui/commonTooltip";
 import RadioImageButton from "./ui/radioImageButton";
 import SelectTag from "./ui/selectTag";
+import CalculatorBox from "./ui/calculatorBox";
 // Sections
 import FaqSection from "./parts/section/faqSection";
 import SafeguardSection from "./parts/section/safeguardSection";
@@ -42,6 +43,8 @@ import EmiCalculator from "./parts/section/emiCalculatorSection";
 import MobileStepSection from "./parts/section/mobileStepSection";
 import OurProductSection from "./parts/section/homePage/ourProductSection";
 import PopularProductSection from "./parts/section/popularProductSection";
+import CalculatorSection from "./parts/section/calculatorSection";
+import BankingPartnerSection from "./parts/section/bankingPartnerSection";
 // Forms
 import SecureLoanToday from "./parts/forms/secureLoanForm";
 import GetCreditCard from "./parts/forms/getCreditCard";
@@ -113,6 +116,7 @@ import SuccessStoryIcon from "./ui/svg/successStoryIcon";
 import FaqIcon from "./ui/svg/faqIcon";
 import IncomeDetailIcon from "./ui/svg/incomeDetailIcon";
 import KycDetailIcon from "./ui/svg/kycDetailIcon";
+import IndiaFlagIcon from "./ui/svg/indiaFlag";
 
 export {
   Header,
@@ -151,6 +155,7 @@ export {
   CommonTooltip,
   RadioImageButton,
   SelectTag,
+  CalculatorBox,
   // Sections
   FaqSection,
   SafeguardSection,
@@ -158,6 +163,8 @@ export {
   MobileStepSection,
   OurProductSection,
   PopularProductSection,
+  CalculatorSection,
+  BankingPartnerSection,
   // Forms
   SecureLoanToday,
   GetCreditCard,
@@ -179,6 +186,7 @@ export {
   StepperContainer,
   // Icon
   FbIcon,
+  IndiaFlagIcon,
   InstaIcon,
   LinkedIcon,
   XIcon,

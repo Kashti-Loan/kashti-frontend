@@ -2,8 +2,8 @@ const PersonalLoanIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="49"
-      height="48"
+      width="72"
+      height="72"
       viewBox="0 0 49 48"
       fill="none"
     >

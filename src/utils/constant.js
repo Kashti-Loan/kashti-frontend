@@ -29,24 +29,24 @@ export const navMenuItems = [
         description: "Get easy loans with minimal documentation",
         link: routesConstant.PERSONAL_LOAN,
       },
-      {
-        id: 4,
-        name: "Home Loan",
-        description: "Get easy loans with minimal documentation ",
-        link: routesConstant.PERSONAL_LOAN,
-      },
+      // {
+      //   id: 4,
+      //   name: "Home Loan",
+      //   description: "Get easy loans with minimal documentation ",
+      //   link: routesConstant.PERSONAL_LOAN,
+      // },
     ],
   },
   {
     name: "resources",
     path: routesConstant.RESOURCES,
     children: [
-      {
-        id: 1,
-        name: "Press Releases",
-        description: "Apply for an Instant Personal Loan",
-        link: routesConstant.PRESS_RELEASE,
-      },
+      // {
+      //   id: 1,
+      //   name: "Press Releases",
+      //   description: "Apply for an Instant Personal Loan",
+      //   link: routesConstant.PRESS_RELEASE,
+      // },
       {
         id: 2,
         name: "Blogs",

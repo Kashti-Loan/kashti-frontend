@@ -18,28 +18,28 @@ const MobileStepSection = () => {
       title: "Explore",
       icon: <ExploreIcon />,
       description:
-        "With our simplified application process, enter only your basic details and avail a service of your choice.",
+        "Explore our diverse offerings for your first step to financial freedom.",
     },
     {
       id: 2,
       title: "Basic Info",
       icon: <BasicIcon />,
       description:
-        "With our simplified application process, enter only your basic details and avail a service of your choice.",
+        "Get started with Kashti by just entering your basic, mandatory details.",
     },
     {
       id: 3,
       title: "Pick the Best",
       icon: <BestIcon />,
       description:
-        "With our simplified application process, enter only your basic details and avail a service of your choice.",
+        "Select the perfect match for your requirements and proceed effortlessly.",
     },
     {
       id: 4,
       title: "Powerful Algorithm",
       icon: <AlgorithmIcon />,
       description:
-        "With our simplified application process, enter only your basic details and avail a service of your choice.",
+        "Compare customized offers in seconds with our powerful algorithm. ",
     },
   ];
   return (

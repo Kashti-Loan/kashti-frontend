@@ -17,7 +17,7 @@ const ResourcesMenu = (props) => {
         <SectionTitle>Resources</SectionTitle>
       </div>
       <div className={styles.menuList}>
-        <div className={styles.menuBlock}>
+        {/* <div className={styles.menuBlock}>
           <div className={styles.menuTitle}>
             <h4>Press Release</h4>
             <Link
@@ -50,7 +50,7 @@ const ResourcesMenu = (props) => {
                 )
             )}
           </div>
-        </div>
+        </div> */}
         <div className={styles.menuBlock}>
           <div className={styles.menuTitle}>
             <h4>Blogs</h4>

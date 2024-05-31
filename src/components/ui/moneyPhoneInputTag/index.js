@@ -2,6 +2,7 @@ import { Text } from "@styles/styledComponent";
 import CommonTooltip from "../commonTooltip";
 import styles from "./style.module.scss";
 import ErrorWrapper from "../errorWrapper";
+import IndiaFlagIcon from "../svg/indiaFlag";
 
 const MoneyPhoneInputTag = (props) => {
   return (
@@ -18,14 +19,19 @@ const MoneyPhoneInputTag = (props) => {
           )}
         </div>
         <div className={styles.inputBlock}>
-          <span>{props.initial}</span>
           <input
             type={"number"}
             {...props}
             name={props.name}
             placeholder={props.placeholder}
-            style={{ ...props.style }}
           />
+          {props.phoneNumber ? (
+            <span>
+              <IndiaFlagIcon />
+            </span>
+          ) : (
+            <span>{props.initial}</span>
+          )}
         </div>
         {props.note && <Text className={styles.note}>{props.note}</Text>}
       </div>

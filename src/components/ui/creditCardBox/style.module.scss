@@ -22,10 +22,10 @@
     > div {
       width: 100%;
       &:nth-of-type(1) {
-        background-color: var(--globalWhite);
-        border-radius: 4px;
-        padding: 12px 38px;
-        text-align: center;
+        img {
+          width: 100%;
+          height: auto;
+        }
       }
       &:nth-of-type(2) {
         @include flexContainer($justifyContent: flex-end, $gap: 8px);

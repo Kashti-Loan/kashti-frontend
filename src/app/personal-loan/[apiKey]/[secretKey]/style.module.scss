@@ -23,6 +23,7 @@
           }
           .bannerImgBlock {
             @include flexContainer($gap: 0, $alignItems: flex-start);
+            margin-bottom: 60px;
             > div {
               width: 100%;
               &:nth-of-type(1) {
@@ -199,7 +200,8 @@
             text-align: center;
             margin-top: 40px;
             a {
-              padding-inline: 60px;
+              padding: 8px 28px;
+              border-radius: 8px;
             }
           }
         }
@@ -524,9 +526,9 @@
         > div {
           &:nth-of-type(1) {
             > div {
-              h2 {
-                text-align: left;
-              }
+              // h2 {
+              //   text-align: left;
+              // }
               p {
                 margin-top: 8px;
               }
@@ -573,9 +575,9 @@
       > div {
         > div {
           > div {
-            h2 {
-              text-align: left;
-            }
+            // h2 {
+            //   text-align: left;
+            // }
             padding-inline: 0;
             .creditCardBlock {
               > div {
@@ -592,6 +594,14 @@
         > div {
           > div {
             padding-inline: 0;
+            h2 {
+              text-align: center;
+            }
+            > p {
+              &:nth-of-type(1) {
+                text-align: center;
+              }
+            }
             p {
               color: var(--globalBlack);
             }
@@ -609,9 +619,11 @@
                   height: 48px;
                 }
                 p {
-                  flex-direction: row;
+                  // flex-direction: row;
                   justify-content: flex-start;
+                  align-items: flex-start;
                   display: inline-flex;
+                  gap: 0px;
                   span {
                     font-size: 16px !important;
                     width: auto;
@@ -627,6 +639,12 @@
       padding: 24px 16px;
       > div {
         > div {
+          &:nth-of-type(1) {
+            h2,
+            p {
+              text-align: center;
+            }
+          }
           > div {
             padding-inline: 0;
             .instantPersonalLoanStepsList {

@@ -17,21 +17,21 @@ const CreditCardBox = (props) => {
         style={{ backgroundColor: props.themeColor || "#e9f4ec" }}
       >
         <div>
-          <CustomImage src={creditCard_citiBank_color} alt="Credit Card" />
+          <CustomImage src={props.image} alt="Credit Card" />
         </div>
         <div>
           <MeterIcon />
-          <span>&gt;750</span>
+          <span>{props.score}</span>
         </div>
       </div>
       <div className={styles.creditCardBoxInfo}>
         <p>
           <span>Interest Rates</span>
-          <span>10.08% - 12.00%</span>
+          <span>{props.interest}</span>
         </p>
         <p>
           <span>Loan Amount</span>
-          <span>Up to ₹40 Lakhs</span>
+          <span>{props.loan}</span>
         </p>
         <p>
           <span>EMI Per Lakh</span>
@@ -44,16 +44,9 @@ const CreditCardBox = (props) => {
       </div>
       <div className={styles.aboutBank}>
         <h4>About the Bank</h4>
-        <Text>
-          This Bank offers personal loan interest rates beginning at 10.50% p.a.
-          for amounts up to Rs 40 lakh, with a maximum tenure of 6 years.
-          Additionally, select existing customers may receive pre-approved
-          personal loans with a '10-second disbursal' based on their credit
-          profiles. Clicking here allows the XYZ Bank's existing customers to
-          check their eligibility for this pre-approved loan offer.
-        </Text>
+        <Text>{props.description}</Text>
       </div>
-      <div className={styles.creditCardButton}>
+      {/* <div className={styles.creditCardButton}>
         <Link
           href={routesConstant.PERSONAL_LOAN_QUESTIONAIRRE}
           className="secondaryBtn"
@@ -63,7 +56,7 @@ const CreditCardBox = (props) => {
         <Link href={"#"} className="secondaryBtn">
           Apply Now
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -1,20 +1,197 @@
 import {
   axis_card,
+  bajaj_finserv,
+  bikeLoanEmi,
   bob_card,
+  carLoanEmi,
   citi_loan,
+  compoundInterest,
   creditCardImg,
+  creditCardLoan,
   demoBlogOne,
   demoBlogThree,
   demoBlogTwo,
   demoUserOne,
   demoUserThree,
   demoUserTwo,
+  homeLoanEmi,
   hsbc_card,
+  idfc_b,
   idfc_card,
+  incred,
+  indus_bank,
   kotak_loan,
   kreditBee,
+  kredit_bee,
+  muthoot_fin,
+  personalLoanEmi,
+  piramal,
+  poonawal,
+  simpleInterest,
+  tata_capital,
 } from "@public/assets";
 import { routesConstant } from "./routesConstant";
+
+export const interestRateData = [
+  {
+    image: tata_capital,
+    title: "Tata Capital",
+    score: ">750",
+    interest: "10.99% - 35%",
+    loan: "Up to ₹75L",
+    tenure: "Upto 6 Years",
+    fee: "Upto 2%",
+    themeColor: "#E9F4EC",
+    description:
+      "Tata Capital offers personal loan interest rates beginning at 10.99% p.a. for amounts up to Rs 75 lakh, with a maximum tenure of 6 years. Additionally, by applying now, you can take advantage of a variety of loan products made for your financial needs. Clicking here allows Tata Capital's existing customers to check their eligibility for this pre-approved loan offer.",
+  },
+  {
+    image: poonawal,
+    title: "Poonawalla Fincorp",
+    score: ">650",
+    interest: "11% to 24%",
+    loan: "Up to ₹25L",
+    tenure: "Upto 5 Years",
+    fee: "Upto 2%",
+    themeColor: "#FEF2E9",
+    description:
+      "Poonawalla Fincorp offers personal loan interest rates beginning at 11% p.a. for amounts up to Rs 25 lakh, with a maximum tenure of 5 years. Additionally, by applying now, you can take advantage of a variety of loan products made for your financial needs. Clicking here allows Poonawalla Fincorp's existing customers to check their eligibility for this pre-approved loan offer.",
+  },
+  {
+    image: indus_bank,
+    title: "Induslnd",
+    score: ">700",
+    interest: "10.49% - 26%",
+    loan: "Up to ₹50L",
+    tenure: "1-5 Years",
+    fee: "Upto 4%",
+    themeColor: "#EAEBF3",
+    description:
+      "Induslnd offers personal loan interest rates beginning at 10.49% p.a. for amounts up to Rs 50 lakh, with a maximum tenure of 5 years. Additionally, by applying now, you can take advantage of a variety of loan products made for your financial needs. Clicking here allows IndusInd's existing customers to check their eligibility for this pre-approved loan offer.",
+  },
+  {
+    image: idfc_b,
+    title: "IDFC",
+    score: ">700",
+    interest: "10.99% - 23.99%",
+    loan: "Up to ₹1Cr",
+    tenure: "Upto 5 Years",
+    fee: "Upto 2%",
+    themeColor: "#EAEBF3",
+    description:
+      "IDFC Bank offers personal loan interest rates beginning at 10.99% p.a. for amounts up to Rs 1Cr, with a maximum tenure of 5 years. Additionally, by applying now, you can take advantage of a variety of loan products made for your financial needs. Clicking here allows IDFC Bank's existing customers to check their eligibility for this pre-approved loan offer.",
+  },
+  {
+    image: kredit_bee,
+    title: "Kreditbee",
+    score: ">600",
+    interest: "16% - 29.95%",
+    loan: "Up to ₹2L",
+    tenure: "4 to 36 months.",
+    fee: "₹150 to ₹13,750",
+    themeColor: "#EAEBF3",
+    description:
+      "Kreditbee offers personal loan interest rates beginning at 16% p.a. for amounts up to Rs 2 lakh, with a maximum tenure of 3 years. Additionally, by applying now, you can take advantage of a variety of loan products made for your financial needs. Clicking here allows Kreditbee's existing customers to check their eligibility for this pre-approved loan offer.",
+  },
+  {
+    image: piramal,
+    title: "Piramal",
+    score: ">650",
+    interest: "12% to 26%",
+    loan: "Up to ₹5L",
+    tenure: "Upto 5 Years",
+    fee: "Upto 4%",
+    themeColor: "#EAEBF3",
+    description:
+      "Piramal offers personal loan interest rates beginning at 12% p.a. for amounts up to Rs 5 lakh, with a maximum tenure of 5 years. Additionally, by applying now, you can take advantage of a variety of loan products made for your financial needs. Clicking here allows Piramal's existing customers to check their eligibility for this pre-approved loan offer.",
+  },
+  {
+    image: bajaj_finserv,
+    title: "Bajaj Finserv",
+    score: ">750",
+    interest: "11% - 25%",
+    loan: "Up to ₹40L",
+    tenure: "Upto 8 Years",
+    fee: "Upto 4%",
+    themeColor: "#EAEBF3",
+    description:
+      "Bajaj Finserv offers personal loan interest rates beginning at 11% p.a. for amounts up to Rs 40 lakh, with a maximum tenure of 8 years. Additionally, by applying now, you can take advantage of a variety of loan products made for your financial needs. Clicking here allows Bajaj Finserv's existing customers to check their eligibility for this pre-approved loan offer.",
+  },
+  {
+    image: muthoot_fin,
+    title: "Muthoot",
+    score: ">650",
+    interest: "12% to 28%",
+    loan: "Up to ₹25L",
+    tenure: "Upto 5 Years",
+    fee: "Upto 2%",
+    themeColor: "#EAEBF3",
+    description:
+      "Muthoot offers personal loan interest rates beginning at 12% p.a. for amounts up to Rs 25 lakh, with a maximum tenure of 5 years. Additionally, by applying now, you can take advantage of a variety of loan products made for your financial needs. Clicking here allows Muthoot's existing customers to check their eligibility for this pre-approved loan offer.",
+  },
+  {
+    image: incred,
+    title: "Incred",
+    score: ">650",
+    interest: "11% to 24%",
+    loan: "Up to ₹20L",
+    tenure: "Upto 5 Years",
+    fee: "Upto 2%",
+    themeColor: "#EAEBF3",
+    description:
+      "Incred offers personal loan interest rates beginning at 11% p.a. for amounts up to Rs 20 lakh, with a maximum tenure of 5 years. Additionally, by applying now, you can take advantage of a variety of loan products made for your financial needs. Clicking here allows Incred's existing customers to check their eligibility for this pre-approved loan offer.",
+  },
+];
+
+export const calculatorData = [
+  {
+    image: personalLoanEmi,
+    title: "Personal Loan EMI",
+    description:
+      "Know your Personal Loan EMI right away using our quick calculator",
+    hoverColor: "linear-gradient(180deg, #EAF4EC 0%, #BDDCC5 100%)",
+  },
+  {
+    image: homeLoanEmi,
+    title: "Home Loan EMI",
+    description: "Calculate Home Loan EMIs instantly with our EMI calculator.",
+    hoverColor: "linear-gradient(180deg, #FEF2E9 0%, #FCD7BA 100%)",
+  },
+  {
+    image: simpleInterest,
+    title: "Simple Interest",
+    description:
+      "Calculate Simple Interest on investments and loans instantly.",
+    hoverColor: "linear-gradient(180deg, #EAEBF3 0%, #BCC0DA 100%)",
+  },
+  {
+    image: carLoanEmi,
+    title: "Car Loan EMI",
+    description: "Know your Car Loan EMI right away using our swift calculator",
+    hoverColor: "linear-gradient(180deg, #EAEBF3 0%, #BCC0DA 100%)",
+  },
+  {
+    image: bikeLoanEmi,
+    title: "Bike Loan EMI",
+    description:
+      "Know your Bike Loan EMI right away using our swift calculator",
+    hoverColor: "linear-gradient(180deg, #EAF4EC 0%, #BDDCC5 100%)",
+  },
+  {
+    image: creditCardLoan,
+    title: "Credit Card Loan",
+    description:
+      "Know your Personal Loan EMI right away using our quick calculator",
+    hoverColor: "linear-gradient(180deg, #FEF2E9 0%, #FCD7BA 100%)",
+  },
+  {
+    image: compoundInterest,
+    title: "Compound Interest",
+    description:
+      "Calculate Compound Interest on investments and loans instantly.",
+    hoverColor: "linear-gradient(180deg, #FEF2E9 0%, #FCD7BA 100%)",
+  },
+];
 
 export const genderData = [
   {
@@ -144,6 +321,85 @@ export const faqData = [
     title: "How to know if I am eligible for a credit card?",
     description:
       "A debit card allows you to withdraw money directly from your bank account deposits. A credit card, on the other hand, is similar to a short-term loan from the card issuer that allows you to make payments or withdraw cash. Rather than repaying this short-term loan on a per-use basis, all of your credit card spending are combined into a single bill at the end of the billing cycle.",
+  },
+];
+
+export const homeFaq = [
+  {
+    id: 1,
+    title: "What is Kashti?",
+    description:
+      "Kashti is a lendingtech marketplace. It is a digital platform that connects borrowers with lenders, facilitating the process of borrowing and lending money.",
+  },
+  {
+    id: 2,
+    title: "How does Kashti work?",
+    description:
+      "Lendingtech marketplaces typically operate by collecting information from borrowers through an online application process. This information is then used to assess the borrower's creditworthiness and match them with potential lenders. Once a match is made, the borrower can review loan offers and choose the one that best fits their needs.",
+  },
+  {
+    id: 3,
+    title: "What types of Loans are availaible on Kashti Platform?",
+    description:
+      "Kashti provides you with Personal Loans, Credit Cards, Gold Loan and Business Loan",
+  },
+  {
+    id: 4,
+    title: "Who does Kashti Help you obtain Loan from?",
+    description:
+      "Kashti has multiple RBI approved lenders such as banks and NBFCs who provide the loans",
+  },
+  {
+    id: 5,
+    title: "What are the requirements to Borrow through Kashti platform?",
+    description:
+      "Borrowers typically need to meet certain eligibility criteria, such as minimum credit score and income requirements. The specific requirements may vary depending on the lender and the type of loan being sought.",
+  },
+];
+
+export const personalLoanFaq = [
+  {
+    id: 1,
+    title: "What is a Personal Loan?",
+    description:
+      "A personal loan is a type of unsecured loan that you can use for various personal expenses, such as debt consolidation, home improvements, medical bills, or unexpected expenses. Unlike secured loans, personal loans don't require collateral.",
+  },
+  {
+    id: 2,
+    title: "How do I apply for a personal loan through Kashti Platform?",
+    description:
+      "Applying for a personal loan on our platform is simple. Just fill out our online application form and provide your basic personal and financial information. Once submitted, we'll review your application and match you with potential lenders.",
+  },
+  {
+    id: 3,
+    title: "What are the eligibility criteria for a personal loan?",
+    description:
+      "Eligibility criteria may vary depending on the lender, but common requirements include a minimum age (usually 18 or 21), a steady source of income, and a good credit score. Some lenders may also consider factors like your debt-to-income ratio and employment history.",
+  },
+  {
+    id: 4,
+    title: "How long does it take for loan approval?",
+    description:
+      "On the Kashti platform, it takes a few minutes to submit your basic details, check mandatory requirements, and choose you lender.",
+  },
+  {
+    id: 5,
+    title: "What loan terms are available for personal loans?",
+    description:
+      "Loan terms, including the loan amount, interest rate, and repayment period vary depending on the lender and your individual financial profile. Our platform works with a network of lenders offering a range of loan options to suit different needs and circumstances.",
+  },
+  {
+    id: 6,
+    title: "What interest rates can I expect for a personal loan?",
+    description:
+      "Interest rates for personal loans vary based on factors such as your creditworthiness, income, loan amount, and loan term. Our platform helps you compare offers from multiple lenders, allowing you to choose the one with the most competitive rate for your situation.",
+  },
+  {
+    id: 7,
+    title:
+      "Is my information secure when applying for a personal loan through your platform?",
+    description:
+      "Yes, we take the security and privacy of your personal information seriously. Our platform uses encryption and other security measures to protect your data and ensure confidentiality throughout the loan application process.",
   },
 ];
 

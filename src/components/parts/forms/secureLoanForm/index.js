@@ -19,6 +19,7 @@ import { useEffect, useState } from "react";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
 import PopupPortal from "@components/parts/popups/popupPortal";
 import OtpVerfication from "@components/parts/popups/otpVerificaton";
+import { routesConstant } from "@utils/routesConstant";
 
 const SecureLoanToday = ({ apiKey, secretKey }) => {
   const [otpSent, setOtpSent] = useState(false);
@@ -88,12 +89,10 @@ const SecureLoanToday = ({ apiKey, secretKey }) => {
                 render={({ field, fieldState: { error } }) => (
                   <InputTag
                     {...field}
-                    label="Name (As per PAN Card)*"
+                    label="Name"
                     type="text"
                     name="full_name"
-                    placeholder="Enter Name as per PAN"
-                    tooltip
-                    tooltipContent={"Name as per PAN"}
+                    placeholder="Name as per Aadhaar"
                     error={error?.message}
                   />
                 )}
@@ -109,23 +108,25 @@ const SecureLoanToday = ({ apiKey, secretKey }) => {
                     placeholder="Mobile Number"
                     initial="+91"
                     error={error?.message}
-                    style={{ marginLeft: 38, width: "90% !important" }}
+                    phoneNumber
+                    tooltip
+                    tooltipContent={"Mobile Number"}
                   />
                 )}
               />
-
-              {/* <input type='text' name='name_as_adhaar' placeholder='Name as per Aadhaar' /> */}
             </div>
-            {/* <div className={styles.phoneNumberField}> */}
-
-            {/* </div> */}
-            <div>
+            <div className={styles.consentBlock}>
+            <label className="material-checkbox">
+              <input type="checkbox" name={"consent"} id={"consent"} />
+              <span className="checkmark"></span>
               <Text className={styles.agreeTerms}>
-                By proceeding, you agree to our{" "}
-                <Link href={"#"}>Terms & Conditions</Link> and{" "}
-                <Link href={"#"}>Privacy Policy</Link>.
+                By Continuing, i agree to kashtis{" "}
+                <Link href={routesConstant.PRIVACY_POLICY}>Privacy Policy</Link> and{" "}
+                <Link href={routesConstant.TERMS_CONDITION}>Terms & Conditions</Link> and Receive
+                communication from Kashti via SMS,E-Mail and whatApp
               </Text>
-            </div>
+            </label>
+          </div>
           </div>
           <div className={styles.btnContainer}>
             <button type="submit" className="primaryBtn">

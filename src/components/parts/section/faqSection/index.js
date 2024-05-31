@@ -23,17 +23,29 @@ const FaqSection = (props) => {
           <Col lg={12}>
             <SectionTitle>Frequently Asked Questions </SectionTitle>
             <ul>
-              {faqData.map((data, i) => (
-                <FaqBox
-                  title={data.title}
-                  description={data.description}
-                  id={data.id}
-                  key={i}
-                  currentQues={active === data.id ? true : false}
-                  currentFaq={(val) => setActive(val)}
-                  activeColor={props.activeColor}
-                />
-              ))}
+              {props?.content
+                ? props?.content.map((data, i) => (
+                    <FaqBox
+                      title={data.title}
+                      description={data.description}
+                      id={data.id}
+                      key={i}
+                      currentQues={active === data.id ? true : false}
+                      currentFaq={(val) => setActive(val)}
+                      activeColor={props.activeColor}
+                    />
+                  ))
+                : faqData.map((data, i) => (
+                    <FaqBox
+                      title={data.title}
+                      description={data.description}
+                      id={data.id}
+                      key={i}
+                      currentQues={active === data.id ? true : false}
+                      currentFaq={(val) => setActive(val)}
+                      activeColor={props.activeColor}
+                    />
+                  ))}
             </ul>
             <div className={styles.viewAllBtn}>
               <Link href={routesConstant.FAQ} className="secondaryBtn">

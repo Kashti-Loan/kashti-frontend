@@ -1,0 +1,98 @@
+@import "/src/styles/mixins";
+
+.bankingPartnerSection {
+  background: linear-gradient(105.99deg, #f4f5f9 22.47%, #eaebf3 96.13%);
+  padding-block: 60px;
+  > div {
+    > div {
+      &:nth-of-type(1) {
+        > div {
+          h2 {
+            margin-bottom: 12px;
+          }
+          p {
+            max-width: 994px;
+            margin: 0 auto;
+          }
+        }
+      }
+      &:nth-of-type(2) {
+        margin-top: 50px;
+        > div {
+          .bankTabHeader {
+            @include flexContainer($gap: 28px, $justifyContent: flex-start);
+            padding-bottom: 8px;
+            border-bottom: 1px solid #d0d5dd;
+            overflow-x: auto;
+            button {
+              background-color: transparent;
+              border: none;
+              font-size: 18px;
+              line-height: 27px;
+              font-weight: 400;
+              color: #475467;
+            }
+            .activeBtn {
+              font-weight: 600;
+              color: var(--primaryColor);
+              position: relative;
+              &:after {
+                content: "";
+                width: 100%;
+                height: 3px;
+                background-color: var(--primaryColor);
+                left: 0;
+                bottom: -8px;
+                position: absolute;
+              }
+            }
+          }
+          .bankLogoContent {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            column-gap: 36px;
+            row-gap: 40px;
+            margin-top: 32px;
+            .logoContent {
+              img {
+                width: 100%;
+                height: auto;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .bankingPartnerSection {
+    padding-block: 40px;
+    > div {
+      > div {
+        &:nth-of-type(1) {
+          > div {
+            p {
+              display: none;
+            }
+          }
+        }
+        &:nth-of-type(2) {
+          > div {
+            .bankTabHeader {
+              button {
+                min-width: 130px;
+              }
+            }
+            .bankLogoContent {
+              grid-template-columns: repeat(3, 1fr);
+              column-gap: 20px;
+              row-gap: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
