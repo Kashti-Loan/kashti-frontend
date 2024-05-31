@@ -31,13 +31,13 @@ const Page = () => {
             </Col>
             <Col xs={12} md={6} lg={8}>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3885.4471171840164!2d77.45795567521587!3d13.134172878306632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae241087e199e7%3A0x96d330152f4246e1!2sMain%20Rd%2C%20Byatha%2C%20Bengaluru%2C%20Karnataka%20560089!5e0!3m2!1sen!2sin!4v1707987140542!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d998912.2040233539!2d77.08801130867818!3d12.04346569388921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15859f98cfe9%3A0xdcdb47277023dd86!2sKashti%20Finserv%20Pvt%20Ltd.!5e0!3m2!1sen!2sin!4v1717161067213!5m2!1sen!2sin"
                 width="600"
                 height="450"
                 style={{ border: 0 }}
-                allowFullScreen=""
+                allowfullscreen=""
                 loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
+                referrerpolicy="no-referrer-when-downgrade"
               ></iframe>
             </Col>
           </Row>
@@ -52,25 +52,23 @@ const Page = () => {
               <div className={styles.infoBox}>
                 <CustomImage src={email} alt="Email Address" />
                 <h3>Email ID</h3>
-                <Link href={"mailto:kashtifinservices@gmail.com"}>
-                  kashtifinservices@gmail.com
+                <Link href={"mailto:support@kashti.com"}>
+                  support@kashti.com
                 </Link>
-              </div>
-            </Col>
-            <Col xs={12} md={6} lg={4}>
-              <div className={styles.infoBox}>
-                <CustomImage src={phone} alt="Email Address" />
-                <h3>Phone</h3>
-                <Link href={"tel:+919876543210"}>+91-9876543210</Link>
               </div>
             </Col>
             <Col xs={12} md={6} lg={4}>
               <div className={styles.infoBox}>
                 <CustomImage src={address} alt="Email Address" />
                 <h3>Address</h3>
-                <Link href={"https://maps.app.goo.gl/M3dzjFDZeMvcB7ar9"}>
-                  608, Avenue Street, Riordon Main Road, Streetlane, Bangalore -
-                  560089
+                <Link
+                  target="_blank"
+                  href={"https://maps.app.goo.gl/DrSxxqtyvjgGjpEr6"}
+                >
+                  Kashti Finserv Pvt Ltd.
+                  <br />
+                  “ICS SQUARE” Building NO.57, Ground Floor, 8th Main Road J.P
+                  Nagar 3rd Phase, Near SBI Bank Bengaluru - 560078
                 </Link>
               </div>
             </Col>

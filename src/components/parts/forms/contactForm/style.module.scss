@@ -68,6 +68,20 @@
   .mobileContactInfo {
     display: none;
   }
+  .errorBox {
+    height: 10px;
+  }
+  .error {
+    color: var(--globalRed);
+    font-size: 12px;
+    margin-bottom: 0px;
+    padding-left: 5px;
+  }
+  label {
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--globalBlack);
+  }
 }
 
 @media only screen and (max-width: 600px) {

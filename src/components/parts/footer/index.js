@@ -107,27 +107,16 @@ const Footer = () => {
             </div>
             <div className={styles.footerContactBlock}>
               <div className={styles.footerContactBox}>
-                <Telephone />
-                <div>
-                  <h3>Phone number</h3>
-                  <ul className={styles.contactList}>
-                    <li>
-                      <Link href={"tel:+91-9876543210"}>+91-9876543210</Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div className={styles.footerContactBox}>
                 <Envelope />
                 <div>
                   <h3>Email ID</h3>
                   <ul className={styles.contactList}>
                     <li>
                       <Link
-                        href={"mailto:contactkashti@gmail.com"}
+                        href={"mailto:support@kashti.com"}
                         style={{ textTransform: "lowercase" }}
                       >
-                        contactkashti@gmail.com
+                        support@kashti.com
                       </Link>
                     </li>
                   </ul>
@@ -140,9 +129,15 @@ const Footer = () => {
                   <ul className={styles.contactList}>
                     <li>
                       <Link href={"#"}>
-                        608, Avenue Street, Riordon Main Road,
+                        Kashti Finserv Pvt Ltd.
                         <br />
-                        Streetlane, Bangalore - 560089
+                        “ICS SQUARE” Building
+                        <br />
+                        NO.57 , Ground Floor, 8th Main Road
+                        <br />
+                        J.P Nagar 3rd Phase, Near SBI Bank
+                        <br />
+                        Bengaluru - 560078
                       </Link>
                     </li>
                   </ul>
@@ -157,16 +152,13 @@ const Footer = () => {
           <Col md={6} lg={6}>
             <ul className={styles.bottomFooterMenu}>
               <li>
-                <Link href={routesConstant.TERMS_CONDITION}>
+                <Link target="_blank" href="/assets/t_c.pdf">
                   Terms and Conditions
                 </Link>
               </li>
               <li>
-                <Link href={routesConstant.PRIVACY_POLICY}>Privacy Policy</Link>
-              </li>
-              <li>
-                <Link href={routesConstant.SUCCESS_STORIES + `/disclaimer`}>
-                  Disclaimer
+                <Link target="_blank" href="/assets/Privacy_Policy.pdf">
+                  Privacy Policy
                 </Link>
               </li>
             </ul>
@@ -175,20 +167,17 @@ const Footer = () => {
             <Text>© 2024 | All Rights Reserved</Text>
             <ul>
               <li>
-                <Link href={routesConstant.TERMS_CONDITION}>
+                <Link target="_blank" href="/assets/t_c.pdf">
                   Terms and Conditions
                 </Link>
               </li>
               <li>
-                <Link href={routesConstant.PRIVACY_POLICY}>Privacy Policy</Link>
+                <Link target="_blank" href="/assets/Privacy_Policy.pdf">
+                  Privacy Policy
+                </Link>
               </li>
               <li>
                 <Link href="#">Data Security</Link>
-              </li>
-              <li>
-                <Link href={routesConstant.SUCCESS_STORIES + `/disclaimer`}>
-                  Disclaimer
-                </Link>
               </li>
             </ul>
           </Col>
