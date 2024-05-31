@@ -128,13 +128,8 @@ const Page = () => {
                   <h3>Feel free to Contact Us</h3>
                   <ul className={styles.contactList}>
                     <li>
-                      <Link href="tel:+91-9876543210">
-                        <Telephone /> <span>+91-9876543210</span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="mailto:kashtifinservices@gmail.com">
-                        <Envelope /> <span>kashtifinservices@gmail.com</span>
+                      <Link href="mailto:support@kashti.com">
+                        <Envelope /> <span>support@kashti.com</span>
                       </Link>
                     </li>
                   </ul>

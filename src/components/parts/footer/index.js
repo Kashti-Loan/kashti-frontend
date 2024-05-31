@@ -107,27 +107,16 @@ const Footer = () => {
             </div>
             <div className={styles.footerContactBlock}>
               <div className={styles.footerContactBox}>
-                <Telephone />
-                <div>
-                  <h3>Phone number</h3>
-                  <ul className={styles.contactList}>
-                    <li>
-                      <Link href={"tel:+91-9876543210"}>+91-9876543210</Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div className={styles.footerContactBox}>
                 <Envelope />
                 <div>
                   <h3>Email ID</h3>
                   <ul className={styles.contactList}>
                     <li>
                       <Link
-                        href={"mailto:contactkashti@gmail.com"}
+                        href={"mailto:support@kashti.com"}
                         style={{ textTransform: "lowercase" }}
                       >
-                        contactkashti@gmail.com
+                        support@kashti.com
                       </Link>
                     </li>
                   </ul>

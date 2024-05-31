@@ -107,6 +107,7 @@ const ContactForm = () => {
                 render={({ field, fieldState: { error } }) => (
                   <MoneyPhoneInputTag
                     {...field}
+                    name="mobile_number"
                     label="Mobile Number*"
                     type="tel"
                     placeholder="Mobile Number"
@@ -166,17 +167,8 @@ const ContactForm = () => {
                 <div>
                   <h3>Email ID</h3>
                   <Text>
-                    <b>General:</b> kashtifinservices@gmail.com
+                    <b>General:</b> support@kashti.com
                   </Text>
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link href="#">
-                <Telephone />
-                <div>
-                  <h3>Phone number</h3>
-                  <Text>+91-9876543210</Text>
                 </div>
               </Link>
             </li>

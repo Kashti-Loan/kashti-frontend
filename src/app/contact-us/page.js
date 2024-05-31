@@ -52,16 +52,9 @@ const Page = () => {
               <div className={styles.infoBox}>
                 <CustomImage src={email} alt="Email Address" />
                 <h3>Email ID</h3>
-                <Link href={"mailto:kashtifinservices@gmail.com"}>
-                  kashtifinservices@gmail.com
+                <Link href={"mailto:support@kashti.com"}>
+                  support@kashti.com
                 </Link>
-              </div>
-            </Col>
-            <Col xs={12} md={6} lg={4}>
-              <div className={styles.infoBox}>
-                <CustomImage src={phone} alt="Email Address" />
-                <h3>Phone</h3>
-                <Link href={"tel:+919876543210"}>+91-9876543210</Link>
               </div>
             </Col>
             <Col xs={12} md={6} lg={4}>
