@@ -26,6 +26,8 @@
             &:last-child {
               background-color: var(--primaryColor) !important;
               color: var(--globalWhite);
+              border-radius: 8px;
+              font-weight: 600;
             }
             &:hover {
               background: var(--globalWhite) !important;

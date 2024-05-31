@@ -113,6 +113,7 @@ import SuccessStoryIcon from "./ui/svg/successStoryIcon";
 import FaqIcon from "./ui/svg/faqIcon";
 import IncomeDetailIcon from "./ui/svg/incomeDetailIcon";
 import KycDetailIcon from "./ui/svg/kycDetailIcon";
+import IndiaFlagIcon from "./ui/svg/indiaFlag";
 
 export {
   Header,
@@ -179,6 +180,7 @@ export {
   StepperContainer,
   // Icon
   FbIcon,
+  IndiaFlagIcon,
   InstaIcon,
   LinkedIcon,
   XIcon,

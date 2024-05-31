@@ -39,7 +39,7 @@ export const SectionTitle = styled.h2((props) => ({
     lineHeight: "45px",
   },
   "@media (max-width: 600px)": {
-    fontSize: "16px",
+    fontSize: "20px",
     lineHeight: "24px",
   },
 }));

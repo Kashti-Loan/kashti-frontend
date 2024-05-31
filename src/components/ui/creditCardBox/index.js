@@ -53,7 +53,7 @@ const CreditCardBox = (props) => {
           check their eligibility for this pre-approved loan offer.
         </Text>
       </div>
-      <div className={styles.creditCardButton}>
+      {/* <div className={styles.creditCardButton}>
         <Link
           href={routesConstant.PERSONAL_LOAN_QUESTIONAIRRE}
           className="secondaryBtn"
@@ -63,7 +63,7 @@ const CreditCardBox = (props) => {
         <Link href={"#"} className="secondaryBtn">
           Apply Now
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 };

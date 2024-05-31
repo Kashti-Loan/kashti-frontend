@@ -155,9 +155,19 @@ import cloudUpload from "./images/cloudUpload.png";
 import newicici from "./images/new_icici.png";
 import newyes from "./images/new_yes.png";
 import newmuthoot from "./images/new_muthoot.png";
+import rbiapprovedLenders from "./images/approvedLenders.png";
+import personalLoanBannerImg from "./images/personalLoanBannerImg.png";
+import reimbursal from "./images/reimbursal.png";
+import fiveStepsPersonalLoan from "./images/fiveStepsPersonalLoan.png";
+import personalLoanMobile from "./images/personalLoanMobile.png";
 
 export {
   siteLogo,
+  personalLoanMobile,
+  fiveStepsPersonalLoan,
+  reimbursal,
+  personalLoanBannerImg,
+  rbiapprovedLenders,
   GenderMale,
   GenderFemale,
   langIcon,

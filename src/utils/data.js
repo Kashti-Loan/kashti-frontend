@@ -147,6 +147,85 @@ export const faqData = [
   },
 ];
 
+export const homeFaq = [
+  {
+    id: 1,
+    title: "What is Kashti?",
+    description:
+      "Kashti is a lendingtech marketplace. It is a digital platform that connects borrowers with lenders, facilitating the process of borrowing and lending money.",
+  },
+  {
+    id: 2,
+    title: "How does Kashti work?",
+    description:
+      "Lendingtech marketplaces typically operate by collecting information from borrowers through an online application process. This information is then used to assess the borrower's creditworthiness and match them with potential lenders. Once a match is made, the borrower can review loan offers and choose the one that best fits their needs.",
+  },
+  {
+    id: 3,
+    title: "What types of Loans are availaible on Kashti Platform?",
+    description:
+      "Kashti provides you with Personal Loans, Credit Cards, Gold Loan and Business Loan",
+  },
+  {
+    id: 4,
+    title: "Who does Kashti Help you obtain Loan from?",
+    description:
+      "Kashti has multiple RBI approved lenders such as banks and NBFCs who provide the loans",
+  },
+  {
+    id: 5,
+    title: "What are the requirements to Borrow through Kashti platform?",
+    description:
+      "Borrowers typically need to meet certain eligibility criteria, such as minimum credit score and income requirements. The specific requirements may vary depending on the lender and the type of loan being sought.",
+  },
+];
+
+export const personalLoanFaq = [
+  {
+    id: 1,
+    title: "What is a Personal Loan?",
+    description:
+      "A personal loan is a type of unsecured loan that you can use for various personal expenses, such as debt consolidation, home improvements, medical bills, or unexpected expenses. Unlike secured loans, personal loans don't require collateral.",
+  },
+  {
+    id: 2,
+    title: "How do I apply for a personal loan through Kashti Platform?",
+    description:
+      "Applying for a personal loan on our platform is simple. Just fill out our online application form and provide your basic personal and financial information. Once submitted, we'll review your application and match you with potential lenders.",
+  },
+  {
+    id: 3,
+    title: "What are the eligibility criteria for a personal loan?",
+    description:
+      "Eligibility criteria may vary depending on the lender, but common requirements include a minimum age (usually 18 or 21), a steady source of income, and a good credit score. Some lenders may also consider factors like your debt-to-income ratio and employment history.",
+  },
+  {
+    id: 4,
+    title: "How long does it take for loan approval?",
+    description:
+      "On the Kashti platform, it takes a few minutes to submit your basic details, check mandatory requirements, and choose you lender.",
+  },
+  {
+    id: 5,
+    title: "What loan terms are available for personal loans?",
+    description:
+      "Loan terms, including the loan amount, interest rate, and repayment period vary depending on the lender and your individual financial profile. Our platform works with a network of lenders offering a range of loan options to suit different needs and circumstances.",
+  },
+  {
+    id: 6,
+    title: "What interest rates can I expect for a personal loan?",
+    description:
+      "Interest rates for personal loans vary based on factors such as your creditworthiness, income, loan amount, and loan term. Our platform helps you compare offers from multiple lenders, allowing you to choose the one with the most competitive rate for your situation.",
+  },
+  {
+    id: 7,
+    title:
+      "Is my information secure when applying for a personal loan through your platform?",
+    description:
+      "Yes, we take the security and privacy of your personal information seriously. Our platform uses encryption and other security measures to protect your data and ensure confidentiality throughout the loan application process.",
+  },
+];
+
 export const safeguardData = [
   {
     id: 1,
@@ -879,3 +958,5 @@ export const personalLoanData = [
     themeColor: "#E9F4EC",
   },
 ];
+
+
