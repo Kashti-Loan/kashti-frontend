@@ -6,7 +6,12 @@ import Link from "next/link";
 import DataSafetyIcon from "@components/ui/svg/dataSafetyIcon";
 import * as Yup from "yup";
 // form
-import { Controller, FormProvider, useForm, useFormContext } from "react-hook-form";
+import {
+  Controller,
+  FormProvider,
+  useForm,
+  useFormContext,
+} from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import InputTag from "@components/ui/inputTag";
 import MoneyPhoneInputTag from "@components/ui/moneyPhoneInputTag";
@@ -78,15 +83,15 @@ const SecureLoanToday = ({ apiKey, secretKey }) => {
           <div className={styles.inputBlock}>
             <div className={styles.inputField}>
               <Controller
-                name='full_name'
+                name="full_name"
                 control={control}
                 render={({ field, fieldState: { error } }) => (
                   <InputTag
                     {...field}
-                    label='Name (As per PAN Card)*'
-                    type='text'
-                    name='full_name'
-                    placeholder='Enter Name as per PAN'
+                    label="Name (As per PAN Card)*"
+                    type="text"
+                    name="full_name"
+                    placeholder="Enter Name as per PAN"
                     tooltip
                     tooltipContent={"Name as per PAN"}
                     error={error?.message}
@@ -94,10 +99,18 @@ const SecureLoanToday = ({ apiKey, secretKey }) => {
                 )}
               />
               <Controller
-                name='phone'
+                name="phone"
                 control={control}
                 render={({ field, fieldState: { error } }) => (
-                  <MoneyPhoneInputTag {...field} label='Mobile Number*' type='tel' placeholder='Mobile Number' initial='+91' error={error?.message} />
+                  <MoneyPhoneInputTag
+                    {...field}
+                    label="Mobile Number*"
+                    type="tel"
+                    placeholder="Mobile Number"
+                    initial="+91"
+                    error={error?.message}
+                    style={{ marginLeft: 38, width: "90% !important" }}
+                  />
                 )}
               />
 
@@ -108,27 +121,36 @@ const SecureLoanToday = ({ apiKey, secretKey }) => {
             {/* </div> */}
             <div>
               <Text className={styles.agreeTerms}>
-                By proceeding, you agree to our <Link href={"#"}>Terms & Conditions</Link> and <Link href={"#"}>Privacy Policy</Link>.
+                By proceeding, you agree to our{" "}
+                <Link href={"#"}>Terms & Conditions</Link> and{" "}
+                <Link href={"#"}>Privacy Policy</Link>.
               </Text>
             </div>
           </div>
           <div className={styles.btnContainer}>
-            <button type='submit' className='primaryBtn'>
+            <button type="submit" className="primaryBtn">
               {isSubmitting ? `Sending OTP...` : `Apply Now`}
             </button>
           </div>
           <div>
             <Text>
               <DataSafetyIcon />
-              <span>Your data’s safety is our top priority. It is secured by cutting-edge encryption and stringent privacy protocols.</span>
+              <span>
+                Your data’s safety is our top priority. It is secured by
+                cutting-edge encryption and stringent privacy protocols.
+              </span>
             </Text>
           </div>
         </form>
       </FormProvider>
       {otpSent && (
         <PopupPortal display={otpSent}>
-          <div className='popupBox'>
-            <OtpVerfication basicDetail={basicDetail} onVerifyOTP={onVerifyOTP} onResendOTP={onResendOTP} />
+          <div className="popupBox">
+            <OtpVerfication
+              basicDetail={basicDetail}
+              onVerifyOTP={onVerifyOTP}
+              onResendOTP={onResendOTP}
+            />
           </div>
         </PopupPortal>
       )}
