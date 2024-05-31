@@ -7,16 +7,18 @@ const InputTag = (props) => {
   return (
     <ErrorWrapper {...props}>
       <div className={styles.inputTag}>
-        <div className={styles.inputLabel}>
-          <label>{props.label}</label>
-          {props.tooltip && (
-            <CommonTooltip
-              id={props.name}
-              content={props.tooltipContent}
-              place={props.tootltipPlace || "right"}
-            />
-          )}
-        </div>
+        {props.label && (
+          <div className={styles.inputLabel}>
+            <label>{props.label}</label>
+            {props.tooltip && (
+              <CommonTooltip
+                id={props.name}
+                content={props.tooltipContent}
+                place={props.tootltipPlace || "right"}
+              />
+            )}
+          </div>
+        )}
         <div className={styles.inputBlock}>
           <input
             {...props}

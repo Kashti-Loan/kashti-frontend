@@ -35,6 +35,7 @@ import OTPInput from "./ui/otpInput";
 import CommonTooltip from "./ui/commonTooltip";
 import RadioImageButton from "./ui/radioImageButton";
 import SelectTag from "./ui/selectTag";
+import CalculatorBox from "./ui/calculatorBox";
 // Sections
 import FaqSection from "./parts/section/faqSection";
 import SafeguardSection from "./parts/section/safeguardSection";
@@ -42,6 +43,8 @@ import EmiCalculator from "./parts/section/emiCalculatorSection";
 import MobileStepSection from "./parts/section/mobileStepSection";
 import OurProductSection from "./parts/section/homePage/ourProductSection";
 import PopularProductSection from "./parts/section/popularProductSection";
+import CalculatorSection from "./parts/section/calculatorSection";
+import BankingPartnerSection from "./parts/section/bankingPartnerSection";
 // Forms
 import SecureLoanToday from "./parts/forms/secureLoanForm";
 import GetCreditCard from "./parts/forms/getCreditCard";
@@ -152,6 +155,7 @@ export {
   CommonTooltip,
   RadioImageButton,
   SelectTag,
+  CalculatorBox,
   // Sections
   FaqSection,
   SafeguardSection,
@@ -159,6 +163,8 @@ export {
   MobileStepSection,
   OurProductSection,
   PopularProductSection,
+  CalculatorSection,
+  BankingPartnerSection,
   // Forms
   SecureLoanToday,
   GetCreditCard,

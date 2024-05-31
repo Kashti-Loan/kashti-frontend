@@ -1,20 +1,197 @@
 import {
   axis_card,
+  bajaj_finserv,
+  bikeLoanEmi,
   bob_card,
+  carLoanEmi,
   citi_loan,
+  compoundInterest,
   creditCardImg,
+  creditCardLoan,
   demoBlogOne,
   demoBlogThree,
   demoBlogTwo,
   demoUserOne,
   demoUserThree,
   demoUserTwo,
+  homeLoanEmi,
   hsbc_card,
+  idfc_b,
   idfc_card,
+  incred,
+  indus_bank,
   kotak_loan,
   kreditBee,
+  kredit_bee,
+  muthoot_fin,
+  personalLoanEmi,
+  piramal,
+  poonawal,
+  simpleInterest,
+  tata_capital,
 } from "@public/assets";
 import { routesConstant } from "./routesConstant";
+
+export const interestRateData = [
+  {
+    image: tata_capital,
+    title: "Tata Capital",
+    score: ">750",
+    interest: "10.99% - 35%",
+    loan: "Up to ₹75L",
+    tenure: "Upto 6 Years",
+    fee: "Upto 2%",
+    themeColor: "#E9F4EC",
+    description:
+      "Tata Capital offers personal loan interest rates beginning at 10.99% p.a. for amounts up to Rs 75 lakh, with a maximum tenure of 6 years. Additionally, by applying now, you can take advantage of a variety of loan products made for your financial needs. Clicking here allows Tata Capital's existing customers to check their eligibility for this pre-approved loan offer.",
+  },
+  {
+    image: poonawal,
+    title: "Poonawalla Fincorp",
+    score: ">650",
+    interest: "11% to 24%",
+    loan: "Up to ₹25L",
+    tenure: "Upto 5 Years",
+    fee: "Upto 2%",
+    themeColor: "#FEF2E9",
+    description:
+      "Poonawalla Fincorp offers personal loan interest rates beginning at 11% p.a. for amounts up to Rs 25 lakh, with a maximum tenure of 5 years. Additionally, by applying now, you can take advantage of a variety of loan products made for your financial needs. Clicking here allows Poonawalla Fincorp's existing customers to check their eligibility for this pre-approved loan offer.",
+  },
+  {
+    image: indus_bank,
+    title: "Induslnd",
+    score: ">700",
+    interest: "10.49% - 26%",
+    loan: "Up to ₹50L",
+    tenure: "1-5 Years",
+    fee: "Upto 4%",
+    themeColor: "#EAEBF3",
+    description:
+      "Induslnd offers personal loan interest rates beginning at 10.49% p.a. for amounts up to Rs 50 lakh, with a maximum tenure of 5 years. Additionally, by applying now, you can take advantage of a variety of loan products made for your financial needs. Clicking here allows IndusInd's existing customers to check their eligibility for this pre-approved loan offer.",
+  },
+  {
+    image: idfc_b,
+    title: "IDFC",
+    score: ">700",
+    interest: "10.99% - 23.99%",
+    loan: "Up to ₹1Cr",
+    tenure: "Upto 5 Years",
+    fee: "Upto 2%",
+    themeColor: "#EAEBF3",
+    description:
+      "IDFC Bank offers personal loan interest rates beginning at 10.99% p.a. for amounts up to Rs 1Cr, with a maximum tenure of 5 years. Additionally, by applying now, you can take advantage of a variety of loan products made for your financial needs. Clicking here allows IDFC Bank's existing customers to check their eligibility for this pre-approved loan offer.",
+  },
+  {
+    image: kredit_bee,
+    title: "Kreditbee",
+    score: ">600",
+    interest: "16% - 29.95%",
+    loan: "Up to ₹2L",
+    tenure: "4 to 36 months.",
+    fee: "₹150 to ₹13,750",
+    themeColor: "#EAEBF3",
+    description:
+      "Kreditbee offers personal loan interest rates beginning at 16% p.a. for amounts up to Rs 2 lakh, with a maximum tenure of 3 years. Additionally, by applying now, you can take advantage of a variety of loan products made for your financial needs. Clicking here allows Kreditbee's existing customers to check their eligibility for this pre-approved loan offer.",
+  },
+  {
+    image: piramal,
+    title: "Piramal",
+    score: ">650",
+    interest: "12% to 26%",
+    loan: "Up to ₹5L",
+    tenure: "Upto 5 Years",
+    fee: "Upto 4%",
+    themeColor: "#EAEBF3",
+    description:
+      "Piramal offers personal loan interest rates beginning at 12% p.a. for amounts up to Rs 5 lakh, with a maximum tenure of 5 years. Additionally, by applying now, you can take advantage of a variety of loan products made for your financial needs. Clicking here allows Piramal's existing customers to check their eligibility for this pre-approved loan offer.",
+  },
+  {
+    image: bajaj_finserv,
+    title: "Bajaj Finserv",
+    score: ">750",
+    interest: "11% - 25%",
+    loan: "Up to ₹40L",
+    tenure: "Upto 8 Years",
+    fee: "Upto 4%",
+    themeColor: "#EAEBF3",
+    description:
+      "Bajaj Finserv offers personal loan interest rates beginning at 11% p.a. for amounts up to Rs 40 lakh, with a maximum tenure of 8 years. Additionally, by applying now, you can take advantage of a variety of loan products made for your financial needs. Clicking here allows Bajaj Finserv's existing customers to check their eligibility for this pre-approved loan offer.",
+  },
+  {
+    image: muthoot_fin,
+    title: "Muthoot",
+    score: ">650",
+    interest: "12% to 28%",
+    loan: "Up to ₹25L",
+    tenure: "Upto 5 Years",
+    fee: "Upto 2%",
+    themeColor: "#EAEBF3",
+    description:
+      "Muthoot offers personal loan interest rates beginning at 12% p.a. for amounts up to Rs 25 lakh, with a maximum tenure of 5 years. Additionally, by applying now, you can take advantage of a variety of loan products made for your financial needs. Clicking here allows Muthoot's existing customers to check their eligibility for this pre-approved loan offer.",
+  },
+  {
+    image: incred,
+    title: "Incred",
+    score: ">650",
+    interest: "11% to 24%",
+    loan: "Up to ₹20L",
+    tenure: "Upto 5 Years",
+    fee: "Upto 2%",
+    themeColor: "#EAEBF3",
+    description:
+      "Incred offers personal loan interest rates beginning at 11% p.a. for amounts up to Rs 20 lakh, with a maximum tenure of 5 years. Additionally, by applying now, you can take advantage of a variety of loan products made for your financial needs. Clicking here allows Incred's existing customers to check their eligibility for this pre-approved loan offer.",
+  },
+];
+
+export const calculatorData = [
+  {
+    image: personalLoanEmi,
+    title: "Personal Loan EMI",
+    description:
+      "Know your Personal Loan EMI right away using our quick calculator",
+    hoverColor: "linear-gradient(180deg, #EAF4EC 0%, #BDDCC5 100%)",
+  },
+  {
+    image: homeLoanEmi,
+    title: "Home Loan EMI",
+    description: "Calculate Home Loan EMIs instantly with our EMI calculator.",
+    hoverColor: "linear-gradient(180deg, #FEF2E9 0%, #FCD7BA 100%)",
+  },
+  {
+    image: simpleInterest,
+    title: "Simple Interest",
+    description:
+      "Calculate Simple Interest on investments and loans instantly.",
+    hoverColor: "linear-gradient(180deg, #EAEBF3 0%, #BCC0DA 100%)",
+  },
+  {
+    image: carLoanEmi,
+    title: "Car Loan EMI",
+    description: "Know your Car Loan EMI right away using our swift calculator",
+    hoverColor: "linear-gradient(180deg, #EAEBF3 0%, #BCC0DA 100%)",
+  },
+  {
+    image: bikeLoanEmi,
+    title: "Bike Loan EMI",
+    description:
+      "Know your Bike Loan EMI right away using our swift calculator",
+    hoverColor: "linear-gradient(180deg, #EAF4EC 0%, #BDDCC5 100%)",
+  },
+  {
+    image: creditCardLoan,
+    title: "Credit Card Loan",
+    description:
+      "Know your Personal Loan EMI right away using our quick calculator",
+    hoverColor: "linear-gradient(180deg, #FEF2E9 0%, #FCD7BA 100%)",
+  },
+  {
+    image: compoundInterest,
+    title: "Compound Interest",
+    description:
+      "Calculate Compound Interest on investments and loans instantly.",
+    hoverColor: "linear-gradient(180deg, #FEF2E9 0%, #FCD7BA 100%)",
+  },
+];
 
 export const genderData = [
   {
@@ -958,5 +1135,3 @@ export const personalLoanData = [
     themeColor: "#E9F4EC",
   },
 ];
-
-

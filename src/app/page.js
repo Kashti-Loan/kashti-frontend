@@ -43,6 +43,9 @@ import {
   LinkedInBlackIcon,
   GaugeChart,
   PopularProductSection,
+  InputTag,
+  CalculatorSection,
+  BankingPartnerSection,
 } from "@components";
 import {
   appStore,
@@ -502,56 +505,6 @@ const Home = () => {
         </Container>
       </section>
 
-      {/* What Makes Kashti Stand Out from Others */}
-      {/* <section className={styles.pointerSection}>
-        <Container>
-          <Row>
-            <Col xs={12} md={6} lg={5}>
-              <SectionTitle>
-                What Makes Kashti Stand Out from Others
-              </SectionTitle>
-              <Text>
-                Kashti is an all-in-one platform that provides simple,
-                affordable, and accessible financial products and services
-                designed to help you achieve your financial goals.
-              </Text>
-            </Col>
-            <Col xs={12} md={6} lg={3}>
-              <CustomImage
-                src={lock}
-                alt="What Makes Kashti Stand Out from Others"
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={12} md={4} lg={4}>
-              <CustomImage src={rightCreditCard} alt="Right Credit Card" />
-              <h3>Right Credit Card</h3>
-              <Text>
-                Count on us to help you find the right Credit Card Offers from a
-                list of 50+ Cards which suits your lifestyle and needs.
-              </Text>
-            </Col>
-            <Col xs={12} md={4} lg={4}>
-              <CustomImage src={saveTime} alt="Save Time" />
-              <h3>Save Time</h3>
-              <Text>
-                Apply your loan Online and get your loan approved Instantly
-                within 10 minutes without Stepping the Banks and NBFC’s.
-              </Text>
-            </Col>
-            <Col xs={12} md={4} lg={4}>
-              <CustomImage src={security} alt="Trust and Security" />
-              <h3>Trust and Security</h3>
-              <Text>
-                Your security is our highest priority. We will not share any
-                personal information without your consent.
-              </Text>
-            </Col>
-          </Row>
-        </Container>
-      </section> */}
-
       {/* Why Kashti */}
       <section className={styles.whyKashtiSection}>
         <Container>
@@ -906,7 +859,6 @@ const Home = () => {
         <Container>
           <Row>
             <Col md={12} lg={6}>
-              <CustomImage src={howItWorks} />
               <SectionTitle>How it Works</SectionTitle>
               <Text>
                 Discover top financial products effortlessly with Kashti. Apply
@@ -916,6 +868,7 @@ const Home = () => {
               <Link href={"#"} className="primaryBtn">
                 Get Started
               </Link>
+              <CustomImage src={howItWorks} />
             </Col>
             <div className={styles.stepsBlock}>
               <div className={styles.stepsBox}>
@@ -978,8 +931,8 @@ const Home = () => {
         </Container>
       </section>
 
-      {/* EMI Calculator For Personal Loan */}
-      {/* <EmiCalculator color={"var(--primaryColor)"} /> */}
+      {/* Calculator Section */}
+      <CalculatorSection bgColor={"var(--primaryColor)"} />
 
       {/* Discover Our Most Popular Products */}
       <section className={styles.discoverProductSection}>
@@ -991,7 +944,10 @@ const Home = () => {
                 <div className={styles.productTabHeader}>
                   <span>
                     <button className={styles.active}>Credit Cards</button>
-                    <button>Personal Loans</button>
+                    {/* <button>Personal Loans</button> */}
+                    <Link href={routesConstant.PERSONAL_LOAN}>
+                      Personal Loan
+                    </Link>
                   </span>
                 </div>
                 <div className={styles.productTabContent}>
@@ -1075,14 +1031,24 @@ const Home = () => {
       <section className={styles.downloadSection}>
         <Container>
           <Row>
-            <Col xs={12} md={12} lg={6}>
+            <Col lg={12}>
+              <SectionTitle $textAlign="center">
+                Get Ready: Our Mobile App is Launching Soon!
+              </SectionTitle>
+              <Text $textAlign="center">
+                Unlock the Power of Instant Loans and Financial Freedom Right
+                from Your Phone - Stay Tuned!
+              </Text>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12} md={6} lg={6}>
               <CustomImage
                 src={downloadApp}
                 alt="Download the Kashti Mobile App"
               />
             </Col>
-            <Col xs={12} md={12} lg={6}>
-              <SectionTitle>Download the Kashti Mobile App</SectionTitle>
+            <Col xs={12} md={6} lg={6}>
               <ul>
                 <li>
                   <GreenCheckIcon />
@@ -1097,84 +1063,21 @@ const Home = () => {
                   <span>Talk to Expert at your fingertips</span>
                 </li>
               </ul>
+              <div className={styles.notifyMe}>
+                <InputTag
+                  type="text"
+                  name="email_id"
+                  placeholder="Enter your Email ID"
+                />
+                <button className="primaryBtn">Notify Me</button>
+              </div>
             </Col>
           </Row>
         </Container>
       </section>
 
       {/* Our Banking Partners and NBFCs */}
-      <section className={styles.partnersSection}>
-        <Container>
-          <Row>
-            <Col lg={12}>
-              <SectionTitle>Our Banking Partners and NBFCs</SectionTitle>
-              <Text>
-                We're here to connect you to your ideal financial partner. Our
-                customised solutions, through strong partnerships with renowned
-                banks and NBFCs, ensure you always receive the most relevant
-                products at the most competitive prices.
-              </Text>
-            </Col>
-          </Row>
-        </Container>
-        <div className={styles.partnersLogo}>
-          <CustomSlider
-            settings={logoSliderSettings}
-            children={[
-              <div className={styles.logoSlide}>
-                <CustomImage src={icicibank} alt="Bank Partners" />
-              </div>,
-              <div className={styles.logoSlide}>
-                <CustomImage src={yesbank} alt="Bank Partners" />
-              </div>,
-              <div className={styles.logoSlide}>
-                <CustomImage src={citi} alt="Bank Partners" />
-              </div>,
-              <div className={styles.logoSlide}>
-                <CustomImage src={unionbank} alt="Bank Partners" />
-              </div>,
-              <div className={styles.logoSlide}>
-                <CustomImage src={muthoot} alt="Bank Partners" />
-              </div>,
-              <div className={styles.logoSlide}>
-                <CustomImage src={citibank} alt="Bank Partners" />
-              </div>,
-              <div className={styles.logoSlide}>
-                <CustomImage src={mahindra} alt="Bank Partners" />
-              </div>,
-            ]}
-          />
-          <CustomSlider
-            settings={logoSliderSettings}
-            children={[
-              <div className={styles.logoSlide}>
-                <CustomImage src={rbl} alt="Bank Partners" />
-              </div>,
-              <div className={styles.logoSlide}>
-                <CustomImage src={induslnd} alt="Bank Partners" />
-              </div>,
-              <div className={styles.logoSlide}>
-                <CustomImage src={bob} alt="Bank Partners" />
-              </div>,
-              <div className={styles.logoSlide}>
-                <CustomImage src={hdfc} alt="Bank Partners" />
-              </div>,
-              <div className={styles.logoSlide}>
-                <CustomImage src={hsbc} alt="Bank Partners" />
-              </div>,
-              <div className={styles.logoSlide}>
-                <CustomImage src={southIndian} alt="Bank Partners" />
-              </div>,
-              <div className={styles.logoSlide}>
-                <CustomImage src={kotak} alt="Bank Partners" />
-              </div>,
-              <div className={styles.logoSlide}>
-                <CustomImage src={religare} alt="Bank Partners" />
-              </div>,
-            ]}
-          />
-        </div>
-      </section>
+      <BankingPartnerSection />
 
       {/* Frequently Asked Questions  */}
       <FaqSection

@@ -5,6 +5,7 @@ import { PageTitle, SectionTitle, Text } from "@styles/styledComponent";
 import Link from "next/link";
 import {
   BusinessLoanIcon,
+  CalculatorSection,
   CreditCardBox,
   CustomImage,
   EmiCalculator,
@@ -36,11 +37,12 @@ import {
   reimbursal,
   fiveStepsPersonalLoan,
   personalLoanMobile,
+  hdfc,
 } from "@public/assets";
 import TabSection from "@components/parts/section/personalLoanPage/tabSection";
 import { personalLoanTabData } from "@utils/constant";
 import { routesConstant } from "@utils/routesConstant";
-import { personalLoanFaq } from "@utils/data";
+import { interestRateData, personalLoanFaq } from "@utils/data";
 
 const Page = ({ params }) => {
   // const pathname = usePathname();
@@ -65,7 +67,7 @@ const Page = ({ params }) => {
                   <CustomImage src={unionBank_color} alt="Bank Partners" />
                   <CustomImage src={icici_color} alt="Bank Partners" />
                   <CustomImage src={yesBank_color} alt="Bank Partners" />
-                  <CustomImage src={unionBank_color} alt="Bank Partners" />
+                  <CustomImage src={hdfc} alt="Bank Partners" />
                 </div>
               </div>
               <CustomImage src={personalLoanBannerImg} />
@@ -110,60 +112,6 @@ const Page = ({ params }) => {
         color={"#e9f4ec"}
         applyLink={routesConstant.PERSONAL_LOAN_QUESTIONAIRRE}
       />
-
-      {/* Key Benefits of Kashti’s Personal Loan  */}
-      {/* <section className={styles.keyBenefitsSection} id="key_features">
-        <Container>
-          <Row>
-            <Col xs={12} md={6} lg={6}>
-              <SectionTitle>
-                Key Benefits of Kashti’s Personal Loan{" "}
-              </SectionTitle>
-              <ul>
-                <li>
-                  <GreenCheckIcon />{" "}
-                  <span>
-                    <b>Quick Approval:</b> Get approved in minutes!
-                  </span>
-                </li>
-                <li>
-                  <GreenCheckIcon />{" "}
-                  <span>
-                    <b>Flexible Terms:</b> Tailor a repayment plan that suits
-                    your budget
-                  </span>
-                </li>
-                <li>
-                  <GreenCheckIcon />{" "}
-                  <span>
-                    <b>Low Interest Rates:</b> Save more while meeting your
-                    needs.
-                  </span>
-                </li>
-                <li>
-                  <GreenCheckIcon />{" "}
-                  <span>
-                    <b>No Hidden Fees:</b> Transparent and fair lending.
-                  </span>
-                </li>
-                <li>
-                  <GreenCheckIcon />{" "}
-                  <span>
-                    <b>Use Anywhere:</b> Whether it's a vacation, home
-                    improvement, or debt consolidation, the choice is yours.
-                  </span>
-                </li>
-              </ul>
-            </Col>
-            <Col xs={12} md={6} lg={6}>
-              <CustomImage
-                src={personalLoanBenefits}
-                alt="Key Benefits of Kashti’s Personal Loan "
-              />
-            </Col>
-          </Row>
-        </Container>
-      </section> */}
 
       <section className={styles.mobilePointerSection}>
         <Container>
@@ -597,7 +545,7 @@ const Page = ({ params }) => {
       </section>
 
       {/* Why Kashti */}
-      <section className={styles.whyKashtiSection} id="key_features">
+      <section className={styles.whyKashtiSection} id="section1">
         <Container>
           <Row>
             <Col lg={12}>
@@ -662,9 +610,22 @@ const Page = ({ params }) => {
         <Container>
           <Row>
             <Col lg={12}>
-              <SectionTitle $textAlign="center">Attractive Interest Rates, Always</SectionTitle>
+              <SectionTitle $textAlign="center">
+                Attractive Interest Rates, Always
+              </SectionTitle>
               <div className={styles.creditCardBlock}>
-                <CreditCardBox themeColor={"#E9F4EC"} />
+                {interestRateData?.map((item, i) => {
+                  return <CreditCardBox
+                    key={i}
+                    image={item.image}
+                    score={item.score}
+                    interest={item.interest}
+                    loan={item.loan}
+                    themeColor={item.themeColor}
+                    description={item.description}
+                  />;
+                })}
+                {/* <CreditCardBox themeColor={"#E9F4EC"} />
                 <CreditCardBox themeColor={"#FEF2E9"} />
                 <CreditCardBox themeColor={"#EAEBF3"} />
                 <CreditCardBox themeColor={"#EAEBF3"} />
@@ -672,7 +633,7 @@ const Page = ({ params }) => {
                 <CreditCardBox themeColor={"#FEF2E9"} />
                 <CreditCardBox themeColor={"#FEF2E9"} />
                 <CreditCardBox themeColor={"#EAEBF3"} />
-                <CreditCardBox themeColor={"#E9F4EC"} />
+                <CreditCardBox themeColor={"#E9F4EC"} /> */}
               </div>
               <div className={styles.viewAllCreditCard}>
                 <Link href="#" className="secondaryBtn">
@@ -683,9 +644,6 @@ const Page = ({ params }) => {
           </Row>
         </Container>
       </section>
-
-      {/* EMI Calculator */}
-      <EmiCalculator color={"#1B6430"} id="emi_calculator" />
 
       {/* Eligibility Criteria for Personal Loan */}
       <section className={styles.eligibilityCriteriaSection} id="eligibility">
@@ -812,7 +770,7 @@ const Page = ({ params }) => {
               </ul>
             </Col>
             <Col xs={12} md={6} lg={6}>
-              <CustomImage
+            <CustomImage
                 src={fiveStepsPersonalLoan}
                 alt="Secure an Instant Personal Loan with these 5 Easy Steps"
               />
@@ -820,9 +778,10 @@ const Page = ({ params }) => {
           </Row>
         </Container>
       </section>
-
+      {/* EMI Calculator */}
+      <CalculatorSection bgColor={"#1B6430"} />
       {/* Frequently Asked Questions  */}
-      <FaqSection activeColor={"#F2F8F4"} id="faqs" content={personalLoanFaq}/>
+      <FaqSection activeColor={"#F2F8F4"} id="faqs" content={personalLoanFaq} />
 
       {/* Quick Links */}
       <section className={styles.quickLinksSection}>
