@@ -157,12 +157,14 @@ const Footer = () => {
           <Col md={6} lg={6}>
             <ul className={styles.bottomFooterMenu}>
               <li>
-                <Link href={routesConstant.TERMS_CONDITION}>
+                <Link target="_blank" href="/assets/t_c.pdf">
                   Terms and Conditions
                 </Link>
               </li>
               <li>
-                <Link href={routesConstant.PRIVACY_POLICY}>Privacy Policy</Link>
+                <Link target="_blank" href="/assets/Privacy_Policy.pdf">
+                  Privacy Policy
+                </Link>
               </li>
               <li>
                 <Link href={routesConstant.SUCCESS_STORIES + `/disclaimer`}>
@@ -175,12 +177,14 @@ const Footer = () => {
             <Text>© 2024 | All Rights Reserved</Text>
             <ul>
               <li>
-                <Link href={routesConstant.TERMS_CONDITION}>
+                <Link target="_blank" href="/assets/t_c.pdf">
                   Terms and Conditions
                 </Link>
               </li>
               <li>
-                <Link href={routesConstant.PRIVACY_POLICY}>Privacy Policy</Link>
+                <Link target="_blank" href="/assets/Privacy_Policy.pdf">
+                  Privacy Policy
+                </Link>
               </li>
               <li>
                 <Link href="#">Data Security</Link>

@@ -9,11 +9,23 @@ const MoneyPhoneInputTag = (props) => {
       <div className={styles.inputTag}>
         <div className={styles.inputLabel}>
           <label>{props.label}</label>
-          {props.tooltip && <CommonTooltip id={props.name} content={props.tooltipContent} place={props.tootltipPlace || "right"} />}
+          {props.tooltip && (
+            <CommonTooltip
+              id={props.name}
+              content={props.tooltipContent}
+              place={props.tootltipPlace || "right"}
+            />
+          )}
         </div>
         <div className={styles.inputBlock}>
-          <input type={"number"} {...props} name={props.name} placeholder={props.placeholder} />
           <span>{props.initial}</span>
+          <input
+            type={"number"}
+            {...props}
+            name={props.name}
+            placeholder={props.placeholder}
+            style={{ ...props.style }}
+          />
         </div>
         {props.note && <Text className={styles.note}>{props.note}</Text>}
       </div>
