@@ -118,7 +118,7 @@ const ContactForm = () => {
                 )}
               />
               <div>
-                <label>Message</label>
+                <label>Message*</label>
                 <textarea
                   onChange={(event) => {
                     setValue("message", event.target.value, {
