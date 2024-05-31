@@ -140,9 +140,8 @@ const StepZero = (props) => {
                 <span className="checkmark tcagree"></span>
                 <span>
                   By submitting this form, you have read and agreed to the{" "}
-                  <Link href="#">Credit Report</Link>{" "}
                   <Link target="_blank" href="/assets/t_c.pdf">
-                    Terms of Use
+                    Credit Report Terms of Use
                   </Link>{" "}
                   and{" "}
                   <Link target="_blank" href="/assets/Privacy_Policy.pdf">

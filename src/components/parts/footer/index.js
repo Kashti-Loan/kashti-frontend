@@ -129,9 +129,15 @@ const Footer = () => {
                   <ul className={styles.contactList}>
                     <li>
                       <Link href={"#"}>
-                        608, Avenue Street, Riordon Main Road,
+                        Kashti Finserv Pvt Ltd.
                         <br />
-                        Streetlane, Bangalore - 560089
+                        “ICS SQUARE” Building
+                        <br />
+                        NO.57 , Ground Floor, 8th Main Road
+                        <br />
+                        J.P Nagar 3rd Phase, Near SBI Bank
+                        <br />
+                        Bengaluru - 560078
                       </Link>
                     </li>
                   </ul>
@@ -155,11 +161,6 @@ const Footer = () => {
                   Privacy Policy
                 </Link>
               </li>
-              <li>
-                <Link href={routesConstant.SUCCESS_STORIES + `/disclaimer`}>
-                  Disclaimer
-                </Link>
-              </li>
             </ul>
           </Col>
           <Col md={6} lg={6}>
@@ -177,11 +178,6 @@ const Footer = () => {
               </li>
               <li>
                 <Link href="#">Data Security</Link>
-              </li>
-              <li>
-                <Link href={routesConstant.SUCCESS_STORIES + `/disclaimer`}>
-                  Disclaimer
-                </Link>
               </li>
             </ul>
           </Col>

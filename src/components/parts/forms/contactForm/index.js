@@ -112,12 +112,13 @@ const ContactForm = () => {
                     type="tel"
                     placeholder="Mobile Number"
                     initial="+91"
-                    error={error?.mobile_number}
+                    error={error?.message}
                     style={{ marginLeft: 38, width: "80% !important" }}
                   />
                 )}
               />
               <div>
+                <label>Message</label>
                 <textarea
                   onChange={(event) => {
                     setValue("message", event.target.value, {
@@ -155,8 +156,9 @@ const ContactForm = () => {
                 <div>
                   <h3>Address</h3>
                   <Text>
-                    608, Avenue Street, Riordon Main Road, Streetlane, Bangalore
-                    - 560089
+                    Kashti Finserv Pvt Ltd. “ICS SQUARE” Building NO.57 , Ground
+                    Floor, 8th Main Road J.P Nagar 3rd Phase, Near SBI Bank
+                    Bengaluru- 560078
                   </Text>
                 </div>
               </Link>
