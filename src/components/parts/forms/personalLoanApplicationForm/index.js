@@ -103,11 +103,11 @@ const PersonalLoanApplicationForm = ({
           <h4>KYC Details</h4>
         </div>
       </div>
-      <div className={styles.backBox}>
+      {/* <div className={styles.backBox}>
         <button onClick={onBack}>
           <ArrowLeftShort /> <span>Back</span>
         </button>
-      </div>
+      </div> */}
       <div className={styles.mobileFormStepSection}>
         <div className={styles.stepLabelSection}>
           <div className={styles.stepName}>

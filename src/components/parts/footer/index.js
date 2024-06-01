@@ -1,4 +1,5 @@
 "use client";
+import { useState, useEffect } from "react";
 // Styles
 import { Container, Row, Col } from "react-bootstrap";
 import styles from "./style.module.scss";
@@ -20,16 +21,29 @@ import LinkedIcon from "@components/ui/svg/linkedIcon";
 import { Envelope, GeoAlt, Telephone } from "react-bootstrap-icons";
 import { routesConstant } from "@utils/routesConstant";
 import { usePathname } from "next/navigation";
+import useWindowWidth from "@components/hook/useWindowWidth";
 
 const Footer = () => {
+  const [currentWindowSize, setCurrentWindowSize] = useState(null);
   const pathname = usePathname();
+  const windowSize = useWindowWidth();
+  useEffect(() => {
+    if (windowSize) {
+      setCurrentWindowSize(windowSize);
+    }
+  }, [windowSize]);
+
+  // console.log("current window size", {windowSize, currentWindowSize, pathname});
+
   return (
     <footer
       className={styles.footer}
       style={{
         display:
-          pathname === routesConstant.PERSONAL_LOAN_QUESTIONAIRRE_APPLICATION
-            ? "none"
+          currentWindowSize && currentWindowSize <= 990
+            ? pathname?.includes(routesConstant.PERSONAL_LOAN_QUESTIONAIRRE)
+              ? "none"
+              : "flex"
             : "block",
       }}
     >
