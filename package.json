@@ -37,6 +37,7 @@
     "react-tooltip": "^5.26.4",
     "recharts": "^2.10.4",
     "sass": "^1.70.0",
+    "sharp": "^0.33.4",
     "slick-carousel": "^1.8.1",
     "styled-components": "^6.1.8",
     "yup": "^1.4.0"
