@@ -21,13 +21,18 @@ const MobileHeader = () => {
 
   const windowSize = useWindowWidth();
 
-  console.log("current window size", windowSize);
+  // console.log("current window size", {windowSize, currentWindowSize, pathName});
 
   useEffect(() => {
     if (windowSize) {
       setCurrentWindowSize(windowSize);
     }
   }, [windowSize]);
+
+  console.log(
+    "is current window",
+    pathName === routesConstant.PERSONAL_LOAN_QUESTIONAIRRE
+  );
 
   return (
     <>
@@ -36,8 +41,7 @@ const MobileHeader = () => {
         style={{
           display:
             currentWindowSize && currentWindowSize <= 990
-              ? pathName ===
-                routesConstant.PERSONAL_LOAN_QUESTIONAIRRE_APPLICATION
+              ? pathName?.includes(routesConstant.PERSONAL_LOAN_QUESTIONAIRRE)
                 ? "none"
                 : "flex"
               : "none",

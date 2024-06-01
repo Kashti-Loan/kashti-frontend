@@ -28,9 +28,12 @@
         > div {
           &:nth-of-type(1) {
             margin-bottom: 20px;
-            a {
+            button {
               @include flexContainer($justifyContent: flex-start, $gap: 12px);
               color: var(--globalWhite);
+              background-color: transparent;
+              border: none;
+              outline: none;
               svg {
                 width: 24px;
                 height: 24px;
@@ -134,7 +137,8 @@
   .personalLoanQuestionnairePage {
     .headerSection {
       min-height: unset;
-      padding-bottom: 24px;
+      padding-top: 10px;
+      padding-bottom: 14px;
       .applyPersonalLoan,
       .whiteKashti {
         display: none;
@@ -143,19 +147,25 @@
         > div {
           > div {
             &:nth-of-type(1) {
-              display: none;
-            }
-            &:nth-of-type(2) {
-              h1 {
-                font-size: 18px;
-                line-height: 27px;
-                text-align: left;
-              }
-              p {
+              margin-bottom: 0;
+              button {
                 font-size: 14px;
                 line-height: 21px;
-                text-align: left;
+                font-weight: 700;
               }
+            }
+            &:nth-of-type(2) {
+              display: none;
+              // h1 {
+              //   font-size: 18px;
+              //   line-height: 27px;
+              //   text-align: left;
+              // }
+              // p {
+              //   font-size: 14px;
+              //   line-height: 21px;
+              //   text-align: left;
+              // }
             }
           }
         }
