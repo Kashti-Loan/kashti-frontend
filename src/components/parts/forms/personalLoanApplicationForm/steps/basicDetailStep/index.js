@@ -29,7 +29,14 @@ const isAdult = (value) => {
 };
 
 const BasicDetailStep = (props) => {
-  const { setCurrentStep, setCompletedSteps, onVerifyPAN, onAddCustomerData, loanData, basicDetail } = usePersonalLoan();
+  const {
+    setCurrentStep,
+    setCompletedSteps,
+    onVerifyPAN,
+    onAddCustomerData,
+    loanData,
+    basicDetail,
+  } = usePersonalLoan();
   const currentDate = new Date();
 
   // Calculate the future date 18 years from now
@@ -41,9 +48,13 @@ const BasicDetailStep = (props) => {
   const BasicSchema = Yup.object().shape({
     date_of_birth: Yup.date()
       .required("Date of birth is required")
-      .test("is-18-years-old", "You must be at least 18 years old", function (value) {
-        return isAdult(value) >= 18;
-      }),
+      .test(
+        "is-18-years-old",
+        "You must be at least 18 years old",
+        function (value) {
+          return isAdult(value) >= 18;
+        }
+      ),
     gender: Yup.string().required("Gender is required."),
     pan: Yup.string()
       // .matches(/[A-Z]{5}[0-9]{4}[A-Z]{1}/, "Invalid PAN Card number")
@@ -102,18 +113,22 @@ const BasicDetailStep = (props) => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.inputBlock}>
             <Controller
-              name='pan'
+              name="pan"
               control={control}
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label='PAN Number*'
-                  type='text'
-                  name='pan'
-                  placeholder='A B C T Y 1 2 3 4 D'
+                  label="PAN Number*"
+                  type="text"
+                  name="pan"
+                  placeholder="A B C T Y 1 2 3 4 D"
                   tooltip
-                  tooltipContent={"Learn why you are asked to enter your PAN Number "}
-                  note={"If incorrect PAN is provided, the loan will be rejected"}
+                  tooltipContent={
+                    "Learn why you are asked to enter your PAN Number "
+                  }
+                  note={
+                    "If incorrect PAN is provided, the loan will be rejected"
+                  }
                   onChange={(event) => {
                     setValue("pan", event.target.value.toUpperCase(), {
                       shouldValidate: true,
@@ -124,10 +139,16 @@ const BasicDetailStep = (props) => {
               )}
             />
             <Controller
-              name='date_of_birth'
+              name="date_of_birth"
               control={control}
               render={({ field, fieldState: { error } }) => (
-                <InputTag {...field} label='Date of Birth' type='date' name='date_of_birth' error={error?.message} />
+                <InputTag
+                  {...field}
+                  label="Date of Birth"
+                  type="date"
+                  name="date_of_birth"
+                  error={error?.message}
+                />
               )}
             />
           </div>
@@ -135,7 +156,7 @@ const BasicDetailStep = (props) => {
             <h3>Gender</h3>
             <div className={styles.radioGrpInner}>
               <RadioImageButton
-                label='Male'
+                label="Male"
                 icon={GenderMale}
                 checked={getValues("gender") === "male"}
                 onChange={() => {
@@ -143,16 +164,22 @@ const BasicDetailStep = (props) => {
                 }}
               />
               <RadioImageButton
-                label='Female'
+                label="Female"
                 icon={GenderFemale}
                 checked={getValues("gender") === "female"}
-                onChange={() => setValue("gender", "female", { shouldValidate: true })}
+                onChange={() =>
+                  setValue("gender", "female", { shouldValidate: true })
+                }
               />
             </div>
-            <div className={styles.errorBox}>{errors?.gender?.message && <p className={styles.error}>{errors?.gender?.message}</p>}</div>
+            <div className={styles.errorBox}>
+              {errors?.gender?.message && (
+                <p className={styles.error}>{errors?.gender?.message}</p>
+              )}
+            </div>
           </div>
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
-            <button type='submit' className='primaryBtn'>
+            <button type="submit" className="primaryBtn">
               {isSubmitting ? "Updating Data..." : "Continue"}
             </button>
           </div>
@@ -160,7 +187,10 @@ const BasicDetailStep = (props) => {
       </FormProvider>
       <Text className={styles.dataSafetyInfo}>
         <DataSafetyIcon />
-        <span>Your data’s safety is our top priority. It is secured by cutting-edge encryption and stringent privacy protocols.</span>
+        <span>
+          Your data’s safety is our top priority. It is secured by cutting-edge
+          encryption and stringent privacy protocols.
+        </span>
       </Text>
     </div>
   );

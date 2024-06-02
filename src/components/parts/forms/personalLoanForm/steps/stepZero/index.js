@@ -42,7 +42,7 @@ const StepZero = (props) => {
   const defaultValues = {
     full_name: basicDetail?.full_name || "",
     phone: basicDetail?.phone || "",
-    tcagree: false,
+    tcagree: true,
   };
 
   const methods = useForm({
@@ -102,6 +102,7 @@ const StepZero = (props) => {
                     tooltip
                     tooltipContent={"Name as per PAN"}
                     error={error?.message}
+                    autocomplete="name"
                   />
                 )}
               />
@@ -116,6 +117,7 @@ const StepZero = (props) => {
                     placeholder="Mobile Number"
                     initial="+91"
                     error={error?.message}
+                    autocomplete="tel"
                   />
                 )}
               />
@@ -133,6 +135,7 @@ const StepZero = (props) => {
                         name="tcagree"
                         id="tcagree"
                         error={error?.message}
+                        checked={getValues("tcagree")}
                       />
                     </>
                   )}
@@ -176,6 +179,7 @@ const StepZero = (props) => {
                 basicDetail={basicDetail}
                 onVerifyOTP={onVerifyOTP}
                 onResendOTP={onResendOTP}
+                setOtpSent={setOtpSent}
               />
             </div>
           </PopupPortal>
