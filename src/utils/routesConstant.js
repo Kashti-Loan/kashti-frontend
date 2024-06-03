@@ -17,7 +17,7 @@ export const routesConstant = {
   ABOUT_US: "/about-us",
   CONTACT_US: "/contact-us",
   PRIVACY_POLICY: "/privacy-policy",
-  TERMS_CONDITION: "/assets/Privacy_Policy.pdf",
+  TERMS_CONDITION: "/terms-and-conditions",
   RECOMMENDED_CREDIT_CARD: "/recommended-credit-card",
   RECOMMENDED_PERSONAL_LOAN: "/recommended-personal-loan",
   CREDIT_CARD_APPLICATION_FORM: "/credit-card-application-form",
