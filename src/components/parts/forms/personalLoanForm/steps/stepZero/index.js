@@ -24,6 +24,8 @@ import CustomInput from "@components/ui/customInput";
 import PhoneNumberInput from "@components/ui/phoneNumberInput";
 import StepperContainer from "@components/container/stepperContainer";
 import { routesConstant } from "@utils/routesConstant";
+import DatePickerInputTag from "@components/ui/datePickerInput";
+import moment from "moment";
 
 const StepZero = (props) => {
   const [otpSent, setOtpSent] = useState(false);
@@ -58,6 +60,7 @@ const StepZero = (props) => {
     control,
     getValues,
     watch,
+    setValue,
     formState: { errors, isSubmitting, isSubmitSuccessful },
   } = methods;
 

@@ -14,6 +14,8 @@ import { GenderFemale, GenderMale } from "@public/assets";
 import RadioImageButton from "@components/ui/radioImageButton";
 import SelectTag from "@components/ui/selectTag";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
+import DatePickerInputTag from "@components/ui/datePickerInput";
+import moment from "moment";
 
 const BusinessDetails = (props) => {
   const natureBusiness = [
@@ -98,12 +100,22 @@ const BusinessDetails = (props) => {
               name="date_of_incorporation"
               control={control}
               render={({ field, fieldState: { error } }) => (
-                <InputTag
+                <DatePickerInputTag
                   {...field}
                   label="Date of Incorporation"
-                  type="date"
-                  name="date_of_incorporation"
+                  placeholder="Date of Incorporation"
                   error={error?.message}
+                  maxDate={moment()._d}
+                  showYearDropdown
+                  scrollableYearDropdown
+                  showMonthDropdown
+                  selected={getValues("date_of_incorporation")}
+                  onChange={(date) =>
+                    setValue("date_of_incorporation", date, {
+                      shouldValidate: true,
+                    })
+                  }
+                  dateFormat="dd/MM/YYYY"
                 />
               )}
             />

@@ -15,6 +15,7 @@ import { Controller, FormProvider, useForm } from "react-hook-form";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
 import isPanValid from "@ashwinbande/validators";
 import moment from "moment";
+import DatePickerInputTag from "@components/ui/datePickerInput";
 
 // Custom function to check if the date makes the user at least 18 years old
 const isAdult = (value) => {
@@ -138,16 +139,26 @@ const BasicDetailStep = (props) => {
                 />
               )}
             />
+
             <Controller
               name="date_of_birth"
               control={control}
               render={({ field, fieldState: { error } }) => (
-                <InputTag
+                <DatePickerInputTag
                   {...field}
-                  label="Date of Birth"
-                  type="date"
-                  name="date_of_birth"
+                  label="Date of Birth*"
+                  placeholder="Date of Birth"
                   error={error?.message}
+                  minDate={moment().subtract(500, "years")._d}
+                  maxDate={moment().subtract(21, "years")._d}
+                  showYearDropdown
+                  scrollableYearDropdown
+                  showMonthDropdown
+                  selected={getValues("date_of_birth")}
+                  onChange={(date) =>
+                    setValue("date_of_birth", date, { shouldValidate: true })
+                  }
+                  dateFormat="dd/MM/YYYY"
                 />
               )}
             />

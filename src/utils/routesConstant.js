@@ -16,7 +16,7 @@ export const routesConstant = {
   RESOURCES: "#",
   ABOUT_US: "/about-us",
   CONTACT_US: "/contact-us",
-  PRIVACY_POLICY: "/assets/t_c.pdf",
+  PRIVACY_POLICY: "/privacy-policy",
   TERMS_CONDITION: "/assets/Privacy_Policy.pdf",
   RECOMMENDED_CREDIT_CARD: "/recommended-credit-card",
   RECOMMENDED_PERSONAL_LOAN: "/recommended-personal-loan",

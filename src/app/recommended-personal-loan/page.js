@@ -43,7 +43,7 @@ const Page = () => {
           <Row>
             <Col lg={12}>
               {/* <Link href={routesConstant.PERSONAL_LOAN}> */}
-              <span>Personal Loan</span>
+              {/* <span>Personal Loan</span> */}
               {/* </Link> */}
             </Col>
             <Col lg={12}>
