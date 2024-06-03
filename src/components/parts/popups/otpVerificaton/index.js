@@ -39,6 +39,11 @@ const OtpVerfication = (props) => {
     }
   }, [otpValues]);
 
+  useEffect(() => {
+    // Focus the first input field when the component mounts
+    inputRefs[0].current.focus();
+  }, []);
+
   function replaceCharacters(phoneNumber) {
     if (phoneNumber.length !== 10) {
       // Assuming the phone number is always 10 digits long
