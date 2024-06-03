@@ -23,6 +23,7 @@
           }
           .bannerImgBlock {
             @include flexContainer($gap: 0, $alignItems: flex-start);
+            margin-bottom: 75px;
             > div {
               width: 100%;
               &:nth-of-type(1) {
@@ -128,6 +129,8 @@
           text-align: center;
           button {
             min-width: 178px;
+            padding: 8px 28px;
+            border-radius: 8px;
           }
         }
       }
@@ -135,7 +138,7 @@
   }
   .keyBenefitsSection {
     padding-top: 60px;
-    padding-bottom: 80px;
+    padding-bottom: 60px;
     > div {
       > div {
         > div {
@@ -154,6 +157,13 @@
               );
               svg {
                 flex: 0 0 24px;
+                width: 24px;
+                height: 24px;
+                margin-top: 5px !important;
+              }
+              span {
+                font-size: 20px;
+                line-height: 30px;
               }
             }
           }
@@ -225,7 +235,8 @@
     }
   }
   .instantPersonalLoanSection {
-    padding: 113px 0 80px;
+    padding: 80px 0 0;
+    background-color: #f9fafb;
     > div {
       > div {
         &:nth-of-type(1) {
@@ -334,6 +345,9 @@
         }
       }
     }
+  }
+  .faqSection {
+    background-color: #f9fafb;
   }
   .mobileBannerContainer {
     display: none;
@@ -483,7 +497,7 @@
       }
     }
     .keyBenefitsSection {
-      padding: 24px 16px;
+      padding: 0 16px 32px;
       > div {
         > div {
           > div {
@@ -491,11 +505,16 @@
             &:nth-of-type(2) {
               display: none;
             }
+            h2 {
+              text-align: center;
+            }
             ul {
               li {
                 align-items: center;
-                font-size: 12px;
-                line-height: 18px;
+                span {
+                  font-size: 12px;
+                  line-height: 18px;
+                }
                 svg {
                   flex: 0 0 20px;
                 }
@@ -511,15 +530,21 @@
         > div {
           > div {
             padding-inline: 0;
+            h2 {
+              text-align: center;
+            }
+            > p {
+              &:nth-of-type(1) {
+                text-align: left;
+              }
+            }
             p {
               color: var(--globalBlack);
             }
             .eligibilitySteps {
               .eligibilityBox {
                 flex: unset;
-                flex-direction: column-reverse;
                 align-items: flex-start;
-                gap: 10px;
                 > p {
                   width: 100%;
                 }
@@ -528,9 +553,11 @@
                   height: 48px;
                 }
                 p {
-                  flex-direction: row;
+                  // flex-direction: row;
                   justify-content: flex-start;
+                  align-items: flex-start;
                   display: inline-flex;
+                  gap: 0px;
                   span {
                     font-size: 16px !important;
                     width: auto;

@@ -190,14 +190,22 @@ import tata_capital from "./images/ourPartners/tata_capital.png";
 import moneyV from "./images/ourPartners/moneyV.png";
 import idfc_b from "./images/ourPartners/idfc.png";
 import incred from "./images/ourPartners/incred.png";
+import creditCardBannerImg from "./images/creditCardBannerImg.png";
+import ccKeyBenefits from "./images/ccKeyBenefits.png";
+import ccEasySteps from "./images/ccEasySteps.png";
+import ccMobileBanner from "./images/ccMobileBanner.png";
 
 export {
   siteLogo,
   homeLoanEmi,
+  ccKeyBenefits,
+  ccMobileBanner,
+  ccEasySteps,
   amex_bank,
   incred,
   axis_bank,
   bajaj_finserv,
+  creditCardBannerImg,
   idfc_b,
   cash,
   chola,
