@@ -25,7 +25,7 @@ const Page = () => {
           <Row>
             <Col lg={12}>
               <PageTitle>Privacy Policy</PageTitle>
-              <Text>Last Updated - 27th June, 2023</Text>
+              <Text>Last Updated - 29th May, 2024</Text>
             </Col>
           </Row>
         </Container>
@@ -48,74 +48,155 @@ const Page = () => {
             </Col>
             <Col xs={12} md={8} lg={9}>
               <div className={styles.contentBox}>
-                <Text>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Vestibulum id dapibus elit, a pulvinar lorem. Duis augue
-                  lorem, porttitor eget iaculis vitae, ornare eget dolor. Nam
-                  posuere sapien quis ante accumsan volutpat. Nam maximus
-                  iaculis sem. Curabitur a faucibus augue, ac pretium ipsum. Nam
-                  elementum aliquam urna et gravida. Pellentesque quis blandit
-                  elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Vivamus faucibus sapien quis bibendum sagittis. Aenean non
-                  augue porttitor, tincidunt mauris in, fermentum tortor. Sed eu
-                  porta justo, eget posuere enim. Quisque vel odio non metus
-                  semper pellentesque. Phasellus et mollis sem.
-                </Text>
-                <Text>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Vestibulum id dapibus elit, a pulvinar lorem. Duis augue
-                  lorem, porttitor eget iaculis vitae, ornare eget dolor. Nam
-                  posuere sapien quis ante accumsan volutpat. Nam maximus
-                  iaculis sem. Curabitur a faucibus augue, ac pretium ipsum. Nam
-                  elementum aliquam urna et gravida. Pellentesque quis blandit
-                  elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Vivamus faucibus sapien quis bibendum sagittis. Aenean non
-                  augue porttitor, tincidunt mauris in, fermentum tortor. Sed eu
-                  porta justo, eget posuere enim. Quisque vel odio non metus
-                  semper pellentesque. Phasellus et mollis sem.
-                </Text>
-                <h3>Lorem ipsum</h3>
-                <Text>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Vestibulum id dapibus elit, a pulvinar lorem. Duis augue
-                  lorem, porttitor eget iaculis vitae, ornare eget dolor. Nam
-                  posuere sapien quis ante accumsan volutpat. Nam maximus
-                  iaculis sem. Curabitur a faucibus augue, ac pretium ipsum. Nam
-                  elementum aliquam urna et gravida. Pellentesque quis blandit
-                  elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Vivamus faucibus sapien quis bibendum sagittis. Aenean non
-                  augue porttitor, tincidunt mauris in, fermentum tortor. Sed eu
-                  porta justo, eget posuere enim. Quisque vel odio non metus
-                  semper pellentesque. Phasellus et mollis sem.
-                </Text>
-                <h3>Lorem ipsum</h3>
-                <Text>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Vestibulum id dapibus elit, a pulvinar lorem. Duis augue
-                  lorem, porttitor eget iaculis vitae, ornare eget dolor. Nam
-                  posuere sapien quis ante accumsan volutpat. Nam maximus
-                  iaculis sem. Curabitur a faucibus augue, ac pretium ipsum. Nam
-                  elementum aliquam urna et gravida. Pellentesque quis blandit
-                  elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Vivamus faucibus sapien quis bibendum sagittis. Aenean non
-                  augue porttitor, tincidunt mauris in, fermentum tortor. Sed eu
-                  porta justo, eget posuere enim. Quisque vel odio non metus
-                  semper pellentesque. Phasellus et mollis sem.
-                </Text>
-                <h3>Lorem ipsum</h3>
-                <Text>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Vestibulum id dapibus elit, a pulvinar lorem. Duis augue
-                  lorem, porttitor eget iaculis vitae, ornare eget dolor. Nam
-                  posuere sapien quis ante accumsan volutpat. Nam maximus
-                  iaculis sem. Curabitur a faucibus augue, ac pretium ipsum. Nam
-                  elementum aliquam urna et gravida. Pellentesque quis blandit
-                  elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Vivamus faucibus sapien quis bibendum sagittis. Aenean non
-                  augue porttitor, tincidunt mauris in, fermentum tortor. Sed eu
-                  porta justo, eget posuere enim. Quisque vel odio non metus
-                  semper pellentesque. Phasellus et mollis sem.
-                </Text>
+
+    <p>Welcome to Kashti. This electronic record is generated by a computer system and does not require any physical or digital signatures. By visiting on our Website/App or availing services available herein on it, you are consenting to be bound by this Privacy Policy. Please ensure that you read and understand all the provisions of this document before you start using the Kashti, as you shall be bound by all the terms and conditions herein of this electronic contract. If you do not agree or accept any of the terms and conditions contained herein, then do not access the Kashti’s or avail any of the services being offered therein.</p>
+    <p>Kashti Finserv Pvt. Ltd. or any of its affiliates or associate companies or subsidiaries (hereafter collectively referred as “Kashti” or “Company”, “kashti.com”, “we”, “us”, or “our”, or “website”, or “App”), prescribes this Privacy Policy (the “Privacy Policy” / “Policy”), last updated on the date mentioned above describes, in which manner user’s information collected and governed.</p>
+    <p>This Privacy Policy explains what information of yours will be collected when you access our Website/App or our Services, how such Personal Information will be used, and how you can control the collection, correction and/or deletion of your Personal Information. We will not use or share your Personal Information with anyone except as described in this Privacy Policy. The use of information collected through our Website/App shall be limited to the purposes under this Privacy Policy and our Terms of Service (the “Terms”) to the user.</p>
+    <p>We reserve the right, in our sole discretion, to make changes or modifications to the Privacy Policy time to time. Please ensure that you check the applicable Terms of Privacy Policy every time you use our Website/App so that you understand which terms apply. You will be subject to, and will be deemed to have been made aware of and to have accepted, the changes in any revised Privacy Policy by your continued use of our Website/App after the date such revised Privacy Policy are posted.</p>
+    <p>Questions or concerns? Reading this privacy notice will help you understand your privacy rights and choices. If you do not agree with our policies and practices, please do not access our Website/App or use our Services. If you still have any questions or concerns, please contact us at Compliance@kashti.com.</p>
+    <p>If this document may not be in a language that you understand, you shall contact Kashti Finserv Pvt. Ltd. at the email Compliance@kashti.com.</p>
+    
+    <div class="section-title">1. Collection of your Personal Data</div>
+    <div class="sub-section-title">1.1. Personal Data:</div>
+    <p>While using our Website/App, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you. Personally identifiable information may include, but is not limited to:</p>
+    <ul>
+        <li>Email address</li>
+        <li>First name and last name</li>
+        <li>Phone number</li>
+        <li>Address, State, Province, ZIP/Postal code, City</li>
+        <li>Usage Data</li>
+    </ul>
+    <div class="sub-section-title">1.2. Collection of Usage Data</div>
+    <p>1.2.1. Usage Data is collected automatically when using the Website/App.</p>
+    <p>1.2.2. Usage Data may include information such as Your Device's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data.</p>
+    <p>1.2.3. When you access the Website/App by or through a mobile device, we may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data.</p>
+    
+    <div class="section-title">2. Sources of Personal Information</div>
+    <p>2.1. We obtain the categories of personal information listed above from the following categories of sources:</p>
+    <p>2.1.1. Directly from You. For example, from the forms You complete on our Website/App, preferences You express or provide through our website or from Your purchases through our Website/App.</p>
+    <p>2.1.2. Indirectly from You. For example, from observing Your activity on our Website/App.</p>
+    <p>2.1.3. Automatically from You. For example, through cookies set on Your Device as You navigate through our Website/App.</p>
+    <p>2.1.4. From Service Providers. For example, third-party vendors to monitor and analyse the use of our Website/App, third-party vendors for payment processing, or other third-party vendors that We use to provide the Service to You.</p>
+    
+    <div class="section-title">3. Use of your Personal Information</div>
+    <p>3.1. We may use Personal Data for the following purposes:</p>
+    <p>3.1.1. To provide and maintain our Service, including to monitor the usage of our Website/App.</p>
+    <p>3.1.2. To manage Your Account: The Personal Data You provide can give You access to the Service available to You as a registered user.</p>
+    <p>3.1.3. To analyse and improve the Services and the Website/App;</p>
+    <p>3.1.4. To help personalize your experience of the Services and the Website/App;</p>
+    <p>3.1.5. To process or facilitate payments for our Services;</p>
+    <p>3.1.6. To perform internal operations necessary to provide our Services, troubleshooting software bugs and operational problems, to conduct data analysis, testing, research, and to monitor and analyse usage and activity trends;</p>
+    <p>3.1.7. To personalize the content and features on our Website/App;</p>
+    <p>3.1.8. To respond to your questions and assist with problems with our Services and our customer support;</p>
+    <p>3.1.9. For service development. This allows us to improve and enhance the safety and security of our Services, develop new features.</p>
+    <p>3.1.10. For the performance of a contract: the development, compliance and undertaking of the purchase contract for the services you have purchased or of any other contract with Us through the Services.</p>
+    <p>3.1.11. To contact You: To contact You by email, telephone calls, SMS, or other equivalent forms, such as a push notification regarding updates or information.</p>
+    <p>3.1.12. To provide You with news, special offers and general information about other services which we offer.</p>
+    <p>3.1.13. For business transfers: We may use Your information to evaluate or conduct a merger, divestiture, restructuring, reorganization, dissolution, or other sale or transfer of some or all of Our assets, whether as a going concern or as part of bankruptcy, liquidation, or similar proceeding, in which Personal Data held by Us about our Service users is among the assets transferred.</p>
+    <p>3.1.14. For other purposes: We may use Your information for other purposes, such as data analysis, identifying usage trends, determining the effectiveness of our promotional campaigns and to evaluate and improve our Services.</p>
+    <p>3.2. Notwithstanding anything to the contrary in this Privacy Policy, Kashti and its third-party service providers will share and use Transaction Data in order to:</p>
+    <p>3.2.1. Receive Transaction Data from Payment Card Networks or service providers for enrolled personal or corporate cards to trigger expense management notifications/actions.</p>
+    <p>3.2.2. Provide all or a portion of the information collected to Our respective third-party service providers, vendors, or contractors to facilitate and administer the Personal Card Program and the Service(s).</p>
+    <p>3.2.3. Analyse Transaction Data to create performance reports that may be shared with You.</p>
+    <p>3.3. We may use your information for any other purpose disclosed to you at the time we collect or receive the information, or otherwise with your consent.</p>
+    <p>3.4. Aggregate information is also collected for statistical purposes.</p>
+    <p>3.5. Kashti may use the information collected to communicate with you about services and may also request your feedback on the Services.</p>
+    
+    <div class="section-title">4. Retention of your Personal Data</div>
+    <p>4.1. The Company will retain Your Personal Data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use Your Personal Data to the extent necessary to comply with our legal obligations to comply with applicable laws, resolve disputes, and enforce our legal agreements and policies.</p>
+    <p>4.2. The Company will also retain Usage Data for internal analysis purposes when this data is used to strengthen the security or to improve the functionality of Our Services, or legally obligated to retain this data for longer time periods.</p>
+    
+    <div class="section-title">5. Sharing of your Personal Information</div>
+    <p>5.1. We may share Your personal information in the following situations:</p>
+    <p>5.1.1. With Service Providers, to monitor and analyse the use of our Service, for payment processing, to contact You.</p>
+    <p>5.1.2. For business transfers: We may share or transfer Your personal information in connection with, or during negotiations of, any merger, sale of Company assets, financing, or acquisition of all or a portion of Our business to another company.</p>
+    <p>5.1.3. With Affiliates, in case we will require those affiliates to honour this Privacy Policy.</p>
+    <p>5.1.4. With business partners, to offer You certain products, services or promotions.</p>
+    <p>5.1.5. With other users: when You share or interact in the public areas with other users, such information may be viewed by all users and may be publicly distributed outside.</p>
+    <p>5.1.6. With Your consent: We may disclose Your personal information for any other purpose with Your consent.</p>
+    <p>5.2. Your consent to this Privacy Policy followed by Your submission of such information represents Your agreement to that transfer.</p>
+    <p>5.3. The Company will take necessary steps to ensure that Your data is treated securely with this Privacy Policy.</p>
+    <p>5.4. Your Personal Information and files including their backups are stored on Kashti’s servers and the servers of companies we hire to provide services to us.</p>
+    <p>5.5. We do not sell, trade, or otherwise transfer or share your Personal Information except in the following limited cases:</p>
+    <p>5.5.1. As to comply with applicable law or law enforcement;</p>
+    <p>5.5.2. To respond to claims and/or legal process;</p>
+    <p>5.5.3. To protect our rights, property, and enforce Terms of Service;</p>
+    <p>5.5.4. To help ensure the safety of the public or an individual;</p>
+    <p>5.5.5. To prevent behaviour that is illegal or unethical;</p>
+    <p>5.5.6. With your consent, request or direction; or</p>
+    <p>5.5.7. As otherwise set forth in this Policy.</p>
+    <p>5.6. Some elements on the Website/App, such as any sponsored links advertising, are supplied to us by third parties under contract. We may supply some of your Personal Information to those third parties further.</p>
+    
+    <div class="section-title">6. Storage of your Personal Data</div>
+    <p>6.1. Your Personal Information and files including their backups are stored on Kashti servers and the servers of companies we hire to provide services to Us. Your Personal Information may be transferred across national borders because We may have servers located outside India, and the companies we hire to help us run our business may be located in different countries around the world.</p>
+    <p>6.2. Your consent to this Privacy Policy followed by Your submission of such information represents Your agreement to that transfer.</p>
+    <p>6.3. We will take all steps reasonably necessary to ensure that Your data is treated securely and in accordance with this Privacy Policy and no transfer of Your Personal Data will take place to an organization or a country unless there are adequate controls in place including the security of Your data and other personal information.</p>
+    
+    <div class="section-title">7. Legal Basis</div>
+    <p>7.1. We will normally collect Personal Information from you only where it is needed to perform a contract with you, where the processing is in Our legitimate interests and not overridden by your data protection interests or fundamental rights and freedoms, or where We have your consent. If you have questions or need further information concerning the legal basis, please contact Us at Compliance@kashti.com.</p>
+    
+    <div class="section-title">8. Cookies or Browser Cookies</div>
+    <p>8.1. Tracking Technologies and Cookies</p>
+    <p>8.1.1. We use Cookies and similar tracking technologies to track the activity on Our Website/App and store certain information. Tracking technologies used are beacons, tags, and scripts to collect and track information and to improve and analyse Our Website/App. The technologies We use may include:</p>
+    <p>8.1.2. Cookies or Browser Cookies. A cookie is a small file placed on Your Device. You can instruct Your browser to refuse all Cookies or to indicate when a Cookie is being sent. However, if You do not accept Cookies, you may not be able to use some parts of our Website/App.</p>
+    <p>8.1.3. Web Beacons. Certain sections of our Website/App and our emails may contain small electronic files known as web beacons (also referred to as clear gifs, pixel tags, and single-pixel gifs) that permit the Company, for example, to count users who have visited those pages or opened an email and for other related Website/App statistics.</p>
+    <p>8.1.4. Cookies can be "Persistent" or "Session" Cookies. Persistent Cookies remain on Your personal computer or mobile device when You go offline, while Session Cookies are deleted as soon as You close Your web browser.</p>
+    <p>8.1.5. Purpose: These Cookies are used to track information about traffic to the Website/App and how users use the Website/App. The information gathered via these Cookies may directly or indirectly identify you as an individual visitor. This is because the information collected is typically linked to a pseudonymous identifier associated with the device you use to access the Website/App. We may also use these Cookies to test new pages, features or new functionality of the Website/App to see how our users react to them.</p>
+    
+    <div class="section-title">9. Marketing, Preference and opt outs</div>
+    <p>9.1. We use your personal information to send you marketing by post, telephone, social media platforms, email, SMS, application notifications and silent notifications to track installation status of the application. We may also use your personal information to carry out online paid marketing activities in the nature of retargeting.</p>
+    <p>9.2. We also use technology to help us understand your personal preferences and interests so that we can send recommendations and marketing communications that are likely to be of more interest to you. Using technology in this way is sometimes known as profiling.</p>
+    <p>9.3. If you wish to unsubscribe from emails sent by us, you can do so at any time by clicking on the "unsubscribe" link that appears in all emails and by adjusting the settings on your device to turn off notifications. Otherwise, you can always contact us to update your contact preferences. You may also object to profiling relating to direct marketing by contacting us at details given in Contact Us clause.</p>
+    <p>9.4. Kashti will not send you any unsolicited marketing or promotional email without your permission. Please note that, we may continue to send you essential messages, promotional messages, emails such as updates and notifications related to the Services you have subscribed to or information about your account.</p>
+    <p>9.5. Please note that any opt out is specific to the browser You use. You may need to opt out on every browser that You use.</p>
+    
+    <div class="section-title">10. Connecting your Email Account via social media</div>
+    <p>10.1. You can choose to provide explicit consent to connect your email accounts with your Kashti Account. Once connected, the Website/App will securely access and analyse the relevant contents related to the Services provided by Kashti. Kindly review your Personal Information prior to signing in through the applicable services.</p>
+    <p>10.2. Kashti does not under any circumstances store your email messages, email messages headers, message bodies, or attachments. Kashti only accesses your email account for scanning purposes and displays information. Kashti requests read-only access to your email account and will not attempt to alter or modify your email account or email messages in any way except as otherwise.</p>
+    <p>10.3. You can choose to enable us to access one or more of your email accounts by connecting such account(s) with your Kashti account.</p>
+    <p>10.4. You will be asked in each case whether you want to connect your email account. These scopes are required for the operation of Kashti with Gmail accounts.</p>
+    <p>10.5. You are free to de-link your email connection with Kashti at any time. No Google user data is under any circumstance shared to any third party.</p>
+    <p>10.6. You may choose to enable or log in to our Services via various online services, including social network services directly or indirectly through our Services. In all such cases, any Personal Information that you share with such social networking services shall be governed by privacy policy of the respective Social Network.</p>
+    
+    <div class="section-title">11. Privacy of Children</div>
+    <p>11.1. We recognize the importance of children's safety and privacy. We do not request, or knowingly collect, any personally identifiable information from children under the age of 18. Kashti is very sensitive to privacy issues regarding children. If a parent or guardian becomes aware that his or her child has provided us with Personal Information, he or she should write to us on contact details given on Website/App.</p>
+    
+    <div class="section-title">12. Security & Data Deletion Request</div>
+    <p>12.1. Your Personal Information is extremely important to us. Your information resides on a secure server that only selected personnel have access to. Promotional and referral codes are random alphanumeric sequences that are encrypted. In addition to our precautions, it is important that you do not share your password with anyone. Although we try our best to protect your information, we cannot eliminate security risks associated with Personal Information.</p>
+    <p>12.2. The right to delete Personal Data. You have the right to request the deletion of Your Personal Data, subject to certain exceptions. Once We receive and confirm Your request, We will delete Your personal information from our records, unless an exception applies. We may deny Your deletion request if retaining the information is necessary for Us or Our Service Providers to:</p>
+    <p>12.2.1. Complete the transaction for which We collected the personal information, provide a good or service that You requested, take actions reasonably anticipated within the context of our ongoing business relationship with You, or otherwise perform our contract with You.</p>
+    <p>12.2.2. Detect security incidents, protect against malicious, deceptive, fraudulent, or illegal activity, or prosecute those responsible for such activities.</p>
+    <p>12.2.3. Debug products to identify and repair errors that impair existing intended functionality.</p>
+    <p>12.2.4. Exercise free speech, ensure the right of another consumer to exercise their free speech rights, or exercise another right provided for by law.</p>
+    <p>12.2.5. Engage in public or peer-reviewed scientific, historical, or statistical research in the public interest</p>
+    <p>12.2.6. Enable solely internal uses that are reasonably aligned with consumer expectations based on Your relationship with Us.</p>
+    <p>12.2.7. Comply with a legal obligation or other internal and lawful uses of that information.</p>
+    
+    <div class="section-title">13. Exercising your Rights</div>
+    <p>13.1. Right to be informed: You are entitled to know whether we hold your Personal Information and the purpose your Personal Information is processed for.</p>
+    <p>13.2. Right of access: You are entitled to obtain a copy of your Personal Information, together with an explanation of the categories of Personal Information being processed, the purposes, and the details of third parties to whom the Personal Information may have been disclosed to.</p>
+    <p>13.3. Right to rectification: You are entitled to correct / update your Personal Information available with us.</p>
+    <p>13.4. Right to erasure: You are entitled to get your Personal Information erased from Our databases. Please note that if we need to retain certain Personal Information about you for legal and internal business reasons, such as fraud prevention we will retain to comply with our legal obligations and enforce our agreements.</p>
+    <p>13.5. Right to data portability: You are entitled to obtain and reuse your Personal Information. You can either obtain the Personal Information from us or, in turn, provide it to a third.</p>
+    <p>13.6. Right to object / restrict processing or both: You have a right to object / restrict the processing of your Personal Information in some circumstances, including where the Personal Information is inaccurate or no longer required in light of the purpose of processing, or in connection with direct marketing you can prevent / discontinue marketing communications to you by forms we use to collect your Personal Information, or by utilizing opt-out mechanisms in the emails we send you.</p>
+    <p>13.7. In the above cases, we will retain minimum Personal Information to note that you opted out from being contacted again. For the exercise of any of the above-mentioned rights, please write to us at the contact details given on our website.</p>
+    
+    <div class="section-title">14. Third Party Sharing</div>
+    <p>14.1. Some of the functionality on Our Website/App may be provided by third parties that are not affiliated with Kashti. These entities may collect or receive certain information about your use of our Website/App and your activities over time and across different websites, apps, including through the use of cookies, web beacons, and similar technologies. This Privacy Policy does not apply to, and we are not responsible for, third-party cookies, web beacons, or other tracking technologies.</p>
+    <p>14.2. Kashti is not responsible for the privacy practices of these entities. In addition, our Services may contain links to other websites not operated or controlled by us. If you provide any Personal Information through any such third-party website, we recommend that you familiarize yourself with the privacy policies and practices of that third party.</p>
+    
+    <div class="section-title">15. Changes to the Privacy Policy</div>
+    <p>15.1. Features of our Website/App may change from time to time. As a result, we reserve the right to update or modify this Privacy Policy at any time and from time to time without prior notice. If we make any material changes to the way we use or disclose your Personal Information, we will notify you by email, at the email address you have provided to us. Please review this Privacy Policy periodically by visiting this webpage.</p>
+    <p>15.2. Kashti welcomes your comments regarding this Privacy Policy. We are committed to conducting our business in accordance to ensure that the confidentiality of Personal Information is protected and maintained.</p>
+    
+    <div class="section-title">16. Contact us</div>
+    <p>16.1. If you have any questions about this Privacy Policy, you can contact us:</p>
+    <p>16.1.1. By visiting this page on our Website/App.</p>
+    <p>16.1.2. By sending us an email: Support@kashti.com</p>
+    <p>16.2. If you have any grievance or privacy concern, you can contact the Grievance Officer at:</p>
+    <p>16.2.1. Kashti Finserv Pvt. Ltd.</p>
+    <p>16.2.2. Address: ICS SQUARE No.57, Ground Floor, 8th main road, 3rd phase JP Nagar, Near State Bank of India, Bangalore- 560078, Karnataka</p>
+    <p>16.2.3. Email: support@kashti.com</p>
               </div>
             </Col>
           </Row>
