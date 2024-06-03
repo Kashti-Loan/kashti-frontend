@@ -41,7 +41,9 @@ const OtpVerfication = (props) => {
 
   useEffect(() => {
     // Focus the first input field when the component mounts
-    inputRefs[0].current.focus();
+    setTimeout(() => {
+      inputRefs[0].current.focus();
+    }, 50);
   }, []);
 
   function replaceCharacters(phoneNumber) {
