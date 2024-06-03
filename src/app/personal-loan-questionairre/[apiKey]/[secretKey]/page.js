@@ -52,7 +52,8 @@ const Page = ({ params }) => {
                   );
                 }}
               >
-                <ArrowLeftShort /> <span>Personal Loan</span>
+                {currentStep > 1 ? <ArrowLeftShort /> : null}{" "}
+                <span>Personal Loan</span>
               </button>
             </Col>
             <Col lg={12}>

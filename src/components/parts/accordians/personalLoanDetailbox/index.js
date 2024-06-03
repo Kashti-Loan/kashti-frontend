@@ -76,6 +76,7 @@ const PersonalLoanDetailBox = ({ item, currentQues, key }) => {
             Loan Details <ChevronDown />
           </span>
           <Link
+            target="_blank"
             href={item?.apply_link ? item.apply_link : "#"}
             className="primaryBtn"
           >

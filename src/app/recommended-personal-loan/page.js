@@ -5,7 +5,12 @@ import Link from "next/link";
 import { ArrowLeftShort } from "react-bootstrap-icons";
 import { PageTitle, SectionTitle, Text } from "@styles/styledComponent";
 import { routesConstant } from "@utils/routesConstant";
-import { CustomImage, InputRange, PersonalLoanCard, StepperContainer } from "@components";
+import {
+  CustomImage,
+  InputRange,
+  PersonalLoanCard,
+  StepperContainer,
+} from "@components";
 import { applyPersonalLoan, whiteKashti } from "@public/assets";
 import { useEffect, useState } from "react";
 import PersonalLoanDetailBox from "@components/parts/accordians/personalLoanDetailbox";
@@ -37,18 +42,32 @@ const Page = () => {
         <Container>
           <Row>
             <Col lg={12}>
-              <Link href={routesConstant.PERSONAL_LOAN}>
-                <ArrowLeftShort /> <span>Personal Loan</span>
-              </Link>
+              {/* <Link href={routesConstant.PERSONAL_LOAN}> */}
+              {/* <span>Personal Loan</span> */}
+              {/* </Link> */}
             </Col>
             <Col lg={12}>
-              <PageTitle>{preApprovedLoanOffers.length} Personal Loan Recommendations Based on your Profile</PageTitle>
-              <Text>Explore the loans, assess unique advantages, and effortlessly avail a loan.</Text>
+              <PageTitle>
+                {preApprovedLoanOffers.length} Personal Loan Recommendations
+                Based on your Profile
+              </PageTitle>
+              <Text>
+                Explore the loans, assess unique advantages, and effortlessly
+                avail a loan.
+              </Text>
             </Col>
           </Row>
         </Container>
-        <CustomImage src={applyPersonalLoan} alt='Personal Loan Questionnaire' className={styles.applyPersonalLoan} />
-        <CustomImage src={whiteKashti} alt='White Kashti' className={styles.whiteKashti} />
+        <CustomImage
+          src={applyPersonalLoan}
+          alt="Personal Loan Questionnaire"
+          className={styles.applyPersonalLoan}
+        />
+        <CustomImage
+          src={whiteKashti}
+          alt="White Kashti"
+          className={styles.whiteKashti}
+        />
       </section>
       {/* Questionnaire Section */}
       {preApprovedLoanOffers && preApprovedLoanOffers.length > 0 ? (
@@ -209,7 +228,11 @@ const Page = () => {
                   </div> */}
                   {preApprovedLoanOffers &&
                     preApprovedLoanOffers.map((item, i) => (
-                      <PersonalLoanDetailBox item={item} currentQues={active === item.id ? true : false} key={i} />
+                      <PersonalLoanDetailBox
+                        item={item}
+                        currentQues={active === item.id ? true : false}
+                        key={i}
+                      />
                     ))}
                 </StepperContainer>
               </Col>

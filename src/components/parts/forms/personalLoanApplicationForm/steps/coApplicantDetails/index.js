@@ -16,6 +16,7 @@ import SelectTag from "@components/ui/selectTag";
 import CommonTooltip from "@components/ui/commonTooltip";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
 import moment from "moment";
+import DatePickerInputTag from "@components/ui/datePickerInput";
 
 const CoApplicantDetails = (props) => {
   const { setCurrentStep, setCompletedSteps, onAddCustomerData, loanData } =
@@ -99,12 +100,23 @@ const CoApplicantDetails = (props) => {
               name="coAppplicantDOB"
               control={control}
               render={({ field, fieldState: { error } }) => (
-                <InputTag
+                <DatePickerInputTag
                   {...field}
                   label="Date of Birth"
-                  type="date"
-                  name="coAppplicantDOB"
+                  placeholder="Date of Birth"
                   error={error?.message}
+                  minDate={moment().subtract(500, "years")._d}
+                  maxDate={moment().subtract(21, "years")._d}
+                  showYearDropdown
+                  scrollableYearDropdown
+                  showMonthDropdown
+                  selected={getValues("coAppplicantDOB")}
+                  onChange={(date) =>
+                    setValue("coAppplicantDOB", date, {
+                      shouldValidate: true,
+                    })
+                  }
+                  dateFormat="dd/MM/YYYY"
                 />
               )}
             />

@@ -10,7 +10,8 @@ export const routesConstant = {
   CREDIT_SCORE_REPORT: "/credit-score-report",
   CREDIT_CARD_QUESTIONAIRRE: "/credit-card-questionnaire",
   PERSONAL_LOAN_QUESTIONAIRRE: "/personal-loan-questionairre",
-  PERSONAL_LOAN_QUESTIONAIRRE_APPLICATION: "/personal-loan-questionairre-application",
+  PERSONAL_LOAN_QUESTIONAIRRE_APPLICATION:
+    "/personal-loan-questionairre-application",
   LOANS: "#",
   RESOURCES: "#",
   ABOUT_US: "/about-us",

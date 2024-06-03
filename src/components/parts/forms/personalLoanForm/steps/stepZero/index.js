@@ -23,6 +23,9 @@ import { usePersonalLoan } from "@context/PersonalLoanContext";
 import CustomInput from "@components/ui/customInput";
 import PhoneNumberInput from "@components/ui/phoneNumberInput";
 import StepperContainer from "@components/container/stepperContainer";
+import { routesConstant } from "@utils/routesConstant";
+import DatePickerInputTag from "@components/ui/datePickerInput";
+import moment from "moment";
 
 const StepZero = (props) => {
   const [otpSent, setOtpSent] = useState(false);
@@ -57,6 +60,7 @@ const StepZero = (props) => {
     control,
     getValues,
     watch,
+    setValue,
     formState: { errors, isSubmitting, isSubmitSuccessful },
   } = methods;
 
@@ -143,11 +147,11 @@ const StepZero = (props) => {
                 <span className="checkmark tcagree"></span>
                 <span>
                   By submitting this form, you have read and agreed to the{" "}
-                  <Link target="_blank" href="/assets/t_c.pdf">
+                  <Link target="_blank" href={routesConstant.TERMS_CONDITION}>
                     Credit Report Terms of Use
                   </Link>{" "}
                   and{" "}
-                  <Link target="_blank" href="/assets/Privacy_Policy.pdf">
+                  <Link target="_blank" href={routesConstant.PRIVACY_POLICY}>
                     Privacy Policy
                   </Link>
                 </span>
