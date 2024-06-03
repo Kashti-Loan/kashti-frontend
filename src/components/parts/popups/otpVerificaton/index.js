@@ -1,4 +1,5 @@
 "use client";
+import toast, { Toaster } from "react-hot-toast";
 import { LinkText, SectionTitle, Text } from "@styles/styledComponent";
 import styles from "./style.module.scss";
 import DataSafetyIcon from "@components/ui/svg/dataSafetyIcon";
@@ -91,7 +92,10 @@ const OtpVerfication = (props) => {
       setVerifying(false);
     } catch (e) {
       setVerifying(false);
-      console.log("Error:", e);
+      console.log("Error:", e.response.data);
+      if (e?.response?.data) {
+        toast.error(e.response.data.message);
+      }
     }
   };
 

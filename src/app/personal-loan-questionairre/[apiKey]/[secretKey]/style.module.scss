@@ -132,11 +132,11 @@
     }
   }
 }
-
+ 
 @media only screen and (max-width: 600px) {
   .personalLoanQuestionnairePage {
     .headerSection {
-      min-height: unset;
+      min-height: 120px;
       padding-top: 10px;
       padding-bottom: 14px;
       .applyPersonalLoan,
@@ -155,17 +155,18 @@
               }
             }
             &:nth-of-type(2) {
-              display: none;
-              // h1 {
-              //   font-size: 18px;
-              //   line-height: 27px;
-              //   text-align: left;
-              // }
-              // p {
-              //   font-size: 14px;
-              //   line-height: 21px;
-              //   text-align: left;
-              // }
+              // display: none;
+              h1 {
+                font-size: 18px;
+                line-height: 27px;
+                text-align: center;
+                margin-top: 8px;
+              }
+              p {
+                font-size: 14px;
+                text-align: center;
+                line-height: 21px;
+              }
             }
           }
         }
@@ -175,6 +176,18 @@
       background-color: #fff;
       > div {
         margin-top: 0px;
+      }
+    }
+  }
+  .headerLogin {
+    min-height: unset !important;
+    > div {
+      > div {
+        > div {
+          &:nth-of-type(2) {
+            display: none;
+          }
+        }
       }
     }
   }

@@ -15,21 +15,43 @@ import {
 } from "@public/assets";
 import { routesConstant } from "@utils/routesConstant";
 import { bankLogoSliderSettings, bankingSliderSettings } from "@utils/constant";
+import { usePersonalLoan } from "@context/PersonalLoanContext";
+import { Toaster } from "react-hot-toast";
 
 const Page = ({ params }) => {
+  const { accessToken, currentStep, setCurrentStep, loanData } =
+    usePersonalLoan();
+
   const [personalLoanAccordian, setPersonalLoanAccordian] = useState(true);
   const [
     personalLoanEligibilityAccordian,
     setPersonalLoanEligibilityAccordian,
   ] = useState(true);
+
   return (
     <main className={styles.personalLoanQuestionnairePage}>
       {/* Header Section */}
-      <section className={styles.headerSection}>
+
+      <Toaster />
+      <section
+        className={`${styles.headerSection} ${
+          accessToken ? styles.headerLogin : null
+        }`}
+      >
         <Container>
           <Row>
             <Col lg={12}>
-              <button>
+              <button
+                onClick={() => {
+                  setCurrentStep((prevStep) =>
+                    prevStep > 1
+                      ? prevStep === 8 && loanData?.isPermenentAddressSame
+                        ? prevStep - 2
+                        : prevStep - 1
+                      : prevStep
+                  );
+                }}
+              >
                 <ArrowLeftShort /> <span>Personal Loan</span>
               </button>
             </Col>
