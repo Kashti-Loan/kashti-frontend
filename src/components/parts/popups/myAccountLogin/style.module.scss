@@ -1,0 +1,93 @@
+@import "/src/styles/mixins";
+
+.accountMenu {
+  width: 100%;
+  height: 100%;
+  background-color: var(--globalWhite);
+  //   overflow-y: auto;
+  //   max-height: calc(100% - 78px);
+  padding-bottom: 40px;
+  > h2 {
+    font-size: 16px;
+    line-height: 24px;
+    padding-inline: 16px;
+  }
+  .menuHeader {
+    padding: 11px 16px;
+    box-shadow: 0px 1px 3px 0px #0000001a;
+    h2 {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+  .menuList {
+    @include flexContainer($gap: 24px, $justifyContent: flex-start);
+    flex-direction: column;
+    padding: 20px 16px 20px;
+    overflow-y: auto;
+    max-height: calc(100% - 78px);
+    .menuBlock {
+      width: 100%;
+      .menuTitle {
+        @include flexContainer($justifyContent: space-between);
+        h4 {
+          font-size: 14px;
+          line-height: 20px;
+          color: var(--globalBlack);
+          margin: 0;
+          font-weight: 600;
+        }
+        a {
+          border: none;
+          padding: 0;
+        }
+      }
+      form {
+        padding-top: 16px;
+        button {
+          width: 100%;
+          margin-top: 16px;
+        }
+      }
+      .orBlock {
+        margin-top: 24px;
+        @include flexContainer($gap: 8px);
+        hr {
+          flex: 1;
+          &:nth-of-type(1) {
+            background: linear-gradient(
+              90deg,
+              #dadde9 0%,
+              rgba(218, 221, 233, 0) 101.4%
+            );
+          }
+          &:nth-of-type(2) {
+            background: linear-gradient(
+              90deg,
+              #dadde9 0%,
+              rgba(218, 221, 233, 0) 101.4%
+            );
+          }
+        }
+        span {
+          font-size: 12px;
+          line-height: 16px;
+          color: var(--globalBlack);
+        }
+      }
+      .socialLoginContainer {
+        margin-top: 16px;
+        @include flexContainer($justifyContent: space-around);
+        .socialLogin {
+          // width: 100%;
+          @include flexContainer($justifyContent: flex-start, $gap: 8px);
+          h5 {
+            font-size: 12px;
+            line-height: 18px;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}

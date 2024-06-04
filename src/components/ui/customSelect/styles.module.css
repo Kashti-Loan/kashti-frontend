@@ -1,0 +1,29 @@
+.selectContainer {
+  position: relative;
+}
+.selectContainer label {
+  position: absolute;
+  background-color: var(--globalWhite);
+  font-size: 12px;
+  line-height: 18px;
+  color: #475467;
+  left: 12px;
+  top: -8px;
+  padding-inline: 4px;
+  display: none;
+}
+.selectContainer select {
+  width: 100%;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: 95% center;
+  -moz-appearance: none; /* Firefox */
+  -webkit-appearance: none; /* Safari and Chrome */
+  appearance: none;
+}
+.selectContainer select:focus {
+  outline: none;
+}
+.selectContainer select:focus ~ label {
+  display: inline-block;
+}/*# sourceMappingURL=styles.module.css.map */

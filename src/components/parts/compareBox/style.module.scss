@@ -1,0 +1,93 @@
+@import "/src/styles/mixins";
+
+.compareBox {
+  background-color: var(--globalWhite);
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0px 3px 12px 0px #2a34851a;
+  position: fixed;
+  bottom: 10%;
+  right: 5%;
+  z-index: 999;
+  width: 100%;
+  max-width: 455px;
+  @include flexContainer($alignItems: flex-start, $gap: 24px);
+  flex-direction: column;
+  > div {
+    width: 100%;
+  }
+  .compareCards {
+    @include flexContainer($alignItems: flex-start, $gap: 24px);
+    flex-direction: column;
+    > div {
+      width: 100%;
+    }
+    .compareCardBox {
+      padding: 16px;
+      @include flexContainer($justifyContent: flex-start, $gap: 16px);
+      border-radius: 8px;
+      > div {
+        // width: 100%;
+        &:nth-of-type(2) {
+            flex: 1;
+        }
+        img {
+            max-width: 83px;
+            height: auto;
+        }
+        h3 {
+            margin: 0;
+            font-size: 16px;
+            line-height: 24px;
+            color: #000;
+        }
+        svg {
+            width: 28px;
+            height: 28px;
+            transform: rotate(45deg);
+            fill: #344054;
+            cursor: pointer;
+        }
+        &:nth-of-type(3) {
+            align-self: flex-start;
+        }
+      }
+    }
+  }
+  .compareBtn {
+    @include flexContainer($justifyContent: space-between);
+    border-top: 1px solid #eaecf0;
+    padding-top: 16px;
+    > button {
+      &:nth-of-type(1) {
+        border: none;
+      }
+    }
+    > a {
+        > span {
+          &:nth-of-type(2) {
+            background: var(--globalWhite);
+            color: var(--primaryColor);
+            border-radius: 50%;
+            padding: 2px 8px;
+          }
+        }
+        &:hover {
+          > span {
+            &:nth-of-type(2) {
+              background-color: var(--primaryColor);
+              color: var(--globalWhite);
+            }
+          }
+        }
+      }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .compareBox {
+    bottom: 0;
+    right: 0;
+    z-index: 999999999999;
+  }
+}

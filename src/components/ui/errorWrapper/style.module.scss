@@ -1,0 +1,18 @@
+@import "/src/styles/mixins";
+
+.errorWrapper {
+  @include flexContainer($gap: 0, $justifyContent: flex-start, $alignItems: "flex-start");
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  .errorBox {
+    height: 10px;
+    margin-top: 2px;
+  }
+  .error {
+    color: var(--globalRed);
+    font-size: 12px;
+    margin-bottom: 0px;
+    padding-left: 5px;
+  }
+}

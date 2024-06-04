@@ -155,9 +155,79 @@ import cloudUpload from "./images/cloudUpload.png";
 import newicici from "./images/new_icici.png";
 import newyes from "./images/new_yes.png";
 import newmuthoot from "./images/new_muthoot.png";
+import rbiapprovedLenders from "./images/approvedLenders.png";
+import personalLoanBannerImg from "./images/personalLoanBannerImg.png";
+import reimbursal from "./images/reimbursal.png";
+import fiveStepsPersonalLoan from "./images/fiveStepsPersonalLoan.png";
+import personalLoanMobile from "./images/personalLoanMobile.png";
+import personalLoanEmi from "./images/personalLoanEmi.png";
+import homeLoanEmi from "./images/homeLoanEmi.png";
+import compoundInterest from "./images/compoundInterest.png";
+import creditCardLoan from "./images/creditCardLoan.png";
+import bikeLoanEmi from "./images/bikeLoanEmi.png";
+import carLoanEmi from "./images/carLoanEmi.png";
+import simpleInterest from "./images/simpleInterest.png";
+import amex_bank from "./images/ourPartners/amex_bank.png";
+import axis_bank from "./images/ourPartners/axis_bank.png";
+import bajaj_finserv from "./images/ourPartners/bajajfinserv.png";
+import cash from "./images/ourPartners/cash.png";
+import chola from "./images/ourPartners/chola.png";
+import crif from "./images/ourPartners/crif.png";
+import experian from "./images/ourPartners/experian.png";
+import fibe from "./images/ourPartners/fibe.png";
+import hdfc_bank from "./images/ourPartners/hdfc_bank.png";
+import icici_bank from "./images/ourPartners/icici_bank.png";
+import indus_bank from "./images/ourPartners/indus_bank.png";
+import kredit_bee from "./images/ourPartners/kreditBee.png";
+import ltfinance from "./images/ourPartners/ltfinance.png";
+import mpokket from "./images/ourPartners/mpokket.png";
+import muthoot_fin from "./images/ourPartners/muthoot.png";
+import paysense from "./images/ourPartners/paysense.png";
+import piramal from "./images/ourPartners/piramal.png";
+import poonawal from "./images/ourPartners/poonawal.png";
+import sbi_bank from "./images/ourPartners/sbi_bank.png";
+import tata_capital from "./images/ourPartners/tata_capital.png";
+import moneyV from "./images/ourPartners/moneyV.png";
+import idfc_b from "./images/ourPartners/idfc.png";
+import incred from "./images/ourPartners/incred.png";
 
 export {
   siteLogo,
+  homeLoanEmi,
+  amex_bank,
+  incred,
+  axis_bank,
+  bajaj_finserv,
+  idfc_b,
+  cash,
+  chola,
+  crif,
+  experian,
+  fibe,
+  hdfc_bank,
+  icici_bank,
+  indus_bank,
+  kredit_bee,
+  ltfinance,
+  moneyV,
+  mpokket,
+  muthoot_fin,
+  paysense,
+  piramal,
+  poonawal,
+  sbi_bank,
+  tata_capital,
+  compoundInterest,
+  creditCardLoan,
+  bikeLoanEmi,
+  carLoanEmi,
+  simpleInterest,
+  personalLoanMobile,
+  personalLoanEmi,
+  fiveStepsPersonalLoan,
+  reimbursal,
+  personalLoanBannerImg,
+  rbiapprovedLenders,
   GenderMale,
   GenderFemale,
   langIcon,
@@ -314,4 +384,5 @@ export {
   newicici,
   newyes,
   newmuthoot,
+  
 };

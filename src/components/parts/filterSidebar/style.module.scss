@@ -1,0 +1,90 @@
+@import "/src/styles/mixins";
+
+.filterSidebar {
+  background: #eaebf366;
+  padding: 20px 24px;
+  border-radius: 8px;
+  @include flexContainer($justifyContent: flex-start, $gap: 32px);
+  flex-direction: column;
+  > div {
+    width: 100%;
+  }
+  .filterHeader {
+    @include flexContainer;
+    h2,
+    button {
+      width: 100%;
+    }
+    h2 {
+      font-size: 24px;
+      line-height: 36px;
+    }
+    button {
+      background: none;
+      border: none;
+      color: var(--primaryColor);
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 600;
+      text-align: right;
+    }
+  }
+  .filterBlock {
+    @include flexContainer;
+    flex-direction: column;
+    > div {
+      width: 100%;
+      &:nth-of-type(1) {
+        @include flexContainer($justifyContent: space-between);
+        h3 {
+          font-size: 18px;
+          line-height: 28px;
+          margin: 0;
+        }
+        > div {
+          @include flexContainer;
+          svg {
+            width: 18px;
+            height: 18px;
+          }
+        }
+      }
+      &:nth-of-type(2) {
+        @include flexContainer($alignItems: flex-start, $gap: 16px);
+        flex-direction: column;
+        ul {
+          padding: 0;
+          margin: 0;
+          list-style: none;
+          @include flexContainer($alignItems: flex-start, $justifyContent: flex-start, $gap: 16px);
+          flex-direction: column;
+          max-height: 166px;
+          overflow-y: auto;
+          width: 100%;
+          overflow-x: visible;
+          li {
+            width: 100%;
+          }
+          &::-webkit-scrollbar {
+            width: 4px;
+        }
+        &::-webkit-scrollbar-track {
+            background: #E4E4E4; 
+          }
+          &::-webkit-scrollbar-thumb {
+            background: #9CA2C8; 
+          }
+        }
+        .filterViewMoreBtn {
+          background: none;
+          border: none;
+          color: var(--primaryColor);
+          font-size: 16px;
+          line-height: 24px;
+          font-weight: 600;
+          text-align: left;
+        }
+      }
+    }
+  }
+}

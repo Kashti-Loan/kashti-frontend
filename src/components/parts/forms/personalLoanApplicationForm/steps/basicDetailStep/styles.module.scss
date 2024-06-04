@@ -1,0 +1,82 @@
+@import "/src/styles/mixins";
+
+.formSection {
+  form {
+    max-width: 793px;
+    margin: 48px auto 0;
+    .inputBlock {
+      @include flexContainer($alignItems: flex-start);
+      > div {
+        &:nth-of-type(1) {
+          input {
+            text-transform: uppercase;
+            letter-spacing: 5px;
+          }
+        }
+      }
+    }
+    .radioGrpBlock {
+      margin-top: 20px;
+      h3 {
+        font-size: 14px;
+        line-height: 21px;
+        color: var(--globalBlack);
+        font-weight: 600;
+      }
+      .radioGrpInner {
+        @include flexContainer($gap: 24px, $justifyContent: flex-start);
+      }
+    }
+    .submitBlock {
+      margin-top: 48px;
+      button {
+        width: 100%;
+        max-width: 387px;
+      }
+    }
+
+    .errorBox {
+      height: 10px;
+    }
+    .error {
+      color: var(--globalRed);
+      font-size: 12px;
+      margin-bottom: 0px;
+      padding-left: 5px;
+    }
+  }
+  .dataSafetyInfo {
+    @include flexContainer($gap: 4px);
+    color: #475467;
+    margin-top: 24px;
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .formSection {
+    form {
+      margin-top: 20px;
+      .submitBlock {
+        margin-top: 24px;
+      }
+      .inputBlock {
+        flex-direction: column;
+      }
+    }
+    .dataSafetyInfo {
+      gap: 8px;
+      svg {
+        width: 20px;
+        height: 20px;
+        flex: 0 0 20px;
+      }
+      span {
+        text-align: left;
+        font-size: 10px;
+        line-height: 15px;
+      }
+    }
+  }
+}

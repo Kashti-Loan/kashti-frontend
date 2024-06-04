@@ -1,0 +1,198 @@
+@import "/src/styles/mixins";
+
+.creditCardDetailBox {
+  .creditCardInfo {
+    padding: 20px;
+    @include flexContainer(
+      $justifyContent: space-between,
+      $alignItems: stretch
+    );
+    .creditCardImg {
+      @include flexContainer($alignItems: flex-start);
+      > div {
+        width: 100%;
+        &:nth-of-type(2) {
+          h4 {
+            margin: 0;
+            font-size: 20px;
+            line-height: 30px;
+            font-weight: 600;
+          }
+          p {
+            @include flexContainer($alignItems: flex-start, $gap: 5px);
+            flex-direction: column;
+            margin: 5px 0 20px;
+            span {
+              &:nth-of-type(1) {
+                font-size: 14px;
+                line-height: 20px;
+                color: #475467;
+              }
+              &:nth-of-type(2) {
+                color: var(--globalWhite);
+                font-size: 16px;
+                line-height: 22.4px;
+                padding: 4px 12px;
+                border-radius: 4px;
+              }
+            }
+          }
+          > div {
+            label {
+              @include flexContainer($justifyContent: flex-start, $gap: 5px);
+              font-size: 16px;
+              line-height: 24px;
+              color: #475467;
+            }
+          }
+        }
+      }
+    }
+    .creditCardDetail {
+      border-left: 1px solid #eaecf0;
+      padding-left: 30px;
+      @include flexContainer;
+      flex-direction: column;
+      > p,
+      > a {
+        width: 100%;
+      }
+      p {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      a {
+        font-weight: 600;
+        color: var(--primaryColor);
+      }
+    }
+  }
+  .creditCardAccordian {
+    border-radius: 0px 0px 8px 8px;
+    background-color: #eaebf3;
+    padding: 8px 20px;
+    > button {
+      width: 100%;
+      background: none;
+      border: none;
+      @include flexContainer($justifyContent: space-between);
+      > span {
+        color: var(--primaryColor);
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        @include flexContainer($justifyContent: flex-start, $gap: 9px);
+        svg {
+          transform: rotate(0deg);
+          transition: all 0.2s ease-in-out;
+        }
+      }
+      > a {
+        padding-block: 9px;
+      }
+    }
+    .creditOpenBox {
+      @include flexContainer($alignItems: flex-start);
+      margin-top: 30px;
+      margin-bottom: 12px;
+      > div {
+        width: 100%;
+        h4 {
+          font-size: 16px;
+          line-height: 24px;
+          color: #000;
+          font-weight: 600;
+          margin: 0;
+        }
+        ul {
+          padding: 0 0 0 15px !important;
+          margin: 15px 0 0 0 !important;
+          @include flexContainer($justifyContent: flex-start, $gap: 6px);
+          flex-direction: column;
+          list-style: disc !important;
+          li {
+            width: 100%;
+            font-size: 14px;
+            line-height: 21px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.activeCard {
+  .creditCardAccordian {
+    > button {
+      span {
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .creditCardDetailBox {
+    .creditCardInfo {
+      flex-direction: column;
+      .creditCardImg {
+        > div {
+          max-width: 50%;
+          img {
+            width: 100%;
+            height: auto;
+          }
+          &:nth-of-type(2) {
+            h4,
+            p,
+            > div label {
+              font-size: 12px;
+              line-height: 18px;
+            }
+            p {
+              span {
+                &:nth-of-type(2) {
+                  font-size: 12px;
+                  line-height: 17px;
+                }
+              }
+            }
+          }
+        }
+      }
+      .creditCardDetail {
+        border-left: none;
+        border-top: 1px solid #eaecf0;
+        padding-left: 0;
+        padding-top: 30px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        > p,
+        > a {
+          // max-width: 50%;
+          flex: 1 0 calc(50% - 20px);
+        }
+        a {
+          font-size: 12px;
+          line-height: 18px;
+        }
+      }
+    }
+    .creditCardAccordian {
+      > button {
+        > span,
+        a {
+          font-size: 14px;
+          line-height: 21px;
+        }
+      }
+      .creditOpenBox {
+        flex-direction: column;
+      }
+    }
+  }
+}

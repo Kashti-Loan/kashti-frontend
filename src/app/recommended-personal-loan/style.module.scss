@@ -1,0 +1,290 @@
+@import "/src/styles/mixins";
+
+.recommendedLoanPage {
+  .headerSection {
+    background: linear-gradient(
+      178.72deg,
+      #1b6430 8.13%,
+      rgba(27, 100, 48, 0.901) 72.53%,
+      rgba(27, 100, 48, 0.5) 155.76%,
+      rgba(27, 100, 48, 0) 178.88%
+    );
+    min-height: 320px;
+    padding-top: 24px;
+    position: relative;
+    .applyPersonalLoan,
+    .whiteKashti {
+      position: absolute;
+      bottom: 0;
+    }
+    .applyPersonalLoan {
+      left: 0;
+    }
+    .whiteKashti {
+      right: 0;
+    }
+    > div {
+      > div {
+        > div {
+          &:nth-of-type(1) {
+            margin-bottom: 20px;
+            a {
+              @include flexContainer($justifyContent: flex-start, $gap: 12px);
+              color: var(--globalWhite);
+              svg {
+                width: 24px;
+                height: 24px;
+              }
+            }
+          }
+          &:nth-of-type(2) {
+            h1,
+            p {
+              text-align: center;
+              color: var(--globalWhite);
+            }
+            h1 {
+              font-size: 32px;
+              line-height: 48px;
+              margin: 0 0 8px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .questionairreSection {
+    background-color: #f9f9f9;
+    padding-bottom: 32px;
+    > div {
+      margin-top: -97px;
+      position: relative;
+      z-index: 2;
+      > div {
+        > div {
+          .loanListSection {
+            @include flexContainer($gap: 32px);
+            flex-direction: column;
+            max-width: 90%;
+            margin: 0 auto;
+            > div {
+              width: 100%;
+            }
+            .rangeFilterSection {
+              h2 {
+                font-size: 18px;
+                line-height: 28px;
+                margin: 0 0 20px;
+              }
+              .sliderBlock {
+                @include flexContainer($gap: 36px);
+                .sliderBox {
+                  width: 100%;
+                  border: 1px solid #d0d5dd;
+                  padding: 24px;
+                  border-radius: 8px;
+                }
+              }
+              .loanInputBox {
+                width: 100%;
+                @include flexContainer($gap: 8px);
+                flex-direction: column;
+                > div,
+                input {
+                  width: 100%;
+                }
+                .loanInputLabel {
+                  @include flexContainer($justifyContent: space-between);
+                  margin-bottom: 8px;
+                  label {
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 24px;
+                    color: var(--globalBlack);
+                  }
+                  span {
+                    display: inline-block;
+                    padding: 6px 20px;
+                    border-radius: 4px;
+                    border: 1px solid #d0d5dd;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 24px;
+                    color: var(--globalBlack);
+                  }
+                }
+                .loanInput {
+                  .loanRangeSlider {
+                    background-image: linear-gradient(
+                      var(--primaryColor),
+                      var(--primaryColor)
+                    );
+                    background-color: #d0d5dd;
+                    &::-webkit-slider-thumb {
+                      background: var(--primaryColor);
+                    }
+                  }
+                }
+                .minMaxBox {
+                  @include flexContainer($justifyContent: space-between);
+                  width: 100%;
+                  p {
+                    font-size: 14px;
+                    line-height: 20px;
+                  }
+                }
+              }
+            }
+            .mobileRangeFilterSection {
+              display: none;
+              background-color: #f9f9f9;
+              padding: 12px;
+              border-radius: 4px;
+              .mobileRangeHeader {
+                @include flexContainer(
+                  $justifyContent: space-between,
+                  $gap: 0px
+                );
+                button {
+                  padding: 4px 12px;
+                  border-radius: 20px;
+                  background-color: transparent;
+                  font-size: 12px;
+                  line-height: 18px;
+                  font-weight: 600;
+                  color: #344054;
+                  border: none;
+                }
+                .activeFilter {
+                  background-color: #eaebf3;
+                }
+              }
+              .sliderBox {
+                width: 100%;
+                margin-top: 24px;
+                .loanInputBox {
+                  width: 100%;
+                  @include flexContainer($gap: 8px);
+                  flex-direction: column;
+                  > div,
+                  input {
+                    width: 100%;
+                  }
+                  .loanInputLabel {
+                    @include flexContainer($justifyContent: space-between);
+                    margin-bottom: 8px;
+                    span {
+                      display: inline-block;
+                      padding: 6px 20px;
+                      border-radius: 4px;
+                      border: 1px solid #d0d5dd;
+                      font-size: 12px;
+                      font-style: normal;
+                      font-weight: 400;
+                      line-height: 18px;
+                      color: var(--globalBlack);
+                      width: 100%;
+                    }
+                  }
+                  .loanInput {
+                    .loanRangeSlider {
+                      background-image: linear-gradient(
+                        var(--primaryColor),
+                        var(--primaryColor)
+                      );
+                      background-color: #d0d5dd;
+                      &::-webkit-slider-thumb {
+                        background: var(--primaryColor);
+                      }
+                    }
+                  }
+                  .minMaxBox {
+                    @include flexContainer($justifyContent: space-between);
+                    width: 100%;
+                    p {
+                      font-size: 12px;
+                      line-height: 18px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .recommendedLoanPage {
+    .headerSection {
+      .applyPersonalLoan {
+        display: none;
+      }
+      .whiteKashti {
+        width: 70px;
+        height: 77px;
+        bottom: 115px;
+      }
+    }
+    .questionairreSection {
+      > div {
+        > div {
+          > div {
+            .loanListSection {
+              max-width: 100%;
+              .rangeFilterSection {
+                .sliderBlock {
+                  flex-wrap: wrap;
+                  .sliderBox {
+                    flex: 1 0 calc(50% - 36px);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .recommendedLoanPage {
+    .headerSection {
+      > div {
+        > div {
+          > div {
+            padding-inline: 16px;
+            &:nth-of-type(2) {
+              h1 {
+                font-size: 16px;
+                line-height: 24px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .questionairreSection {
+      > div {
+        > div {
+          > div {
+            .loanListSection {
+              max-width: 100%;
+              .rangeFilterSection {
+                display: none;
+              }
+              .mobileRangeFilterSection {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

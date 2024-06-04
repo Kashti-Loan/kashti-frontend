@@ -1,0 +1,82 @@
+@import "/src/styles/mixins";
+
+.safeGuardSection {
+  background: linear-gradient(
+    180deg,
+    #f6fbf7 49.57%,
+    rgba(255, 255, 255, 0) 88.17%
+  );
+  padding-block: 60px;
+  > div {
+    > div {
+      border-left: 2px solid #d0d5dd;
+      > div {
+        &:nth-of-type(1) {
+          padding-left: 40px;
+        }
+        &:nth-of-type(2) {
+          > div {
+            // text-align: right;
+            img {
+              width: auto !important;
+              margin: 0 0 0 auto;
+            }
+          }
+        }
+        h2 {
+          font-size: 40px;
+          line-height: 60px; /* 150% */
+          letter-spacing: -0.8px;
+        }
+        .safeGuardPointer {
+          margin: 60px 0 0;
+          list-style: none;
+          padding: 0;
+          @include flexContainer;
+          flex-direction: column;
+          max-width: 80%;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .safeGuardSection {
+    > div {
+      > div {
+        > div {
+          &:nth-of-type(2) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .safeGuardSection {
+    background: none;
+    padding: 32px 16px;
+    > div {
+      > div {
+        border-left: none;
+        > div {
+          &:nth-of-type(1) {
+            padding-left: 0px;
+          }
+          h2 {
+            font-size: 20px;
+            line-height: 24px;
+            text-align: center;
+          }
+          .safeGuardPointer {
+            max-width: 100%;
+            margin-top: 24px;
+          }
+        }
+      }
+    }
+  }
+}

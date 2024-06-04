@@ -1,0 +1,73 @@
+@import "/src/styles/mixins";
+
+.allBankSection {
+  width: 100%;
+  height: 100%;
+  background-color: var(--globalWhite);
+  max-width: 365px;
+  margin: 0 0 0 auto;
+  padding: 16px 16px 0;
+  .allBankHeader {
+    @include flexContainer($justifyContent: flex-start, $gap: 12px);
+    svg {
+      width: 30px;
+      height: 30px;
+      transform: rotate(45deg);
+      cursor: pointer;
+    }
+    h4 {
+      font-size: 16px;
+      line-height: 24px;
+      margin: 0;
+    }
+  }
+  .searchBank {
+    position: relative;
+    margin-top: 24px;
+    input {
+      padding-left: 45px;
+      width: 100%;
+    }
+    svg {
+      position: absolute;
+      fill: #646262;
+      width: 20px;
+      height: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 16px;
+    }
+  }
+  .allBankList {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 0;
+    @include flexContainer($justifyContent: flex-start);
+    flex-direction: column;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+    &::-webkit-scrollbar-track {
+      background: #e4e4e4;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #9ca2c8;
+    }
+    height: 100%;
+    li {
+      width: 100%;
+      @include flexContainer($justifyContent: flex-start, $gap: 12px);
+      img {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+      }
+      h5 {
+        margin: 0;
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+  }
+}

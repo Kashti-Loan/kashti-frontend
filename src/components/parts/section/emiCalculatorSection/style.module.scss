@@ -1,0 +1,198 @@
+@import "/src/styles/mixins";
+
+.emiCalcSection {
+  padding-block: 64px;
+  > div {
+    > div {
+      justify-content: space-between;
+      > div {
+        &:nth-of-type(1) {
+          h2,
+          h5,
+          p {
+            color: var(--globalWhite);
+          }
+          h5 {
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 36px;
+            margin: 0;
+          }
+          h2 {
+            font-size: 40px;
+            line-height: 60px;
+          }
+          .emiCalcSliderBlock {
+            margin-top: 40px;
+            @include flexContainer($gap: 24px);
+            flex-direction: column;
+            .emiCalcSliderBox {
+              width: 100%;
+              @include flexContainer($gap: 16px);
+              flex-direction: column;
+              > div,
+              input {
+                width: 100%;
+              }
+              .emiCalcSliderLabel {
+                @include flexContainer($justifyContent: space-between);
+                label {
+                  font-size: 18px;
+                  font-style: normal;
+                  font-weight: 600;
+                  line-height: 28px;
+                  color: var(--globalWhite);
+                }
+                span {
+                  display: inline-block;
+                  padding: 12px 30px;
+                  border-radius: 30px;
+                  background: #fef2e9;
+                  font-size: 18px;
+                  font-style: normal;
+                  font-weight: 600;
+                  line-height: 28px;
+                  color: var(--globalBlack);
+                }
+              }
+            }
+          }
+          .emiNote {
+            margin-top: 16px;
+          }
+          .mobileElgibleBtn {
+            margin-top: 16px;
+            display: none;
+            p {
+              color: var(--globalWhite);
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 400;
+              margin-bottom: 24px;
+            }
+            a {
+              width: 100%;
+              background-color: var(--globalWhite);
+              font-size: 14px;
+              font-weight: 700;
+              color: var(--primaryColor) !important;
+            }
+          }
+        }
+        &:nth-of-type(2) {
+          h2 {
+            display: none;
+            text-align: center;
+            color: var(--globalWhite);
+            margin-bottom: 24px;
+          }
+          .chartBlock {
+            border-radius: 20px;
+            background: #fff;
+            padding: 30px 32px;
+            max-width: 92%;
+            margin: 0 0 0 auto;
+            .netMonthlyPayable {
+              border-radius: 30px;
+              padding: 8px 16px;
+              @include flexContainer;
+              margin-top: 50px;
+              > p {
+                color: var(--globalWhite) !important;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 14px;
+                span {
+                  font-size: 24px;
+                  font-style: normal;
+                  font-weight: 600;
+                  line-height: 36px;
+                }
+              }
+              button {
+                background-color: var(--globalWhite);
+                padding: 10px 18px;
+              }
+            }
+          }
+          .mobileNetMonthlyPayable {
+            border-radius: 4px;
+            background: #eaebf3;
+            padding: 8px 16px;
+            margin-top: 12px;
+            display: none;
+            p {
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 400;
+              text-align: center;
+              color: var(--globalBlack);
+              span {
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 600;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .emiCalcSection {
+    > div {
+      > div {
+        flex-direction: column-reverse;
+        > div {
+          &:nth-of-type(1) {
+            h2,
+            h5 {
+              display: none;
+            }
+            .mobileElgibleBtn {
+              display: block;
+            }
+          }
+          &:nth-of-type(2) {
+            margin-bottom: 24px;
+            h2 {
+              display: block;
+            }
+            .chartBlock {
+              padding: 0 16px 0;
+              min-height: 380px;
+              border-radius: 8px;
+              .netMonthlyPayable {
+                display: none;
+              }
+            }
+            .mobileNetMonthlyPayable {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .emiCalcSection {
+    padding: 32px 16px;
+    > div {
+      > div {
+        > div {
+          &:nth-of-type(2) {
+            .chartBlock {
+              max-width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
