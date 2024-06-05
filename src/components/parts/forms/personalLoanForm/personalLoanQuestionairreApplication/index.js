@@ -57,24 +57,12 @@ const PersonalLoanQuestionairreApplication = () => {
       }
     };
 
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === "hidden") {
-        const confirmationMessage =
-          "Are you sure you want to leave? Changes you made may not be saved.";
-        if (!window.confirm(confirmationMessage)) {
-          // Do something to keep the user on the page
-        }
-      }
-    };
-
     window.addEventListener("beforeunload", handleBeforeUnload);
     window.addEventListener("pagehide", handlePageHide);
-    document.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
       window.removeEventListener("beforeunload", handleBeforeUnload);
       window.removeEventListener("pagehide", handlePageHide);
-      document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
   }, []);
 
