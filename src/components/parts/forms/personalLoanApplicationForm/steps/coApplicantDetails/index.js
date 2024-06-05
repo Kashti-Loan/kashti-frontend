@@ -78,8 +78,10 @@ const CoApplicantDetails = (props) => {
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div>
-            <h3>Add Co-Applicant Details</h3>
-            <Text>Tell us about your co-applicant.</Text>
+            <div>
+              <h3>Add Co-Applicant Details</h3>
+              <Text>Tell us about your co-applicant.</Text>
+            </div>
           </div>
           <div className={styles.inputBlock}>
             <Controller

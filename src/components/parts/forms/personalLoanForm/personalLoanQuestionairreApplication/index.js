@@ -37,8 +37,32 @@ const PersonalLoanQuestionairreApplication = () => {
   const [completedCurrentStep, setCompletedCurrentStep] = useState(1);
 
   useEffect(() => {
-    window.onbeforeunload = function () {
-      return "Data will be lost if you leave the page, are you sure?";
+    const handleBeforeUnload = (event) => {
+      const confirmationMessage =
+        "Are you sure you want to leave? Changes you made may not be saved.";
+      event.preventDefault();
+      event.returnValue = confirmationMessage; // Standard
+      return confirmationMessage; // Legacy
+    };
+
+    const handlePageHide = (event) => {
+      if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android)/)) {
+        const confirmationMessage =
+          "Are you sure you want to leave? Changes you made may not be saved.";
+        if (!window.confirm(confirmationMessage)) {
+          event.preventDefault();
+          event.returnValue = confirmationMessage;
+          return confirmationMessage;
+        }
+      }
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    window.addEventListener("pagehide", handlePageHide);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+      window.removeEventListener("pagehide", handlePageHide);
     };
   }, []);
 

@@ -51,7 +51,14 @@ const CommunicationAddress = (props) => {
     },
   ];
 
-  const { setCurrentStep, setCompletedSteps, onAddCustomerData, getStateCityUsingPincode, loanData, setLoanData } = usePersonalLoan();
+  const {
+    setCurrentStep,
+    setCompletedSteps,
+    onAddCustomerData,
+    getStateCityUsingPincode,
+    loanData,
+    setLoanData,
+  } = usePersonalLoan();
 
   const [isPermenentAddressSame, setIsPermenentAddressSame] = useState(false);
 
@@ -60,9 +67,13 @@ const CommunicationAddress = (props) => {
     address2: Yup.string().required("Address line 2 is required"),
     city: Yup.string().required("City is required"),
     state: Yup.string().required("State is required"),
-    pincode: Yup.string().required("Pincode is required"),
+    pincode: Yup.string()
+      .test("len", "Pincode must be 6 characters", (val) => val.length === 6)
+      .required("Pincode is required"),
     nature_of_address: Yup.string().required("Nature of address is required"),
-    years_at_current_address: Yup.string().required("Years at current address is required"),
+    years_at_current_address: Yup.string().required(
+      "Years at current address is required"
+    ),
   });
 
   const defaultValues = {
@@ -108,7 +119,11 @@ const CommunicationAddress = (props) => {
         ...prevData,
         isPermenentAddressSame,
       }));
-      const response = await onAddCustomerData(requestData, 6, "Communication Address");
+      const response = await onAddCustomerData(
+        requestData,
+        6,
+        "Communication Address"
+      );
       isPermenentAddressSame ? setCurrentStep(8) : setCurrentStep(7);
       setCompletedSteps((prev) => [...prev, 6]);
       return;
@@ -135,31 +150,31 @@ const CommunicationAddress = (props) => {
           </div>
           <div className={styles.inputBlock}>
             <Controller
-              name='address'
+              name="address"
               control={control}
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label='Address Line 1'
-                  type='text'
-                  name='address'
-                  autoComplete='address-line1'
-                  placeholder='Address Line 1'
+                  label="Address Line 1"
+                  type="text"
+                  name="address"
+                  autoComplete="address-line1"
+                  placeholder="Address Line 1"
                   error={error?.message}
                 />
               )}
             />
             <Controller
-              name='address2'
+              name="address2"
               control={control}
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label='Address Line 2'
-                  type='text'
-                  name='address2'
-                  autoComplete='address-line2'
-                  placeholder='Address Line 2'
+                  label="Address Line 2"
+                  type="text"
+                  name="address2"
+                  autoComplete="address-line2"
+                  placeholder="Address Line 2"
                   error={error?.message}
                 />
               )}
@@ -167,16 +182,16 @@ const CommunicationAddress = (props) => {
           </div>
           <div className={`${styles.inputBlock} ${styles.inputAddressDetail}`}>
             <Controller
-              name='pincode'
+              name="pincode"
               control={control}
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label='Pincode'
-                  type='text'
-                  autoComplete='postal-code'
-                  name='pincode'
-                  placeholder='560078'
+                  label="Pincode"
+                  type="text"
+                  autoComplete="postal-code"
+                  name="pincode"
+                  placeholder="560078"
                   error={error?.message}
                   maxLength={6}
                   onChange={(event) => {
@@ -191,45 +206,45 @@ const CommunicationAddress = (props) => {
               )}
             />
             <Controller
-              name='city'
+              name="city"
               control={control}
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label='City'
-                  type='text'
-                  autoComplete='address-level2'
-                  name='city'
-                  placeholder='Bengaluru'
+                  label="City"
+                  type="text"
+                  autoComplete="address-level2"
+                  name="city"
+                  placeholder="Bengaluru"
                   error={error?.message}
                 />
               )}
             />
             <Controller
-              name='state'
+              name="state"
               control={control}
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label='State'
-                  type='text'
-                  name='state'
-                  autoComplete='address-level1'
-                  placeholder='Bengaluru'
+                  label="State"
+                  type="text"
+                  name="state"
+                  autoComplete="address-level1"
+                  placeholder="Bengaluru"
                   error={error?.message}
                 />
               )}
             />
             <Controller
-              name='nature_of_address'
+              name="nature_of_address"
               control={control}
               render={({ field, fieldState: { error } }) => (
                 <SelectTag
                   {...field}
-                  label='Nature of Address'
-                  name='nature_of_address'
+                  label="Nature of Address"
+                  name="nature_of_address"
                   tooltip
-                  tooltipContent='Hello World!'
+                  tooltipContent="Hello World!"
                   options={natureOfAddress}
                   error={error?.message}
                 />
@@ -238,38 +253,38 @@ const CommunicationAddress = (props) => {
           </div>
           <div className={styles.inputBlock}>
             <Controller
-              name='years_at_current_address'
+              name="years_at_current_address"
               control={control}
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label='Years at Current Address'
-                  type='number'
-                  name='years_at_current_address'
-                  placeholder='12'
+                  label="Years at Current Address"
+                  type="number"
+                  name="years_at_current_address"
+                  placeholder="12"
                   tooltip
-                  tooltipContent='Hello World!'
+                  tooltipContent="Hello World!"
                   error={error?.message}
                 />
               )}
             />
           </div>
           <div className={`${styles.inputBlock} ${styles.consentBlock}`}>
-            <label className='material-checkbox'>
+            <label className="material-checkbox">
               <input
                 value={isPermenentAddressSame}
                 onChange={(e) => setIsPermenentAddressSame(e.target.checked)}
-                type='checkbox'
+                type="checkbox"
                 name={"consent"}
                 id={"consent"}
                 checked={isPermenentAddressSame}
               />
-              <span className='checkmark'></span>
+              <span className="checkmark"></span>
               <span>Permanent address same as communication address</span>
             </label>
           </div>
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
-            <button type='submit' className='primaryBtn'>
+            <button type="submit" className="primaryBtn">
               {isSubmitting ? "Updating Data..." : "Continue"}
             </button>
           </div>
@@ -277,7 +292,10 @@ const CommunicationAddress = (props) => {
       </FormProvider>
       <Text className={styles.dataSafetyInfo}>
         <DataSafetyIcon />
-        <span>Your data’s safety is our top priority. It is secured by cutting-edge encryption and stringent privacy protocols.</span>
+        <span>
+          Your data’s safety is our top priority. It is secured by cutting-edge
+          encryption and stringent privacy protocols.
+        </span>
       </Text>
     </div>
   );
