@@ -1,3 +1,4 @@
+"use client";
 import { Col, Container, Row } from "react-bootstrap";
 // import { usePathname } from "next/navigation";
 import styles from "./style.module.scss";
@@ -43,10 +44,23 @@ import TabSection from "@components/parts/section/personalLoanPage/tabSection";
 import { personalLoanTabData } from "@utils/constant";
 import { routesConstant } from "@utils/routesConstant";
 import { interestRateData, personalLoanFaq } from "@utils/data";
+import { useLayoutEffect } from "react";
+import moment from "moment";
+import { useRouter } from "next/navigation";
 
 const Page = ({ params }) => {
-  // const pathname = usePathname();
-  // console.log("router", pathname);
+  const router = useRouter();
+
+  useLayoutEffect(() => {
+    const loanOffersExipry = localStorage.getItem("pl_loan_expiry");
+    if (moment(loanOffersExipry).isAfter(moment())) {
+      router.replace(routesConstant.RECOMMENDED_PERSONAL_LOAN);
+    } else {
+      localStorage.removeItem("pl_loan_offer");
+      localStorage.removeItem("pl_loan_expiry");
+    }
+  }, []);
+
   return (
     <main className={styles.personalLoanPage}>
       {/* Banner Section */}
@@ -615,15 +629,17 @@ const Page = ({ params }) => {
               </SectionTitle>
               <div className={styles.creditCardBlock}>
                 {interestRateData?.map((item, i) => {
-                  return <CreditCardBox
-                    key={i}
-                    image={item.image}
-                    score={item.score}
-                    interest={item.interest}
-                    loan={item.loan}
-                    themeColor={item.themeColor}
-                    description={item.description}
-                  />;
+                  return (
+                    <CreditCardBox
+                      key={i}
+                      image={item.image}
+                      score={item.score}
+                      interest={item.interest}
+                      loan={item.loan}
+                      themeColor={item.themeColor}
+                      description={item.description}
+                    />
+                  );
                 })}
                 {/* <CreditCardBox themeColor={"#E9F4EC"} />
                 <CreditCardBox themeColor={"#FEF2E9"} />
@@ -770,7 +786,7 @@ const Page = ({ params }) => {
               </ul>
             </Col>
             <Col xs={12} md={6} lg={6}>
-            <CustomImage
+              <CustomImage
                 src={fiveStepsPersonalLoan}
                 alt="Secure an Instant Personal Loan with these 5 Easy Steps"
               />

@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import styles from "./style.module.scss";
 import { Col, Container, Row } from "react-bootstrap";
 import { PageTitle, SectionTitle, Text } from "@styles/styledComponent";
@@ -17,8 +17,11 @@ import { routesConstant } from "@utils/routesConstant";
 import { bankLogoSliderSettings, bankingSliderSettings } from "@utils/constant";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
 import { Toaster } from "react-hot-toast";
+import moment from "moment";
+import { useRouter } from "next/navigation";
 
 const Page = ({ params }) => {
+  const router = useRouter();
   const { accessToken, currentStep, setCurrentStep, loanData } =
     usePersonalLoan();
 
@@ -27,6 +30,16 @@ const Page = ({ params }) => {
     personalLoanEligibilityAccordian,
     setPersonalLoanEligibilityAccordian,
   ] = useState(true);
+
+  useLayoutEffect(() => {
+    const loanOffersExipry = localStorage.getItem("pl_loan_expiry");
+    if (moment(loanOffersExipry).isAfter(moment())) {
+      router.replace(routesConstant.RECOMMENDED_PERSONAL_LOAN);
+    } else {
+      localStorage.removeItem("pl_loan_offer");
+      localStorage.removeItem("pl_loan_expiry");
+    }
+  }, []);
 
   return (
     <main className={styles.personalLoanQuestionnairePage}>

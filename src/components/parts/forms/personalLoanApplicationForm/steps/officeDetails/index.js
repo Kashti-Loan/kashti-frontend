@@ -178,7 +178,11 @@ const OfficeDetails = (props) => {
             />
           </div>
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
-            <button type="submit" className="primaryBtn">
+            <button
+              data-testid="office-address"
+              type="submit"
+              className="primaryBtn"
+            >
               {isSubmitting ? "Updating Data..." : "Continue"}
             </button>
           </div>

@@ -126,6 +126,7 @@ const PurposeLoan = (props) => {
           </div>
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
             <button
+              data-testid="employment-details"
               onClick={() => onSubmit(loanData?.purposeOfLoan)}
               type="button"
               className="primaryBtn"

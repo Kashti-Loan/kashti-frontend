@@ -71,8 +71,6 @@ const CoApplicantDetails = (props) => {
     }
   }
 
-  console.log("errors", errors);
-
   return (
     <div className={styles.formSection}>
       <FormProvider {...methods}>
@@ -149,7 +147,11 @@ const CoApplicantDetails = (props) => {
             />
           </div>
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
-            <button type="submit" className="primaryBtn">
+            <button
+              data-testid="coapplicant-details"
+              type="submit"
+              className="primaryBtn"
+            >
               {isSubmitting ? "Updating Data..." : "Continue"}
             </button>
           </div>
