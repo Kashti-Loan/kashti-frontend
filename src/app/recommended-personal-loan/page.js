@@ -12,11 +12,14 @@ import {
   StepperContainer,
 } from "@components";
 import { applyPersonalLoan, whiteKashti } from "@public/assets";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import PersonalLoanDetailBox from "@components/parts/accordians/personalLoanDetailbox";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
+import moment from "moment";
+import { useRouter } from "next/navigation";
 
 const Page = () => {
+  const router = useRouter();
   const [loanAmount, setLoanAmount] = useState(100000);
   const [loanPeriod, setLoanPeriod] = useState(2);
   const [interestRate, setInterestRate] = useState(15);
@@ -25,14 +28,27 @@ const Page = () => {
   const { getPreApprovedLoans, realTimeLeadPush } = usePersonalLoan();
   const [preApprovedLoanOffers, setPreapprovedLoanOffers] = useState([]);
 
-  useEffect(() => {
-    getLoanList();
+  useLayoutEffect(() => {
+    const loanOffers = localStorage.getItem("pl_loan_offer");
+    if (loanOffers) {
+      setPreapprovedLoanOffers(JSON.parse(loanOffers));
+    } else {
+      getLoanList();
+    }
   }, []);
 
   const getLoanList = async () => {
     const leadPush = await realTimeLeadPush();
     const loanOffersList = await getPreApprovedLoans();
+    localStorage.setItem("pl_loan_offer", JSON.stringify(loanOffersList));
+    localStorage.setItem("pl_loan_expiry", moment().add(1, "hours"));
     setPreapprovedLoanOffers(loanOffersList);
+  };
+
+  const handleNewLoanApplication = () => {
+    localStorage.removeItem("pl_loan_offer");
+    localStorage.removeItem("pl_loan_expiry");
+    router.replace(routesConstant.PERSONAL_LOAN_QUESTIONAIRRE);
   };
 
   return (
@@ -240,6 +256,15 @@ const Page = () => {
           </Container>
         </section>
       ) : null}
+      <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
+        <button
+          type="button"
+          onClick={handleNewLoanApplication}
+          className="primaryBtn"
+        >
+          Start New Loan Application
+        </button>
+      </div>
     </main>
   );
 };

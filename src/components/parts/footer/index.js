@@ -52,10 +52,8 @@ const Footer = () => {
           <Col lg={12}>
             <CustomImage src={whiteSiteLogo} alt="Kashti" />
             <Text>
-              Lorem ipsum dolor sit amet consectetur. Tempus tortor ut nec
-              habitant. Sed eget egestas pretium egestas ut dui morbi tincidunt
-              pharetra. empusLorem ipsum dolor sit habitant. Sed eget egestas
-              pretium egestas ut dui morbi tincidun
+              Connecting borrowers with NBFCs/Banks for seamless personal loan
+              transactions approved by RBI-registered institutions.
             </Text>
             <div className={styles.footerMenuBlock}>
               <div>
