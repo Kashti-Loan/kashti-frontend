@@ -7,6 +7,7 @@ import RadioTextButton from "@components/ui/radioTextButton";
 import CommonTooltip from "@components/ui/commonTooltip";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
 import { useRouter } from "next/navigation";
+import { routesConstant } from "@utils/routesConstant";
 
 const HaveCoApplicant = (props) => {
   const router = useRouter();
@@ -20,9 +21,11 @@ const HaveCoApplicant = (props) => {
         11,
         "Have Co Applicant"
       );
-      value
-        ? setCurrentStep(12)
-        : router.replace(routesConstant.RECOMMENDED_PERSONAL_LOAN);
+      if (value === true) {
+        setCurrentStep(12);
+      } else {
+        router.replace(routesConstant.RECOMMENDED_PERSONAL_LOAN);
+      }
       setCompletedSteps((prev) => [...prev, 11]);
       return;
     } catch (error) {
@@ -44,14 +47,14 @@ const HaveCoApplicant = (props) => {
           </div>
           <div className={styles.radioGrpInner}>
             <RadioTextButton
+              label="No, I don't have a Co-Applicant"
+              checked={loanData?.has_coApplicant == false}
+              onChange={() => handleChange(false)}
+            />
+            <RadioTextButton
               label="Yes, Add Co-Applicant"
               checked={loanData?.has_coApplicant == true}
               onChange={() => handleChange(true)}
-            />
-            <RadioTextButton
-              label="No, I don’t have a Co-Applicant"
-              checked={loanData?.has_coApplicant == false}
-              onChange={() => handleChange(false)}
             />
           </div>
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>

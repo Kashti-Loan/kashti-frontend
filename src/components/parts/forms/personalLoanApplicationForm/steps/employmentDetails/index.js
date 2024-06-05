@@ -142,7 +142,6 @@ const EmploymentDetails = (props) => {
                   type="email"
                   name="office_email"
                   placeholder="marikolundu@oakwood.com"
-                  note="Please provide correct personal email"
                   error={error?.message}
                 />
               )}
