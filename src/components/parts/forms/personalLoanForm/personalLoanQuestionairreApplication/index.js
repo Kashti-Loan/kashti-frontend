@@ -5,19 +5,42 @@ import { Col, Container, Row } from "react-bootstrap";
 import { PageTitle, SectionTitle, Text } from "@styles/styledComponent";
 import Link from "next/link";
 import { ArrowLeftShort, ChevronDown } from "react-bootstrap-icons";
-import { CustomImage, CustomSlider, PersonalLoanApplicationForm, PersonalLoanForm } from "@components";
-import { applyPersonalLoan, newicici, newmuthoot, newyes, whiteKashti } from "@public/assets";
+import {
+  CustomImage,
+  CustomSlider,
+  PersonalLoanApplicationForm,
+  PersonalLoanForm,
+} from "@components";
+import {
+  applyPersonalLoan,
+  newicici,
+  newmuthoot,
+  newyes,
+  whiteKashti,
+} from "@public/assets";
 import { routesConstant } from "@utils/routesConstant";
 import { bankLogoSliderSettings, bankingSliderSettings } from "@utils/constant";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
 
 const PersonalLoanQuestionairreApplication = () => {
-  const { currentStep, setCurrentStep, completedSteps, loanData, setAccessToken } = usePersonalLoan();
+  const {
+    currentStep,
+    setCurrentStep,
+    completedSteps,
+    loanData,
+    setAccessToken,
+  } = usePersonalLoan();
 
   const [progress, setProgress] = useState(6);
   const [currentStepName, setCurrentStepName] = useState("Basic Details");
   const [currentTotalStep, setCurrentTotalStep] = useState(2);
   const [completedCurrentStep, setCompletedCurrentStep] = useState(1);
+
+  useEffect(() => {
+    window.onbeforeunload = function () {
+      return "Data will be lost if you leave the page, are you sure?";
+    };
+  }, []);
 
   useEffect(() => {
     if (currentStep >= 1) {
