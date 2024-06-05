@@ -37,8 +37,14 @@ const PersonalLoanQuestionairreApplication = () => {
   const [completedCurrentStep, setCompletedCurrentStep] = useState(1);
 
   useEffect(() => {
-    window.onbeforeunload = function () {
-      return "Data will be lost if you leave the page, are you sure?";
+    const handleBeforeUnload = (event) => {
+      event.preventDefault();
+      // Custom logic to handle the refresh
+      // Display a confirmation message or perform necessary actions
+    };
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
     };
   }, []);
 
