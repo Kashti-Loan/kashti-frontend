@@ -253,18 +253,18 @@ const Page = () => {
                 </StepperContainer>
               </Col>
             </Row>
-            <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
-              <button
-                type="button"
-                onClick={handleNewLoanApplication}
-                className="primaryBtn"
-              >
-                Start New Loan Application
-              </button>
-            </div>
           </Container>
         </section>
       ) : null}
+      <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
+        <button
+          type="button"
+          onClick={handleNewLoanApplication}
+          className="primaryBtn"
+        >
+          Start New Loan Application
+        </button>
+      </div>
     </main>
   );
 };
