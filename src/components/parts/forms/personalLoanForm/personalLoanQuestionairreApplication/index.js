@@ -38,13 +38,14 @@ const PersonalLoanQuestionairreApplication = () => {
 
   useEffect(() => {
     const handleBeforeUnload = (event) => {
+      const confirmationMessage =
+        "Are you sure you want to leave? Changes you made may not be saved.";
       event.preventDefault();
-      // Custom logic to handle the refresh
-      // Display a confirmation message or perform necessary actions
+      event.returnValue = confirmationMessage; // Standard
+      return confirmationMessage; // Legacy
     };
 
     const handlePageHide = (event) => {
-      // Custom logic or alert for mobile browsers
       if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android)/)) {
         const confirmationMessage =
           "Are you sure you want to leave? Changes you made may not be saved.";
@@ -58,7 +59,11 @@ const PersonalLoanQuestionairreApplication = () => {
 
     const handleVisibilityChange = () => {
       if (document.visibilityState === "hidden") {
-        // Handle the visibility change event here
+        const confirmationMessage =
+          "Are you sure you want to leave? Changes you made may not be saved.";
+        if (!window.confirm(confirmationMessage)) {
+          // Do something to keep the user on the page
+        }
       }
     };
 
