@@ -16,7 +16,12 @@ import SelectTag from "@components/ui/selectTag";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
 
 const PermanentAddress = (props) => {
-  const { setCurrentStep, setCompletedSteps, onAddCustomerData, getStateCityUsingPincode } = usePersonalLoan();
+  const {
+    setCurrentStep,
+    setCompletedSteps,
+    onAddCustomerData,
+    getStateCityUsingPincode,
+  } = usePersonalLoan();
 
   const BasicSchema = Yup.object().shape({
     address: Yup.string().required("Address line 1 is required"),
@@ -75,31 +80,31 @@ const PermanentAddress = (props) => {
           </div>
           <div className={styles.inputBlock}>
             <Controller
-              name='address'
+              name="address"
               control={control}
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label='Address Line 1'
-                  type='text'
-                  name='address'
-                  autoComplete='address-line1'
-                  placeholder='Address Line 1'
+                  label="Address Line 1"
+                  type="text"
+                  name="address"
+                  autoComplete="address-line1"
+                  placeholder="Address Line 1"
                   error={error?.message}
                 />
               )}
             />
             <Controller
-              name='address2'
+              name="address2"
               control={control}
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label='Address Line 2'
-                  type='text'
-                  name='address2'
-                  autoComplete='address-line2'
-                  placeholder='Address Line 2'
+                  label="Address Line 2"
+                  type="text"
+                  name="address2"
+                  autoComplete="address-line2"
+                  placeholder="Address Line 2"
                   error={error?.message}
                 />
               )}
@@ -107,16 +112,16 @@ const PermanentAddress = (props) => {
           </div>
           <div className={styles.inputBlock}>
             <Controller
-              name='pincode'
+              name="pincode"
               control={control}
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label='Pincode'
-                  type='text'
-                  name='pincode'
-                  autoComplete='postal-code'
-                  placeholder='560078'
+                  label="Pincode"
+                  type="text"
+                  name="pincode"
+                  autoComplete="postal-code"
+                  placeholder="560078"
                   error={error?.message}
                   maxLength={6}
                   onChange={(event) => {
@@ -131,16 +136,16 @@ const PermanentAddress = (props) => {
               )}
             />
             <Controller
-              name='city'
+              name="city"
               control={control}
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label='City'
-                  type='text'
-                  autoComplete='address-level2'
-                  name='city'
-                  placeholder='Bengaluru'
+                  label="City"
+                  type="text"
+                  autoComplete="address-level2"
+                  name="city"
+                  placeholder="Bengaluru"
                   error={error?.message}
                 />
               )}
@@ -148,23 +153,27 @@ const PermanentAddress = (props) => {
           </div>
           <div className={styles.inputBlock}>
             <Controller
-              name='state'
+              name="state"
               control={control}
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label='State'
-                  type='text'
-                  name='state'
-                  placeholder='Bengaluru'
-                  autoComplete='address-level1'
+                  label="State"
+                  type="text"
+                  name="state"
+                  placeholder="Bengaluru"
+                  autoComplete="address-level1"
                   error={error?.message}
                 />
               )}
             />
           </div>
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
-            <button type='submit' className='primaryBtn'>
+            <button
+              data-testid="permanent-address"
+              type="submit"
+              className="primaryBtn"
+            >
               {isSubmitting ? "Updating Data..." : "Continue"}
             </button>
           </div>
@@ -172,7 +181,10 @@ const PermanentAddress = (props) => {
       </FormProvider>
       <Text className={styles.dataSafetyInfo}>
         <DataSafetyIcon />
-        <span>Your data’s safety is our top priority. It is secured by cutting-edge encryption and stringent privacy protocols.</span>
+        <span>
+          Your data’s safety is our top priority. It is secured by cutting-edge
+          encryption and stringent privacy protocols.
+        </span>
       </Text>
     </div>
   );
