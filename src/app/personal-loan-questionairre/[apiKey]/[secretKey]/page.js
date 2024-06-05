@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./style.module.scss";
 import { Col, Container, Row } from "react-bootstrap";
 import { PageTitle, SectionTitle, Text } from "@styles/styledComponent";
@@ -58,10 +58,7 @@ const Page = ({ params }) => {
             </Col>
             <Col lg={12}>
               <PageTitle>Unlock Best Personal Loan Offers</PageTitle>
-              <Text>
-                Avail a Loan of Your Choice Instantly. Avail a Loan of Your
-                Choice Instantly
-              </Text>
+              <Text>Avail a Loan of Your Choice Instantly.</Text>
             </Col>
           </Row>
         </Container>
