@@ -16,6 +16,7 @@
     }
   }
   .inputBlock {
+    width: 100%;
     position: relative;
     border: 1px solid #d0d5dd !important;
     border-radius: 4px;
@@ -55,5 +56,9 @@
   .note {
     font-size: 14px;
     line-height: 21px;
+  }
+
+  .MuiDateField-root{
+    height: 1.2em !important;
   }
 }
