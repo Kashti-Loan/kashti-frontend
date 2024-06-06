@@ -64,7 +64,7 @@ const BasicDetailStep = (props) => {
   });
 
   const defaultValues = {
-    date_of_birth: loanData?.date_of_birth || "",
+    date_of_birth: loanData?.date_of_birth || null,
     gender: loanData?.gender || "",
     pan: loanData?.pan || "",
   };
@@ -149,16 +149,9 @@ const BasicDetailStep = (props) => {
                   label="Date of Birth*"
                   placeholder="Date of Birth"
                   error={error?.message}
-                  minDate={moment().subtract(500, "years")._d}
-                  maxDate={moment().subtract(21, "years")._d}
-                  showYearDropdown
-                  scrollableYearDropdown
-                  showMonthDropdown
-                  selected={getValues("date_of_birth")}
-                  onChange={(date) =>
-                    setValue("date_of_birth", date, { shouldValidate: true })
-                  }
-                  dateFormat="dd/MM/YYYY"
+                  minDate={moment().subtract(500, "years")}
+                  maxDate={moment().subtract(21, "years")}
+                  format="DD/MM/YYYY"
                 />
               )}
             />

@@ -44,7 +44,7 @@ const BusinessDetails = (props) => {
   });
 
   const defaultValues = {
-    date_of_incorporation: loanData?.date_of_incorporation || "",
+    date_of_incorporation: loanData?.date_of_incorporation || null,
     nature_business: loanData?.nature_business || "Manufacturing",
   };
 
@@ -105,17 +105,8 @@ const BusinessDetails = (props) => {
                   label="Date of Incorporation"
                   placeholder="Date of Incorporation"
                   error={error?.message}
-                  maxDate={moment()._d}
-                  showYearDropdown
-                  scrollableYearDropdown
-                  showMonthDropdown
-                  selected={getValues("date_of_incorporation")}
-                  onChange={(date) =>
-                    setValue("date_of_incorporation", date, {
-                      shouldValidate: true,
-                    })
-                  }
-                  dateFormat="dd/MM/YYYY"
+                  maxDate={moment()}
+                  dateFormat="DD/MM/YYYY"
                 />
               )}
             />
