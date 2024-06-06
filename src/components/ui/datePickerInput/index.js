@@ -3,7 +3,7 @@ import CommonTooltip from "../commonTooltip";
 import styles from "./style.module.scss";
 import ErrorWrapper from "../errorWrapper";
 import IndiaFlagIcon from "../svg/indiaFlag";
-import DatePicker from "react-datepicker";
+import { DatePicker } from "@mui/x-date-pickers";
 
 const DatePickerInputTag = (props) => {
   return (
@@ -19,13 +19,14 @@ const DatePickerInputTag = (props) => {
             />
           )}
         </div>
-        <div className={styles.inputBlock}>
-          <DatePicker
-            {...props}
-            onKeyDown={(e) => e.preventDefault()}
-            onFocus={(e) => (e.target.readOnly = true)}
-          />
-        </div>
+        <DatePicker
+          {...props}
+          label=""
+          onKeyDown={(e) => e.preventDefault()}
+          onFocus={(e) => (e.target.readOnly = true)}
+          fullWidth={true}
+          variant="standard"
+        />
         {props.note && <Text className={styles.note}>{props.note}</Text>}
       </div>
     </ErrorWrapper>

@@ -32,11 +32,15 @@ const CoApplicantDetails = (props) => {
     coApplicantName: Yup.string().required("Co-Applicant name is required."),
     coApplicantPAN: Yup.string()
       .matches(/[A-Z]{5}[0-9]{4}[A-Z]{1}/, "Invalid PAN Card number")
+      .notOneOf(
+        [loanData?.pan],
+        "Co-applicant PAN must be different to Applicant PAN"
+      )
       .required("PAN Card number is required"),
   });
 
   const defaultValues = {
-    coAppplicantDOB: loanData?.coAppplicantDOB || "",
+    coAppplicantDOB: loanData?.coAppplicantDOB || null,
     coApplicantName: loanData?.coApplicantName || "",
     coApplicantPAN: loanData?.coApplicantPAN || "",
   };
@@ -105,18 +109,9 @@ const CoApplicantDetails = (props) => {
                   label="Date of Birth"
                   placeholder="Date of Birth"
                   error={error?.message}
-                  minDate={moment().subtract(500, "years")._d}
-                  maxDate={moment().subtract(21, "years")._d}
-                  showYearDropdown
-                  scrollableYearDropdown
-                  showMonthDropdown
-                  selected={getValues("coAppplicantDOB")}
-                  onChange={(date) =>
-                    setValue("coAppplicantDOB", date, {
-                      shouldValidate: true,
-                    })
-                  }
-                  dateFormat="dd/MM/YYYY"
+                  minDate={moment().subtract(500, "years")}
+                  maxDate={moment().subtract(21, "years")}
+                  dateFormat="DD/MM/YYYY"
                 />
               )}
             />

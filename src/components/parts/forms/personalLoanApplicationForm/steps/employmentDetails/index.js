@@ -34,6 +34,7 @@ const EmploymentDetails = (props) => {
     //   }),
     office_email: Yup.string()
       .email("Invalid professional email format")
+      .notOneOf([Yup.ref("email")], "Personal and Office email cann't same")
       .test(
         "emails-not-same",
         "Email and professional email should be different",
