@@ -23,6 +23,9 @@ import { usePersonalLoan } from "@context/PersonalLoanContext";
 import CustomInput from "@components/ui/customInput";
 import PhoneNumberInput from "@components/ui/phoneNumberInput";
 import StepperContainer from "@components/container/stepperContainer";
+import { routesConstant } from "@utils/routesConstant";
+import DatePickerInputTag from "@components/ui/datePickerInput";
+import moment from "moment";
 
 const StepZero = (props) => {
   const [otpSent, setOtpSent] = useState(false);
@@ -42,7 +45,7 @@ const StepZero = (props) => {
   const defaultValues = {
     full_name: basicDetail?.full_name || "",
     phone: basicDetail?.phone || "",
-    tcagree: false,
+    tcagree: true,
   };
 
   const methods = useForm({
@@ -57,6 +60,7 @@ const StepZero = (props) => {
     control,
     getValues,
     watch,
+    setValue,
     formState: { errors, isSubmitting, isSubmitSuccessful },
   } = methods;
 
@@ -102,6 +106,7 @@ const StepZero = (props) => {
                     tooltip
                     tooltipContent={"Name as per PAN"}
                     error={error?.message}
+                    autocomplete="name"
                   />
                 )}
               />
@@ -116,6 +121,7 @@ const StepZero = (props) => {
                     placeholder="Mobile Number"
                     initial="+91"
                     error={error?.message}
+                    autocomplete="tel"
                   />
                 )}
               />
@@ -133,6 +139,7 @@ const StepZero = (props) => {
                         name="tcagree"
                         id="tcagree"
                         error={error?.message}
+                        checked={getValues("tcagree")}
                       />
                     </>
                   )}
@@ -140,11 +147,11 @@ const StepZero = (props) => {
                 <span className="checkmark tcagree"></span>
                 <span>
                   By submitting this form, you have read and agreed to the{" "}
-                  <Link target="_blank" href="/assets/t_c.pdf">
+                  <Link target="_blank" href={routesConstant.TERMS_CONDITION}>
                     Credit Report Terms of Use
                   </Link>{" "}
                   and{" "}
-                  <Link target="_blank" href="/assets/Privacy_Policy.pdf">
+                  <Link target="_blank" href={routesConstant.PRIVACY_POLICY}>
                     Privacy Policy
                   </Link>
                 </span>
@@ -176,6 +183,7 @@ const StepZero = (props) => {
                 basicDetail={basicDetail}
                 onVerifyOTP={onVerifyOTP}
                 onResendOTP={onResendOTP}
+                setOtpSent={setOtpSent}
               />
             </div>
           </PopupPortal>

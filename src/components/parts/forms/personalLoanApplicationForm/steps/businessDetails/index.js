@@ -14,6 +14,8 @@ import { GenderFemale, GenderMale } from "@public/assets";
 import RadioImageButton from "@components/ui/radioImageButton";
 import SelectTag from "@components/ui/selectTag";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
+import DatePickerInputTag from "@components/ui/datePickerInput";
+import moment from "moment";
 
 const BusinessDetails = (props) => {
   const natureBusiness = [
@@ -42,7 +44,7 @@ const BusinessDetails = (props) => {
   });
 
   const defaultValues = {
-    date_of_incorporation: loanData?.date_of_incorporation || "",
+    date_of_incorporation: loanData?.date_of_incorporation || null,
     nature_business: loanData?.nature_business || "Manufacturing",
   };
 
@@ -98,18 +100,23 @@ const BusinessDetails = (props) => {
               name="date_of_incorporation"
               control={control}
               render={({ field, fieldState: { error } }) => (
-                <InputTag
+                <DatePickerInputTag
                   {...field}
                   label="Date of Incorporation"
-                  type="date"
-                  name="date_of_incorporation"
+                  placeholder="Date of Incorporation"
                   error={error?.message}
+                  maxDate={moment()}
+                  dateFormat="DD/MM/YYYY"
                 />
               )}
             />
           </div>
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
-            <button type="submit" className="primaryBtn">
+            <button
+              data-testid="business-detail"
+              type="submit"
+              className="primaryBtn"
+            >
               {isSubmitting ? "Updating Data..." : "Continue"}
             </button>
           </div>

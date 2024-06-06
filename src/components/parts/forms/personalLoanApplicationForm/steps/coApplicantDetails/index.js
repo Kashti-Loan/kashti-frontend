@@ -16,6 +16,7 @@ import SelectTag from "@components/ui/selectTag";
 import CommonTooltip from "@components/ui/commonTooltip";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
 import moment from "moment";
+import DatePickerInputTag from "@components/ui/datePickerInput";
 
 const CoApplicantDetails = (props) => {
   const { setCurrentStep, setCompletedSteps, onAddCustomerData, loanData } =
@@ -31,11 +32,15 @@ const CoApplicantDetails = (props) => {
     coApplicantName: Yup.string().required("Co-Applicant name is required."),
     coApplicantPAN: Yup.string()
       .matches(/[A-Z]{5}[0-9]{4}[A-Z]{1}/, "Invalid PAN Card number")
+      .notOneOf(
+        [loanData?.pan],
+        "Co-applicant PAN must be different to Applicant PAN"
+      )
       .required("PAN Card number is required"),
   });
 
   const defaultValues = {
-    coAppplicantDOB: loanData?.coAppplicantDOB || "",
+    coAppplicantDOB: loanData?.coAppplicantDOB || null,
     coApplicantName: loanData?.coApplicantName || "",
     coApplicantPAN: loanData?.coApplicantPAN || "",
   };
@@ -70,15 +75,15 @@ const CoApplicantDetails = (props) => {
     }
   }
 
-  console.log("errors", errors);
-
   return (
     <div className={styles.formSection}>
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div>
-            <h3>Add Co-Applicant Details</h3>
-            <Text>Tell us about your co-applicant.</Text>
+            <div>
+              <h3>Add Co-Applicant Details</h3>
+              <Text>Tell us about your co-applicant.</Text>
+            </div>
           </div>
           <div className={styles.inputBlock}>
             <Controller
@@ -99,12 +104,14 @@ const CoApplicantDetails = (props) => {
               name="coAppplicantDOB"
               control={control}
               render={({ field, fieldState: { error } }) => (
-                <InputTag
+                <DatePickerInputTag
                   {...field}
                   label="Date of Birth"
-                  type="date"
-                  name="coAppplicantDOB"
+                  placeholder="Date of Birth"
                   error={error?.message}
+                  minDate={moment().subtract(500, "years")}
+                  maxDate={moment().subtract(21, "years")}
+                  dateFormat="DD/MM/YYYY"
                 />
               )}
             />
@@ -135,7 +142,11 @@ const CoApplicantDetails = (props) => {
             />
           </div>
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
-            <button type="submit" className="primaryBtn">
+            <button
+              data-testid="coapplicant-details"
+              type="submit"
+              className="primaryBtn"
+            >
               {isSubmitting ? "Updating Data..." : "Continue"}
             </button>
           </div>

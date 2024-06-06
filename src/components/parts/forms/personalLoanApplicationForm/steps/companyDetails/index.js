@@ -49,8 +49,6 @@ const CompanyDetails = (props) => {
   const { setCurrentStep, setCompletedSteps, onAddCustomerData, loanData } =
     usePersonalLoan();
 
-  console.log("loanData", loanData);
-
   const BasicSchema = Yup.object().shape({
     company_name: Yup.string().required("Company name is required"),
     company_type: Yup.string().required("Compnay type is required"),
@@ -147,7 +145,11 @@ const CompanyDetails = (props) => {
             />
           </div>
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
-            <button type="submit" className="primaryBtn">
+            <button
+              data-testid="company-detail"
+              type="submit"
+              className="primaryBtn"
+            >
               {isSubmitting ? "Updating Data..." : "Continue"}
             </button>
           </div>

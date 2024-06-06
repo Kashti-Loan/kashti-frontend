@@ -5,19 +5,66 @@ import { Col, Container, Row } from "react-bootstrap";
 import { PageTitle, SectionTitle, Text } from "@styles/styledComponent";
 import Link from "next/link";
 import { ArrowLeftShort, ChevronDown } from "react-bootstrap-icons";
-import { CustomImage, CustomSlider, PersonalLoanApplicationForm, PersonalLoanForm } from "@components";
-import { applyPersonalLoan, newicici, newmuthoot, newyes, whiteKashti } from "@public/assets";
+import {
+  CustomImage,
+  CustomSlider,
+  PersonalLoanApplicationForm,
+  PersonalLoanForm,
+} from "@components";
+import {
+  applyPersonalLoan,
+  newicici,
+  newmuthoot,
+  newyes,
+  whiteKashti,
+} from "@public/assets";
 import { routesConstant } from "@utils/routesConstant";
 import { bankLogoSliderSettings, bankingSliderSettings } from "@utils/constant";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
 
 const PersonalLoanQuestionairreApplication = () => {
-  const { currentStep, setCurrentStep, completedSteps, loanData, setAccessToken } = usePersonalLoan();
+  const {
+    currentStep,
+    setCurrentStep,
+    completedSteps,
+    loanData,
+    setAccessToken,
+  } = usePersonalLoan();
 
   const [progress, setProgress] = useState(6);
   const [currentStepName, setCurrentStepName] = useState("Basic Details");
   const [currentTotalStep, setCurrentTotalStep] = useState(2);
   const [completedCurrentStep, setCompletedCurrentStep] = useState(1);
+
+  useEffect(() => {
+    const handleBeforeUnload = (event) => {
+      const confirmationMessage =
+        "Are you sure you want to leave? Changes you made may not be saved.";
+      event.preventDefault();
+      event.returnValue = confirmationMessage; // Standard
+      return confirmationMessage; // Legacy
+    };
+
+    const handlePageHide = (event) => {
+      if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android)/)) {
+        const confirmationMessage =
+          "Are you sure you want to leave? Changes you made may not be saved.";
+        if (!window.confirm(confirmationMessage)) {
+          event.preventDefault();
+          event.returnValue = confirmationMessage;
+          return confirmationMessage;
+        }
+      }
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    window.addEventListener("pagehide", handlePageHide);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+      window.removeEventListener("pagehide", handlePageHide);
+    };
+  }, []);
 
   useEffect(() => {
     if (currentStep >= 1) {

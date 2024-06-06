@@ -1,8 +1,10 @@
 "use client";
+import toast, { Toaster } from "react-hot-toast";
 import { LinkText, SectionTitle, Text } from "@styles/styledComponent";
 import styles from "./style.module.scss";
 import DataSafetyIcon from "@components/ui/svg/dataSafetyIcon";
 import { useEffect, useRef, useState } from "react";
+import EditIcon from "@components/ui/svg/editIcon";
 
 const OtpVerfication = (props) => {
   const [resendTimer, setResendTimer] = useState(30);
@@ -30,6 +32,19 @@ const OtpVerfication = (props) => {
 
     return () => clearInterval(timer);
   }, [startTimer]);
+
+  useEffect(() => {
+    if (otpValues.join("").length === 4) {
+      onVerify();
+    }
+  }, [otpValues]);
+
+  useEffect(() => {
+    // Focus the first input field when the component mounts
+    setTimeout(() => {
+      inputRefs[0].current.focus();
+    }, 50);
+  }, []);
 
   function replaceCharacters(phoneNumber) {
     if (phoneNumber.length !== 10) {
@@ -84,7 +99,10 @@ const OtpVerfication = (props) => {
       setVerifying(false);
     } catch (e) {
       setVerifying(false);
-      console.log("Error:", e);
+      console.log("Error:", e.response.data);
+      if (e?.response?.data) {
+        toast.error(e.response.data.message);
+      }
     }
   };
 
@@ -104,7 +122,8 @@ const OtpVerfication = (props) => {
         <Text>
           We have sent the 4-digit OTP to
           <br />
-          <b>+91-{`${replaceCharacters(props.basicDetail.phone)}`}</b>
+          <b>+91-{`${replaceCharacters(props.basicDetail.phone)}`} </b>
+          <EditIcon onClick={() => props.setOtpSent(false)} />
         </Text>
         <form>
           <div className={styles.inputBlock}>
@@ -112,11 +131,11 @@ const OtpVerfication = (props) => {
               <input
                 key={index}
                 ref={inputRef}
-                type='tel'
-                autoComplete='one-time-code'
+                type="tel"
+                autoComplete="one-time-code"
                 maxLength={1}
                 onChange={(e) => handleChange(index, e)}
-                // onKeyDown={(e) => handleKeyDown(index, e)}
+                autoFocus={index === 0}
                 style={{ textAlign: "center", fontWeight: "bold" }}
               />
             ))}
@@ -127,16 +146,21 @@ const OtpVerfication = (props) => {
                 Resend OTP in <span>00:{resendTimer}s</span>
               </Text>
             ) : (
-              <LinkText onClick={resentOTP}>{isResendingOTP ? `Resending OTP...` : `Resend OTP`}</LinkText>
+              <LinkText onClick={resentOTP}>
+                {isResendingOTP ? `Resending OTP...` : `Resend OTP`}
+              </LinkText>
             )}
           </div>
-          <button type='button' className='primaryBtn' onClick={onVerify}>
+          <button type="button" className="primaryBtn" onClick={onVerify}>
             {isVerifying ? `Verifying...` : `Verify OTP`}
           </button>
         </form>
         <Text className={styles.dataSafetyInfo}>
           <DataSafetyIcon />
-          <span>Your data’s safety is our top priority. It is secured by cutting-edge encryption and stringent privacy protocols.</span>
+          <span>
+            Your data’s safety is our top priority. It is secured by
+            cutting-edge encryption and stringent privacy protocols.
+          </span>
         </Text>
       </div>
     </div>

@@ -33,10 +33,13 @@ const SecureLoanToday = ({ apiKey, secretKey }) => {
     phone: Yup.string()
       .matches(/^[0-9]{10}$/, "Mobile number must be exactly 10 digits")
       .required("Mobile number is required"),
+    tcagree: Yup.boolean()
+      .required("The terms and conditions must be accepted.")
+      .oneOf([true], "The terms and conditions must be accepted."),
   });
 
   const defaultValues = {
-    tcagree: false,
+    tcagree: true,
   };
 
   const methods = useForm({
@@ -89,10 +92,10 @@ const SecureLoanToday = ({ apiKey, secretKey }) => {
                 render={({ field, fieldState: { error } }) => (
                   <InputTag
                     {...field}
-                    label="Name"
+                    label="Name (As per PAN Card)*"
                     type="text"
                     name="full_name"
-                    placeholder="Name as per Aadhaar"
+                    placeholder="Enter Name as per PAN"
                     error={error?.message}
                   />
                 )}
@@ -116,17 +119,38 @@ const SecureLoanToday = ({ apiKey, secretKey }) => {
               />
             </div>
             <div className={styles.consentBlock}>
-            <label className="material-checkbox">
-              <input type="checkbox" name={"consent"} id={"consent"} />
-              <span className="checkmark"></span>
-              <Text className={styles.agreeTerms}>
-                By Continuing, i agree to kashtis{" "}
-                <Link href={routesConstant.PRIVACY_POLICY}>Privacy Policy</Link> and{" "}
-                <Link href={routesConstant.TERMS_CONDITION}>Terms & Conditions</Link> and Receive
-                communication from Kashti via SMS,E-Mail and whatApp
-              </Text>
-            </label>
-          </div>
+              <label className="material-checkbox">
+                <Controller
+                  name="tcagree"
+                  control={control}
+                  render={({ field, fieldState: { error } }) => (
+                    <>
+                      <input
+                        {...field}
+                        type="checkbox"
+                        name="tcagree"
+                        id="tcagree"
+                        error={error?.message}
+                        checked={getValues("tcagree")}
+                      />
+                    </>
+                  )}
+                />
+                <span className="checkmark"></span>
+                <Text className={styles.agreeTerms}>
+                  By Continuing, i agree to kashtis{" "}
+                  <Link target="_blank" href={routesConstant.PRIVACY_POLICY}>
+                    Privacy Policy
+                  </Link>{" "}
+                  and{" "}
+                  <Link target="_blank" href={routesConstant.TERMS_CONDITION}>
+                    Terms & Conditions
+                  </Link>{" "}
+                  and Receive communication from Kashti via SMS,E-Mail and
+                  whatApp
+                </Text>
+              </label>
+            </div>
           </div>
           <div className={styles.btnContainer}>
             <button type="submit" className="primaryBtn">
@@ -151,6 +175,7 @@ const SecureLoanToday = ({ apiKey, secretKey }) => {
               basicDetail={basicDetail}
               onVerifyOTP={onVerifyOTP}
               onResendOTP={onResendOTP}
+              setOtpSent={setOtpSent}
             />
           </div>
         </PopupPortal>

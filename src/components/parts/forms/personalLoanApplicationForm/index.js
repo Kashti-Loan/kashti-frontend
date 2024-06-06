@@ -43,36 +43,70 @@ const PersonalLoanApplicationForm = ({
   onBack,
 }) => {
   const [viewSteps, setViewSteps] = useState(false);
+  const isBrowser = () => typeof window !== "undefined";
+
+  useEffect(() => {
+    scrollToTop();
+  }, [currentStep]);
+
+  const scrollToTop = () => {
+    if (!isBrowser()) return;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <StepperContainer className={styles.personalLoanStepper} label={"Personal Loan"} color={"#FBCAA4"} cornerColor={"#F79446"}>
+    <StepperContainer
+      className={styles.personalLoanStepper}
+      label={"Personal Loan"}
+      color={"#FBCAA4"}
+      cornerColor={"#F79446"}
+    >
       <div className={styles.formStepSection}>
         <div className={styles.stepBox}>
           <span
-            className={`${completedSteps.includes(1) ? styles.completed : styles.notCompleted} ${
-              currentStep === 1 ? styles.currentStep : styles.step
-            }`}
+            className={`${
+              completedSteps.includes(1)
+                ? styles.completed
+                : styles.notCompleted
+            } ${currentStep === 1 ? styles.currentStep : styles.step}`}
           >
             <BasicDetailIcon />
           </span>
           <h4>Basic Details</h4>
         </div>
-        <span className={`${completedSteps.includes(1) && completedSteps.includes(2) ? styles.completedLine : styles.notCompletedLine}`}></span>
+        <span
+          className={`${
+            completedSteps.includes(1) && completedSteps.includes(2)
+              ? styles.completedLine
+              : styles.notCompletedLine
+          }`}
+        ></span>
         <div className={styles.stepBox}>
           <span
-            className={`${completedSteps.includes(3) ? styles.completed : styles.notCompleted} ${
-              currentStep === 3 ? styles.currentStep : styles.step
-            }`}
+            className={`${
+              completedSteps.includes(3)
+                ? styles.completed
+                : styles.notCompleted
+            } ${currentStep === 3 ? styles.currentStep : styles.step}`}
           >
             <IncomeDetailIcon />
           </span>
           <h4>Income Details</h4>
         </div>
-        <span className={`${completedSteps.includes(3) && completedSteps.includes(4) ? styles.completedLine : styles.notCompletedLine}`}></span>
+        <span
+          className={`${
+            completedSteps.includes(3) && completedSteps.includes(4)
+              ? styles.completedLine
+              : styles.notCompletedLine
+          }`}
+        ></span>
         <div className={styles.stepBox}>
           <span
-            className={`${completedSteps.includes(5) ? styles.completed : styles.notCompleted} ${
-              currentStep === 5 ? styles.currentStep : styles.step
-            }`}
+            className={`${
+              completedSteps.includes(5)
+                ? styles.completed
+                : styles.notCompleted
+            } ${currentStep === 5 ? styles.currentStep : styles.step}`}
           >
             <EmploymentDetailIcon />
           </span>
@@ -94,9 +128,11 @@ const PersonalLoanApplicationForm = ({
         ></span>
         <div className={styles.stepBox}>
           <span
-            className={`${completedSteps.includes(14) ? styles.completed : styles.notCompleted} ${
-              currentStep === 14 ? styles.currentStep : styles.step
-            }`}
+            className={`${
+              completedSteps.includes(14)
+                ? styles.completed
+                : styles.notCompleted
+            } ${currentStep === 14 ? styles.currentStep : styles.step}`}
           >
             <KycDetailIcon />
           </span>
@@ -120,7 +156,7 @@ const PersonalLoanApplicationForm = ({
           </div>
         </div>
         <div className={styles.progressBar}>
-          <ProgressBar now={progress} variant='success' />
+          <ProgressBar now={progress} variant="success" />
         </div>
       </div>
       <div className={styles.formContentSection}>
@@ -282,8 +318,14 @@ const PersonalLoanApplicationForm = ({
       </div>
       {viewSteps && (
         <PopupPortal display={viewSteps}>
-          <div className='popupBox'>
-            <AllSteps onClose={() => setViewSteps(false)} />
+          <div className="popupBox">
+            <AllSteps
+              currentTotalStep={currentTotalStep}
+              completedCurrentStep={completedCurrentStep}
+              currentStepName={currentStepName}
+              currentStep={currentStep}
+              onClose={() => setViewSteps(false)}
+            />
           </div>
         </PopupPortal>
       )}

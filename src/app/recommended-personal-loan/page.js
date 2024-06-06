@@ -5,13 +5,21 @@ import Link from "next/link";
 import { ArrowLeftShort } from "react-bootstrap-icons";
 import { PageTitle, SectionTitle, Text } from "@styles/styledComponent";
 import { routesConstant } from "@utils/routesConstant";
-import { CustomImage, InputRange, PersonalLoanCard, StepperContainer } from "@components";
+import {
+  CustomImage,
+  InputRange,
+  PersonalLoanCard,
+  StepperContainer,
+} from "@components";
 import { applyPersonalLoan, whiteKashti } from "@public/assets";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import PersonalLoanDetailBox from "@components/parts/accordians/personalLoanDetailbox";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
+import moment from "moment";
+import { useRouter } from "next/navigation";
 
 const Page = () => {
+  const router = useRouter();
   const [loanAmount, setLoanAmount] = useState(100000);
   const [loanPeriod, setLoanPeriod] = useState(2);
   const [interestRate, setInterestRate] = useState(15);
@@ -20,14 +28,27 @@ const Page = () => {
   const { getPreApprovedLoans, realTimeLeadPush } = usePersonalLoan();
   const [preApprovedLoanOffers, setPreapprovedLoanOffers] = useState([]);
 
-  useEffect(() => {
-    getLoanList();
+  useLayoutEffect(() => {
+    const loanOffers = localStorage.getItem("pl_loan_offer");
+    if (loanOffers) {
+      setPreapprovedLoanOffers(JSON.parse(loanOffers));
+    } else {
+      getLoanList();
+    }
   }, []);
 
   const getLoanList = async () => {
     const leadPush = await realTimeLeadPush();
     const loanOffersList = await getPreApprovedLoans();
+    localStorage.setItem("pl_loan_offer", JSON.stringify(loanOffersList));
+    localStorage.setItem("pl_loan_expiry", moment().add(1, "hours"));
     setPreapprovedLoanOffers(loanOffersList);
+  };
+
+  const handleNewLoanApplication = () => {
+    localStorage.removeItem("pl_loan_offer");
+    localStorage.removeItem("pl_loan_expiry");
+    router.replace(routesConstant.PERSONAL_LOAN_QUESTIONAIRRE);
   };
 
   return (
@@ -37,18 +58,32 @@ const Page = () => {
         <Container>
           <Row>
             <Col lg={12}>
-              <Link href={routesConstant.PERSONAL_LOAN}>
-                <ArrowLeftShort /> <span>Personal Loan</span>
-              </Link>
+              {/* <Link href={routesConstant.PERSONAL_LOAN}> */}
+              {/* <span>Personal Loan</span> */}
+              {/* </Link> */}
             </Col>
             <Col lg={12}>
-              <PageTitle>{preApprovedLoanOffers.length} Personal Loan Recommendations Based on your Profile</PageTitle>
-              <Text>Explore the loans, assess unique advantages, and effortlessly avail a loan.</Text>
+              <PageTitle>
+                {preApprovedLoanOffers.length} Personal Loan Recommendations
+                Based on your Profile
+              </PageTitle>
+              <Text>
+                Explore the loans, assess unique advantages, and effortlessly
+                avail a loan.
+              </Text>
             </Col>
           </Row>
         </Container>
-        <CustomImage src={applyPersonalLoan} alt='Personal Loan Questionnaire' className={styles.applyPersonalLoan} />
-        <CustomImage src={whiteKashti} alt='White Kashti' className={styles.whiteKashti} />
+        <CustomImage
+          src={applyPersonalLoan}
+          alt="Personal Loan Questionnaire"
+          className={styles.applyPersonalLoan}
+        />
+        <CustomImage
+          src={whiteKashti}
+          alt="White Kashti"
+          className={styles.whiteKashti}
+        />
       </section>
       {/* Questionnaire Section */}
       {preApprovedLoanOffers && preApprovedLoanOffers.length > 0 ? (
@@ -209,7 +244,11 @@ const Page = () => {
                   </div> */}
                   {preApprovedLoanOffers &&
                     preApprovedLoanOffers.map((item, i) => (
-                      <PersonalLoanDetailBox item={item} currentQues={active === item.id ? true : false} key={i} />
+                      <PersonalLoanDetailBox
+                        item={item}
+                        currentQues={active === item.id ? true : false}
+                        key={i}
+                      />
                     ))}
                 </StepperContainer>
               </Col>
@@ -217,6 +256,15 @@ const Page = () => {
           </Container>
         </section>
       ) : null}
+      <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
+        <button
+          type="button"
+          onClick={handleNewLoanApplication}
+          className="primaryBtn"
+        >
+          Start New Loan Application
+        </button>
+      </div>
     </main>
   );
 };
