@@ -32,6 +32,10 @@ const CoApplicantDetails = (props) => {
     coApplicantName: Yup.string().required("Co-Applicant name is required."),
     coApplicantPAN: Yup.string()
       .matches(/[A-Z]{5}[0-9]{4}[A-Z]{1}/, "Invalid PAN Card number")
+      .notOneOf(
+        [loanData?.pan],
+        "Co-applicant PAN must be different to Applicant PAN"
+      )
       .required("PAN Card number is required"),
   });
 
