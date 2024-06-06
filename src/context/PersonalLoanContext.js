@@ -109,7 +109,9 @@ export function PersonalLoanProvider({ children }) {
             console.log("response.data", response.data.data.token);
             setApplicationDetail(response.data.data);
             setAccessToken(response.data.data.token);
-            router.replace(`${routesConstant.PERSONAL_LOAN_QUESTIONAIRRE}/${apiKey}/${secretKey}`);
+            router.replace(
+              `${routesConstant.PERSONAL_LOAN_QUESTIONAIRRE}/${apiKey}/${secretKey}`
+            );
             resolve(response.data);
           }
         })
@@ -148,7 +150,10 @@ export function PersonalLoanProvider({ children }) {
     };
     return new Promise((resolve, reject) => {
       loanAPI
-        .post(`/customer/api/v2/customer/lead/add/${applicationDetail.appID}`, payload)
+        .post(
+          `/customer/api/v2/customer/lead/add/${applicationDetail.appID}`,
+          payload
+        )
         .then((response) => {
           console.log("Response:", response.data);
           setLoanData((prevData) => ({
@@ -173,7 +178,10 @@ export function PersonalLoanProvider({ children }) {
       totalSlides: 3,
     };
     return new Promise((resolve, reject) => {
-      YO_INDI_API.post("/api/v2/customer/updateJourneyLastVisitedSlide/", payload)
+      YO_INDI_API.post(
+        "/api/v2/customer/updateJourneyLastVisitedSlide/",
+        payload
+      )
         .then((response) => {
           resolve(response.data);
         })
@@ -194,8 +202,9 @@ export function PersonalLoanProvider({ children }) {
         },
       })
         .then((response) => {
-          console.log("Pre Approved Loans:", response.data);
-          const data = response.data?.data?.filter((item) => item?.rejected === 0);
+          const data = response.data?.data?.filter(
+            (item) => item?.rejected === 0
+          );
           resolve(data);
         })
         .catch((err) => {
@@ -206,7 +215,7 @@ export function PersonalLoanProvider({ children }) {
 
   const realTimeLeadPush = async () => {
     let payload = {
-      id: applicationDetail.appID,
+      id: applicationDetail?.appID,
     };
     return new Promise((resolve, reject) => {
       YO_INDI_API.post("/api/v2/bank/realTimeLead/push", payload, {
@@ -253,7 +262,9 @@ export function PersonalLoanProvider({ children }) {
         .then((res) => res.json())
         .then((response) => {
           if (response && response.length > 0) {
-            const pincodeData = response[0].PostOffice ? response[0].PostOffice[0] : null;
+            const pincodeData = response[0].PostOffice
+              ? response[0].PostOffice[0]
+              : null;
             resolve(pincodeData);
           }
         })
@@ -286,6 +297,7 @@ export function PersonalLoanProvider({ children }) {
         getStateCityUsingPincode,
         setLoanData,
         setAccessToken,
+        leadDetail,
       }}
     >
       {children}
