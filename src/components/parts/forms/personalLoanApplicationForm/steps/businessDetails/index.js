@@ -68,6 +68,8 @@ const BusinessDetails = (props) => {
       const response = await onAddCustomerData(data, 10, "Business Detail");
       setCurrentStep(11);
       setCompletedSteps((prev) => [...prev, 10]);
+      fbq('trackCustom', "BusinessDetailsFilled");
+
       return;
     } catch (error) {
       return error;

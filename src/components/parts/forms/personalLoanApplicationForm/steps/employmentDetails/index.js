@@ -74,6 +74,8 @@ const EmploymentDetails = (props) => {
       const response = await onAddCustomerData(data, 5, "Employment Details");
       setCurrentStep(6);
       setCompletedSteps((prev) => [...prev, 5]);
+      fbq('trackCustom', "EmploymentDetailsFilled");
+
       return;
     } catch (error) {
       return error;

@@ -126,6 +126,8 @@ const CommunicationAddress = (props) => {
       );
       isPermenentAddressSame ? setCurrentStep(8) : setCurrentStep(7);
       setCompletedSteps((prev) => [...prev, 6]);
+      fbq('trackCustom', "CommAddressFilled");
+
       return;
     } catch (error) {
       return error;

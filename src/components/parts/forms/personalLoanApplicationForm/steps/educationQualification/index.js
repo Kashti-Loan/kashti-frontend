@@ -24,6 +24,8 @@ const EducationQualification = (props) => {
       );
       setCurrentStep(3);
       setCompletedSteps((prev) => [...prev, 2]);
+      fbq('trackCustom', "EducationalQualificationFilled");
+
       return;
     } catch (error) {
       return error;

@@ -66,6 +66,8 @@ const IncomeDetails = (props) => {
       const response = await onAddCustomerData(data, 3, "Income Details");
       setCurrentStep(4);
       setCompletedSteps((prev) => [...prev, 3]);
+      fbq('trackCustom', "IncomeDetailsFilled");
+
       return;
     } catch (error) {
       return error;

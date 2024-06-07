@@ -68,6 +68,8 @@ const CoApplicantDetails = (props) => {
       const response = await onAddCustomerData(data, 12, "CoApplicant Details");
       setCurrentStep(13);
       setCompletedSteps((prev) => [...prev, 12]);
+      fbq('trackCustom', "CoApplicantDetailsFilled");
+
       return;
     } catch (error) {
       console.log("error", error);

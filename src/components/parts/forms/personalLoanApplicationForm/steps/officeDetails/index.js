@@ -65,6 +65,8 @@ const OfficeDetails = (props) => {
       const response = await onAddCustomerData(data, 8, "Office Address");
       setCompletedSteps((prev) => [...prev, 8]);
       setCurrentStep(9);
+      fbq('trackCustom', "OfficeAddressDetailsFilled");
+
       return;
     } catch (error) {
       return error;

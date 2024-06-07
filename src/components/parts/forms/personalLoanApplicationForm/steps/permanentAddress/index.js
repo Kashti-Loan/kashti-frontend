@@ -56,6 +56,8 @@ const PermanentAddress = (props) => {
       );
       setCurrentStep(8);
       setCompletedSteps((prev) => [...prev, 7]);
+      fbq('trackCustom', "PermanentAddressDetailsFilled");
+
       return;
     } catch (error) {
       return error;

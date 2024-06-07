@@ -92,6 +92,8 @@ const BasicDetailStep = (props) => {
       const response = await onAddCustomerData(data, 1, "Individual Details");
       setCurrentStep(2);
       setCompletedSteps((prev) => [...prev, 1]);
+      fbq('trackCustom', "IndividualDetailsFilled");
+
       return;
     } catch (error) {
       if (error === "Rejected") {
