@@ -15,25 +15,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  useEffect(() => {
-    const buttons = document.querySelectorAll('button[data-event]');
-    buttons.forEach(button => {
-      button.addEventListener('click', function () {
-        let eventName = this.getAttribute('data-event');
-        fbq('track', eventName);
-      });
-    });
 
-    // Cleanup event listeners on unmount
-    return () => {
-      buttons.forEach(button => {
-        button.removeEventListener('click', function () {
-          let eventName = this.getAttribute('data-event');
-          fbq('track', eventName);
-        });
-      });
-    };
-  }, []);
 
   return (
     <html lang="en">
