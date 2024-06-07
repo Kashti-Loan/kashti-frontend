@@ -286,6 +286,8 @@ const CommunicationAddress = (props) => {
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
             <button
               data-testid="communication-address"
+              id="communication-address"
+
               type="submit"
               className="primaryBtn"
             >

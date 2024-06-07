@@ -171,6 +171,7 @@ const PermanentAddress = (props) => {
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
             <button
               data-testid="permanent-address"
+              id="permanent-address"
               type="submit"
               className="primaryBtn"
             >
