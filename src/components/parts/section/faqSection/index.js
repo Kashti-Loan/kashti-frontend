@@ -6,10 +6,16 @@ import { SectionTitle } from "@styles/styledComponent";
 import { faqData } from "@utils/data";
 import FaqBox from "@components/parts/accordians/faqBox";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { routesConstant } from "@utils/routesConstant";
 
 const FaqSection = (props) => {
   const [active, setActive] = useState(2);
+  const router = useRouter();
+
+  function handleClick(tab) {
+    router.push(`${routesConstant.FAQ}/?tab=${props.tab}`);
+  }
 
   return (
     <section
@@ -48,9 +54,9 @@ const FaqSection = (props) => {
                   ))}
             </ul>
             <div className={styles.viewAllBtn}>
-              <Link href={routesConstant.FAQ} className="secondaryBtn">
+              <button className="secondaryBtn" onClick={handleClick}>
                 View All FAQs
-              </Link>
+              </button>
             </div>
           </Col>
         </Row>

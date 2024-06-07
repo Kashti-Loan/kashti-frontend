@@ -21,6 +21,7 @@
     overflow-y: auto;
     max-height: calc(100% - 78px);
     padding-bottom: 40px;
+    margin-top: 20px;
     h2 {
       padding-inline: 16px;
     }
@@ -33,5 +34,9 @@
     //     padding: 0;
     //     width: 100%;
     // }
+  }
+  .creditCardList {
+    padding-top: 0 !important;
+    padding-bottom: 50px !important;
   }
 }

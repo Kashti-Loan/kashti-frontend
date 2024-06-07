@@ -69,6 +69,16 @@
           }
         }
       }
+      .consentBlock {
+        label {
+          align-items: flex-start;
+          > span {
+            width: 34px;
+            height: 20px;
+            margin-top: 3px;
+          }
+        }
+      }
       .phoneNumberField {
         @include flexContainer($gap: 0);
         input {
@@ -79,6 +89,7 @@
     .btnContainer {
       button {
         width: 100%;
+        padding-block: 12px;
       }
     }
   }

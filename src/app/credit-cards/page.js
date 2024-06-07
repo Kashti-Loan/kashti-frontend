@@ -48,6 +48,7 @@ import TabSection from "@components/parts/section/personalLoanPage/tabSection";
 import { creditCardTabData } from "@utils/constant";
 import {
   allCreditCardData,
+  creditCardFaq,
   creditCardProviderData,
   creditCardTypeData,
 } from "@utils/data";
@@ -113,11 +114,11 @@ const Page = () => {
     }
   }
 
-  console.log("final compare value", filter);
+  console.log("compare data", compareData);
   return (
     <main className={styles.creditCardPage}>
       {/* Banner Section */}
-      <section className={styles.bannerSection}>
+      <section className={styles.bannerSection} id="overview">
         <Container>
           <Row>
             <Col xs={12} md={12} lg={7}>
@@ -147,7 +148,7 @@ const Page = () => {
       </section>
 
       {/* Mobile - Banner Section */}
-      <section className={styles.mobileBannerContainer}>
+      <section className={styles.mobileBannerContainer} id="overview">
         <Container>
           <Row>
             <Col xs={7}>
@@ -440,6 +441,8 @@ const Page = () => {
         activeColor={"#F8F9FF"}
         id="faqs"
         className={styles.faqSection}
+        content={creditCardFaq}
+        tab={"credit_card"}
       />
       {/* Add to Compare Box */}
       {compareData.length > 0 && (

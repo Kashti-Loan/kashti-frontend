@@ -118,6 +118,10 @@
   .comparisonPage {
     .cardContainer {
       > div {
+        .compareCardList {
+          background-color: transparent;
+          box-shadow: unset;
+        }
         &:nth-of-type(2) {
           flex-wrap: wrap;
           > div {

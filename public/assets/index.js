@@ -194,10 +194,32 @@ import creditCardBannerImg from "./images/creditCardBannerImg.png";
 import ccKeyBenefits from "./images/ccKeyBenefits.png";
 import ccEasySteps from "./images/ccEasySteps.png";
 import ccMobileBanner from "./images/ccMobileBanner.png";
+import aboutBannerRight from "./images/aboutBannerRight.png";
+import aboutBannerLeft from "./images/aboutBannerLeft.png";
+import aboutBannerImg from "./images/aboutBannerImg.png";
+import aboutMobileBannerRight from "./images/aboutMobileBannerRight.png";
+import aboutMobileBannerLeft from "./images/aboutMobileBannerLeft.png";
+import aboutApplication from "./images/aboutApplication.png";
+import aboutPartnership from "./images/aboutPartnership.png";
+import aboutPincode from "./images/aboutPincode.png";
+import customerSatis from "./images/customerSatis.png";
+import aboutSecure from "./images/aboutSecure.png";
+import aboutGoal from "./images/aboutGoal.png";
 
 export {
   siteLogo,
+  aboutApplication,
+  aboutPartnership,
+  aboutPincode,
+  aboutGoal,
+  aboutSecure,
+  customerSatis,
   homeLoanEmi,
+  aboutMobileBannerRight,
+  aboutMobileBannerLeft,
+  aboutBannerLeft,
+  aboutBannerRight,
+  aboutBannerImg,
   ccKeyBenefits,
   ccMobileBanner,
   ccEasySteps,
@@ -392,5 +414,4 @@ export {
   newicici,
   newyes,
   newmuthoot,
-  
 };

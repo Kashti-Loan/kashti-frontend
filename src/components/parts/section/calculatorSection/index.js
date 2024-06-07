@@ -6,9 +6,10 @@ import { calculatorData } from "@utils/data";
 
 const CalculatorSection = (props) => {
   return (
-    <div
+    <section
       className={styles.calculatorSection}
       style={{ backgroundColor: props.bgColor || "var(--globalWhite)" }}
+      id={props.id || 'calculator'}
     >
       <Container>
         <Row>
@@ -63,7 +64,7 @@ const CalculatorSection = (props) => {
           </Col>
         </Row>
       </Container>
-    </div>
+    </section>
   );
 };
 

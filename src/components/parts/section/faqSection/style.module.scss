@@ -18,7 +18,7 @@
           .viewAllBtn {
             text-align: center;
             margin-top: 40px;
-            a {
+            button {
               padding: 8px 28px;
               border-radius: 8px;
             }
@@ -35,9 +35,9 @@
         > div {
           > div {
             padding-inline: 0;
-            h2 {
-              text-align: left;
-            }
+            // h2 {
+            //   text-align: left;
+            // }
           }
         }
       }

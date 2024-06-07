@@ -130,7 +130,7 @@ export const personalLoanTabData = [
   {
     id: 1,
     name: "Overview",
-    link: "#",
+    link: "#overview",
   },
   {
     id: 2,

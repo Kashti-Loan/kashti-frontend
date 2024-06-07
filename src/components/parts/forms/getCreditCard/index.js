@@ -16,7 +16,7 @@ const GetCreditCard = () => {
             type="tel"
             placeholder="Mobile Number"
             initial="+91"
-            name={'mobile_number'} // Add Name to these tags else tooltip wont work
+            name={"mobile_number"} // Add Name to these tags else tooltip wont work
             // error={error?.message}
             phoneNumber
             tooltip
@@ -27,12 +27,13 @@ const GetCreditCard = () => {
               <input type="checkbox" name={"consent"} id={"consent"} />
               <span className="checkmark"></span>
               <Text className={styles.agreeTerms}>
-                By proceeding, you agree to our{" "}
+                By Continuing, i agree to kashtis{" "}
                 <Link href={routesConstant.PRIVACY_POLICY}>Privacy Policy</Link>{" "}
                 and{" "}
                 <Link href={routesConstant.TERMS_CONDITION}>
                   Terms & Conditions
-                </Link>
+                </Link>{" "}
+                and Receive communication from Kashti via SMS,E-Mail and whatApp
               </Text>
             </label>
           </div>
