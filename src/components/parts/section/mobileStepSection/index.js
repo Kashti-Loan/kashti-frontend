@@ -15,28 +15,28 @@ const MobileStepSection = () => {
   const sectionData = [
     {
       id: 1,
-      title: "Explore",
+      title: "Browse Our Products",
       icon: <ExploreIcon />,
       description:
         "Explore our diverse offerings for your first step to financial freedom.",
     },
     {
       id: 2,
-      title: "Basic Info",
+      title: "Enter Basic Information",
       icon: <BasicIcon />,
       description:
         "Get started with Kashti by just entering your basic, mandatory details.",
     },
     {
       id: 3,
-      title: "Pick the Best",
+      title: "Compare Our Offers",
       icon: <BestIcon />,
       description:
         "Select the perfect match for your requirements and proceed effortlessly.",
     },
     {
       id: 4,
-      title: "Powerful Algorithm",
+      title: "Select The Best",
       icon: <AlgorithmIcon />,
       description:
         "Compare customized offers in seconds with our powerful algorithm. ",
@@ -47,7 +47,7 @@ const MobileStepSection = () => {
       <Container>
         <Row>
           <Col>
-            <SectionTitle>Quick Easy Steps For Using Kashti</SectionTitle>
+            <SectionTitle>How it Works</SectionTitle>
             <ul>
               {sectionData.map((data, i) => (
                 <MobileStepBox
