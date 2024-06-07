@@ -80,19 +80,19 @@ export const navMenuItems = [
 export const loanMenuItems = [
   {
     name: "Credit Cards",
-    path: routesConstant.CREDIT_CARDS,
+    path: "/personal-loan-questionairre/08909c58d762e3a984c9d05675b8f235a8ebc207e5eecb4219ff23b7afc5f053/f822448ac0e60dbf9741da8901e7db096b28321f998db7e667c50e576eaa47c6",
   },
   {
     name: "Instant Personal Loan",
-    path: routesConstant.PERSONAL_LOAN,
+    path: "/personal-loan/863131ef159837db79425bfeabe800606906b4398e4ea358e84b189eed501b50/cc583c38b06216d6caba779ab19db00df0bc359a3eef725122453fa49b7a6c31",
   },
   {
     name: "Business Loan",
-    path: routesConstant.PERSONAL_LOAN,
+    path: "/personal-loan-questionairre/08909c58d762e3a984c9d05675b8f235a8ebc207e5eecb4219ff23b7afc5f053/f822448ac0e60dbf9741da8901e7db096b28321f998db7e667c50e576eaa47c6",
   },
   {
     name: "Gold Loan",
-    path: routesConstant.PERSONAL_LOAN,
+    path: "/personal-loan-questionairre/08909c58d762e3a984c9d05675b8f235a8ebc207e5eecb4219ff23b7afc5f053/f822448ac0e60dbf9741da8901e7db096b28321f998db7e667c50e576eaa47c6",
   },
 ];
 
