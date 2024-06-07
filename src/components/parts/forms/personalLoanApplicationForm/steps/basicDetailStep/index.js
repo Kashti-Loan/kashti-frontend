@@ -186,6 +186,7 @@ const BasicDetailStep = (props) => {
             <button
               data-testid="individual-details"
               data-event="IndividualDetailsClick"
+              id ="individual-details"
               type="submit"
               className="primaryBtn individual-details"
             >

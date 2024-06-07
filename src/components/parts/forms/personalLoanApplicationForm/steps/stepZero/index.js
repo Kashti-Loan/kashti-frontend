@@ -46,6 +46,7 @@ const StepZero = (props) => {
         <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
           <button
             data-testid="login-detail"
+            id="login-detail"
             type="button"
             className="primaryBtn"
             onClick={() => setOtpSent(true)}

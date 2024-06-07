@@ -146,7 +146,9 @@ const CompanyDetails = (props) => {
           </div>
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
             <button
-              data-testid="company-detail"
+              data-testid="company-detail"              
+              id="company-detail"
+
               type="submit"
               className="primaryBtn"
             >

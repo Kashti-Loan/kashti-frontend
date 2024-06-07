@@ -175,6 +175,7 @@ const IncomeDetails = (props) => {
             <button
               data-testid="income-details"
               data-event="IncomeDetailsClick"
+              id="income-details"
               type="submit"
               className="primaryBtn income-details"
             >
