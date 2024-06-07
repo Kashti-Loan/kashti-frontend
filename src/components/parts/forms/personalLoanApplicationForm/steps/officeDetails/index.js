@@ -180,6 +180,8 @@ const OfficeDetails = (props) => {
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
             <button
               data-testid="office-address"
+              data-event="OfficeAddressFilled"
+
               id="office-address"
               type="submit"
               className="primaryBtn"

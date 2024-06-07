@@ -61,6 +61,8 @@ const EducationQualification = (props) => {
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
             <button
               data-testid="educational-qualification"
+              data-event="EducationalQualificationFilled"
+
               id="educational-qualification"
 
               onClick={() => onSubmit(loanData?.educational_qualification)}

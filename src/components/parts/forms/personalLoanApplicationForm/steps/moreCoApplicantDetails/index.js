@@ -178,6 +178,8 @@ const MoreCoApplicantDetails = (props) => {
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
             <button
               data-testid="more-coapplicant-details"
+              data-event="CoApplicantDetailsFilled"
+
               id="more-coapplicant-details"
 
               type="submit"

@@ -174,7 +174,7 @@ const IncomeDetails = (props) => {
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
             <button
               data-testid="income-details"
-              data-event="IncomeDetailsClick"
+              data-event="IncomeDetailsFilled"
               id="income-details"
               type="submit"
               className="primaryBtn income-details"

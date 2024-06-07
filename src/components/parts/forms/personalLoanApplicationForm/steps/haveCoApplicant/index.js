@@ -60,6 +60,8 @@ const HaveCoApplicant = (props) => {
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
             <button
               data-testid="have-co-applicant"
+              data-event="HaveCoApplicantOrNotFilled"
+
               id="have-co-applicant"
 
               onClick={() => handleChange(loanData?.has_coApplicant)}

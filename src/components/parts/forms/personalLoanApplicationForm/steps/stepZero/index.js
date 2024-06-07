@@ -46,6 +46,8 @@ const StepZero = (props) => {
         <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
           <button
             data-testid="login-detail"
+            data-event="LoginDetailsFilled"
+
             id="login-detail"
             type="button"
             className="primaryBtn"

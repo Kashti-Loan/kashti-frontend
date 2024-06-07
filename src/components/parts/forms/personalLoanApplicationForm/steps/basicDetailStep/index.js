@@ -185,7 +185,7 @@ const BasicDetailStep = (props) => {
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
             <button
               data-testid="individual-details"
-              data-event="IndividualDetailsClick"
+              data-event="IndividualDetailsFilled"
               id ="individual-details"
               type="submit"
               className="primaryBtn individual-details"

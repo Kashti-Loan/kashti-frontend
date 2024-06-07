@@ -99,7 +99,7 @@ const StepZero = (props) => {
                 render={({ field, fieldState: { error } }) => (
                   <InputTag
                     {...field}
-                    label="Name (As per PAN Card)*"
+                    label="Full Name*"
                     type="text"
                     name="full_name"
                     placeholder="Enter Name as per PAN"
