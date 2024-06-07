@@ -185,8 +185,9 @@ const BasicDetailStep = (props) => {
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
             <button
               data-testid="individual-details"
+              data-event="IndividualDetailsClick"
               type="submit"
-              className="primaryBtn"
+              className="primaryBtn individual-details"
             >
               {isSubmitting ? "Updating Data..." : "Continue"}
             </button>
