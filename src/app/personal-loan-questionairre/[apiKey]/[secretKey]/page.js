@@ -11,6 +11,8 @@ import {
   newicici,
   newmuthoot,
   newyes,
+  personalLoanMobileModel,
+  personalLoanQuestionairreModel,
   whiteKashti,
 } from "@public/assets";
 import { routesConstant } from "@utils/routesConstant";
@@ -73,8 +75,13 @@ const Page = ({ params }) => {
                 </button>
               </Col>
               <Col lg={12}>
-                <PageTitle>Unlock Best Personal Loan Offers</PageTitle>
-                <Text>Avail a Loan of Your Choice Instantly.</Text>
+                <div className={styles.bannerContent}>
+                  <PageTitle>Unlock Best Personal Loan Offers</PageTitle>
+                  <Text>Avail a Loan of Your Choice Instantly.</Text>
+                </div>
+                <div className={styles.mobileImg}>
+                  <CustomImage src={personalLoanMobileModel} />
+                </div>
               </Col>
             </Row>
           </Container>

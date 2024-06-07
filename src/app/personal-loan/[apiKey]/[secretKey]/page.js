@@ -39,6 +39,8 @@ import {
   fiveStepsPersonalLoan,
   personalLoanMobile,
   hdfc,
+  personalLoanModel,
+  personalLoanMobileModel,
 } from "@public/assets";
 import TabSection from "@components/parts/section/personalLoanPage/tabSection";
 import { personalLoanTabData } from "@utils/constant";
@@ -70,7 +72,7 @@ const Page = ({ params }) => {
         <section className={styles.bannerSection}>
           <Container>
             <Row>
-              <Col xs={12} md={12} lg={7}>
+              <Col xs={12} md={4} lg={4}>
                 <PageTitle>
                   Instant Loans. Trusted Providers. Check Your Eligibility!
                 </PageTitle>
@@ -87,9 +89,11 @@ const Page = ({ params }) => {
                     <CustomImage src={hdfc} alt="Bank Partners" />
                   </div>
                 </div>
-                <CustomImage src={personalLoanBannerImg} />
               </Col>
-              <Col xs={12} md={12} lg={5}>
+              <Col xs={12} md={3} lg={4}>
+                <CustomImage src={personalLoanModel} alt="Personal Loan" />
+              </Col>
+              <Col xs={12} md={12} lg={4}>
                 <SecureLoanToday
                   apiKey={params.apiKey}
                   secretKey={params.secretKey}
@@ -110,7 +114,7 @@ const Page = ({ params }) => {
               </Col>
               <Col xs={5}>
                 <CustomImage
-                  src={personalLoanMobile}
+                  src={personalLoanMobileModel}
                   alt="Personal Loan Banner"
                 />
               </Col>
