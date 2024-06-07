@@ -595,7 +595,7 @@ const Home = () => {
             </Col>
           </Row>
           <Row>
-            <Col xs={7}>
+            <Col xs={6}>
               <ul>
                 <li>
                   <svg
@@ -841,7 +841,7 @@ const Home = () => {
                 </li>
               </ul>
             </Col>
-            <Col xs={5}>
+            <Col xs={6}>
               <CustomImage
                 src={lock}
                 alt="What Makes Kashti Stand Out from Others"

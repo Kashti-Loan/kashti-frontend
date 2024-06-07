@@ -6,7 +6,7 @@ import lock from "./images/lock.png";
 import rightCreditCard from "./images/rightCreditCard.png";
 import saveTime from "./images/saveTime.png";
 import security from "./images/security.png";
-import howItWorks from "./images/howItWorks.png";
+import howItWorks from "./images/home-how-it-works.png";
 import step_1 from "./images/step_1.png";
 import step_2 from "./images/step_2.png";
 import step_3 from "./images/step_3.png";
@@ -190,10 +190,16 @@ import tata_capital from "./images/ourPartners/tata_capital.png";
 import moneyV from "./images/ourPartners/moneyV.png";
 import idfc_b from "./images/ourPartners/idfc.png";
 import incred from "./images/ourPartners/incred.png";
+import personalLoanModel from "./images/personalLoanModel.png";
+import personalLoanMobileModel from "./images/personalLoanMobileModel.png";
+import personalLoanQuestionairreModel from "./images/personalLoanQuestionairreModel.png";
 
 export {
   siteLogo,
   homeLoanEmi,
+  personalLoanModel,
+  personalLoanMobileModel,
+  personalLoanQuestionairreModel,
   amex_bank,
   incred,
   axis_bank,
@@ -384,5 +390,4 @@ export {
   newicici,
   newyes,
   newmuthoot,
-  
 };
