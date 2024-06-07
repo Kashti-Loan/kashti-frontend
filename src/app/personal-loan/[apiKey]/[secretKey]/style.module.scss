@@ -552,7 +552,7 @@
             margin-top: 12px;
             > div {
               &:nth-of-type(2) {
-                align-self: center;
+                align-self: flex-end;
               }
               img {
                 width: 100%;
@@ -562,7 +562,7 @@
                 margin: 0;
                 padding: 0;
                 list-style: none;
-                @include flexContainer($gap: 12px);
+                @include flexContainer($gap: 16px);
                 flex-direction: column;
                 li {
                   width: 100%;
@@ -622,9 +622,8 @@
             .eligibilitySteps {
               .eligibilityBox {
                 flex: unset;
-                flex-direction: column-reverse;
                 align-items: flex-start;
-                gap: 10px;
+                padding: 16px 20px;
                 > p {
                   width: 100%;
                 }
