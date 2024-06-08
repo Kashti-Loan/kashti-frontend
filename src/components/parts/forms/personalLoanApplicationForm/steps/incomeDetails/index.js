@@ -88,12 +88,12 @@ const IncomeDetails = (props) => {
                   name="your_desired_loan_amount"
                   control={control}
                   render={({ field, fieldState: { error } }) => (
-                    <Input
+                    <MoneyPhoneInputTag
                       {...field}
                       type="number"
                       max={"2000000"}
                       initial="₹"
-                      style={{ maxWidth: "120px" }}
+                      // style={{ maxWidth: "120px" }}
                     />
                   )}
                 />
