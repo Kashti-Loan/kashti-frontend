@@ -25,7 +25,7 @@ const EducationQualification = (props) => {
       setCurrentStep(3);
       setCompletedSteps((prev) => [...prev, 2]);
       fbq('trackCustom', "EducationalQualificationFilled");
-      fbq('track', "Find location");
+      fbq('track', "Find Location");
       console.log('EducationalQualificationFilled');
 
       return;

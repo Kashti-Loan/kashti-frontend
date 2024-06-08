@@ -80,12 +80,12 @@ const CompanyDetails = (props) => {
     try {
       const response = await onAddCustomerData(data, 9, "Company Detail");
       if (loanData.employment_type === "Salaried") {
-        fbq('track', "Submit application");
+        fbq('track', "Submit Application");
 
         router.replace(routesConstant.RECOMMENDED_PERSONAL_LOAN);
 
       } else {
-        
+
         setCurrentStep(10);
       }
       setCompletedSteps((prev) => [...prev, 9]);
