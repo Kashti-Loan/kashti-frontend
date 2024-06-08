@@ -76,6 +76,7 @@ const MoreCoApplicantDetails = (props) => {
       );
       router.replace(routesConstant.RECOMMENDED_PERSONAL_LOAN);
       fbq('trackCustom', "MoreCoApplicantDetailsFilled");
+      console.log('MoreCoApplicantDetailsFilled');
 
       return;
     } catch (error) {

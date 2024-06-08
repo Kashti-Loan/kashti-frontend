@@ -75,6 +75,7 @@ const EmploymentDetails = (props) => {
       setCurrentStep(6);
       setCompletedSteps((prev) => [...prev, 5]);
       fbq('trackCustom', "EmploymentDetailsFilled");
+      console.log('EmploymentDetailsFilled');
 
       return;
     } catch (error) {

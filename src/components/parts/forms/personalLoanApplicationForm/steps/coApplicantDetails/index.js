@@ -69,7 +69,7 @@ const CoApplicantDetails = (props) => {
       setCurrentStep(13);
       setCompletedSteps((prev) => [...prev, 12]);
       fbq('trackCustom', "CoApplicantDetailsFilled");
-
+      console.log('CoApplicantDetailsFilled');
       return;
     } catch (error) {
       console.log("error", error);

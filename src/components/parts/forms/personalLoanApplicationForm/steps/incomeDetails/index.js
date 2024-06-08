@@ -67,6 +67,7 @@ const IncomeDetails = (props) => {
       setCurrentStep(4);
       setCompletedSteps((prev) => [...prev, 3]);
       fbq('trackCustom', "IncomeDetailsFilled");
+      console.log('IncomeDetailsFilled');
 
       return;
     } catch (error) {

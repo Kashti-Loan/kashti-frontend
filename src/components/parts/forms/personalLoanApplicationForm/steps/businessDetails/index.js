@@ -69,6 +69,7 @@ const BusinessDetails = (props) => {
       setCurrentStep(11);
       setCompletedSteps((prev) => [...prev, 10]);
       fbq('trackCustom', "BusinessDetailsFilled");
+      console.log('BusinessDetailsFilled');
 
       return;
     } catch (error) {

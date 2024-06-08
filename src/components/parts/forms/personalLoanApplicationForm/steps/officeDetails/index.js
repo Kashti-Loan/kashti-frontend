@@ -66,6 +66,7 @@ const OfficeDetails = (props) => {
       setCompletedSteps((prev) => [...prev, 8]);
       setCurrentStep(9);
       fbq('trackCustom', "OfficeAddressDetailsFilled");
+      console.log('OfficeAddressDetailsFilled');
 
       return;
     } catch (error) {

@@ -39,6 +39,7 @@ const PurposeLoan = (props) => {
       setCurrentStep(5);
       setCompletedSteps((prev) => [...prev, 4]);
       fbq('trackCustom', "PurposeDetailsFilled");
+      console.log('PurposeDetailsFilled');
 
       return;
     } catch (error) {
