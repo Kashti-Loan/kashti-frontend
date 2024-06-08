@@ -56,6 +56,9 @@ const PermanentAddress = (props) => {
       );
       setCurrentStep(8);
       setCompletedSteps((prev) => [...prev, 7]);
+      fbq('trackCustom', "PermanentAddressDetailsFilled");
+      console.log('PermanentAddressDetailsFilled');
+
       return;
     } catch (error) {
       return error;
@@ -171,6 +174,8 @@ const PermanentAddress = (props) => {
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
             <button
               data-testid="permanent-address"
+              data-event="PermanentAddressFilled"
+
               id="permanent-address"
               type="submit"
               className="primaryBtn"

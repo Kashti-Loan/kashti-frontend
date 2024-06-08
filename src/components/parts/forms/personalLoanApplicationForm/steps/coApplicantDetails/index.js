@@ -70,6 +70,8 @@ const CoApplicantDetails = (props) => {
       const response = await onAddCustomerData(data, 12, "CoApplicant Details");
       setCurrentStep(13);
       setCompletedSteps((prev) => [...prev, 12]);
+      fbq('trackCustom', "CoApplicantDetailsFilled");
+      console.log('CoApplicantDetailsFilled');
       return;
     } catch (error) {
       console.log("error", error);
@@ -146,6 +148,8 @@ const CoApplicantDetails = (props) => {
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
             <button
               data-testid="coapplicant-details"
+              data-event="CoApplicantDetailsFilled"
+
               id="coapplicant-details"
               type="submit"
               className="primaryBtn"

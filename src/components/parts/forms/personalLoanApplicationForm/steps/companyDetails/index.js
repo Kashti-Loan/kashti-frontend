@@ -80,11 +80,19 @@ const CompanyDetails = (props) => {
     try {
       const response = await onAddCustomerData(data, 9, "Company Detail");
       if (loanData.employment_type === "Salaried") {
+        fbq('track', "SubmitApplication");
+
         router.replace(routesConstant.RECOMMENDED_PERSONAL_LOAN);
+
       } else {
+
         setCurrentStep(10);
       }
       setCompletedSteps((prev) => [...prev, 9]);
+      fbq('trackCustom', "CompanyDetailsFilled");
+
+      console.log('CompanyDetailsFilled');
+
       return;
     } catch (error) {
       return error;
@@ -135,7 +143,7 @@ const CompanyDetails = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="Total Work Experience*"
+                  label="Total Work Experience* (Years)"
                   type="text"
                   name="work_experience"
                   placeholder="12"
@@ -146,7 +154,9 @@ const CompanyDetails = (props) => {
           </div>
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
             <button
-              data-testid="company-detail"
+              data-testid="company-detail"      
+              data-event="CompanyDetailsFilled"
+        
               id="company-detail"
               type="submit"
               className="primaryBtn"

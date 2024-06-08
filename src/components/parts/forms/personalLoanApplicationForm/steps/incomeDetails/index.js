@@ -66,6 +66,10 @@ const IncomeDetails = (props) => {
       const response = await onAddCustomerData(data, 3, "Income Details");
       setCurrentStep(4);
       setCompletedSteps((prev) => [...prev, 3]);
+      fbq('trackCustom', "IncomeDetailsFilled");
+      fbq('track', "StartTrial");
+      console.log('IncomeDetailsFilled');
+
       return;
     } catch (error) {
       return error;
@@ -84,12 +88,12 @@ const IncomeDetails = (props) => {
                   name="your_desired_loan_amount"
                   control={control}
                   render={({ field, fieldState: { error } }) => (
-                    <Input
+                    <MoneyPhoneInputTag
                       {...field}
                       type="number"
                       max={"2000000"}
                       initial="₹"
-                      style={{ maxWidth: "120px" }}
+                      // style={{ maxWidth: "120px" }}
                     />
                   )}
                 />
@@ -174,7 +178,7 @@ const IncomeDetails = (props) => {
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
             <button
               data-testid="income-details"
-              data-event="IncomeDetailsClick"
+              data-event="IncomeDetailsFilled"
               id="income-details"
               type="submit"
               className="primaryBtn income-details"

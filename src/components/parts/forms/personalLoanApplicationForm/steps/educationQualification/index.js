@@ -24,6 +24,10 @@ const EducationQualification = (props) => {
       );
       setCurrentStep(3);
       setCompletedSteps((prev) => [...prev, 2]);
+      fbq('trackCustom', "EducationalQualificationFilled");
+      fbq('track', "FindLocation");
+      console.log('EducationalQualificationFilled');
+
       return;
     } catch (error) {
       return error;
@@ -61,6 +65,8 @@ const EducationQualification = (props) => {
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
             <button
               data-testid="educational-qualification"
+              data-event="EducationalQualificationFilled"
+
               id="educational-qualification"
               onClick={() => onSubmit(loanData?.educational_qualification)}
               type="button"

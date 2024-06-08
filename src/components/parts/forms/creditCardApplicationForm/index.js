@@ -18,7 +18,7 @@ const CreditCardApplicationForm = () => {
           <div className={styles.inputBlock}>
             <CustomInput
               type={"text"}
-              placeholder="Full Name (As per your PAN)*"
+              placeholder="Full Name*"
             />
             <CustomSelect
               placeholder={"Gender*"}
@@ -27,7 +27,7 @@ const CreditCardApplicationForm = () => {
             />
             <CustomInput
               type={"text"}
-              placeholder="Father Name (As per your PAN)*"
+              placeholder="Father's Name*"
             />
             <CustomInput
               type={"date"}

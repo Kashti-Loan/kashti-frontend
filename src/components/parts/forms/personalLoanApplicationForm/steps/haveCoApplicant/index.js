@@ -24,6 +24,7 @@ const HaveCoApplicant = (props) => {
       if (value === true) {
         setCurrentStep(12);
       } else {
+        fbq('track', "SubmitApplication");
         router.replace(routesConstant.RECOMMENDED_PERSONAL_LOAN);
       }
       setCompletedSteps((prev) => [...prev, 11]);
@@ -41,7 +42,7 @@ const HaveCoApplicant = (props) => {
             <h3>Do you have a Co-Applicant?</h3>
             <CommonTooltip
               id={"haveCoApplicant"}
-              content={"Hello World"}
+              content={"Required information in the presence of a co-applicant for your loan."}
               place={"right"}
             />
           </div>
@@ -60,6 +61,8 @@ const HaveCoApplicant = (props) => {
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
             <button
               data-testid="have-co-applicant"
+              data-event="HaveCoApplicantOrNotFilled"
+
               id="have-co-applicant"
 
               onClick={() => handleChange(loanData?.has_coApplicant)}

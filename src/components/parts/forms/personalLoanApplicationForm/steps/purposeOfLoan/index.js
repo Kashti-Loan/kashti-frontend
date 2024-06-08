@@ -38,6 +38,9 @@ const PurposeLoan = (props) => {
       );
       setCurrentStep(5);
       setCompletedSteps((prev) => [...prev, 4]);
+      fbq('trackCustom', "PurposeDetailsFilled");
+      console.log('PurposeDetailsFilled');
+
       return;
     } catch (error) {
       return error;
@@ -126,8 +129,10 @@ const PurposeLoan = (props) => {
           </div>
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
             <button
-              data-testid="employment-details"
-              id="employment-details"
+              data-testid="purpose"
+              data-event="PurposeDetailsFilled"
+
+              id="purpose-details"
 
               onClick={() => onSubmit(loanData?.purposeOfLoan)}
               type="button"

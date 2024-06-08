@@ -16,12 +16,12 @@ const StepZero = (props) => {
       <form>
         <div className={styles.inputBlock}>
           <InputTag
-            label="Name*"
+            label="Full Name*"
             type="text"
             name="name"
             placeholder="Enter Name as per PAN"
             tooltip
-            tooltipContent={"Hello World!"}
+            tooltipContent={"Your full name as per PAN!"}
           />
           <MoneyPhoneInputTag
             label="Mobile Number*"
@@ -46,6 +46,8 @@ const StepZero = (props) => {
         <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
           <button
             data-testid="login-detail"
+            data-event="LoginDetailsFilled"
+
             id="login-detail"
             type="button"
             className="primaryBtn"

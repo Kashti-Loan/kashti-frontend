@@ -70,6 +70,9 @@ const BusinessDetails = (props) => {
       const response = await onAddCustomerData(data, 10, "Business Detail");
       setCurrentStep(11);
       setCompletedSteps((prev) => [...prev, 10]);
+      fbq('trackCustom', "BusinessDetailsFilled");
+      console.log('BusinessDetailsFilled');
+
       return;
     } catch (error) {
       return error;
@@ -116,6 +119,7 @@ const BusinessDetails = (props) => {
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
             <button
               data-testid="business-detail"
+              data-event="BusinessDetailsFilled"
               id="business-detail"
               type="submit"
               className="primaryBtn"

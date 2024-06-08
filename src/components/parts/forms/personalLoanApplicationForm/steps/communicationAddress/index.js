@@ -126,6 +126,12 @@ const CommunicationAddress = (props) => {
       );
       isPermenentAddressSame ? setCurrentStep(8) : setCurrentStep(7);
       setCompletedSteps((prev) => [...prev, 6]);
+      fbq('trackCustom', "CommAddressFilled");
+      fbq('track', "ViewContent");
+
+      console.log('CommAddressFilled');
+
+
       return;
     } catch (error) {
       return error;
@@ -244,7 +250,7 @@ const CommunicationAddress = (props) => {
                   label="Nature of Address*"
                   name="nature_of_address"
                   tooltip
-                  tooltipContent="Hello World!"
+                  tooltipContent="Lenders assess risk, & ensure accurate communication."
                   options={natureOfAddress}
                   error={error?.message}
                 />
@@ -263,7 +269,7 @@ const CommunicationAddress = (props) => {
                   name="years_at_current_address"
                   placeholder="12"
                   tooltip
-                  tooltipContent="Hello World!"
+                  tooltipContent="Lenders assess your stability & reliability."
                   error={error?.message}
                 />
               )}
@@ -286,6 +292,8 @@ const CommunicationAddress = (props) => {
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
             <button
               data-testid="communication-address"
+              data-event="CommunicationAddressFilled"
+
               id="communication-address"
               type="submit"
               className="primaryBtn"
