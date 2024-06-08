@@ -53,6 +53,7 @@ const SecureLoanToday = ({ apiKey, secretKey }) => {
     handleSubmit,
     control,
     getValues,
+    setValue,
     watch,
     formState: { errors, isSubmitting, isSubmitSuccessful },
   } = methods;
