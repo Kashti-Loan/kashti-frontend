@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Footer, Header, MobileHeader } from "@components";
 // Global Style
 import "@styles/global.scss";
