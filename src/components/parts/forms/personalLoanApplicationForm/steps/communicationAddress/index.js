@@ -155,7 +155,7 @@ const CommunicationAddress = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="Address Line 1"
+                  label="Address Line 1*"
                   type="text"
                   name="address"
                   autoComplete="address-line1"
@@ -170,7 +170,7 @@ const CommunicationAddress = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="Address Line 2"
+                  label="Address Line 2*"
                   type="text"
                   name="address2"
                   autoComplete="address-line2"
@@ -187,7 +187,7 @@ const CommunicationAddress = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="Pincode"
+                  label="Pincode*"
                   type="text"
                   autoComplete="postal-code"
                   name="pincode"
@@ -211,7 +211,7 @@ const CommunicationAddress = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="City"
+                  label="City*"
                   type="text"
                   autoComplete="address-level2"
                   name="city"
@@ -226,7 +226,7 @@ const CommunicationAddress = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="State"
+                  label="State*"
                   type="text"
                   name="state"
                   autoComplete="address-level1"
@@ -241,7 +241,7 @@ const CommunicationAddress = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <SelectTag
                   {...field}
-                  label="Nature of Address"
+                  label="Nature of Address*"
                   name="nature_of_address"
                   tooltip
                   tooltipContent="Hello World!"
@@ -258,7 +258,7 @@ const CommunicationAddress = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="Years at Current Address"
+                  label="Years at Current Address*"
                   type="number"
                   name="years_at_current_address"
                   placeholder="12"
@@ -287,7 +287,6 @@ const CommunicationAddress = (props) => {
             <button
               data-testid="communication-address"
               id="communication-address"
-
               type="submit"
               className="primaryBtn"
             >

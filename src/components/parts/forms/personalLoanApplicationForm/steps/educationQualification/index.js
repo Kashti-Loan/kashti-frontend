@@ -62,7 +62,6 @@ const EducationQualification = (props) => {
             <button
               data-testid="educational-qualification"
               id="educational-qualification"
-
               onClick={() => onSubmit(loanData?.educational_qualification)}
               type="button"
               className="primaryBtn"

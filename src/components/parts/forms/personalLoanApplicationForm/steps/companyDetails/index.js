@@ -106,7 +106,7 @@ const CompanyDetails = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="Company Name"
+                  label="Company Name*"
                   type="text"
                   name="company_name"
                   placeholder="Oakwood Finances"
@@ -120,7 +120,7 @@ const CompanyDetails = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <SelectTag
                   {...field}
-                  label="Company Type"
+                  label="Company Type*"
                   name="company_type"
                   options={companyType}
                   error={error?.message}
@@ -135,7 +135,7 @@ const CompanyDetails = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="Total Work Experience"
+                  label="Total Work Experience*"
                   type="text"
                   name="work_experience"
                   placeholder="12"
@@ -146,9 +146,8 @@ const CompanyDetails = (props) => {
           </div>
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
             <button
-              data-testid="company-detail"              
+              data-testid="company-detail"
               id="company-detail"
-
               type="submit"
               className="primaryBtn"
             >
