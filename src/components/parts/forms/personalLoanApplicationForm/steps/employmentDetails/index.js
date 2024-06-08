@@ -75,6 +75,8 @@ const EmploymentDetails = (props) => {
       setCurrentStep(6);
       setCompletedSteps((prev) => [...prev, 5]);
       fbq('trackCustom', "EmploymentDetailsFilled");
+      fbq('track', "Subscribe");
+
       console.log('EmploymentDetailsFilled');
 
       return;

@@ -107,6 +107,8 @@ const BasicDetailStep = (props) => {
         setCurrentStep(2);
         setCompletedSteps((prev) => [...prev, 1]);
         fbq('trackCustom', "IndividualDetailsFilled");
+        fbq('track', "Search");
+
         console.log('IndividualDetailsFilled');
       }
       return error;

@@ -24,6 +24,7 @@ const HaveCoApplicant = (props) => {
       if (value === true) {
         setCurrentStep(12);
       } else {
+        fbq('track', "Submit application");
         router.replace(routesConstant.RECOMMENDED_PERSONAL_LOAN);
       }
       setCompletedSteps((prev) => [...prev, 11]);

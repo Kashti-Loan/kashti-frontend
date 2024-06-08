@@ -80,12 +80,17 @@ const CompanyDetails = (props) => {
     try {
       const response = await onAddCustomerData(data, 9, "Company Detail");
       if (loanData.employment_type === "Salaried") {
+        fbq('track', "Submit application");
+
         router.replace(routesConstant.RECOMMENDED_PERSONAL_LOAN);
+
       } else {
+        
         setCurrentStep(10);
       }
       setCompletedSteps((prev) => [...prev, 9]);
       fbq('trackCustom', "CompanyDetailsFilled");
+
       console.log('CompanyDetailsFilled');
 
       return;
@@ -138,7 +143,7 @@ const CompanyDetails = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="Total Work Experience"
+                  label="Total Work Experience* (Years)"
                   type="text"
                   name="work_experience"
                   placeholder="12"
