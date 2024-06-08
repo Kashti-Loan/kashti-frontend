@@ -96,7 +96,7 @@ const MoreCoApplicantDetails = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <MoneyPhoneInputTag
                   {...field}
-                  label="Mobile Number"
+                  label="Mobile Number*"
                   type="text"
                   name="coApplicantMobile"
                   placeholder="Enter 10 digit mobile number"
@@ -112,7 +112,7 @@ const MoreCoApplicantDetails = (props) => {
                 <InputTag
                   {...field}
                   name="coApplicantEmail"
-                  label="Personal Email"
+                  label="Personal Email*"
                   placeholder="Email address"
                   type="email"
                   error={error?.message}
@@ -179,7 +179,6 @@ const MoreCoApplicantDetails = (props) => {
             <button
               data-testid="more-coapplicant-details"
               id="more-coapplicant-details"
-
               type="submit"
               className="primaryBtn"
             >

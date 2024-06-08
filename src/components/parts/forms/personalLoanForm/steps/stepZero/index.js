@@ -122,6 +122,15 @@ const StepZero = (props) => {
                     initial="+91"
                     error={error?.message}
                     autocomplete="tel"
+                    onChange={(event) => {
+                      setValue(
+                        "phone",
+                        event.target.value
+                          .replaceAll("+91", "")
+                          .replaceAll(" ", ""),
+                        { shouldValidate: true }
+                      );
+                    }}
                   />
                 )}
               />

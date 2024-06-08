@@ -269,13 +269,7 @@ const Page = () => {
             </section>
           ) : null}
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
-            <button
-              type="button"
-              onClick={handleNewLoanApplication}
-              className="primaryBtn"
-            >
-              Start New Loan Application
-            </button>
+            <p>Start New Loan Application</p>
           </div>
         </>
       ) : (

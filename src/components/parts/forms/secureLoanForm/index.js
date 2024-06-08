@@ -114,6 +114,15 @@ const SecureLoanToday = ({ apiKey, secretKey }) => {
                     phoneNumber
                     tooltip
                     tooltipContent={"Mobile Number"}
+                    onChange={(event) => {
+                      setValue(
+                        "phone",
+                        event.target.value
+                          .replaceAll("+91", "")
+                          .replaceAll(" ", ""),
+                        { shouldValidate: true }
+                      );
+                    }}
                   />
                 )}
               />
