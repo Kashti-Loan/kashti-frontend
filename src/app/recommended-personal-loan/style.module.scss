@@ -230,9 +230,10 @@
   .submitBlock {
     margin-top: 24px;
     margin-bottom: 24px;
-    button {
-      width: 100%;
-      max-width: 387px;
+    p {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--primaryColor);
     }
   }
 
@@ -318,11 +319,5 @@
         }
       }
     }
-  }
-  .submitBlock {
-    margin-top: 24px;
-  }
-  .inputBlock {
-    flex-direction: column;
   }
 }
