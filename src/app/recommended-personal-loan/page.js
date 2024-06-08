@@ -268,7 +268,10 @@ const Page = () => {
               </Container>
             </section>
           ) : null}
-          <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
+          <div
+            className={`${styles.inputBlock} ${styles.submitBlock}`}
+            onClick={handleNewLoanApplication}
+          >
             <p>Start New Loan Application</p>
           </div>
         </>
