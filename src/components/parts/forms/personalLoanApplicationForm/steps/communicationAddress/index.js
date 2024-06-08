@@ -250,7 +250,7 @@ const CommunicationAddress = (props) => {
                   label="Nature of Address"
                   name="nature_of_address"
                   tooltip
-                  tooltipContent="Hello World!"
+                  tooltipContent="Lenders assess risk, & ensure accurate communication."
                   options={natureOfAddress}
                   error={error?.message}
                 />
@@ -269,7 +269,7 @@ const CommunicationAddress = (props) => {
                   name="years_at_current_address"
                   placeholder="12"
                   tooltip
-                  tooltipContent="Hello World!"
+                  tooltipContent="Lenders assess your stability & reliability."
                   error={error?.message}
                 />
               )}

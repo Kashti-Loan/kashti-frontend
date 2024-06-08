@@ -42,7 +42,7 @@ const HaveCoApplicant = (props) => {
             <h3>Do you have a Co-Applicant?</h3>
             <CommonTooltip
               id={"haveCoApplicant"}
-              content={"Hello World"}
+              content={"Required information in the presence of a co-applicant for your loan."}
               place={"right"}
             />
           </div>
