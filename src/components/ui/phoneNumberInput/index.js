@@ -15,7 +15,7 @@ const PhoneNumberInput = () => {
         name="mobile"
         placeholder="Mobile Number"
         tooltip
-        tooltipContent={"Mobile Number"}
+        tooltipContent={"Use your mobile number to track your loan application status."}
       />
     </div>
   );

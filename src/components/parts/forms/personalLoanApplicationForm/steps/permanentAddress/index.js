@@ -56,6 +56,9 @@ const PermanentAddress = (props) => {
       );
       setCurrentStep(8);
       setCompletedSteps((prev) => [...prev, 7]);
+      fbq('trackCustom', "PermanentAddressDetailsFilled");
+      console.log('PermanentAddressDetailsFilled');
+
       return;
     } catch (error) {
       return error;
@@ -85,7 +88,7 @@ const PermanentAddress = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="Address Line 1"
+                  label="Address Line 1*"
                   type="text"
                   name="address"
                   autoComplete="address-line1"
@@ -100,7 +103,7 @@ const PermanentAddress = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="Address Line 2"
+                  label="Address Line 2*"
                   type="text"
                   name="address2"
                   autoComplete="address-line2"
@@ -117,7 +120,7 @@ const PermanentAddress = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="Pincode"
+                  label="Pincode*"
                   type="text"
                   name="pincode"
                   autoComplete="postal-code"
@@ -141,7 +144,7 @@ const PermanentAddress = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="City"
+                  label="City*"
                   type="text"
                   autoComplete="address-level2"
                   name="city"
@@ -158,7 +161,7 @@ const PermanentAddress = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="State"
+                  label="State*"
                   type="text"
                   name="state"
                   placeholder="Bengaluru"
@@ -171,6 +174,9 @@ const PermanentAddress = (props) => {
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
             <button
               data-testid="permanent-address"
+              data-event="PermanentAddressFilled"
+
+              id="permanent-address"
               type="submit"
               className="primaryBtn"
             >

@@ -64,7 +64,9 @@ const BasicDetailStep = (props) => {
   });
 
   const defaultValues = {
-    date_of_birth: loanData?.date_of_birth || null,
+    date_of_birth: loanData?.date_of_birth
+      ? moment(loanData?.date_of_birth)
+      : null,
     gender: loanData?.gender || "",
     pan: loanData?.pan || "",
   };
@@ -92,6 +94,9 @@ const BasicDetailStep = (props) => {
       const response = await onAddCustomerData(data, 1, "Individual Details");
       setCurrentStep(2);
       setCompletedSteps((prev) => [...prev, 1]);
+      fbq('trackCustom', "IndividualDetailsFilled");
+      console.log('IndividualDetailsFilled');
+
       return;
     } catch (error) {
       if (error === "Rejected") {
@@ -103,6 +108,10 @@ const BasicDetailStep = (props) => {
         const response = await onAddCustomerData(data, 1, "Individual Details");
         setCurrentStep(2);
         setCompletedSteps((prev) => [...prev, 1]);
+        fbq('trackCustom', "IndividualDetailsFilled");
+        fbq('track', "Search");
+
+        console.log('IndividualDetailsFilled');
       }
       return error;
     }
@@ -157,7 +166,7 @@ const BasicDetailStep = (props) => {
             />
           </div>
           <div className={styles.radioGrpBlock}>
-            <h3>Gender</h3>
+            <h3>Gender*</h3>
             <div className={styles.radioGrpInner}>
               <RadioImageButton
                 label="Male"
@@ -185,8 +194,10 @@ const BasicDetailStep = (props) => {
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
             <button
               data-testid="individual-details"
+              data-event="IndividualDetailsFilled"
+              id ="individual-details"
               type="submit"
-              className="primaryBtn"
+              className="primaryBtn individual-details"
             >
               {isSubmitting ? "Updating Data..." : "Continue"}
             </button>

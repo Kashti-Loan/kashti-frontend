@@ -477,7 +477,7 @@ export const homeProductData = [
     range: "50+ Cards",
     cta_data: {
       name: "Get Best Offers",
-      link: routesConstant.CREDIT_CARD_QUESTIONAIRRE,
+      link: "/personal-loan-questionairre/e0c1293d84d27d47619259ff8f0f74b35fa0fdf8cd022268238992959ddcbdcc/28b59cecaa349138a793e5a843c9fd2de0059893c2cbd8a4d7ddbb3c4b047a0b",
     },
     bgColor: "#EAEBF3",
     rangeBg: "#BCC0DA",
@@ -489,7 +489,7 @@ export const homeProductData = [
     range: "From ₹1000 to ₹50L",
     cta_data: {
       name: "Check Eligibility",
-      link: routesConstant.PERSONAL_LOAN_QUESTIONAIRRE,
+      link: "/personal-loan-questionairre/c9075a3a6da665e2548bc14d43c1d0f964d5265cdb8ec0d8cba8976fcfd7b178/465e05022896bb294fde175befa11b70838bc06f06ea5383eb1af216341435f1",
     },
     bgColor: "#EAF4EC",
     rangeBg: "#4BA264",
@@ -501,7 +501,7 @@ export const homeProductData = [
     range: "From ₹1000 to ₹50L",
     cta_data: {
       name: "Check Eligibility",
-      link: routesConstant.PERSONAL_LOAN_QUESTIONAIRRE,
+      link: "/personal-loan-questionairre/447ed34df5a76493a346dd7b7b596b5ec53db68cd79ade110cfac262331f0843/bb56a2590b125c6d9724a2463ae3f3e5368f65eccdd416fde5b3cb4b78e6e8f8",
     },
     bgColor: "#FEF2E9",
     rangeBg: "#F9B47E",
@@ -514,7 +514,60 @@ export const homeProductData = [
     range: "From ₹1000 to ₹50L",
     cta_data: {
       name: "Check Eligibility",
-      link: routesConstant.PERSONAL_LOAN_QUESTIONAIRRE,
+      link: "/personal-loan-questionairre/85be6be79b45f1ae8f867fa638a233e51e6d854423f74b30c8036f7317292558/cdf4e72123326b03210d9b77e7e47702d1aefc298b68a8c72736bec5e95a2d4e",
+    },
+    bgColor: "#FFFAEA",
+    rangeBg: "F8BE324D",
+    rangeColor: "#475467",
+  },
+];
+
+export const webHomeProductData = [
+  {
+    title: "Credit Cards",
+    description:
+      "Shop, dine, or travel - compare and choose from 50+ credit cards.",
+    range: "50+ Cards",
+    cta_data: {
+      name: "Get Best Offers",
+      link: routesConstant.CREDIT_CARD_QUESTIONAIRRE,
+    },
+    bgColor: "#EAEBF3",
+    rangeBg: "#BCC0DA",
+    rangeColor: "#475467",
+  },
+  {
+    title: "Instant Personal Loan",
+    description: "Low rate. Paperless. Quick. Compare and get the best deal.",
+    range: "From ₹1000 to ₹50L",
+    cta_data: {
+      name: "Check Eligibility",
+      link: "/personal-loan/a256d56e931ebe284d95e928cfa70a93895ca1c905c4c8acc0d758ebdfc26520/9e91b21917cf0629151a46e114f38977cb1535afc1b798482d65202f53c4a97a",
+    },
+    bgColor: "#EAF4EC",
+    rangeBg: "#4BA264",
+    rangeColor: "var(--globalWhite)",
+  },
+  {
+    title: "Business Loan",
+    description: "Lowest rates with minimum documentation for maximum growth.",
+    range: "From ₹1000 to ₹50L",
+    cta_data: {
+      name: "Check Eligibility",
+      link: routesConstant.BUSINESS_LOAN_QUESTIONAIRRE,
+    },
+    bgColor: "#FEF2E9",
+    rangeBg: "#F9B47E",
+    rangeColor: "#475467",
+  },
+  {
+    title: "Gold Loan",
+    description:
+      "Turn gold into instant cash at the best rates and lowest interest.",
+    range: "From ₹1000 to ₹50L",
+    cta_data: {
+      name: "Check Eligibility",
+      link: routesConstant.GOLD_LOAN_QUESTIONAIRRE,
     },
     bgColor: "#FFFAEA",
     rangeBg: "F8BE324D",

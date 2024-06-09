@@ -53,6 +53,7 @@ const SecureLoanToday = ({ apiKey, secretKey }) => {
     handleSubmit,
     control,
     getValues,
+    setValue,
     watch,
     formState: { errors, isSubmitting, isSubmitSuccessful },
   } = methods;
@@ -92,7 +93,7 @@ const SecureLoanToday = ({ apiKey, secretKey }) => {
                 render={({ field, fieldState: { error } }) => (
                   <InputTag
                     {...field}
-                    label="Name (As per PAN Card)*"
+                    label="Full Name*"
                     type="text"
                     name="full_name"
                     placeholder="Enter Name as per PAN"
@@ -114,6 +115,15 @@ const SecureLoanToday = ({ apiKey, secretKey }) => {
                     phoneNumber
                     tooltip
                     tooltipContent={"Mobile Number"}
+                    onChange={(event) => {
+                      setValue(
+                        "phone",
+                        event.target.value
+                          .replaceAll("+91", "")
+                          .replaceAll(" ", ""),
+                        { shouldValidate: true }
+                      );
+                    }}
                   />
                 )}
               />
@@ -138,7 +148,7 @@ const SecureLoanToday = ({ apiKey, secretKey }) => {
                 />
                 <span className="checkmark"></span>
                 <Text className={styles.agreeTerms}>
-                  By Continuing, i agree to kashtis{" "}
+                  By Continuing, I agree to Kashti's {" "}
                   <Link target="_blank" href={routesConstant.PRIVACY_POLICY}>
                     Privacy Policy
                   </Link>{" "}
@@ -146,8 +156,7 @@ const SecureLoanToday = ({ apiKey, secretKey }) => {
                   <Link target="_blank" href={routesConstant.TERMS_CONDITION}>
                     Terms & Conditions
                   </Link>{" "}
-                  and Receive communication from Kashti via SMS,E-Mail and
-                  whatApp
+                  and sharing data with Roopya for Credit Bureau and bank login.
                 </Text>
               </label>
             </div>

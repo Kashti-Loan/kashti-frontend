@@ -6,7 +6,7 @@ import lock from "./images/lock.png";
 import rightCreditCard from "./images/rightCreditCard.png";
 import saveTime from "./images/saveTime.png";
 import security from "./images/security.png";
-import howItWorks from "./images/howItWorks.png";
+import howItWorks from "./images/home-how-it-works.png";
 import step_1 from "./images/step_1.png";
 import step_2 from "./images/step_2.png";
 import step_3 from "./images/step_3.png";
@@ -205,6 +205,9 @@ import aboutPincode from "./images/aboutPincode.png";
 import customerSatis from "./images/customerSatis.png";
 import aboutSecure from "./images/aboutSecure.png";
 import aboutGoal from "./images/aboutGoal.png";
+import personalLoanModel from "./images/personalLoanModel.png";
+import personalLoanMobileModel from "./images/personalLoanMobileModel.png";
+import personalLoanQuestionairreModel from "./images/personalLoanQuestionairreModel.png";
 
 export {
   siteLogo,
@@ -223,6 +226,9 @@ export {
   ccKeyBenefits,
   ccMobileBanner,
   ccEasySteps,
+  personalLoanModel,
+  personalLoanMobileModel,
+  personalLoanQuestionairreModel,
   amex_bank,
   incred,
   axis_bank,

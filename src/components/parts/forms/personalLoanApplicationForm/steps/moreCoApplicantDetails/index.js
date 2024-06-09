@@ -74,7 +74,11 @@ const MoreCoApplicantDetails = (props) => {
         13,
         "More CoApplicant Details"
       );
+      fbq('trackCustom', "MoreCoApplicantDetailsFilled");
+      fbq('track', "SubmitApplication");
       router.replace(routesConstant.RECOMMENDED_PERSONAL_LOAN);
+      console.log('MoreCoApplicantDetailsFilled');
+
       return;
     } catch (error) {
       return error;
@@ -96,7 +100,7 @@ const MoreCoApplicantDetails = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <MoneyPhoneInputTag
                   {...field}
-                  label="Mobile Number"
+                  label="Mobile Number*"
                   type="text"
                   name="coApplicantMobile"
                   placeholder="Enter 10 digit mobile number"
@@ -112,7 +116,7 @@ const MoreCoApplicantDetails = (props) => {
                 <InputTag
                   {...field}
                   name="coApplicantEmail"
-                  label="Personal Email"
+                  label="Personal Email*"
                   placeholder="Email address"
                   type="email"
                   error={error?.message}
@@ -178,6 +182,9 @@ const MoreCoApplicantDetails = (props) => {
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
             <button
               data-testid="more-coapplicant-details"
+              data-event="CoApplicantDetailsFilled"
+
+              id="more-coapplicant-details"
               type="submit"
               className="primaryBtn"
             >

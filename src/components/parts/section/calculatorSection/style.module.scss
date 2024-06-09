@@ -48,6 +48,9 @@
             p {
               text-align: center;
             }
+            p {
+              padding-inline: 10px;
+            }
             &:nth-of-type(2) {
               display: none;
             }

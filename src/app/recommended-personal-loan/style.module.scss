@@ -230,10 +230,18 @@
   .submitBlock {
     margin-top: 24px;
     margin-bottom: 24px;
-    button {
-      width: 100%;
-      max-width: 387px;
+    p {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--primaryColor);
     }
+  }
+
+  .loader{
+    height: 50em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -268,6 +276,12 @@
         }
       }
     }
+  }
+  .loader{
+    height: 34em !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -305,11 +319,5 @@
         }
       }
     }
-  }
-  .submitBlock {
-    margin-top: 24px;
-  }
-  .inputBlock {
-    flex-direction: column;
   }
 }

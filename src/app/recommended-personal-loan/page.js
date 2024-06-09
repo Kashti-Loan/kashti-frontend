@@ -17,6 +17,7 @@ import PersonalLoanDetailBox from "@components/parts/accordians/personalLoanDeta
 import { usePersonalLoan } from "@context/PersonalLoanContext";
 import moment from "moment";
 import { useRouter } from "next/navigation";
+import { Hourglass } from "react-loader-spinner";
 
 const Page = () => {
   const router = useRouter();
@@ -25,15 +26,23 @@ const Page = () => {
   const [interestRate, setInterestRate] = useState(15);
   const [activeFilter, setActiveFilter] = useState(1);
   const [active, setActive] = useState(0);
-  const { getPreApprovedLoans, realTimeLeadPush } = usePersonalLoan();
+  const { getPreApprovedLoans, realTimeLeadPush, leadDetail } =
+    usePersonalLoan();
   const [preApprovedLoanOffers, setPreapprovedLoanOffers] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useLayoutEffect(() => {
     const loanOffers = localStorage.getItem("pl_loan_offer");
     if (loanOffers) {
       setPreapprovedLoanOffers(JSON.parse(loanOffers));
+      setIsLoading(false);
     } else {
-      getLoanList();
+      console.log("leadDetail", leadDetail);
+      if (leadDetail?.leadData?.id) {
+        getLoanList();
+      } else {
+        router.replace(routesConstant.PERSONAL_LOAN_QUESTIONAIRRE);
+      }
     }
   }, []);
 
@@ -43,6 +52,7 @@ const Page = () => {
     localStorage.setItem("pl_loan_offer", JSON.stringify(loanOffersList));
     localStorage.setItem("pl_loan_expiry", moment().add(1, "hours"));
     setPreapprovedLoanOffers(loanOffersList);
+    setIsLoading(false);
   };
 
   const handleNewLoanApplication = () => {
@@ -53,51 +63,53 @@ const Page = () => {
 
   return (
     <main className={styles.recommendedLoanPage}>
-      {/* Header Section */}
-      <section className={styles.headerSection}>
-        <Container>
-          <Row>
-            <Col lg={12}>
-              {/* <Link href={routesConstant.PERSONAL_LOAN}> */}
-              {/* <span>Personal Loan</span> */}
-              {/* </Link> */}
-            </Col>
-            <Col lg={12}>
-              <PageTitle>
-                {preApprovedLoanOffers.length} Personal Loan Recommendations
-                Based on your Profile
-              </PageTitle>
-              <Text>
-                Explore the loans, assess unique advantages, and effortlessly
-                avail a loan.
-              </Text>
-            </Col>
-          </Row>
-        </Container>
-        <CustomImage
-          src={applyPersonalLoan}
-          alt="Personal Loan Questionnaire"
-          className={styles.applyPersonalLoan}
-        />
-        <CustomImage
-          src={whiteKashti}
-          alt="White Kashti"
-          className={styles.whiteKashti}
-        />
-      </section>
-      {/* Questionnaire Section */}
-      {preApprovedLoanOffers && preApprovedLoanOffers.length > 0 ? (
-        <section className={styles.questionairreSection}>
-          <Container>
-            <Row>
-              <Col lg={12}>
-                <StepperContainer
-                  className={styles.loanListSection}
-                  label={"Avail a Loan of Your Choice Instantly"}
-                  color={"#FBCAA4"}
-                  cornerColor={"#F79446"}
-                >
-                  {/* <div className={styles.rangeFilterSection}>
+      {!isLoading ? (
+        <>
+          {/* Header Section */}
+          <section className={styles.headerSection}>
+            <Container>
+              <Row>
+                <Col lg={12}>
+                  {/* <Link href={routesConstant.PERSONAL_LOAN}> */}
+                  {/* <span>Personal Loan</span> */}
+                  {/* </Link> */}
+                </Col>
+                <Col lg={12}>
+                  <PageTitle>
+                    {preApprovedLoanOffers.length} Personal Loan Recommendations
+                    Based on your Profile
+                  </PageTitle>
+                  <Text>
+                    Explore the loans, assess unique advantages, and
+                    effortlessly avail a loan.
+                  </Text>
+                </Col>
+              </Row>
+            </Container>
+            <CustomImage
+              src={applyPersonalLoan}
+              alt="Personal Loan Questionnaire"
+              className={styles.applyPersonalLoan}
+            />
+            <CustomImage
+              src={whiteKashti}
+              alt="White Kashti"
+              className={styles.whiteKashti}
+            />
+          </section>
+          {/* Questionnaire Section */}
+          {preApprovedLoanOffers && preApprovedLoanOffers.length > 0 ? (
+            <section className={styles.questionairreSection}>
+              <Container>
+                <Row>
+                  <Col lg={12}>
+                    <StepperContainer
+                      className={styles.loanListSection}
+                      label={"Avail a Loan of Your Choice Instantly"}
+                      color={"#FBCAA4"}
+                      cornerColor={"#F79446"}
+                    >
+                      {/* <div className={styles.rangeFilterSection}>
                     <SectionTitle>Modify Preferences</SectionTitle>
                     <div className={styles.sliderBlock}>
                       <div className={styles.sliderBox}>
@@ -242,29 +254,40 @@ const Page = () => {
                       </div>
                     )}
                   </div> */}
-                  {preApprovedLoanOffers &&
-                    preApprovedLoanOffers.map((item, i) => (
-                      <PersonalLoanDetailBox
-                        item={item}
-                        currentQues={active === item.id ? true : false}
-                        key={i}
-                      />
-                    ))}
-                </StepperContainer>
-              </Col>
-            </Row>
-          </Container>
-        </section>
-      ) : null}
-      <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
-        <button
-          type="button"
-          onClick={handleNewLoanApplication}
-          className="primaryBtn"
-        >
-          Start New Loan Application
-        </button>
-      </div>
+                      {preApprovedLoanOffers &&
+                        preApprovedLoanOffers.map((item, i) => (
+                          <PersonalLoanDetailBox
+                            item={item}
+                            currentQues={active === item.id ? true : false}
+                            key={i}
+                          />
+                        ))}
+                    </StepperContainer>
+                  </Col>
+                </Row>
+              </Container>
+            </section>
+          ) : null}
+          <div
+            className={`${styles.inputBlock} ${styles.submitBlock}`}
+            onClick={handleNewLoanApplication}
+          >
+            <p>Start New Loan Application</p>
+          </div>
+        </>
+      ) : (
+        <div className={`${styles.loader}`}>
+          <Hourglass
+            visible={true}
+            height="80"
+            width="80"
+            ariaLabel="hourglass-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+            colors={["#306cce", "#72a1ed"]}
+          />
+        </div>
+      )}
     </main>
   );
 };

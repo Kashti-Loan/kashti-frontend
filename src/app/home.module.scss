@@ -114,7 +114,11 @@
   }
   .whyKashtiSection {
     padding-bottom: 80px;
-    background: linear-gradient(345.14deg, rgba(234, 235, 243, 0.5) 8.48%, #FFFFFF 82.7%);
+    background: linear-gradient(
+      345.14deg,
+      rgba(234, 235, 243, 0.5) 8.48%,
+      #ffffff 82.7%
+    );
     > div {
       > div {
         &:nth-of-type(1) {
@@ -206,7 +210,7 @@
           &:nth-of-type(1) {
             border-radius: 20px;
             background: #f7f8ff;
-            padding: 80px 140px 80px 55px;
+            padding: 80px 140px 0px 55px;
             h2 {
               margin: 0 0 16px;
               font-size: 36px;
@@ -222,6 +226,9 @@
             }
             img {
               margin-top: 27px;
+              width: 100%;
+              max-width: 330px;
+              height: auto;
             }
           }
         }
@@ -362,7 +369,8 @@
                 max-width: 380px;
                 margin: 0 auto;
                 @include flexContainer;
-                button, a {
+                button,
+                a {
                   width: 100%;
                   background-color: transparent;
                   border: none;
@@ -419,7 +427,7 @@
     }
   }
   .knowledgeSection {
-    background: linear-gradient(153.51deg, #F4F5FF 33.15%, #BCC0DA 143.51%);
+    background: linear-gradient(153.51deg, #f4f5ff 33.15%, #bcc0da 143.51%);
     padding-block: 60px;
     > div {
       > div {
@@ -741,8 +749,8 @@
               text-align: center;
             }
             h1 {
-              font-size: 16px;
-              line-height: 22px;
+              font-size: 21px;
+              line-height: 36px;
             }
             img {
               width: 100%;
@@ -809,24 +817,30 @@
         > div {
           &:nth-of-type(1) {
             > div {
+              h2,
               p {
-                margin-top: 8px;
+                text-align: center;
+              }
+              p {
+                margin-top: 9px;
               }
             }
           }
           &:nth-of-type(2) {
-            margin-top: 12px;
+            margin-top: 16px;
             > div {
-              img {
-                width: 100%;
-                height: 100%;
-                aspect-ratio: 1;
+              &:nth-of-type(2) {
+                @include flexContainer($alignItems: flex-end);
+                img {
+                  width: 100%;
+                  height: auto;
+                }
               }
               ul {
                 margin: 0;
                 padding: 0;
                 list-style: none;
-                @include flexContainer($gap: 12px);
+                @include flexContainer($gap: 16px);
                 flex-direction: column;
                 li {
                   width: 100%;
@@ -850,6 +864,7 @@
     }
     .discoverProductSection {
       padding: 32px 16px;
+      background-color: #fafafa;
       > div {
         > div {
           &:nth-of-type(1) {
@@ -857,6 +872,29 @@
               .productTabBlock {
                 .productTabContent {
                   display: flex;
+                  .productBox {
+                    box-shadow: 0px 3px 12px 0px #2a34851a;
+                    gap: 16px;
+                    padding: 20px 40px;
+                    &:nth-of-type(1) {
+                      border: 1px solid #a6d1b2;
+                    }
+                    &:nth-of-type(2) {
+                      border: 1px solid #fbcaa4;
+                    }
+                    &:nth-of-type(3) {
+                      border: 1px solid #a7acce;
+                    }
+                    &:nth-of-type(4) {
+                      border: 1px solid #a6d1b2;
+                    }
+                    &:nth-of-type(5) {
+                      border: 1px solid #fbcaa4;
+                    }
+                    &:nth-of-type(6) {
+                      border: 1px solid #a7acce;
+                    }
+                  }
                 }
               }
             }

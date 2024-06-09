@@ -44,7 +44,9 @@ const BusinessDetails = (props) => {
   });
 
   const defaultValues = {
-    date_of_incorporation: loanData?.date_of_incorporation || null,
+    date_of_incorporation: loanData?.date_of_incorporation
+      ? moment(loanData?.date_of_incorporation)
+      : null,
     nature_business: loanData?.nature_business || "Manufacturing",
   };
 
@@ -68,6 +70,9 @@ const BusinessDetails = (props) => {
       const response = await onAddCustomerData(data, 10, "Business Detail");
       setCurrentStep(11);
       setCompletedSteps((prev) => [...prev, 10]);
+      fbq('trackCustom', "BusinessDetailsFilled");
+      console.log('BusinessDetailsFilled');
+
       return;
     } catch (error) {
       return error;
@@ -89,7 +94,7 @@ const BusinessDetails = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <SelectTag
                   {...field}
-                  label="Nature of Business"
+                  label="Nature of Business*"
                   name="nature_business"
                   options={natureBusiness}
                   error={error?.message}
@@ -102,7 +107,7 @@ const BusinessDetails = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <DatePickerInputTag
                   {...field}
-                  label="Date of Incorporation"
+                  label="Date of Incorporation*"
                   placeholder="Date of Incorporation"
                   error={error?.message}
                   maxDate={moment()}
@@ -114,6 +119,8 @@ const BusinessDetails = (props) => {
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
             <button
               data-testid="business-detail"
+              data-event="BusinessDetailsFilled"
+              id="business-detail"
               type="submit"
               className="primaryBtn"
             >

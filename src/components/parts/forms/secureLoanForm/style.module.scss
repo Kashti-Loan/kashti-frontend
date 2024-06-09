@@ -79,7 +79,7 @@
         label {
           align-items: flex-start;
           > span {
-            width: 34px;
+            width: 40px;
             height: 20px;
             margin-top: 3px;
           }
@@ -99,10 +99,10 @@
   .secureLoanTodayBox {
     padding: 16px;
     gap: 20px;
-    h4 {
-      font-size: 14px;
-      line-height: 20px;
-    }
+    // h4 {
+    //   font-size: 14px;
+    //   line-height: 20px;
+    // }
   }
 }
 

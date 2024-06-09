@@ -95,7 +95,7 @@ import {
   yesbank,
 } from "@public/assets";
 import { homeBannerSliderSettings, logoSliderSettings } from "@utils/constant";
-import { homeFaq, homeProductData } from "@utils/data";
+import { homeFaq, homeProductData, webHomeProductData } from "@utils/data";
 import { routesConstant } from "@utils/routesConstant";
 
 const Home = () => {
@@ -188,7 +188,12 @@ const Home = () => {
         shopping journey. Apply now for a world of privileges at your
         fingertips!
       </Text>
-      <Link href={"#"} className="primaryBtn">
+      <Link
+        href={
+          "/personal-loan-questionairre/656f180a06ccb91aba55f3b73c695443d4fa7984a70ff94d98253ac994d87feb/2f3eee0f3b49dd69ac5151d2f3964fd1094e6dc51146c3e5c60f523ba93efc4a"
+        }
+        className="primaryBtn"
+      >
         Apply Now
       </Link>
     </div>,
@@ -201,7 +206,12 @@ const Home = () => {
         shopping journey. Apply now for a world of privileges at your
         fingertips!
       </Text>
-      <Link href={"#"} className="primaryBtn">
+      <Link
+        href={
+          "/personal-loan-questionairre/656f180a06ccb91aba55f3b73c695443d4fa7984a70ff94d98253ac994d87feb/2f3eee0f3b49dd69ac5151d2f3964fd1094e6dc51146c3e5c60f523ba93efc4a"
+        }
+        className="primaryBtn"
+      >
         Apply Now
       </Link>
     </div>,
@@ -214,7 +224,12 @@ const Home = () => {
         shopping journey. Apply now for a world of privileges at your
         fingertips!
       </Text>
-      <Link href={"#"} className="primaryBtn">
+      <Link
+        href={
+          "/personal-loan-questionairre/656f180a06ccb91aba55f3b73c695443d4fa7984a70ff94d98253ac994d87feb/2f3eee0f3b49dd69ac5151d2f3964fd1094e6dc51146c3e5c60f523ba93efc4a"
+        }
+        className="primaryBtn"
+      >
         Apply Now
       </Link>
     </div>,
@@ -227,7 +242,12 @@ const Home = () => {
         shopping journey. Apply now for a world of privileges at your
         fingertips!
       </Text>
-      <Link href={"#"} className="primaryBtn">
+      <Link
+        href={
+          "/personal-loan-questionairre/656f180a06ccb91aba55f3b73c695443d4fa7984a70ff94d98253ac994d87feb/2f3eee0f3b49dd69ac5151d2f3964fd1094e6dc51146c3e5c60f523ba93efc4a"
+        }
+        className="primaryBtn"
+      >
         Apply Now
       </Link>
     </div>,
@@ -240,7 +260,12 @@ const Home = () => {
         shopping journey. Apply now for a world of privileges at your
         fingertips!
       </Text>
-      <Link href={"#"} className="primaryBtn">
+      <Link
+        href={
+          "/personal-loan-questionairre/656f180a06ccb91aba55f3b73c695443d4fa7984a70ff94d98253ac994d87feb/2f3eee0f3b49dd69ac5151d2f3964fd1094e6dc51146c3e5c60f523ba93efc4a"
+        }
+        className="primaryBtn"
+      >
         Apply Now
       </Link>
     </div>,
@@ -253,7 +278,12 @@ const Home = () => {
         shopping journey. Apply now for a world of privileges at your
         fingertips!
       </Text>
-      <Link href={"#"} className="primaryBtn">
+      <Link
+        href={
+          "/personal-loan-questionairre/656f180a06ccb91aba55f3b73c695443d4fa7984a70ff94d98253ac994d87feb/2f3eee0f3b49dd69ac5151d2f3964fd1094e6dc51146c3e5c60f523ba93efc4a"
+        }
+        className="primaryBtn"
+      >
         Apply Now
       </Link>
     </div>,
@@ -378,7 +408,7 @@ const Home = () => {
               </Col>
             </Row>
             <Row>
-              {homeProductData.map((item, i) => (
+              {webHomeProductData.map((item, i) => (
                 <Col xs={12} md={6} lg={3} key={i}>
                   <ProductCard
                     title={item.title}
@@ -479,21 +509,21 @@ const Home = () => {
                   <h4>Credit Cards</h4>
                 </Link>
                 <Link
-                  href={routesConstant.PERSONAL_LOAN_QUESTIONAIRRE}
+                  href="/personal-loan/a256d56e931ebe284d95e928cfa70a93895ca1c905c4c8acc0d758ebdfc26520/9e91b21917cf0629151a46e114f38977cb1535afc1b798482d65202f53c4a97a"
                   className={styles.mobileOurProductBox}
                 >
                   <PersonalLoanIcon />
                   <h4>Personal Loan</h4>
                 </Link>
                 <Link
-                  href={routesConstant.PERSONAL_LOAN_QUESTIONAIRRE}
+                  href={routesConstant.BUSINESS_LOAN_QUESTIONAIRRE}
                   className={styles.mobileOurProductBox}
                 >
                   <BusinessLoanIcon />
                   <h4>Business Loan</h4>
                 </Link>
                 <Link
-                  href={routesConstant.PERSONAL_LOAN_QUESTIONAIRRE}
+                  href={routesConstant.GOLD_LOAN_QUESTIONAIRRE}
                   className={styles.mobileOurProductBox}
                 >
                   <GoldLoanIcon />
@@ -595,7 +625,7 @@ const Home = () => {
             </Col>
           </Row>
           <Row>
-            <Col xs={7}>
+            <Col xs={6}>
               <ul>
                 <li>
                   <svg
@@ -841,7 +871,7 @@ const Home = () => {
                 </li>
               </ul>
             </Col>
-            <Col xs={5}>
+            <Col xs={6}>
               <CustomImage
                 src={lock}
                 alt="What Makes Kashti Stand Out from Others"
@@ -945,7 +975,7 @@ const Home = () => {
                   <span>
                     <button className={styles.active}>Credit Cards</button>
                     {/* <button>Personal Loans</button> */}
-                    <Link href={routesConstant.PERSONAL_LOAN}>
+                    <Link href="/personal-loan/254c2812f367d1c616655022b6346e191de4b3f57c5fa7f40b38d93708c8ae84/44bea1e330d8d21ed1ad37d6fdf3ac14d6e6f0ba15b08a89064da66fe0737081">
                       Personal Loan
                     </Link>
                   </span>

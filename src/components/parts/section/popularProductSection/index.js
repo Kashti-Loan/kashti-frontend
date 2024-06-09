@@ -45,7 +45,12 @@ const PopularProductSection = () => {
         shopping journey. Apply now for a world of privileges at your
         fingertips!
       </Text>
-      <Link href={"#"} className="primaryBtn">
+      <Link
+        href={
+          "/personal-loan-questionairre/656f180a06ccb91aba55f3b73c695443d4fa7984a70ff94d98253ac994d87feb/2f3eee0f3b49dd69ac5151d2f3964fd1094e6dc51146c3e5c60f523ba93efc4a"
+        }
+        className="primaryBtn"
+      >
         Apply Now
       </Link>
     </div>,
@@ -58,7 +63,12 @@ const PopularProductSection = () => {
         shopping journey. Apply now for a world of privileges at your
         fingertips!
       </Text>
-      <Link href={"#"} className="primaryBtn">
+      <Link
+        href={
+          "/personal-loan-questionairre/656f180a06ccb91aba55f3b73c695443d4fa7984a70ff94d98253ac994d87feb/2f3eee0f3b49dd69ac5151d2f3964fd1094e6dc51146c3e5c60f523ba93efc4a"
+        }
+        className="primaryBtn"
+      >
         Apply Now
       </Link>
     </div>,
@@ -71,7 +81,12 @@ const PopularProductSection = () => {
         shopping journey. Apply now for a world of privileges at your
         fingertips!
       </Text>
-      <Link href={"#"} className="primaryBtn">
+      <Link
+        href={
+          "/personal-loan-questionairre/656f180a06ccb91aba55f3b73c695443d4fa7984a70ff94d98253ac994d87feb/2f3eee0f3b49dd69ac5151d2f3964fd1094e6dc51146c3e5c60f523ba93efc4a"
+        }
+        className="primaryBtn"
+      >
         Apply Now
       </Link>
     </div>,
@@ -84,7 +99,12 @@ const PopularProductSection = () => {
         shopping journey. Apply now for a world of privileges at your
         fingertips!
       </Text>
-      <Link href={"#"} className="primaryBtn">
+      <Link
+        href={
+          "/personal-loan-questionairre/656f180a06ccb91aba55f3b73c695443d4fa7984a70ff94d98253ac994d87feb/2f3eee0f3b49dd69ac5151d2f3964fd1094e6dc51146c3e5c60f523ba93efc4a"
+        }
+        className="primaryBtn"
+      >
         Apply Now
       </Link>
     </div>,
@@ -97,7 +117,12 @@ const PopularProductSection = () => {
         shopping journey. Apply now for a world of privileges at your
         fingertips!
       </Text>
-      <Link href={"#"} className="primaryBtn">
+      <Link
+        href={
+          "/personal-loan-questionairre/656f180a06ccb91aba55f3b73c695443d4fa7984a70ff94d98253ac994d87feb/2f3eee0f3b49dd69ac5151d2f3964fd1094e6dc51146c3e5c60f523ba93efc4a"
+        }
+        className="primaryBtn"
+      >
         Apply Now
       </Link>
     </div>,
@@ -110,7 +135,12 @@ const PopularProductSection = () => {
         shopping journey. Apply now for a world of privileges at your
         fingertips!
       </Text>
-      <Link href={"#"} className="primaryBtn">
+      <Link
+        href={
+          "/personal-loan-questionairre/656f180a06ccb91aba55f3b73c695443d4fa7984a70ff94d98253ac994d87feb/2f3eee0f3b49dd69ac5151d2f3964fd1094e6dc51146c3e5c60f523ba93efc4a"
+        }
+        className="primaryBtn"
+      >
         Apply Now
       </Link>
     </div>,

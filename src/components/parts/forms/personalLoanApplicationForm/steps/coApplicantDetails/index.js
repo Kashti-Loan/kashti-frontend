@@ -40,7 +40,9 @@ const CoApplicantDetails = (props) => {
   });
 
   const defaultValues = {
-    coAppplicantDOB: loanData?.coAppplicantDOB || null,
+    coAppplicantDOB: loanData?.coAppplicantDOB
+      ? moment(loanData?.coAppplicantDOB)
+      : null,
     coApplicantName: loanData?.coApplicantName || "",
     coApplicantPAN: loanData?.coApplicantPAN || "",
   };
@@ -68,6 +70,8 @@ const CoApplicantDetails = (props) => {
       const response = await onAddCustomerData(data, 12, "CoApplicant Details");
       setCurrentStep(13);
       setCompletedSteps((prev) => [...prev, 12]);
+      fbq('trackCustom', "CoApplicantDetailsFilled");
+      console.log('CoApplicantDetailsFilled');
       return;
     } catch (error) {
       console.log("error", error);
@@ -106,7 +110,7 @@ const CoApplicantDetails = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <DatePickerInputTag
                   {...field}
-                  label="Date of Birth"
+                  label="Date of Birth*"
                   placeholder="Date of Birth"
                   error={error?.message}
                   minDate={moment().subtract(500, "years")}
@@ -144,6 +148,9 @@ const CoApplicantDetails = (props) => {
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
             <button
               data-testid="coapplicant-details"
+              data-event="CoApplicantDetailsFilled"
+
+              id="coapplicant-details"
               type="submit"
               className="primaryBtn"
             >

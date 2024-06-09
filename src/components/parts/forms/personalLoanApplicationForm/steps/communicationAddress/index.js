@@ -126,6 +126,12 @@ const CommunicationAddress = (props) => {
       );
       isPermenentAddressSame ? setCurrentStep(8) : setCurrentStep(7);
       setCompletedSteps((prev) => [...prev, 6]);
+      fbq('trackCustom', "CommAddressFilled");
+      fbq('track', "ViewContent");
+
+      console.log('CommAddressFilled');
+
+
       return;
     } catch (error) {
       return error;
@@ -155,7 +161,7 @@ const CommunicationAddress = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="Address Line 1"
+                  label="Address Line 1*"
                   type="text"
                   name="address"
                   autoComplete="address-line1"
@@ -170,7 +176,7 @@ const CommunicationAddress = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="Address Line 2"
+                  label="Address Line 2*"
                   type="text"
                   name="address2"
                   autoComplete="address-line2"
@@ -187,7 +193,7 @@ const CommunicationAddress = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="Pincode"
+                  label="Pincode*"
                   type="text"
                   autoComplete="postal-code"
                   name="pincode"
@@ -211,7 +217,7 @@ const CommunicationAddress = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="City"
+                  label="City*"
                   type="text"
                   autoComplete="address-level2"
                   name="city"
@@ -226,7 +232,7 @@ const CommunicationAddress = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="State"
+                  label="State*"
                   type="text"
                   name="state"
                   autoComplete="address-level1"
@@ -241,10 +247,10 @@ const CommunicationAddress = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <SelectTag
                   {...field}
-                  label="Nature of Address"
+                  label="Nature of Address*"
                   name="nature_of_address"
                   tooltip
-                  tooltipContent="Hello World!"
+                  tooltipContent="Lenders assess risk, & ensure accurate communication."
                   options={natureOfAddress}
                   error={error?.message}
                 />
@@ -258,12 +264,12 @@ const CommunicationAddress = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="Years at Current Address"
+                  label="Years at Current Address*"
                   type="number"
                   name="years_at_current_address"
                   placeholder="12"
                   tooltip
-                  tooltipContent="Hello World!"
+                  tooltipContent="Lenders assess your stability & reliability."
                   error={error?.message}
                 />
               )}
@@ -286,6 +292,9 @@ const CommunicationAddress = (props) => {
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
             <button
               data-testid="communication-address"
+              data-event="CommunicationAddressFilled"
+
+              id="communication-address"
               type="submit"
               className="primaryBtn"
             >
