@@ -155,14 +155,15 @@ const StepZero = (props) => {
                 />
                 <span className="checkmark tcagree"></span>
                 <span>
-                  By submitting this form, you have read and agreed to the{" "}
-                  <Link target="_blank" href={routesConstant.TERMS_CONDITION}>
-                    Credit Report Terms of Use
-                  </Link>{" "}
-                  and{" "}
+                  By Continuing, I agree to Kashti's {" "}
                   <Link target="_blank" href={routesConstant.PRIVACY_POLICY}>
                     Privacy Policy
-                  </Link>
+                  </Link>{" "}
+                  and{" "}
+                  <Link target="_blank" href={routesConstant.TERMS_CONDITION}>
+                    Terms & Conditions
+                  </Link>{" "}
+                  and sharing data with Roopya for Credit Bureau and bank login.
                 </span>
               </label>
             </div>
