@@ -117,10 +117,7 @@
                 }
                 .loanInput {
                   .loanRangeSlider {
-                    background-image: linear-gradient(
-                      var(--primaryColor),
-                      var(--primaryColor)
-                    );
+                    background-image: linear-gradient(var(--primaryColor), var(--primaryColor));
                     background-color: #d0d5dd;
                     &::-webkit-slider-thumb {
                       background: var(--primaryColor);
@@ -143,10 +140,7 @@
               padding: 12px;
               border-radius: 4px;
               .mobileRangeHeader {
-                @include flexContainer(
-                  $justifyContent: space-between,
-                  $gap: 0px
-                );
+                @include flexContainer($justifyContent: space-between, $gap: 0px);
                 button {
                   padding: 4px 12px;
                   border-radius: 20px;
@@ -190,10 +184,7 @@
                   }
                   .loanInput {
                     .loanRangeSlider {
-                      background-image: linear-gradient(
-                        var(--primaryColor),
-                        var(--primaryColor)
-                      );
+                      background-image: linear-gradient(var(--primaryColor), var(--primaryColor));
                       background-color: #d0d5dd;
                       &::-webkit-slider-thumb {
                         background: var(--primaryColor);
@@ -230,17 +221,29 @@
   .submitBlock {
     margin-top: 24px;
     margin-bottom: 24px;
-    button {
-      width: 100%;
-      max-width: 387px;
+    p {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--primaryColor);
     }
   }
 
-  .loader{
+  .loader {
     height: 50em;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+
+    .kashtiLogo {
+      width: 60px;
+      height: 60px;
+    }
+    p {
+      text-align: center;
+      padding-top: 14px;
+      width: 80%;
+    }
   }
 }
 
@@ -276,11 +279,21 @@
       }
     }
   }
-  .loader{
-    height: 34em !important;
+  .loader {
+    // height: 34em !important;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    .kashtiLogo {
+      width: 60px;
+      height: 60px;
+    }
+    p {
+      text-align: center;
+      padding-top: 14px;
+      width: 80%;
+    }
   }
 }
 
@@ -318,11 +331,5 @@
         }
       }
     }
-  }
-  .submitBlock {
-    margin-top: 24px;
-  }
-  .inputBlock {
-    flex-direction: column;
   }
 }

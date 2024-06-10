@@ -64,7 +64,9 @@ const BasicDetailStep = (props) => {
   });
 
   const defaultValues = {
-    date_of_birth: loanData?.date_of_birth || null,
+    date_of_birth: loanData?.date_of_birth
+      ? moment(loanData?.date_of_birth)
+      : null,
     gender: loanData?.gender || "",
     pan: loanData?.pan || "",
   };
@@ -164,7 +166,7 @@ const BasicDetailStep = (props) => {
             />
           </div>
           <div className={styles.radioGrpBlock}>
-            <h3>Gender</h3>
+            <h3>Gender*</h3>
             <div className={styles.radioGrpInner}>
               <RadioImageButton
                 label="Male"

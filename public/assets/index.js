@@ -193,6 +193,7 @@ import incred from "./images/ourPartners/incred.png";
 import personalLoanModel from "./images/personalLoanModel.png";
 import personalLoanMobileModel from "./images/personalLoanMobileModel.png";
 import personalLoanQuestionairreModel from "./images/personalLoanQuestionairreModel.png";
+import loadingLogo from "./images/loading-logo.png";
 
 export {
   siteLogo,
@@ -390,4 +391,5 @@ export {
   newicici,
   newyes,
   newmuthoot,
+  loadingLogo,
 };

@@ -68,7 +68,6 @@ const EducationQualification = (props) => {
               data-event="EducationalQualificationFilled"
 
               id="educational-qualification"
-
               onClick={() => onSubmit(loanData?.educational_qualification)}
               type="button"
               className="primaryBtn"

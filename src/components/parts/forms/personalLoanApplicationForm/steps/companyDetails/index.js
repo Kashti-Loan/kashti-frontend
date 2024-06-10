@@ -114,7 +114,7 @@ const CompanyDetails = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <InputTag
                   {...field}
-                  label="Company Name"
+                  label="Company Name*"
                   type="text"
                   name="company_name"
                   placeholder="Oakwood Finances"
@@ -128,7 +128,7 @@ const CompanyDetails = (props) => {
               render={({ field, fieldState: { error } }) => (
                 <SelectTag
                   {...field}
-                  label="Company Type"
+                  label="Company Type*"
                   name="company_type"
                   options={companyType}
                   error={error?.message}
@@ -158,7 +158,6 @@ const CompanyDetails = (props) => {
               data-event="CompanyDetailsFilled"
         
               id="company-detail"
-
               type="submit"
               className="primaryBtn"
             >

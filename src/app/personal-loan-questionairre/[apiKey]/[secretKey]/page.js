@@ -71,7 +71,7 @@ const Page = ({ params }) => {
                   }}
                 >
                   {currentStep > 1 ? <ArrowLeftShort /> : null}{" "}
-                  <span>Personal Loan</span>
+                  {accessToken ? <span>Personal Loan</span> : null}{" "}
                 </button>
               </Col>
               <Col lg={12}>

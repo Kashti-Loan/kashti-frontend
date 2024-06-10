@@ -91,7 +91,7 @@ const EmploymentDetails = (props) => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.radioGrpBlock}>
             <h3>Employment Type</h3>
-            <Text>Please select employment type</Text>
+            <Text>Please select employment type*</Text>
             <div className={styles.radioGrpInner}>
               <RadioTextButton
                 label="Salaried"
@@ -155,7 +155,7 @@ const EmploymentDetails = (props) => {
           </div>
           <div>
             <fieldset>
-              <legend>Marital Status</legend>
+              <legend>Marital Status*</legend>
               <div>
                 <div>
                   <input
@@ -202,7 +202,6 @@ const EmploymentDetails = (props) => {
               data-event="EmploymentDetailsFilled"
 
               id="employment-details"
-
               type="submit"
               className="primaryBtn"
             >

@@ -5,13 +5,8 @@ import Link from "next/link";
 import { ArrowLeftShort } from "react-bootstrap-icons";
 import { PageTitle, SectionTitle, Text } from "@styles/styledComponent";
 import { routesConstant } from "@utils/routesConstant";
-import {
-  CustomImage,
-  InputRange,
-  PersonalLoanCard,
-  StepperContainer,
-} from "@components";
-import { applyPersonalLoan, whiteKashti } from "@public/assets";
+import { CustomImage, InputRange, PersonalLoanCard, StepperContainer } from "@components";
+import { applyPersonalLoan, loadingLogo, whiteKashti } from "@public/assets";
 import { useEffect, useLayoutEffect, useState } from "react";
 import PersonalLoanDetailBox from "@components/parts/accordians/personalLoanDetailbox";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
@@ -26,8 +21,7 @@ const Page = () => {
   const [interestRate, setInterestRate] = useState(15);
   const [activeFilter, setActiveFilter] = useState(1);
   const [active, setActive] = useState(0);
-  const { getPreApprovedLoans, realTimeLeadPush, leadDetail } =
-    usePersonalLoan();
+  const { getPreApprovedLoans, realTimeLeadPush, leadDetail } = usePersonalLoan();
   const [preApprovedLoanOffers, setPreapprovedLoanOffers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -75,27 +69,13 @@ const Page = () => {
                   {/* </Link> */}
                 </Col>
                 <Col lg={12}>
-                  <PageTitle>
-                    {preApprovedLoanOffers.length} Personal Loan Recommendations
-                    Based on your Profile
-                  </PageTitle>
-                  <Text>
-                    Explore the loans, assess unique advantages, and
-                    effortlessly avail a loan.
-                  </Text>
+                  <PageTitle>{preApprovedLoanOffers.length} Personal Loan Recommendations Based on your Profile</PageTitle>
+                  <Text>Explore the loans, assess unique advantages, and effortlessly avail a loan.</Text>
                 </Col>
               </Row>
             </Container>
-            <CustomImage
-              src={applyPersonalLoan}
-              alt="Personal Loan Questionnaire"
-              className={styles.applyPersonalLoan}
-            />
-            <CustomImage
-              src={whiteKashti}
-              alt="White Kashti"
-              className={styles.whiteKashti}
-            />
+            <CustomImage src={applyPersonalLoan} alt='Personal Loan Questionnaire' className={styles.applyPersonalLoan} />
+            <CustomImage src={whiteKashti} alt='White Kashti' className={styles.whiteKashti} />
           </section>
           {/* Questionnaire Section */}
           {preApprovedLoanOffers && preApprovedLoanOffers.length > 0 ? (
@@ -256,11 +236,7 @@ const Page = () => {
                   </div> */}
                       {preApprovedLoanOffers &&
                         preApprovedLoanOffers.map((item, i) => (
-                          <PersonalLoanDetailBox
-                            item={item}
-                            currentQues={active === item.id ? true : false}
-                            key={i}
-                          />
+                          <PersonalLoanDetailBox item={item} currentQues={active === item.id ? true : false} key={i} />
                         ))}
                     </StepperContainer>
                   </Col>
@@ -269,18 +245,16 @@ const Page = () => {
             </section>
           ) : null}
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
-            <button
-              type="button"
-              onClick={handleNewLoanApplication}
-              className="primaryBtn"
-            >
+            <button type='button' onClick={handleNewLoanApplication} className='primaryBtn'>
               Start New Loan Application
             </button>
           </div>
         </>
       ) : (
         <div className={`${styles.loader}`}>
-          <Hourglass
+          <CustomImage src={loadingLogo} alt='Kashti-Logo-1' className={`${styles.kashtiLogo}`} />
+          <p>Loading you pathway to financial empowerment - won't take long</p>
+          {/* <Hourglass
             visible={true}
             height="80"
             width="80"
@@ -288,7 +262,7 @@ const Page = () => {
             wrapperStyle={{}}
             wrapperClass=""
             colors={["#306cce", "#72a1ed"]}
-          />
+          /> */}
         </div>
       )}
     </main>
