@@ -57,6 +57,9 @@
       }
     }
   }
+  .mobileShowDifference {
+    display: none;
+  }
   .featuresContainer {
     > div {
       overflow-x: auto;
@@ -96,6 +99,9 @@
       }
     }
   }
+  .mobileFeatureContainer {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 990px) {
@@ -116,33 +122,62 @@
 
 @media only screen and (max-width: 600px) {
   .comparisonPage {
+    background: transparent;
+    margin-top: -58px;
+  padding-top: 74px;
+    .pageHeader {
+      display: none;
+    }
     .cardContainer {
+      margin-top: 0;
+      margin-bottom: 0;
       > div {
         .compareCardList {
           background-color: transparent;
           box-shadow: unset;
+          padding: 0;
+          > div {
+            &:nth-of-type(1) {
+              h3 {
+                font-size: 16px;
+                line-height: 24px;
+              }
+              ol {
+                display: none !important;
+              }
+            }
+            &:nth-of-type(2) {
+              display: none;
+            }
+          }
         }
         &:nth-of-type(2) {
           flex-wrap: wrap;
+          align-items: stretch;
+          margin-top: 24px;
           > div {
-            flex: 1 0 100%;
-            max-width: 100%;
+            flex: 1 1 50%;
+            // max-width: 100%;
           }
         }
       }
     }
-    .featuresContainer {
+    .mobileShowDifference {
+      margin-block: 24px;
+      display: flex;
       > div {
-        table {
-          tbody {
-            tr {
-              td {
-                font-size: 12px !important;
-              }
-            }
-          }
+        label {
+          font-size: 14px;
+          line-height: 21px;
         }
       }
+    }
+    .featuresContainer {
+      display: none;
+    }
+    .mobileFeatureContainer {
+      display: flex;
+      row-gap: 16px;
     }
   }
 }

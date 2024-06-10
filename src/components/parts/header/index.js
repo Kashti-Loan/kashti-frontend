@@ -5,7 +5,7 @@ import CustomImage from "@components/ui/customImage";
 import { langIcon, siteLogo } from "@public/assets";
 import { navMenuItems } from "@utils/constant";
 import Link from "next/link";
-import { ChevronDown } from "react-bootstrap-icons";
+import { ChevronDown, List } from "react-bootstrap-icons";
 import MegaMenu from "@components/ui/megaMenu";
 import { langData } from "@utils/data";
 import CustomSelect from "@components/ui/customSelect";
@@ -60,10 +60,25 @@ const Header = () => {
           <Col xs={6}>
             <ul className={styles.secondaryMenuList}>
               <li>
-                <Link href="#">
-                  <CustomImage src={langIcon} alt="Language Translator" />
-                  Eng
-                </Link>
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_3867_15725)">
+                    <path
+                      d="M3 18H21V16H3V18ZM3 13H21V11H3V13ZM3 6V8H21V6H3Z"
+                      fill="#344054"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_3867_15725">
+                      <rect width="24" height="24" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
               </li>
             </ul>
           </Col>

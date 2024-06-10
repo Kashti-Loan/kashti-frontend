@@ -36,6 +36,7 @@ import CommonTooltip from "./ui/commonTooltip";
 import RadioImageButton from "./ui/radioImageButton";
 import SelectTag from "./ui/selectTag";
 import CalculatorBox from "./ui/calculatorBox";
+import ComparisonDetailBox from "./ui/comparisonDetailBox";
 // Sections
 import FaqSection from "./parts/section/faqSection";
 import SafeguardSection from "./parts/section/safeguardSection";
@@ -156,6 +157,7 @@ export {
   RadioImageButton,
   SelectTag,
   CalculatorBox,
+  ComparisonDetailBox,
   // Sections
   FaqSection,
   SafeguardSection,
