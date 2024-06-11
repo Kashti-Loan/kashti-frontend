@@ -3,11 +3,22 @@ import { PageTitle, SectionTitle } from "@styles/styledComponent";
 import styles from "./style.module.scss";
 import { useSearchParams } from "next/navigation";
 import { Col, Container, Row } from "react-bootstrap";
-import { Checkbox, ComparisonCardBox } from "@components";
+import { Checkbox, ComparisonCardBox, ComparisonDetailBox } from "@components";
+import { useState } from "react";
 
 const Page = () => {
   const router = useSearchParams();
   const data = JSON.parse(router.get("data"));
+  const [annualCharge, setAnnualCharge] = useState(true);
+  const [monthlyInterestRate, setMonthlyInterestRate] = useState(true);
+  const [rewards, setRewards] = useState(true);
+  const [rewardsExpiry, setRewardsExpiry] = useState(false);
+  const [atmInterest, setAtmInterest] = useState(false);
+  const [creditScore, setCreditScore] = useState(false);
+  const [greatFor, setGreatFor] = useState(false);
+  const [bonusOffer, setBonusOffer] = useState(false);
+  const [pros, setPros] = useState(false);
+  const [cons, setCons] = useState(false);
   // console.log("search para", data);
   return (
     <main className={styles.comparisonPage}>
@@ -42,6 +53,11 @@ const Page = () => {
                   creditScore={item.credit_score}
                 />
               ))}
+          </Col>
+        </Row>
+        <Row className={styles.mobileShowDifference}>
+          <Col xs={12} md={12} lg={12}>
+            <Checkbox label="Show only differences" />
           </Col>
         </Row>
         <Row className={styles.featuresContainer}>
@@ -105,6 +121,98 @@ const Page = () => {
                 </tr>
               </tbody>
             </table>
+          </Col>
+        </Row>
+        <Row className={styles.mobileFeatureContainer}>
+          <Col xs={12}>
+            <ComparisonDetailBox
+              event={annualCharge}
+              onEventChange={() => setAnnualCharge((prev) => !prev)}
+              title="Annual Charges"
+              comparisonOne="₹1500"
+              comparisonTwo="₹1500"
+            />
+          </Col>
+          <Col xs={12}>
+            <ComparisonDetailBox
+              event={monthlyInterestRate}
+              onEventChange={() => setMonthlyInterestRate((prev) => !prev)}
+              title="Monthly Interest Rate"
+              comparisonOne="3%"
+              comparisonTwo="3%"
+            />
+          </Col>
+          <Col xs={12}>
+            <ComparisonDetailBox
+              event={rewards}
+              onEventChange={() => setRewards((prev) => !prev)}
+              title="Rewards"
+              comparisonOne="10 reward points on every ₹250 spent"
+              comparisonTwo="10 reward points on every ₹250 spent"
+            />
+          </Col>
+          <Col xs={12}>
+            <ComparisonDetailBox
+              event={rewardsExpiry}
+              onEventChange={() => setRewardsExpiry((prev) => !prev)}
+              title="Rewards Expiry"
+              comparisonOne="10 reward points on every ₹250 spent"
+              comparisonTwo="10 reward points on every ₹250 spent"
+            />
+          </Col>
+          <Col xs={12}>
+            <ComparisonDetailBox
+              event={atmInterest}
+              onEventChange={() => setAtmInterest((prev) => !prev)}
+              title="Interest on ATM Cash Withdrawal"
+              comparisonOne="10 reward points on every ₹250 spent"
+              comparisonTwo="10 reward points on every ₹250 spent"
+            />
+          </Col>
+          <Col xs={12}>
+            <ComparisonDetailBox
+              event={creditScore}
+              onEventChange={() => setCreditScore((prev) => !prev)}
+              title="Credit Score"
+              comparisonOne="10 reward points on every ₹250 spent"
+              comparisonTwo="10 reward points on every ₹250 spent"
+            />
+          </Col>
+          <Col xs={12}>
+            <ComparisonDetailBox
+              event={greatFor}
+              onEventChange={() => setGreatFor((prev) => !prev)}
+              title="Great for"
+              comparisonOne="10 reward points on every ₹250 spent"
+              comparisonTwo="10 reward points on every ₹250 spent"
+            />
+          </Col>
+          <Col xs={12}>
+            <ComparisonDetailBox
+              event={bonusOffer}
+              onEventChange={() => setBonusOffer((prev) => !prev)}
+              title="Bonus Offer"
+              comparisonOne="10 reward points on every ₹250 spent"
+              comparisonTwo="10 reward points on every ₹250 spent"
+            />
+          </Col>
+          <Col xs={12}>
+            <ComparisonDetailBox
+              event={pros}
+              onEventChange={() => setPros((prev) => !prev)}
+              title="Pros"
+              comparisonOne="10 reward points on every ₹250 spent"
+              comparisonTwo="10 reward points on every ₹250 spent"
+            />
+          </Col>
+          <Col xs={12}>
+            <ComparisonDetailBox
+              event={cons}
+              onEventChange={() => setCons((prev) => !prev)}
+              title="Cons"
+              comparisonOne="10 reward points on every ₹250 spent"
+              comparisonTwo="10 reward points on every ₹250 spent"
+            />
           </Col>
         </Row>
       </Container>

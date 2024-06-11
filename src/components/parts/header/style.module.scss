@@ -3,14 +3,17 @@
 .header {
   @include flexContainer;
   height: 90px;
-  z-index: 2;
+  // z-index: 2;
   .headerInner {
     > div {
       .siteLogoBlock {
+        display: flex;
+        align-items: center;
         a {
           img {
             width: 100%;
             height: auto;
+            max-width: 127px;
           }
         }
       }
@@ -38,6 +41,7 @@
               line-height: 24px;
               @include flexContainer($gap: 5px);
               padding-block: 9px;
+              padding-inline: 14px;
             }
             .childrenMenu {
               &:hover {
@@ -45,6 +49,10 @@
                   display: flex;
                 }
               }
+            }
+            .activeMenu {
+              background-color: var(--globalWhite);
+              border-radius: 20px;
             }
             .languageBlock {
               @include flexContainer($gap: 5px);
@@ -72,16 +80,18 @@
         }
         .headerLoginBtn {
           @include flexContainer;
-          border-radius: 30px;
-          padding: 10px;
+          border-radius: 8px;
+          padding: 8px 28px;
           background-color: var(--globalWhite);
-          border: 1px solid var(--primaryColor);
+          border: 2px solid var(--primaryColor);
           font-size: 16px !important;
           font-style: normal !important;
           font-weight: 600 !important;
           line-height: 24px !important;
           color: var(--primaryColor) !important;
           transition: all 0.2s ease-in-out;
+          max-width: 180px;
+          margin: 0 0 0 auto;
           &:hover {
             background-color: var(--primaryColor);
             color: var(--globalWhite) !important;

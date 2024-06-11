@@ -10,11 +10,14 @@ import {
   bajaj_finserv,
   cash,
   chola,
+  crif,
+  experian,
   fibe,
   hdfc_bank,
   icici_bank,
   indus_bank,
   kredit_bee,
+  ltfinance,
   moneyV,
   mpokket,
   muthoot_fin,
@@ -75,16 +78,6 @@ const BankingPartnerSection = () => {
                 Personal Loans
               </button>
               <button
-                onClick={() => setCurrentTab("homeLoans")}
-                className={
-                  currentTab === "homeLoans"
-                    ? styles.activeBtn
-                    : styles.inactiveBtn
-                }
-              >
-                Home Loans
-              </button>
-              <button
                 onClick={() => setCurrentTab("goldLoans")}
                 className={
                   currentTab === "goldLoans"
@@ -93,6 +86,26 @@ const BankingPartnerSection = () => {
                 }
               >
                 Gold Loans
+              </button>
+              <button
+                onClick={() => setCurrentTab("businessLoans")}
+                className={
+                  currentTab === "businessLoans"
+                    ? styles.activeBtn
+                    : styles.inactiveBtn
+                }
+              >
+                Business Loans
+              </button>
+              <button
+                onClick={() => setCurrentTab("bureau")}
+                className={
+                  currentTab === "bureau"
+                    ? styles.activeBtn
+                    : styles.inactiveBtn
+                }
+              >
+                Bureau Partner
               </button>
             </div>
             {currentTab === "all" && (
@@ -156,6 +169,40 @@ const BankingPartnerSection = () => {
                 </div>
               </div>
             )}
+            {currentTab === "personalLoans" && (
+              <div className={styles.bankLogoContent}>
+                <div className={styles.logoContent}>
+                  <CustomImage src={tata_capital} />
+                </div>
+                <div className={styles.logoContent}>
+                  <CustomImage src={indus_bank} />
+                </div>
+                <div className={styles.logoContent}>
+                  <CustomImage src={moneyV} />
+                </div>
+                <div className={styles.logoContent}>
+                  <CustomImage src={paysense} />
+                </div>
+                <div className={styles.logoContent}>
+                  <CustomImage src={mpokket} />
+                </div>
+                <div className={styles.logoContent}>
+                  <CustomImage src={fibe} />
+                </div>
+                <div className={styles.logoContent}>
+                  <CustomImage src={piramal} />
+                </div>
+                <div className={styles.logoContent}>
+                  <CustomImage src={poonawal} />
+                </div>
+                <div className={styles.logoContent}>
+                  <CustomImage src={cash} />
+                </div>
+                <div className={styles.logoContent}>
+                  <CustomImage src={kredit_bee} />
+                </div>
+              </div>
+            )}
             {currentTab === "creditCards" && (
               <div className={styles.bankLogoContent}>
                 <div className={styles.logoContent}>
@@ -188,16 +235,26 @@ const BankingPartnerSection = () => {
                 </div>
               </div>
             )}
-            {currentTab === "bajaj" && (
+            {currentTab === "businessLoans" && (
               <div className={styles.bankLogoContent}>
                 <div className={styles.logoContent}>
-                  <CustomImage src={chola} />
+                  <CustomImage src={tata_capital} />
                 </div>
                 <div className={styles.logoContent}>
-                  <CustomImage src={muthoot_fin} />
+                  <CustomImage src={poonawal} />
                 </div>
                 <div className={styles.logoContent}>
-                  <CustomImage src={bajaj_finserv} />
+                  <CustomImage src={ltfinance} />
+                </div>
+              </div>
+            )}
+            {currentTab === "bureau" && (
+              <div className={styles.bankLogoContent}>
+                <div className={styles.logoContent}>
+                  <CustomImage src={crif} />
+                </div>
+                <div className={styles.logoContent}>
+                  <CustomImage src={experian} />
                 </div>
               </div>
             )}

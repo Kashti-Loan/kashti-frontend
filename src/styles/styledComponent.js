@@ -22,8 +22,8 @@ export const PageTitle = styled.h1((props) => ({
   color: props.$color || "var(--globalBlack)",
   margin: 0,
   "@media (max-width: 600px)": {
-    fontSize: "18px",
-    lineHeight: "27px",
+    fontSize: "20px",
+    lineHeight: "35px",
   },
 }));
 

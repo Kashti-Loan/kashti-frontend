@@ -36,6 +36,7 @@ import CommonTooltip from "./ui/commonTooltip";
 import RadioImageButton from "./ui/radioImageButton";
 import SelectTag from "./ui/selectTag";
 import CalculatorBox from "./ui/calculatorBox";
+import ComparisonDetailBox from "./ui/comparisonDetailBox";
 // Sections
 import FaqSection from "./parts/section/faqSection";
 import SafeguardSection from "./parts/section/safeguardSection";
@@ -62,6 +63,7 @@ import AllBanks from "./parts/popups/allBanks";
 import SuccessApplicationPopup from "./parts/popups/SuccessApplicationPopup";
 import OtpVerfication from "./parts/popups/otpVerificaton";
 import AllSteps from "./parts/popups/allSteps";
+import MobileMenu from "./parts/popups/mobileMenu";
 //Containers
 import StepperContainer from "./container/stepperContainer";
 // Icon
@@ -156,6 +158,7 @@ export {
   RadioImageButton,
   SelectTag,
   CalculatorBox,
+  ComparisonDetailBox,
   // Sections
   FaqSection,
   SafeguardSection,
@@ -182,6 +185,7 @@ export {
   SuccessApplicationPopup,
   OtpVerfication,
   AllSteps,
+  MobileMenu,
   //Containers
   StepperContainer,
   // Icon

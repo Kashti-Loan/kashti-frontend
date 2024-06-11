@@ -34,12 +34,12 @@ const CreditCardBox = (props) => {
           <span>{props.loan}</span>
         </p>
         <p>
-          <span>EMI Per Lakh</span>
-          <span>₹1,682 - ₹2,345</span>
+          <span>Tenure</span>
+          <span>{props.tenure}</span>
         </p>
         <p>
-          <span>Age</span>
-          <span>21-60 years</span>
+          <span>Processing Fee</span>
+          <span>{props.fee}</span>
         </p>
       </div>
       <div className={styles.aboutBank}>

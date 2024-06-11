@@ -77,7 +77,7 @@ export const interestRateData = [
     loan: "Up to ₹1Cr",
     tenure: "Upto 5 Years",
     fee: "Upto 2%",
-    themeColor: "#EAEBF3",
+    themeColor: "#E9F4EC",
     description:
       "IDFC Bank offers personal loan interest rates beginning at 10.99% p.a. for amounts up to Rs 1Cr, with a maximum tenure of 5 years. Additionally, by applying now, you can take advantage of a variety of loan products made for your financial needs. Clicking here allows IDFC Bank's existing customers to check their eligibility for this pre-approved loan offer.",
   },
@@ -89,7 +89,7 @@ export const interestRateData = [
     loan: "Up to ₹2L",
     tenure: "4 to 36 months.",
     fee: "₹150 to ₹13,750",
-    themeColor: "#EAEBF3",
+    themeColor: "#FEF2E9",
     description:
       "Kreditbee offers personal loan interest rates beginning at 16% p.a. for amounts up to Rs 2 lakh, with a maximum tenure of 3 years. Additionally, by applying now, you can take advantage of a variety of loan products made for your financial needs. Clicking here allows Kreditbee's existing customers to check their eligibility for this pre-approved loan offer.",
   },
@@ -101,7 +101,7 @@ export const interestRateData = [
     loan: "Up to ₹5L",
     tenure: "Upto 5 Years",
     fee: "Upto 4%",
-    themeColor: "#EAEBF3",
+    themeColor: "#FEF2E9",
     description:
       "Piramal offers personal loan interest rates beginning at 12% p.a. for amounts up to Rs 5 lakh, with a maximum tenure of 5 years. Additionally, by applying now, you can take advantage of a variety of loan products made for your financial needs. Clicking here allows Piramal's existing customers to check their eligibility for this pre-approved loan offer.",
   },
@@ -125,7 +125,7 @@ export const interestRateData = [
     loan: "Up to ₹25L",
     tenure: "Upto 5 Years",
     fee: "Upto 2%",
-    themeColor: "#EAEBF3",
+    themeColor: "#E9F4EC",
     description:
       "Muthoot offers personal loan interest rates beginning at 12% p.a. for amounts up to Rs 25 lakh, with a maximum tenure of 5 years. Additionally, by applying now, you can take advantage of a variety of loan products made for your financial needs. Clicking here allows Muthoot's existing customers to check their eligibility for this pre-approved loan offer.",
   },
@@ -354,6 +354,45 @@ export const homeFaq = [
     title: "What are the requirements to Borrow through Kashti platform?",
     description:
       "Borrowers typically need to meet certain eligibility criteria, such as minimum credit score and income requirements. The specific requirements may vary depending on the lender and the type of loan being sought.",
+  },
+];
+
+export const creditCardFaq = [
+  {
+    id: 1,
+    title: "What is a credit card?",
+    description:
+      "A credit card is a financial tool that allows you to borrow money from a financial institution up to a certain credit limit to make purchases, pay bills, or withdraw cash. Unlike debit cards, which draw funds directly from your bank account, credit cards involve borrowing money that you must repay later.",
+  },
+  {
+    id: 2,
+    title: "How do I apply for a credit card through your platform?",
+    description:
+      "Applying for a credit card on our platform is easy. Simply fill out our online application form, providing basic personal and financial information. Once submitted, we'll review your application and match you with credit card offers from our network of partner issuers.",
+  },
+  {
+    id: 3,
+    title: "What are the eligibility criteria for a credit card?",
+    description:
+      "Eligibility criteria may vary depending on the issuer, but common requirements include a minimum age (usually 18 or 21), a steady source of income, and a good credit score. Some issuers may also consider factors like your employment status and existing debt obligations.",
+  },
+  {
+    id: 4,
+    title: "What credit limits are available for credit cards?",
+    description:
+      "Credit limits vary depending on the issuer and your individual financial profile. Factors such as your credit score, income, and existing debt obligations can influence the credit limit you're approved for. Our platform helps you compare credit card offers with different credit limits to find the one that best fits your needs.",
+  },
+  {
+    id: 5,
+    title: "What interest rates can I expect for a credit card?",
+    description:
+      "Interest rates for credit cards can vary widely depending on factors such as your creditworthiness, the type of card, and the issuer's terms. Our platform allows you to compare offers from multiple issuers, enabling you to choose the card with the most competitive interest rate for your situation.",
+  },
+  {
+    id: 6,
+    title: "What rewards and benefits are available with credit cards?",
+    description:
+      "Many credit cards offer rewards programs, such as cash back, travel rewards, or points that can be redeemed for merchandise or gift cards. Additionally, credit cards may come with benefits such as purchase protection, extended warranties, travel insurance, and concierge services. Kashti helps you compare credit card rewards and benefits to find the card that best aligns with your preferences and spending habits.",
   },
 ];
 
