@@ -7,12 +7,22 @@ import { address, email, phone, whiteKashti } from "@public/assets";
 import { ContactForm, CustomImage, FaqBox } from "@components";
 import Link from "next/link";
 import { routesConstant } from "@utils/routesConstant";
-import { faqData } from "@utils/data";
+import { creditCardFaq, faqData, homeFaq, personalLoanFaq } from "@utils/data";
 import { ChevronRight, Search } from "react-bootstrap-icons";
+import { useSearchParams } from "next/navigation";
 
 const Page = () => {
   const [active, setActive] = useState(2);
-  const [activeFaq, setActiveFaq] = useState("credit_card");
+  const searchParams = useSearchParams();
+  const [activeFaq, setActiveFaq] = useState(
+    searchParams.get("tab") === "credit_card"
+      ? "credit_card"
+      : searchParams.get("tab") === "loans"
+      ? "loans"
+      : searchParams.get("tab") === "kashti"
+      ? "kashti"
+      : "kashti"
+  );
 
   console.log("current faq", activeFaq);
   return (
@@ -45,15 +55,24 @@ const Page = () => {
         <Container>
           <Row>
             <Col lg={12}>
-              <div className={styles.searchBox}>
+              {/* <div className={styles.searchBox}>
                 <input type="text" placeholder="Search..." />
                 <Search />
-              </div>
+              </div> */}
             </Col>
           </Row>
           <Row>
             <Col xs={12} md={4} lg={3}>
               <div>
+                <button
+                  type="button"
+                  className={
+                    activeFaq === "loans" ? styles.activeFaq : "notActiveFaq"
+                  }
+                  onClick={() => setActiveFaq("loans")}
+                >
+                  Personal Loan
+                </button>
                 <button
                   type="button"
                   className={
@@ -68,40 +87,18 @@ const Page = () => {
                 <button
                   type="button"
                   className={
-                    activeFaq === "investment"
-                      ? styles.activeFaq
-                      : "notActiveFaq"
+                    activeFaq === "kashti" ? styles.activeFaq : "notActiveFaq"
                   }
-                  onClick={() => setActiveFaq("investment")}
+                  onClick={() => setActiveFaq("kashti")}
                 >
-                  Investment
-                </button>
-                <button
-                  type="button"
-                  className={
-                    activeFaq === "loans" ? styles.activeFaq : "notActiveFaq"
-                  }
-                  onClick={() => setActiveFaq("loans")}
-                >
-                  Loans
-                </button>
-                <button
-                  type="button"
-                  className={
-                    activeFaq === "debit_card"
-                      ? styles.activeFaq
-                      : "notActiveFaq"
-                  }
-                  onClick={() => setActiveFaq("debit_card")}
-                >
-                  Debit Card
+                  Kashti
                 </button>
               </div>
             </Col>
             <Col xs={12} md={8} lg={9}>
               <div className={styles.questionBox}>
                 <ul>
-                  {faqData.map((data, i) => (
+                  {/* {faqData.map((data, i) => (
                     <FaqBox
                       title={data.title}
                       description={data.description}
@@ -111,7 +108,43 @@ const Page = () => {
                       currentFaq={(val) => setActive(val)}
                       activeColor={"#F8F9FF"}
                     />
-                  ))}
+                  ))} */}
+                  {activeFaq === "credit_card" &&
+                    creditCardFaq.map((data, i) => (
+                      <FaqBox
+                        title={data.title}
+                        description={data.description}
+                        id={data.id}
+                        key={i}
+                        currentQues={active === data.id ? true : false}
+                        currentFaq={(val) => setActive(val)}
+                        activeColor={"#F8F9FF"}
+                      />
+                    ))}
+                  {activeFaq === "loans" &&
+                    personalLoanFaq.map((data, i) => (
+                      <FaqBox
+                        title={data.title}
+                        description={data.description}
+                        id={data.id}
+                        key={i}
+                        currentQues={active === data.id ? true : false}
+                        currentFaq={(val) => setActive(val)}
+                        activeColor={"#F8F9FF"}
+                      />
+                    ))}
+                  {activeFaq === "kashti" &&
+                    homeFaq.map((data, i) => (
+                      <FaqBox
+                        title={data.title}
+                        description={data.description}
+                        id={data.id}
+                        key={i}
+                        currentQues={active === data.id ? true : false}
+                        currentFaq={(val) => setActive(val)}
+                        activeColor={"#F8F9FF"}
+                      />
+                    ))}
                 </ul>
               </div>
             </Col>

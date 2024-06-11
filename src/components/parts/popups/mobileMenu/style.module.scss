@@ -1,0 +1,60 @@
+@import "/src/styles/mixins";
+
+.mobileMenu {
+  background-color: var(--globalWhite);
+  width: 100%;
+  height: 100%;
+  padding-top: 84px;
+  max-width: 257px;
+  margin: 0 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  .menuBlock {
+    padding-inline: 16px;
+    padding-bottom: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    ul {
+      @include flexContainer($alignItems: flex-start, $gap: 32px);
+      flex-direction: column;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      li {
+        a {
+          @include flexContainer($justifyContent: flex-start);
+          span {
+            font-size: 14px;
+            line-height: 21px;
+            color: var(--globalBlack);
+          }
+        }
+      }
+    }
+    .loginBtn {
+      margin-top: 51px;
+      button {
+        width: 100%;
+      }
+    }
+  }
+  .socialMenu {
+    padding-block: 12px;
+    padding-inline: 16px;
+    border-top: 1px solid #d0d5dd;
+    h3 {
+      font-size: 16px;
+      line-height: 24px;
+      color: var(--globalBlack);
+      margin-bottom: 12px;
+    }
+    .menuSocialList {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      @include flexContainer($justifyContent: flex-start, $gap: 16px);
+    }
+  }
+}

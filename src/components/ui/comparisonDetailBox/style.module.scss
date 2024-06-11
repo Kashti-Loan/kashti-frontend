@@ -1,0 +1,50 @@
+@import "/src/styles/mixins";
+
+.detailBox {
+  box-shadow: 0px 3px 6px 0px #2a348514;
+  border-radius: 8px;
+  padding: 16px 12px;
+  @include flexContainer($gap: 8px);
+  flex-direction: column;
+  > div {
+    width: 100%;
+  }
+  .detailHeader {
+    @include flexContainer($justifyContent: space-between, $gap: 0px);
+    h4 {
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 600;
+      color: var(--globalBlack);
+      margin: 0;
+    }
+  }
+  .detailContent {
+    @include flexContainer;
+    display: none;
+    > div {
+      width: 100%;
+      flex: 1 1 50%;
+      p {
+        font-size: 12px;
+        line-height: 18px;
+        color: var(--globalBlack);
+        max-width: 115px;
+      }
+      &:nth-of-type(2) {
+        p {
+          margin: 0 0 0 auto;
+        }
+        border-left: 1px solid #c2c2c2;
+      }
+    }
+  }
+}
+
+.activeDetailBox {
+  background-color: #f4f5ff;
+  box-shadow: unset;
+  .detailContent {
+    display: flex;
+  }
+}

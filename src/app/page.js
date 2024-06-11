@@ -1114,6 +1114,7 @@ const Home = () => {
         className={styles.homeFaqSection}
         content={homeFaq}
         activeColor={"#F8F9FF"}
+        tab="kashti"
       />
 
       {/* Mobile - Download Section */}

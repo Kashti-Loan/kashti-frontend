@@ -38,11 +38,18 @@ import {
   creditCardBenefits,
   secureCreditCard,
   selectArrow,
+  hdfc,
+  creditCardBannerImg,
+  ccKeyBenefits,
+  ccEasySteps,
+  ccMobileBanner,
+  creditCardModel,
 } from "@public/assets";
 import TabSection from "@components/parts/section/personalLoanPage/tabSection";
 import { creditCardTabData } from "@utils/constant";
 import {
   allCreditCardData,
+  creditCardFaq,
   creditCardProviderData,
   creditCardTypeData,
 } from "@utils/data";
@@ -108,30 +115,35 @@ const Page = () => {
     }
   }
 
-  console.log("final compare value", filter);
+  console.log("compare data", compareData);
   return (
     <main className={styles.creditCardPage}>
       {/* Banner Section */}
-      <section className={styles.bannerSection}>
+      <section className={styles.bannerSection} id="overview">
         <Container>
           <Row>
-            <Col xs={12} md={12} lg={7}>
-              <PageTitle>Find Your Card in Just a Click</PageTitle>
-              <Text>Compare the best offers and get instant approvals.</Text>
+            <Col xs={12} md={12} lg={4}>
+              <PageTitle>
+                Find the Right <span>Credit Card</span>
+              </PageTitle>
+              <Text>
+                Explore and compare India’s top credit cards in one place, then
+                apply for the one that suits your needs best
+              </Text>
               <div className={styles.bannerImgBlock}>
                 <div>
                   <CustomImage src={citi_color} alt="Bank Partners" />
                   <CustomImage src={unionBank_color} alt="Bank Partners" />
                   <CustomImage src={icici_color} alt="Bank Partners" />
                   <CustomImage src={yesBank_color} alt="Bank Partners" />
-                  <CustomImage src={unionBank_color} alt="Bank Partners" />
+                  <CustomImage src={hdfc} alt="Bank Partners" />
                 </div>
               </div>
-              <div className={styles.bannerImg}>
-                <CustomImage src={creditCardBanner} alt="Right Credit Card" />
-              </div>
             </Col>
-            <Col xs={12} md={12} lg={5}>
+            <Col xs={12} md={12} lg={4}>
+              <CustomImage src={creditCardModel} />
+            </Col>
+            <Col xs={12} md={12} lg={4}>
               <GetCreditCard />
             </Col>
           </Row>
@@ -139,24 +151,22 @@ const Page = () => {
       </section>
 
       {/* Mobile - Banner Section */}
-      <section className={styles.mobileBannerContainer}>
+      <section className={styles.mobileBannerContainer} id="overview">
         <Container>
           <Row>
             <Col xs={7}>
-              <PageTitle>Find Your Card in Just a Click</PageTitle>
-              <Text>Compare the best offers and get instant approvals.</Text>
+              <PageTitle>
+                Find the Right <span>Credit Card</span>{" "}
+              </PageTitle>
+              <Text>Apply for the card that fits your needs the most.</Text>
             </Col>
             <Col xs={5}>
-              <NormalImage
-                src={creditCardBanner}
-                alt="Credit card Banner"
-                height={"116px"}
-              />
+              <CustomImage src={ccMobileBanner} alt="Credit card Banner" />
             </Col>
           </Row>
           <Row>
             <Col>
-              <SecureLoanToday />
+              <GetCreditCard />
             </Col>
           </Row>
         </Container>
@@ -260,49 +270,50 @@ const Page = () => {
       <section className={styles.keyBenefitsSection} id="key_features">
         <Container>
           <Row>
-            <Col xs={12} md={6} lg={7}>
-              <SectionTitle>Exclusive Benefits with Kashti</SectionTitle>
+            <Col xs={12} md={6} lg={8}>
+              <SectionTitle>Key Benefits of Kashti’s Credit Cards</SectionTitle>
               <ul>
                 <li>
                   <GreenCheckIcon />{" "}
                   <span>
-                    <b>Quick Processing:</b> Hassle-free application processing
-                    in minutes.
+                    <b>Swift Application Process:</b> Apply in minutes for a
+                    quick and convenient experience.
                   </span>
                 </li>
                 <li>
                   <GreenCheckIcon />{" "}
                   <span>
-                    <b>Instant Approval:</b> Quick approval upon meeting the
-                    criteria.
+                    <b>Instant Approval Possibility:</b> Meeting criteria may
+                    lead to instant approval.
                   </span>
                 </li>
                 <li>
                   <GreenCheckIcon />{" "}
                   <span>
-                    <b>Effortless Comparison:</b> Easily compare offers and make
-                    informed decisions.
+                    <b>Effective Comparison Tools:</b> Easy comparison of offers
+                    for informed choices.
                   </span>
                 </li>
                 <li>
                   <GreenCheckIcon />{" "}
                   <span>
-                    <b>Accurate Information:</b> Get reliable, frequently
-                    updated data every time.
+                    <b>Reliable Information:</b> Trustworthy, regularly updated
+                    data available.
                   </span>
                 </li>
                 <li>
                   <GreenCheckIcon />{" "}
                   <span>
-                    <b>Transparent Disclosures:</b> Upfront details on fees and
-                    charges to build confidence in applicants.
+                    <b>Transparent Fee Disclosure:</b> Clear information
+                    regarding fees and charges builds trust and confidence in
+                    potential applicants.
                   </span>
                 </li>
               </ul>
             </Col>
-            <Col xs={12} md={6} lg={5}>
+            <Col xs={12} md={6} lg={4}>
               <CustomImage
-                src={creditCardBenefits}
+                src={ccKeyBenefits}
                 alt="Key Benefits of Kashti’s Personal Loan "
               />
             </Col>
@@ -315,10 +326,13 @@ const Page = () => {
         <Container>
           <Row>
             <Col lg={12}>
-              <SectionTitle>Check Your Credit Card Eligibility</SectionTitle>
+              <SectionTitle>Eligibility Criteria for Credit Cards</SectionTitle>
               <Text>
-                Credit card eligibility varies by issuer and is set based on the
-                card type, its benefits, and fee. Some important factors are:
+                Credit card eligibility varies across issuers and card types.
+                While certain fundamental requirements like age, residence,
+                income source, and credit score remain constant, the key
+                difference lies in the minimum income criterion. Issuers set
+                these criteria based on the card's type, perks, and annual fees.
               </Text>
               <div className={styles.eligibilitySteps}>
                 <div className={styles.eligibilityBox}>
@@ -331,14 +345,14 @@ const Page = () => {
                 <div className={styles.eligibilityBox}>
                   <Text>
                     <span>Salaried</span>
-                    <span>₹15,000/Month</span>
+                    <span>₹2 Lakh p.a.</span>
                   </Text>
                   <CustomImage src={salaried} alt="Salaried" />
                 </div>
                 <div className={styles.eligibilityBox}>
                   <Text>
                     <span>Credit Score</span>
-                    <span>&gt;750</span>
+                    <span>&gt;650</span>
                   </Text>
                   <CustomImage src={creditScore} alt="Credit score" />
                 </div>
@@ -356,7 +370,9 @@ const Page = () => {
       <section className={styles.instantPersonalLoanSection} id="how_to_apply">
         <Container>
           <Row>
-            <SectionTitle>5 Steps to the Right Credit Card</SectionTitle>
+            <SectionTitle>
+              Swift Credit Solutions: Get Your Card with these 5 Easy Steps
+            </SectionTitle>
           </Row>
           <Row>
             <Col xs={12} md={12} lg={6}>
@@ -366,49 +382,48 @@ const Page = () => {
                   <div>
                     <h3>Explore the Options</h3>
                     <p>
-                      Explore the options and choose your preferred credit card
-                      to start the application process.
+                      Browse available credit cards, compare offers and choose
+                      one matching your needs.
                     </p>
                   </div>
                 </li>
                 <li>
                   <h4>2</h4>
                   <div>
-                    <h3>Enter Mandatory Information</h3>
+                    <h3>Complete Application</h3>
                     <p>
-                      Enter the basic, mandatory personal and financial details
-                      as requested.
+                      Fill out the online form with accurate personal and
+                      financial details.
                     </p>
                   </div>
                 </li>
                 <li>
                   <h4>3</h4>
                   <div>
-                    <h3>Check Your Eligibility</h3>
+                    <h3>Review Terms</h3>
                     <p>
-                      On meeting the eligibility criteria, provide remaining
-                      details like employment and contact information.
+                      Carefully read and understand the card's terms and
+                      conditions.
                     </p>
                   </div>
                 </li>
                 <li>
                   <h4>4</h4>
                   <div>
-                    <h3>Submit the Application</h3>
+                    <h3>Submit Application</h3>
                     <p>
-                      Accept the Terms and Conditions, and use the One Time
-                      Password (OTP) sent to your phone to complete the
-                      application process.
+                      Double-check the information and submit the completed
+                      application.
                     </p>
                   </div>
                 </li>
                 <li>
                   <h4>5</h4>
                   <div>
-                    <h3>Receive Your Card</h3>
+                    <h3>Wait for Approval</h3>
                     <p>
-                      Receive your physical card via mail upon approval from the
-                      issuer. Follow the instructions to activate it.
+                      Await the issuer's decision. Upon approval, receive the
+                      card by mail and follow instructions to activate it.
                     </p>
                   </div>
                 </li>
@@ -416,7 +431,7 @@ const Page = () => {
             </Col>
             <Col xs={12} md={6} lg={6}>
               <CustomImage
-                src={secureCreditCard}
+                src={ccEasySteps}
                 alt="Swift Credit Solutions: Get Your Card with these 5 Easy Steps"
               />
             </Col>
@@ -425,8 +440,13 @@ const Page = () => {
       </section>
 
       {/* Frequently Asked Questions  */}
-      <FaqSection activeColor={"#F8F9FF"} id="faqs" />
-
+      <FaqSection
+        activeColor={"#F8F9FF"}
+        id="faqs"
+        className={styles.faqSection}
+        content={creditCardFaq}
+        tab={"credit_card"}
+      />
       {/* Add to Compare Box */}
       {compareData.length > 0 && (
         <CompareBox

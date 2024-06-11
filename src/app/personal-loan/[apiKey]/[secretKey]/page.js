@@ -134,7 +134,7 @@ const Page = ({ params }) => {
           applyLink={routesConstant.PERSONAL_LOAN_QUESTIONAIRRE}
         />
 
-        <section className={styles.mobilePointerSection}>
+        <section className={styles.mobilePointerSection} id="key_features">
           <Container>
             <Row>
               <Col>
@@ -566,7 +566,7 @@ const Page = ({ params }) => {
         </section>
 
         {/* Why Kashti */}
-        <section className={styles.whyKashtiSection} id="section1">
+        <section className={styles.whyKashtiSection} id="key_features">
           <Container>
             <Row>
               <Col lg={12}>
@@ -649,6 +649,8 @@ const Page = ({ params }) => {
                         score={item.score}
                         interest={item.interest}
                         loan={item.loan}
+                        tenure={item.tenure}
+                        fee={item.fee}
                         themeColor={item.themeColor}
                         description={item.description}
                       />
@@ -810,12 +812,13 @@ const Page = ({ params }) => {
           </Container>
         </section>
         {/* EMI Calculator */}
-        <CalculatorSection bgColor={"#1B6430"} />
+        <CalculatorSection bgColor={"#1B6430"} id="emi_calculator" />
         {/* Frequently Asked Questions  */}
         <FaqSection
           activeColor={"#F2F8F4"}
           id="faqs"
           content={personalLoanFaq}
+          tab={"loans"}
         />
 
         {/* Quick Links */}

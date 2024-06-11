@@ -190,14 +190,45 @@ import tata_capital from "./images/ourPartners/tata_capital.png";
 import moneyV from "./images/ourPartners/moneyV.png";
 import idfc_b from "./images/ourPartners/idfc.png";
 import incred from "./images/ourPartners/incred.png";
+import creditCardBannerImg from "./images/creditCardBannerImg.png";
+import ccKeyBenefits from "./images/ccKeyBenefits.png";
+import ccEasySteps from "./images/ccEasySteps.png";
+import ccMobileBanner from "./images/ccMobileBanner.png";
+import aboutBannerRight from "./images/aboutBannerRight.png";
+import aboutBannerLeft from "./images/aboutBannerLeft.png";
+import aboutBannerImg from "./images/aboutBannerImg.png";
+import aboutMobileBannerRight from "./images/aboutMobileBannerRight.png";
+import aboutMobileBannerLeft from "./images/aboutMobileBannerLeft.png";
+import aboutApplication from "./images/aboutApplication.png";
+import aboutPartnership from "./images/aboutPartnership.png";
+import aboutPincode from "./images/aboutPincode.png";
+import customerSatis from "./images/customerSatis.png";
+import aboutSecure from "./images/aboutSecure.png";
+import aboutGoal from "./images/aboutGoal.png";
 import personalLoanModel from "./images/personalLoanModel.png";
 import personalLoanMobileModel from "./images/personalLoanMobileModel.png";
 import personalLoanQuestionairreModel from "./images/personalLoanQuestionairreModel.png";
 import loadingLogo from "./images/loading-logo.png";
+import creditCardModel from "./images/creditCardModel.png";
 
 export {
   siteLogo,
+  creditCardModel,
+  aboutApplication,
+  aboutPartnership,
+  aboutPincode,
+  aboutGoal,
+  aboutSecure,
+  customerSatis,
   homeLoanEmi,
+  aboutMobileBannerRight,
+  aboutMobileBannerLeft,
+  aboutBannerLeft,
+  aboutBannerRight,
+  aboutBannerImg,
+  ccKeyBenefits,
+  ccMobileBanner,
+  ccEasySteps,
   personalLoanModel,
   personalLoanMobileModel,
   personalLoanQuestionairreModel,
@@ -205,6 +236,7 @@ export {
   incred,
   axis_bank,
   bajaj_finserv,
+  creditCardBannerImg,
   idfc_b,
   cash,
   chola,

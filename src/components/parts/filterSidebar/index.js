@@ -109,7 +109,7 @@ const FilterSidebar = ({ filterValues, removeFilter, resetRemoveFilter }) => {
               </li>
             ))}
           </ul>
-          <button className={styles.filterViewMoreBtn}>View more</button>
+          {/* <button className={styles.filterViewMoreBtn}>View more</button> */}
         </div>
       </div>
       <div className={styles.filterBlock}>
@@ -134,7 +134,7 @@ const FilterSidebar = ({ filterValues, removeFilter, resetRemoveFilter }) => {
               </li>
             ))}
           </ul>
-          <button className={styles.filterViewMoreBtn}>View more</button>
+          {/* <button className={styles.filterViewMoreBtn}>View more</button> */}
         </div>
       </div>
       <div className={styles.filterBlock}>

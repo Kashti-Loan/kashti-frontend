@@ -15,10 +15,11 @@ const OurProductMenu = (props) => {
         <SectionTitle>Our Products</SectionTitle>
       </div>
       <div className={styles.menuListContainer}>
+        <SectionTitle>Loans</SectionTitle>
         <div className={styles.menuList}>
           {homeProductData.map(
             (item, i) =>
-              item.title === "Credit Cards" && (
+              item.title !== "Credit Cards" && (
                 <MenuProductCard
                   key={i}
                   title={item.title}
@@ -53,11 +54,10 @@ const OurProductMenu = (props) => {
               )
           )}
         </div>
-        <SectionTitle>Loans</SectionTitle>
-        <div className={styles.menuList}>
+        <div className={`${styles.menuList} ${styles.creditCardList}`}>
           {homeProductData.map(
             (item, i) =>
-              item.title !== "Credit Cards" && (
+              item.title === "Credit Cards" && (
                 <MenuProductCard
                   key={i}
                   title={item.title}
