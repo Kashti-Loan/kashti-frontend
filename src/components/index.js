@@ -63,6 +63,7 @@ import AllBanks from "./parts/popups/allBanks";
 import SuccessApplicationPopup from "./parts/popups/SuccessApplicationPopup";
 import OtpVerfication from "./parts/popups/otpVerificaton";
 import AllSteps from "./parts/popups/allSteps";
+import MobileMenu from "./parts/popups/mobileMenu";
 //Containers
 import StepperContainer from "./container/stepperContainer";
 // Icon
@@ -184,6 +185,7 @@ export {
   SuccessApplicationPopup,
   OtpVerfication,
   AllSteps,
+  MobileMenu,
   //Containers
   StepperContainer,
   // Icon

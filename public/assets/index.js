@@ -208,9 +208,11 @@ import aboutGoal from "./images/aboutGoal.png";
 import personalLoanModel from "./images/personalLoanModel.png";
 import personalLoanMobileModel from "./images/personalLoanMobileModel.png";
 import personalLoanQuestionairreModel from "./images/personalLoanQuestionairreModel.png";
+import creditCardModel from "./images/creditCardModel.png";
 
 export {
   siteLogo,
+  creditCardModel,
   aboutApplication,
   aboutPartnership,
   aboutPincode,

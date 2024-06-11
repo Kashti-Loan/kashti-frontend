@@ -649,6 +649,8 @@ const Page = ({ params }) => {
                         score={item.score}
                         interest={item.interest}
                         loan={item.loan}
+                        tenure={item.tenure}
+                        fee={item.fee}
                         themeColor={item.themeColor}
                         description={item.description}
                       />
@@ -813,14 +815,10 @@ const Page = ({ params }) => {
         <CalculatorSection bgColor={"#1B6430"} id="emi_calculator" />
         {/* Frequently Asked Questions  */}
         <FaqSection
-       
           activeColor={"#F2F8F4"}
-       
           id="faqs"
-       
           content={personalLoanFaq}
-        tab={"loans"}
-     
+          tab={"loans"}
         />
 
         {/* Quick Links */}

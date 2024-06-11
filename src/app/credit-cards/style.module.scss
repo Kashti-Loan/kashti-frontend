@@ -5,7 +5,7 @@
   .bannerSection {
     background: linear-gradient(180deg, #eaebf3 0%, #ffffff 100%);
     padding-top: 150px;
-    padding-bottom: 72px;
+    padding-bottom: 0;
     > div {
       > div {
         > div {
@@ -16,21 +16,26 @@
               font-size: 40px;
             }
           }
-          p {
-            font-size: 20px;
-            line-height: 32px;
-            margin: 12px 0 32px;
+          &:nth-of-type(1) {
+            p {
+              font-size: 20px;
+              line-height: 32px;
+              margin: 12px 0 32px;
+            }
           }
           .bannerImgBlock {
             @include flexContainer($gap: 0, $alignItems: flex-start);
-            margin-bottom: 75px;
             > div {
               width: 100%;
               &:nth-of-type(1) {
                 @include flexContainer($gap: 16px, $justifyContent: flex-start);
-                // img {
-                //     width: 100%;
-                // }
+                img {
+                  width: auto;
+                  height: auto;
+                  &:last-child {
+                    max-width: 76px;
+                  }
+                }
               }
             }
           }
@@ -49,7 +54,15 @@
             }
           }
           &:nth-of-type(2) {
-            padding-left: 80px;
+            display: flex;
+            align-items: flex-end;
+            img {
+              width: 100%;
+              height: auto;
+            }
+          }
+          &:nth-of-type(3) {
+            padding-bottom: 60px;
           }
         }
       }

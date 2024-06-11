@@ -77,7 +77,7 @@ export const interestRateData = [
     loan: "Up to ₹1Cr",
     tenure: "Upto 5 Years",
     fee: "Upto 2%",
-    themeColor: "#EAEBF3",
+    themeColor: "#E9F4EC",
     description:
       "IDFC Bank offers personal loan interest rates beginning at 10.99% p.a. for amounts up to Rs 1Cr, with a maximum tenure of 5 years. Additionally, by applying now, you can take advantage of a variety of loan products made for your financial needs. Clicking here allows IDFC Bank's existing customers to check their eligibility for this pre-approved loan offer.",
   },
@@ -89,7 +89,7 @@ export const interestRateData = [
     loan: "Up to ₹2L",
     tenure: "4 to 36 months.",
     fee: "₹150 to ₹13,750",
-    themeColor: "#EAEBF3",
+    themeColor: "#FEF2E9",
     description:
       "Kreditbee offers personal loan interest rates beginning at 16% p.a. for amounts up to Rs 2 lakh, with a maximum tenure of 3 years. Additionally, by applying now, you can take advantage of a variety of loan products made for your financial needs. Clicking here allows Kreditbee's existing customers to check their eligibility for this pre-approved loan offer.",
   },
@@ -101,7 +101,7 @@ export const interestRateData = [
     loan: "Up to ₹5L",
     tenure: "Upto 5 Years",
     fee: "Upto 4%",
-    themeColor: "#EAEBF3",
+    themeColor: "#FEF2E9",
     description:
       "Piramal offers personal loan interest rates beginning at 12% p.a. for amounts up to Rs 5 lakh, with a maximum tenure of 5 years. Additionally, by applying now, you can take advantage of a variety of loan products made for your financial needs. Clicking here allows Piramal's existing customers to check their eligibility for this pre-approved loan offer.",
   },
@@ -125,7 +125,7 @@ export const interestRateData = [
     loan: "Up to ₹25L",
     tenure: "Upto 5 Years",
     fee: "Upto 2%",
-    themeColor: "#EAEBF3",
+    themeColor: "#E9F4EC",
     description:
       "Muthoot offers personal loan interest rates beginning at 12% p.a. for amounts up to Rs 25 lakh, with a maximum tenure of 5 years. Additionally, by applying now, you can take advantage of a variety of loan products made for your financial needs. Clicking here allows Muthoot's existing customers to check their eligibility for this pre-approved loan offer.",
   },

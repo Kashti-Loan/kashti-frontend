@@ -43,6 +43,7 @@ import {
   ccKeyBenefits,
   ccEasySteps,
   ccMobileBanner,
+  creditCardModel,
 } from "@public/assets";
 import TabSection from "@components/parts/section/personalLoanPage/tabSection";
 import { creditCardTabData } from "@utils/constant";
@@ -121,7 +122,7 @@ const Page = () => {
       <section className={styles.bannerSection} id="overview">
         <Container>
           <Row>
-            <Col xs={12} md={12} lg={7}>
+            <Col xs={12} md={12} lg={4}>
               <PageTitle>
                 Find the Right <span>Credit Card</span>
               </PageTitle>
@@ -138,9 +139,11 @@ const Page = () => {
                   <CustomImage src={hdfc} alt="Bank Partners" />
                 </div>
               </div>
-              <CustomImage src={creditCardBannerImg} alt="Right Credit Card" />
             </Col>
-            <Col xs={12} md={12} lg={5}>
+            <Col xs={12} md={12} lg={4}>
+              <CustomImage src={creditCardModel} />
+            </Col>
+            <Col xs={12} md={12} lg={4}>
               <GetCreditCard />
             </Col>
           </Row>
