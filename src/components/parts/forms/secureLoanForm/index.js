@@ -96,7 +96,7 @@ const SecureLoanToday = ({ apiKey, secretKey }) => {
                     label="Full Name*"
                     type="text"
                     name="full_name"
-                    placeholder="Enter Name as per PAN"
+                    placeholder="Enter Full Name"
                     error={error?.message}
                   />
                 )}
