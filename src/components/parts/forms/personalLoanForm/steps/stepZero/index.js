@@ -102,9 +102,9 @@ const StepZero = (props) => {
                     label="Full Name*"
                     type="text"
                     name="full_name"
-                    placeholder="Enter Name as per PAN"
+                    placeholder="Enter Full Name"
                     tooltip
-                    tooltipContent={"Name as per PAN"}
+                    tooltipContent={"Full Name as per PAN"}
                     error={error?.message}
                     autocomplete="name"
                   />
