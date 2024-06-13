@@ -67,6 +67,10 @@ const SecureLoanToday = ({ apiKey, secretKey }) => {
 
   async function onSubmit(data) {
     try {
+      //Remove extra white spaces from Name
+      data.full_name = data.full_name.trim();
+      //Till there are multiple spaces. Replace with single space
+      data.full_name = data.full_name.replace(/\s\s+/g, " ");
       const response = await sendOtp(data);
       setOtpSent(true);
       return;
