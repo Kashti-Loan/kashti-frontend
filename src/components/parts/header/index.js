@@ -13,10 +13,13 @@ import { useEffect, useState } from "react";
 import PopupPortal from "../popups/popupPortal";
 import MobileMenu from "../popups/mobileMenu";
 import { usePathname } from "next/navigation";
+import { usePersonalLoan } from "@context/PersonalLoanContext";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const pathname = usePathname();
+  const { currentStep, accessToken } = usePersonalLoan();
+
   return (
     <>
       <header
@@ -67,53 +70,55 @@ const Header = () => {
             <Col xs={6} className={styles.siteLogoBlock}>
               <CustomImage src={siteLogo} alt="Kashti" />
             </Col>
-            <Col xs={6}>
-              <ul className={styles.secondaryMenuList}>
-                <li onClick={() => setShowMenu((prev) => !prev)}>
-                  {showMenu ? (
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <g clip-path="url(#clip0_3867_17145)">
-                        <path
-                          d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"
-                          fill="#323232"
-                        />
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_3867_17145">
-                          <rect width="24" height="24" fill="white" />
-                        </clipPath>
-                      </defs>
-                    </svg>
-                  ) : (
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <g clip-path="url(#clip0_3867_15725)">
-                        <path
-                          d="M3 18H21V16H3V18ZM3 13H21V11H3V13ZM3 6V8H21V6H3Z"
-                          fill="#344054"
-                        />
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_3867_15725">
-                          <rect width="24" height="24" fill="white" />
-                        </clipPath>
-                      </defs>
-                    </svg>
-                  )}
-                </li>
-              </ul>
-            </Col>
+            {!accessToken && pathname.includes("personal-loan/") && (
+              <Col xs={6}>
+                <ul className={styles.secondaryMenuList}>
+                  <li onClick={() => setShowMenu((prev) => !prev)}>
+                    {showMenu ? (
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g clip-path="url(#clip0_3867_17145)">
+                          <path
+                            d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"
+                            fill="#323232"
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_3867_17145">
+                            <rect width="24" height="24" fill="white" />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    ) : (
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g clip-path="url(#clip0_3867_15725)">
+                          <path
+                            d="M3 18H21V16H3V18ZM3 13H21V11H3V13ZM3 6V8H21V6H3Z"
+                            fill="#344054"
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_3867_15725">
+                            <rect width="24" height="24" fill="white" />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    )}
+                  </li>
+                </ul>
+              </Col>
+            )}
           </Row>
         </Container>
       </header>
