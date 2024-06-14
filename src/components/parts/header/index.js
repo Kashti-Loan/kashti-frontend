@@ -70,7 +70,7 @@ const Header = () => {
             <Col xs={6} className={styles.siteLogoBlock}>
               <CustomImage src={siteLogo} alt="Kashti" />
             </Col>
-            {!accessToken && (
+            {!accessToken && pathname.includes("personal-loan/") && (
               <Col xs={6}>
                 <ul className={styles.secondaryMenuList}>
                   <li onClick={() => setShowMenu((prev) => !prev)}>
