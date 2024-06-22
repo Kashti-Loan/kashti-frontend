@@ -160,7 +160,8 @@ const PersonalLoanQuestionairreApplication = () => {
 
   return (
     <main className={styles.personalLoanQuestionnairePage}>
-      {pathname.includes("personal-loan-questionairre-journey") ? (
+      {pathname.includes("personal-loan-questionairre-journey1") ||
+      pathname.includes("personal-loan-questionairre-journey2") ? (
         <PersonalLoanJouneyApplicationForm
           currentStep={currentStep}
           setCurrentStep={(val) => setCurrentStep(val)}
