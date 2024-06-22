@@ -210,12 +210,14 @@ import personalLoanMobileModel from "./images/personalLoanMobileModel.png";
 import personalLoanQuestionairreModel from "./images/personalLoanQuestionairreModel.png";
 import loadingLogo from "./images/loading-logo.png";
 import creditCardModel from "./images/creditCardModel.png";
+import kreditBeeOffer from "./images/kreditBeeOffer.png";
 
 export {
   siteLogo,
   creditCardModel,
   aboutApplication,
   aboutPartnership,
+  kreditBeeOffer,
   aboutPincode,
   aboutGoal,
   aboutSecure,
