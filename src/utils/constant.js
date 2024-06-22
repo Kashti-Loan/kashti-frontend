@@ -341,3 +341,9 @@ export const bankLogoSliderSettings = {
 };
 
 export const EMAIL_REGX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+
+export const capitalize = (s) => {
+  return s.toLowerCase().replace(/\b./g, function (a) {
+    return a.toUpperCase();
+  });
+};
