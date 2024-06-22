@@ -74,10 +74,10 @@ const MoreCoApplicantDetails = (props) => {
         13,
         "More CoApplicant Details"
       );
-      fbq('trackCustom', "MoreCoApplicantDetailsFilled");
-      fbq('track', "SubmitApplication");
-      router.replace(routesConstant.RECOMMENDED_PERSONAL_LOAN);
-      console.log('MoreCoApplicantDetailsFilled');
+      fbq("trackCustom", "MoreCoApplicantDetailsFilled");
+      fbq("track", "SubmitApplication");
+      router.replace(routesConstant.PERSONAL_LOAN_OFFER);
+      console.log("MoreCoApplicantDetailsFilled");
 
       return;
     } catch (error) {
@@ -183,7 +183,6 @@ const MoreCoApplicantDetails = (props) => {
             <button
               data-testid="more-coapplicant-details"
               data-event="CoApplicantDetailsFilled"
-
               id="more-coapplicant-details"
               type="submit"
               className="primaryBtn"

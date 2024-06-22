@@ -22,6 +22,7 @@ export const routesConstant = {
   TERMS_CONDITION: "/terms-and-conditions",
   RECOMMENDED_CREDIT_CARD: "/recommended-credit-card",
   RECOMMENDED_PERSONAL_LOAN: "/recommended-personal-loan",
+  PERSONAL_LOAN_OFFER: "/personal-loan-offer",
   CREDIT_CARD_APPLICATION_FORM: "/credit-card-application-form",
   BUSINESS_LOAN_QUESTIONAIRRE:
     "/personal-loan-questionairre/f504c87b6719b33e73b5252a6792099b97ea61de90f53b638ca6dd727a6658d8/3b254a2787b42f6fc63c132dc29bb5b8260ad01948536481ce8c2989e7a2b46d",
