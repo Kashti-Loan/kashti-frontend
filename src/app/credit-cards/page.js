@@ -48,7 +48,7 @@ import {
 import TabSection from "@components/parts/section/personalLoanPage/tabSection";
 import { creditCardTabData } from "@utils/constant";
 import {
-  allCreditCardData,
+  allCreditCardsList,
   creditCardFaq,
   creditCardProviderData,
   creditCardTypeData,
@@ -76,13 +76,19 @@ const Page = () => {
   const [displayFilter, setDisplayFilter] = useState(false);
 
   useEffect(() => {
-    const data = creditCardFilterHandler(allCreditCardData, filter);
-    const providerFilterName = creditCardProviderData.filter((item) =>
-      filter?.provider.includes(item.id.toString())
-    );
-    const typeFilterName = creditCardTypeData.filter((item) =>
-      filter?.type.includes(item.id.toString())
-    );
+    const data = creditCardFilterHandler(allCreditCardsList, filter);
+    const providerFilterName = [];
+    const typeFilterName = [];
+    allCreditCardsList.map((item) => {
+      if (!providerFilterName.includes(item.provider)) {
+        providerFilterName.push(item.provider);
+      }
+    });
+    filter.provider = providerFilterName;
+
+    // creditCardTypeData.filter((item) =>
+    //   filter?.type.includes(item.id.toString())
+    // );
     setCardData(data);
     setActiveFilterData([...providerFilterName, ...typeFilterName]);
   }, [filter]);
@@ -237,7 +243,7 @@ const Page = () => {
                       currentQues={active === item.id ? true : false}
                       currentFaq={(val) => setActive(val)}
                       name={item.name}
-                      type={item.type}
+                      type={item.types}
                       image={item.image}
                       cardType={item.card_type}
                       annualFee={item.annual_fee}

@@ -94,8 +94,8 @@ const BasicDetailStep = (props) => {
       const response = await onAddCustomerData(data, 1, "Individual Details");
       setCurrentStep(2);
       setCompletedSteps((prev) => [...prev, 1]);
-      fbq('trackCustom', "IndividualDetailsFilled");
-      console.log('IndividualDetailsFilled');
+      fbq("trackCustom", "IndividualDetailsFilled");
+      console.log("IndividualDetailsFilled");
 
       return;
     } catch (error) {
@@ -108,10 +108,10 @@ const BasicDetailStep = (props) => {
         const response = await onAddCustomerData(data, 1, "Individual Details");
         setCurrentStep(2);
         setCompletedSteps((prev) => [...prev, 1]);
-        fbq('trackCustom', "IndividualDetailsFilled");
-        fbq('track', "Search");
+        fbq("trackCustom", "IndividualDetailsFilled");
+        fbq("track", "Search");
 
-        console.log('IndividualDetailsFilled');
+        console.log("IndividualDetailsFilled");
       }
       return error;
     }
@@ -195,7 +195,7 @@ const BasicDetailStep = (props) => {
             <button
               data-testid="individual-details"
               data-event="IndividualDetailsFilled"
-              id ="individual-details"
+              id="individual-details"
               type="submit"
               className="primaryBtn individual-details"
             >

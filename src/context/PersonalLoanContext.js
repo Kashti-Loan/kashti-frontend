@@ -109,9 +109,9 @@ export function PersonalLoanProvider({ children }) {
             console.log("response.data", response.data.data.token);
             setApplicationDetail(response.data.data);
             setAccessToken(response.data.data.token);
-            router.replace(
-              `${routesConstant.PERSONAL_LOAN_QUESTIONAIRRE}/${apiKey}/${secretKey}`
-            );
+            // router.replace(
+            //   `${routesConstant.PERSONAL_LOAN_QUESTIONAIRRE}/${apiKey}/${secretKey}`
+            // );
             resolve(response.data);
           }
         })

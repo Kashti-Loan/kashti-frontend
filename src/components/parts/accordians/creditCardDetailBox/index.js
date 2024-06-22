@@ -9,6 +9,8 @@ import { creditCardImg } from "@public/assets";
 import Link from "next/link";
 import Checkbox from "@components/ui/checkbox";
 import { routesConstant } from "@utils/routesConstant";
+import Image from "next/image";
+import { capitalize } from "@utils/constant";
 
 const CreditCardDetailBox = ({
   id,
@@ -41,14 +43,26 @@ const CreditCardDetailBox = ({
     >
       <div className={styles.creditCardInfo}>
         <div className={styles.creditCardImg}>
-          <div>
-            <CustomImage src={image} alt="Credit Card" />
+          <div
+            style={{
+              position: "relative",
+              width: "100%",
+              paddingBottom: "20%",
+            }}
+          >
+            <Image
+              className={"kashtiImg"}
+              layout="fill"
+              objectFit="cover"
+              src={`/assets/images/credit_card/${image}.png`}
+              alt={name}
+            />
           </div>
           <div>
             <h4>{name}</h4>
             <Text>
-              <span>{type.map((item) => `${item.name}, `)}</span>
-              <span
+              <span>{type.map((item) => `${capitalize(item)}, `)}</span>
+              {/* <span
                 style={{
                   background:
                     cardType === "Premium"
@@ -59,7 +73,7 @@ const CreditCardDetailBox = ({
                 }}
               >
                 {cardType}
-              </span>
+              </span> */}
             </Text>
             <div>
               <Checkbox
@@ -79,7 +93,7 @@ const CreditCardDetailBox = ({
             Joining Fee <b>₹{joiningFee}</b>
           </Text>
           <Text>
-            Recommended Credit Score <b>{creditScore}</b>
+            Recommended Credit Score <b>{`>${creditScore}`}</b>
           </Text>
           <Link href={routesConstant.CREDIT_SCORE_REPORT}>
             Check Free Credit Score
@@ -119,21 +133,17 @@ const CreditCardDetailBox = ({
               <div>
                 <h4>Features</h4>
                 <ul>
-                  {features.map((item, i) => (
-                    <li key={i}>
-                      <b>{item.name}</b> {item.description}.
-                    </li>
-                  ))}
+                  {features
+                    ? features.map((item, i) => <li key={i}>{item}.</li>)
+                    : "-"}
                 </ul>
               </div>
               <div>
                 <h4>Welcome Benefits</h4>
                 <ul>
-                  {welcomeBenefits.map((item, i) => (
-                    <li key={i}>
-                      <b>{item.name}</b> {item.description}.
-                    </li>
-                  ))}
+                  {welcomeBenefits
+                    ? welcomeBenefits.map((item, i) => <li key={i}>{item}.</li>)
+                    : "-"}
                 </ul>
               </div>
             </motion.div>
