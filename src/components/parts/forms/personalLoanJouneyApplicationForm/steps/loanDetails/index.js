@@ -47,11 +47,10 @@ const LoanDetails = (props) => {
   async function onSubmit(data) {
     try {
       const response = await onAddCustomerData(data, 7, "Loan Details");
-      router.replace(routesConstant.RECOMMENDED_PERSONAL_LOAN);
+      router.replace(routesConstant.PERSONAL_LOAN_OFFER);
       fbq("trackCustom", "IncomeDetailsFilled");
       fbq("track", "StartTrial");
       console.log("IncomeDetailsFilled");
-      setCurrentStep(1);
       return;
     } catch (error) {
       return error;
