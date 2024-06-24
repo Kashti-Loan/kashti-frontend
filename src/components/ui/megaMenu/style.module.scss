@@ -2,12 +2,12 @@
 
 .megaMenuSection {
   position: absolute;
-  width: 902px;
+  width: 700px;
   background-color: var(--globalWhite);
   box-shadow: 0px 3px 12px 0px #2a34851a;
   border-radius: 8px;
   padding: 24px;
-  @include flexContainer($gap: 50px);
+  @include flexContainer($gap: 20px);
   flex-wrap: wrap;
   z-index: 10;
   top: 100%;
@@ -17,7 +17,11 @@
     display: flex;
   }
   > a {
-    flex: 1 0 402px;
+    flex: 1 0 250px;
+    padding: 10px;
+    &:hover {
+      background-color: #f7f8ff;
+    }
   }
   .menuBox {
     @include flexContainer($justifyContent: flex-start, $gap: 18px);
