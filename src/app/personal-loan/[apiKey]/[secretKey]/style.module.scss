@@ -549,7 +549,7 @@
             }
           }
           &:nth-of-type(2) {
-            margin-top: 12px;
+            margin-top: 22px;
             > div {
               &:nth-of-type(2) {
                 align-self: flex-end;
@@ -571,7 +571,7 @@
                     $justifyContent: flex-start
                   );
                   span {
-                    font-size: 12px;
+                    font-size: 14px;
                     font-style: normal;
                     font-weight: 500;
                     line-height: 18px;
