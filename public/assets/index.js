@@ -211,6 +211,9 @@ import personalLoanQuestionairreModel from "./images/personalLoanQuestionairreMo
 import loadingLogo from "./images/loading-logo.png";
 import creditCardModel from "./images/creditCardModel.png";
 import kreditBeeOffer from "./images/kreditBeeOffer.png";
+import LoanTap from "./images/ourPartners/loantap.png";
+import Upward from "./images/ourPartners/upward.png";
+import Zype from "./images/ourPartners/zype.png";
 
 export {
   siteLogo,
@@ -426,4 +429,7 @@ export {
   newyes,
   newmuthoot,
   loadingLogo,
+  LoanTap,
+  Upward,
+  Zype,
 };
