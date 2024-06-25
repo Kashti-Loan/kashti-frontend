@@ -65,7 +65,7 @@
       }
     }
   }
-  .mobileContactInfo {
+  .supportDetails {
     display: none;
   }
   .errorBox {
@@ -86,35 +86,44 @@
 
 @media only screen and (max-width: 600px) {
   .contactFormBox {
-    .mobileContactInfo {
-      margin-top: 80px;
+    .supportDetails {
+      max-width: 419px;
+      margin: 40px auto 0;
       display: block;
-      ul {
-        @include flexContainer($gap: 40px);
-        flex-direction: column;
-        padding: 0;
+      h3 {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 60px;
         margin: 0;
+      }
+      .supportList {
+        padding: 0;
         list-style: none;
+        margin: 30px 0 0;
+        @include flexContainer($gap: 38px, $justifyContent: flex-start);
+        flex-direction: column;
         li {
+          @include flexContainer(
+            $gap: 18px,
+            $justifyContent: flex-start,
+            $alignItems: flex-start
+          );
           width: 100%;
-          a {
-            @include flexContainer($justifyContent: flex-start, $alignItems: flex-start);
-            svg {
-              width: 24px;
-              height: 24px;
-              flex: 0 0 24px;
-              fill: #1D2939;
+          svg {
+            width: 20px;
+            height: 20px;
+          }
+          > div {
+            p {
+              margin: 0;
+              font-weight: 700;
+              color: #5d6579;
+              line-height: 20px;
             }
-            > div {
-              h3 {
-                font-size: 14px;
-                line-height: 20px;
-                color: #1d2939;
-              }
-              p {
-                font-size: 14px;
-                line-height: 20px;
-              }
+            a {
+              font-size: 14px;
+              font-weight: 700;
+              color: #5d6579;
             }
           }
         }
