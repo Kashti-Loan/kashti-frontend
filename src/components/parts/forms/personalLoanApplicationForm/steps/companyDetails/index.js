@@ -92,12 +92,10 @@ const CompanyDetails = (props) => {
         if (pathname.includes("personal-loan-questionairre-journey3")) {
           setIsLoading(true);
           const loanOffersList = await getPreApprovedLoans();
-          if (
-            loanOffersList &&
-            loanOffersList.length > 0 &&
-            loanOffersList[0]?.apply_link
-          ) {
-            window.open(loanOffersList[0]?.apply_link);
+          if (loanOffersList && loanOffersList.length > 0) {
+            window.open(
+              LIST_BANK_PROVIDERS_URL[loanOffersList[0]?.bank_name].url
+            );
           }
           router.replace(routesConstant.PERSONAL_LOAN_OFFER);
         } else {
