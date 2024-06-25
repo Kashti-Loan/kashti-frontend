@@ -42,10 +42,10 @@ const Page = () => {
           <Row>
             <Col lg={12}>
               <PageTitle>Frequently Asked Questions </PageTitle>
-              <Text>
+              {/* <Text>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor{" "}
-              </Text>
+              </Text> */}
             </Col>
           </Row>
         </Container>

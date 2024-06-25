@@ -961,9 +961,6 @@ const Home = () => {
         </Container>
       </section>
 
-      {/* Calculator Section */}
-      <CalculatorSection bgColor={"var(--primaryColor)"} />
-
       {/* Discover Our Most Popular Products */}
       <section className={styles.discoverProductSection}>
         <Container>
@@ -1006,6 +1003,9 @@ const Home = () => {
           <PopularProductSection />
         </Container>
       </section>
+
+      {/* Calculator Section */}
+      <CalculatorSection bgColor={"var(--primaryColor)"} />
 
       {/* Safeguarding Your Data, Always! */}
       <SafeguardSection />
