@@ -551,7 +551,7 @@ const Page = ({ params }) => {
                         </clipPath>
                       </defs>
                     </svg>
-                    <span>Instant Reimbursal</span>
+                    <span>Instant Disbursal</span>
                   </li>
                 </ul>
               </Col>
@@ -622,7 +622,7 @@ const Page = ({ params }) => {
               <Col xs={12} md={6} lg={4}>
                 <div className={styles.whyKashtiBox}>
                   <CustomImage src={reimbursal} alt="Anytime Support" />
-                  <h3>Instant Reimbursal</h3>
+                  <h3>Instant Disbursal</h3>
                   <Text>
                     Efficient and user-friendly digital processing of loans.
                   </Text>
@@ -666,11 +666,11 @@ const Page = ({ params }) => {
                 <CreditCardBox themeColor={"#EAEBF3"} />
                 <CreditCardBox themeColor={"#E9F4EC"} /> */}
                 </div>
-                <div className={styles.viewAllCreditCard}>
+                {/* <div className={styles.viewAllCreditCard}>
                   <Link href="#" className="secondaryBtn">
                     View All
                   </Link>
-                </div>
+                </div> */}
               </Col>
             </Row>
           </Container>

@@ -31,4 +31,12 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = {
+  ...nextConfig,
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      require("./script/sitemap-generator");
+    }
+    return config;
+  },
+};
