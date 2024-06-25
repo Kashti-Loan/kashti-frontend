@@ -22,6 +22,8 @@ import { Envelope, GeoAlt, Telephone } from "react-bootstrap-icons";
 import { routesConstant } from "@utils/routesConstant";
 import { usePathname } from "next/navigation";
 import useWindowWidth from "@components/hook/useWindowWidth";
+import TopFooter from "./topFooter";
+import BottomFooter from "./bottomFooter";
 
 const Footer = () => {
   const [currentWindowSize, setCurrentWindowSize] = useState(null);
@@ -47,7 +49,9 @@ const Footer = () => {
             : "block",
       }}
     >
-      <Container className={styles.topFooter}>
+      <TopFooter />
+      <BottomFooter />
+      {/* <Container className={styles.topFooter}>
         <Row>
           <Col lg={12}>
             <CustomImage src={whiteSiteLogo} alt="Kashti" />
@@ -158,8 +162,8 @@ const Footer = () => {
             </div>
           </Col>
         </Row>
-      </Container>
-      <Container className={styles.bottomFooter}>
+      </Container> */}
+      <Container className={styles.mobilebottomFooter}>
         <Row>
           <Col md={6} lg={6}>
             <ul className={styles.bottomFooterMenu}>
