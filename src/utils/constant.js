@@ -1,7 +1,18 @@
 import { ChevronLeft, ChevronRight } from "react-bootstrap-icons";
 import { routesConstant } from "./routesConstant";
 import { InstantLoanIcon } from "@components";
-import { LoanTap, Upward, Zype, fibe, paysense } from "@public/assets";
+import {
+  FibeOffer,
+  LoanTap,
+  LoanTapOffer,
+  PaysenseOffer,
+  Upward,
+  UpwardOffer,
+  Zype,
+  ZypeOffer,
+  fibe,
+  paysense,
+} from "@public/assets";
 
 export const navMenuItems = [
   {
@@ -346,23 +357,23 @@ export const EMAIL_REGX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 export const LIST_BANK_PROVIDERS_URL = {
   LoanTap: {
     url: "https://bit.ly/LoanTap-Kashti",
-    logo: LoanTap,
+    logo: LoanTapOffer,
   },
   EarlySalary: {
     url: "https://bit.ly/FibeKashti",
-    logo: fibe,
+    logo: FibeOffer,
   },
   Upwards: {
     url: "https://bit.ly/Upwards-Kashti",
-    logo: Upward,
+    logo: UpwardOffer,
   },
   Paysense: {
     url: "https://bit.ly/Paysense-Kashti",
-    logo: paysense,
+    logo: PaysenseOffer,
   },
   Zype: {
     url: "https://bit.ly/Zype-Kashti",
-    logo: Zype,
+    logo: ZypeOffer,
   },
 };
 

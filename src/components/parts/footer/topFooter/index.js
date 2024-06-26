@@ -38,26 +38,34 @@ const TopFooter = () => {
               <h3>Find us on</h3>
               <ul className={styles.footerSocialList}>
                 <li>
-                  <Link href={"www.facebook.com/officialkashti"}>
+                  <Link
+                    target="_blank"
+                    href="https://www.facebook.com/kashti.finserv"
+                  >
                     <FbIcon />
                   </Link>
                 </li>
                 <li>
-                  <Link href={"https://www.instagram.com/officialkashti/"}>
+                  <Link
+                    target="_blank"
+                    href="https://www.instagram.com/kashti.finserv/"
+                  >
                     <InstaIcon />
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href={
-                      "https://www.youtube.com/channel/UCKrHrziqqeHgXflY5uEq8QQ"
-                    }
+                    target="_blank"
+                    href="https://www.youtube.com/channel/UCKrHrziqqeHgXflY5uEq8QQ"
                   >
                     <YtIcon />
                   </Link>
                 </li>
                 <li>
-                  <Link href={"https://linkedin.com/company/officialkashti"}>
+                  <Link
+                    target="_blank"
+                    href="https://in.linkedin.com/company/officialkashti"
+                  >
                     <LinkedIcon />
                   </Link>
                 </li>
