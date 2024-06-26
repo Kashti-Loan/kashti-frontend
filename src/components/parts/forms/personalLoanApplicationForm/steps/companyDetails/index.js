@@ -14,7 +14,7 @@ import { GenderFemale, GenderMale } from "@public/assets";
 import RadioImageButton from "@components/ui/radioImageButton";
 import SelectTag from "@components/ui/selectTag";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { routesConstant } from "@utils/routesConstant";
 
 const CompanyDetails = (props) => {
@@ -45,9 +45,16 @@ const CompanyDetails = (props) => {
       value: "Public",
     },
   ];
+  const pathname = usePathname();
+  const {
+    setCurrentStep,
+    setCompletedSteps,
+    onAddCustomerData,
+    loanData,
+    getPreApprovedLoans,
+  } = usePersonalLoan();
 
-  const { setCurrentStep, setCompletedSteps, onAddCustomerData, loanData } =
-    usePersonalLoan();
+  const [isLoading, setIsLoading] = useState(false);
 
   const BasicSchema = Yup.object().shape({
     company_name: Yup.string().required("Company name is required"),
@@ -80,18 +87,27 @@ const CompanyDetails = (props) => {
     try {
       const response = await onAddCustomerData(data, 9, "Company Detail");
       if (loanData.employment_type === "Salaried") {
-        fbq('track', "SubmitApplication");
+        fbq("track", "SubmitApplication");
 
-        router.replace(routesConstant.RECOMMENDED_PERSONAL_LOAN);
-
+        if (pathname.includes("personal-loan-questionairre-journey3")) {
+          setIsLoading(true);
+          const loanOffersList = await getPreApprovedLoans();
+          if (loanOffersList && loanOffersList.length > 0) {
+            window.open(
+              LIST_BANK_PROVIDERS_URL[loanOffersList[0]?.bank_name].url
+            );
+          }
+          router.replace(routesConstant.PERSONAL_LOAN_OFFER);
+        } else {
+          router.replace(routesConstant.PERSONAL_LOAN_OFFER);
+        }
       } else {
-
         setCurrentStep(10);
       }
       setCompletedSteps((prev) => [...prev, 9]);
-      fbq('trackCustom', "CompanyDetailsFilled");
+      fbq("trackCustom", "CompanyDetailsFilled");
 
-      console.log('CompanyDetailsFilled');
+      console.log("CompanyDetailsFilled");
 
       return;
     } catch (error) {
@@ -154,14 +170,13 @@ const CompanyDetails = (props) => {
           </div>
           <div className={`${styles.inputBlock} ${styles.submitBlock}`}>
             <button
-              data-testid="company-detail"      
+              data-testid="company-detail"
               data-event="CompanyDetailsFilled"
-        
               id="company-detail"
               type="submit"
               className="primaryBtn"
             >
-              {isSubmitting ? "Updating Data..." : "Continue"}
+              {isSubmitting || isLoading ? "Updating Data..." : "Continue"}
             </button>
           </div>
         </form>

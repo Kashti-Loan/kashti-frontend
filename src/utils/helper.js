@@ -18,7 +18,7 @@ export const creditCardFilterHandler = (data, filterArray) => {
     filterArray?.type.length === 0
   ) {
     filteredData = data.filter((item) =>
-      filterArray?.provider.includes(item.provider.id.toString())
+      filterArray?.provider.includes(item.provider)
     );
   } else if (
     filterArray?.provider.length === 0 &&
@@ -26,7 +26,7 @@ export const creditCardFilterHandler = (data, filterArray) => {
   ) {
     filteredData = data.filter((item) =>
       filterArray.type.every((filterTag) =>
-        item.type.map((tag) => tag.id.toString()).includes(filterTag)
+        item.type.map((tag) => tag).includes(filterTag)
       )
     );
   } else {
@@ -34,7 +34,7 @@ export const creditCardFilterHandler = (data, filterArray) => {
       (item) =>
         filterArray?.provider.includes(item.provider.id.toString()) &&
         filterArray.type.every((filterTag) =>
-          item.type.map((tag) => tag.id.toString()).includes(filterTag)
+          item.type.map((tag) => tag).includes(filterTag)
         )
     );
   }

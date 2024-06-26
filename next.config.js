@@ -12,8 +12,31 @@ const nextConfig = {
         destination: `/personal-loan-questionairre/${process.env.DEMO_API_KEY_LP2}/${process.env.DEMO_API_SECRET_LP2}`,
         permanent: true,
       },
+      {
+        source: "/personal-loan-questionairre-journey1",
+        destination: `/personal-loan-questionairre-journey1/${process.env.DEMO_API_KEY_LP2}/${process.env.DEMO_API_SECRET_LP2}`,
+        permanent: true,
+      },
+      {
+        source: "/personal-loan-questionairre-journey2",
+        destination: `/personal-loan-questionairre-journey2/${process.env.DEMO_API_KEY_LP2}/${process.env.DEMO_API_SECRET_LP2}`,
+        permanent: true,
+      },
+      {
+        source: "/personal-loan-questionairre-journey3",
+        destination: `/personal-loan-questionairre-journey3/${process.env.DEMO_API_KEY_LP2}/${process.env.DEMO_API_SECRET_LP2}`,
+        permanent: true,
+      },
     ];
   },
 };
 
-module.exports = nextConfig;
+module.exports = {
+  ...nextConfig,
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      require("./script/sitemap-generator");
+    }
+    return config;
+  },
+};

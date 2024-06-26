@@ -1,6 +1,7 @@
 import { ChevronLeft, ChevronRight } from "react-bootstrap-icons";
 import { routesConstant } from "./routesConstant";
 import { InstantLoanIcon } from "@components";
+import { LoanTap, Upward, Zype, fibe, paysense } from "@public/assets";
 
 export const navMenuItems = [
   {
@@ -341,3 +342,42 @@ export const bankLogoSliderSettings = {
 };
 
 export const EMAIL_REGX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+
+export const LIST_BANK_PROVIDERS_URL = {
+  LoanTap: {
+    url: "https://bit.ly/LoanTap-Kashti",
+    logo: LoanTap,
+  },
+  EarlySalary: {
+    url: "https://bit.ly/FibeKashti",
+    logo: fibe,
+  },
+  Upwards: {
+    url: "https://bit.ly/Upwards-Kashti",
+    logo: Upward,
+  },
+  Paysense: {
+    url: "https://bit.ly/Paysense-Kashti",
+    logo: paysense,
+  },
+  Zype: {
+    url: "https://bit.ly/Zype-Kashti",
+    logo: Zype,
+  },
+};
+
+export const capitalize = (s) => {
+  return `${s}`.toLowerCase().replace(/\b./g, function (a) {
+    return a.toUpperCase();
+  });
+};
+
+export const indianRupeeConvert = (x) => {
+  x = x.toString();
+  var lastThree = x.substring(x.length - 3);
+  var otherNumbers = x.substring(0, x.length - 3);
+  if (otherNumbers != "") lastThree = "," + lastThree;
+  return otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+};
+
+export const getBankURLLogo = (bankName) => {};

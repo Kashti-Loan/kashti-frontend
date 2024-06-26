@@ -37,6 +37,7 @@ import RadioImageButton from "./ui/radioImageButton";
 import SelectTag from "./ui/selectTag";
 import CalculatorBox from "./ui/calculatorBox";
 import ComparisonDetailBox from "./ui/comparisonDetailBox";
+import LoanOffer from "./ui/loanOffer";
 // Sections
 import FaqSection from "./parts/section/faqSection";
 import SafeguardSection from "./parts/section/safeguardSection";
@@ -159,6 +160,7 @@ export {
   SelectTag,
   CalculatorBox,
   ComparisonDetailBox,
+  LoanOffer,
   // Sections
   FaqSection,
   SafeguardSection,

@@ -86,7 +86,7 @@ const SecureLoanToday = ({ apiKey, secretKey }) => {
 
   return (
     <div className={styles.secureLoanTodayBox}>
-      <h4>Secure Your Loan Today</h4>
+      <h4>Unlock Best Personal Loan Offers</h4>
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.inputBlock}>
@@ -152,7 +152,7 @@ const SecureLoanToday = ({ apiKey, secretKey }) => {
                 />
                 <span className="checkmark"></span>
                 <Text className={styles.agreeTerms}>
-                  By Continuing, I agree to Kashti's {" "}
+                  By Continuing, I agree to Kashti's{" "}
                   <Link target="_blank" href={routesConstant.PRIVACY_POLICY}>
                     Privacy Policy
                   </Link>{" "}

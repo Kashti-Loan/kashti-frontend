@@ -21,6 +21,8 @@ import {
 import { routesConstant } from "@utils/routesConstant";
 import { bankLogoSliderSettings, bankingSliderSettings } from "@utils/constant";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
+import { usePathname } from "next/navigation";
+import PersonalLoanJouneyApplicationForm from "../../personalLoanJouneyApplicationForm";
 
 const PersonalLoanQuestionairreApplication = () => {
   const {
@@ -30,6 +32,7 @@ const PersonalLoanQuestionairreApplication = () => {
     loanData,
     setAccessToken,
   } = usePersonalLoan();
+  const pathname = usePathname();
 
   const [progress, setProgress] = useState(6);
   const [currentStepName, setCurrentStepName] = useState("Basic Details");
@@ -157,61 +160,58 @@ const PersonalLoanQuestionairreApplication = () => {
 
   return (
     <main className={styles.personalLoanQuestionnairePage}>
-      {/* Header Section */}
-      {/* <section className={styles.headerSection}>
-        <Container>
-          <Row>
-            <Col lg={12}>
-              <button
-                onClick={() =>
-                  currentStep !== 1 &&
-                  setCurrentStep((prev) => {
-                    if (loanData?.isPermenentAddressSame) {
-                      return prev - 2;
-                    } else {
-                      return prev - 1;
-                    }
-                  })
-                }
-              >
-                <ArrowLeftShort /> <span>Personal Loan</span>
-              </button>
-            </Col>
-            <Col lg={12}>
-              <PageTitle>Unlock Best Personal Loan Offers</PageTitle>
-              <Text>Avail a Loan of Your Choice Instantly. Avail a Loan of Your Choice Instantly</Text>
-            </Col>
-          </Row>
-        </Container>
-        <CustomImage src={applyPersonalLoan} alt='Personal Loan Questionnaire' className={styles.applyPersonalLoan} />
-        <CustomImage src={whiteKashti} alt='White Kashti' className={styles.whiteKashti} />
-      </section> */}
-      {/* <section className={styles.questionairreSection}> */}
-      <PersonalLoanApplicationForm
-        currentStep={currentStep}
-        setCurrentStep={(val) => setCurrentStep(val)}
-        progress={progress}
-        setProgress={(val) => setProgress(val)}
-        currentStepName={currentStepName}
-        setCurrentStepName={(val) => setCurrentStepName(val)}
-        currentTotalStep={currentTotalStep}
-        setCurrentTotalStep={(val) => setCurrentTotalStep(val)}
-        completedCurrentStep={completedCurrentStep}
-        setCompletedCurrentStep={(val) => setCompletedCurrentStep(val)}
-        completedSteps={completedSteps}
-        onBack={() =>
-          currentStep !== 1
-            ? setCurrentStep((prev) => {
-                if (loanData?.isPermenentAddressSame) {
-                  return prev - 2;
-                } else {
-                  return prev - 1;
-                }
-              })
-            : setAccessToken(null)
-        }
-      />
-      {/* </section> */}
+      {pathname.includes("personal-loan-questionairre-journey1") ||
+      pathname.includes("personal-loan-questionairre-journey2") ? (
+        <PersonalLoanJouneyApplicationForm
+          currentStep={currentStep}
+          setCurrentStep={(val) => setCurrentStep(val)}
+          progress={progress}
+          setProgress={(val) => setProgress(val)}
+          currentStepName={currentStepName}
+          setCurrentStepName={(val) => setCurrentStepName(val)}
+          currentTotalStep={currentTotalStep}
+          setCurrentTotalStep={(val) => setCurrentTotalStep(val)}
+          completedCurrentStep={completedCurrentStep}
+          setCompletedCurrentStep={(val) => setCompletedCurrentStep(val)}
+          completedSteps={completedSteps}
+          onBack={() =>
+            currentStep !== 1
+              ? setCurrentStep((prev) => {
+                  if (loanData?.isPermenentAddressSame) {
+                    return prev - 2;
+                  } else {
+                    return prev - 1;
+                  }
+                })
+              : setAccessToken(null)
+          }
+        />
+      ) : (
+        <PersonalLoanApplicationForm
+          currentStep={currentStep}
+          setCurrentStep={(val) => setCurrentStep(val)}
+          progress={progress}
+          setProgress={(val) => setProgress(val)}
+          currentStepName={currentStepName}
+          setCurrentStepName={(val) => setCurrentStepName(val)}
+          currentTotalStep={currentTotalStep}
+          setCurrentTotalStep={(val) => setCurrentTotalStep(val)}
+          completedCurrentStep={completedCurrentStep}
+          setCompletedCurrentStep={(val) => setCompletedCurrentStep(val)}
+          completedSteps={completedSteps}
+          onBack={() =>
+            currentStep !== 1
+              ? setCurrentStep((prev) => {
+                  if (loanData?.isPermenentAddressSame) {
+                    return prev - 2;
+                  } else {
+                    return prev - 1;
+                  }
+                })
+              : setAccessToken(null)
+          }
+        />
+      )}
     </main>
   );
 };

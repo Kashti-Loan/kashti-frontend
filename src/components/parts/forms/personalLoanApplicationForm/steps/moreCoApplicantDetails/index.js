@@ -24,15 +24,17 @@ import SelectTag from "@components/ui/selectTag";
 import CommonTooltip from "@components/ui/commonTooltip";
 import MoneyPhoneInputTag from "@components/ui/moneyPhoneInputTag";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { routesConstant } from "@utils/routesConstant";
 
 const MoreCoApplicantDetails = (props) => {
   const router = useRouter();
   const [selectedValue, setSelectedValue] = useState("Spouse");
+  const pathname = usePathname();
 
-  const { setCurrentStep, setCompletedSteps, onAddCustomerData, loanData } =
+  const { setCurrentStep, getPreApprovedLoans, onAddCustomerData, loanData } =
     usePersonalLoan();
+  const [isLoading, setIsLoading] = useState(false);
 
   const BasicSchema = Yup.object().shape({
     coApplicantMobile: Yup.string()
@@ -74,10 +76,19 @@ const MoreCoApplicantDetails = (props) => {
         13,
         "More CoApplicant Details"
       );
-      fbq('trackCustom', "MoreCoApplicantDetailsFilled");
-      fbq('track', "SubmitApplication");
-      router.replace(routesConstant.RECOMMENDED_PERSONAL_LOAN);
-      console.log('MoreCoApplicantDetailsFilled');
+      fbq("trackCustom", "MoreCoApplicantDetailsFilled");
+      fbq("track", "SubmitApplication");
+      if (pathname.includes("personal-loan-questionairre-journey3")) {
+        setIsLoading(true);
+        const loanOffersList = await getPreApprovedLoans();
+        if (loanOffersList && loanOffersList.length > 0) {
+          window.open(loanOffersList[0]?.apply_link);
+        }
+        router.replace(routesConstant.PERSONAL_LOAN_OFFER);
+      } else {
+        router.replace(routesConstant.PERSONAL_LOAN_OFFER);
+      }
+      console.log("MoreCoApplicantDetailsFilled");
 
       return;
     } catch (error) {
@@ -183,12 +194,11 @@ const MoreCoApplicantDetails = (props) => {
             <button
               data-testid="more-coapplicant-details"
               data-event="CoApplicantDetailsFilled"
-
               id="more-coapplicant-details"
               type="submit"
               className="primaryBtn"
             >
-              {isSubmitting ? "Updating Data..." : "Continue"}
+              {isSubmitting || isLoading ? "Updating Data..." : "Continue"}
             </button>
           </div>
         </form>
