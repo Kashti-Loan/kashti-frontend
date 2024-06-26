@@ -7,8 +7,8 @@ const CustomImage = (props) => {
     <Image
       src={props.src}
       alt={props.alt}
-      width={src?.width || '100%'}
-      height={src?.height || '100%'}
+      width={props?.width || "100%"}
+      height={props?.height || "100%"}
       className={props.className || "kashtiImg"}
     />
   );
