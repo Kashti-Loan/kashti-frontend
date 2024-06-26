@@ -37,13 +37,13 @@ const IncomeDetails = (props) => {
 
   const BasicSchema = Yup.object().shape({
     salary_type: Yup.string().required("Salary mode is required."),
-    monthly_income: Yup.string().required("Monthly salary is required."),
+    your_net_monthly_income: Yup.string().required("Monthly salary is required."),
   });
 
   const defaultValues = {
     your_desired_loan_amount: loanData?.your_desired_loan_amount || 100000,
     salary_type: loanData?.salary_type || "Bank Transfer",
-    monthly_income: loanData?.monthly_income || "",
+    your_net_monthly_income: loanData?.your_net_monthly_income || "",
   };
 
   const methods = useForm({
@@ -146,14 +146,14 @@ const IncomeDetails = (props) => {
           </div>
           <div className={styles.inputBlock}>
             <Controller
-              name="monthly_income"
+              name="your_net_monthly_income"
               control={control}
               render={({ field, fieldState: { error } }) => (
                 <MoneyPhoneInputTag
                   {...field}
                   label="Monthly Income*"
                   type="text"
-                  name="monthly_income"
+                  name="your_net_monthly_income"
                   placeholder="20,000"
                   initial="₹"
                   note="Income entered must be verified by your bank"
