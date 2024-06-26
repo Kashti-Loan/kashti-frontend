@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 import { routesConstant } from "@utils/routesConstant";
 
 const FaqSection = (props) => {
-  const [active, setActive] = useState(2);
+  const [active, setActive] = useState(1);
   const router = useRouter();
 
   function handleClick(tab) {
