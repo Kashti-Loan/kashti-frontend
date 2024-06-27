@@ -28,6 +28,7 @@ const CreditCardDetailBox = ({
   welcomeBenefits,
   onCompare,
   isCompared,
+  url,
 }) => {
   return (
     <li
@@ -36,9 +37,6 @@ const CreditCardDetailBox = ({
           ? `${styles.activeCard} ${styles.creditCardDetailBox}`
           : styles.creditCardDetailBox
       }
-      onClick={() => {
-        currentQues ? currentFaq(false) : currentFaq(id);
-      }}
       //   style={{backgroundColor: currentQues ? activeColor : "var(--globalWhite)"}}
     >
       <div className={styles.creditCardInfo}>
@@ -61,7 +59,12 @@ const CreditCardDetailBox = ({
           <div>
             <h4>{name}</h4>
             <Text>
-              <span>{type.map((item) => `${capitalize(item)}, `)}</span>
+              <span>
+                {type.map(
+                  (item, index) =>
+                    `${capitalize(item)} ${index + 1 < type.length ? "," : ""} `
+                )}
+              </span>
               {/* <span
                 style={{
                   background:
@@ -75,14 +78,14 @@ const CreditCardDetailBox = ({
                 {cardType}
               </span> */}
             </Text>
-            <div>
+            {/* <div>
               <Checkbox
                 name="add_to_compare"
                 label="Add to Compare"
                 onChange={() => onCompare({ id, name, image, theme })}
                 checked={isCompared}
               />
-            </div>
+            </div> */}
           </div>
         </div>
         <div className={styles.creditCardDetail}>
@@ -105,13 +108,14 @@ const CreditCardDetailBox = ({
         style={{ backgroundColor: theme || "##EAEBF3" }}
       >
         <motion.button initial={false} className={styles.creditCardBtn}>
-          <span>
+          <span
+            onClick={() => {
+              currentQues ? currentFaq(false) : currentFaq(name);
+            }}
+          >
             Card Details <ChevronDown />
           </span>
-          <Link
-            href={routesConstant.CREDIT_CARD_APPLICATION_FORM}
-            className="primaryBtn"
-          >
+          <Link href={url ? url : "#"} className="primaryBtn">
             Apply Now
           </Link>
         </motion.button>

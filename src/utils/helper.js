@@ -26,15 +26,15 @@ export const creditCardFilterHandler = (data, filterArray) => {
   ) {
     filteredData = data.filter((item) =>
       filterArray.type.every((filterTag) =>
-        item.type.map((tag) => tag).includes(filterTag)
+        item.types.map((tag) => tag).includes(filterTag)
       )
     );
   } else {
     filteredData = data.filter(
       (item) =>
-        filterArray?.provider.includes(item.provider.id.toString()) &&
+        filterArray?.provider.includes(item.provider.toString()) &&
         filterArray.type.every((filterTag) =>
-          item.type.map((tag) => tag).includes(filterTag)
+          item.types.map((tag) => tag).includes(filterTag)
         )
     );
   }
