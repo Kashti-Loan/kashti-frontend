@@ -356,23 +356,23 @@ export const EMAIL_REGX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
 export const LIST_BANK_PROVIDERS_URL = {
   LoanTap: {
-    url: "https://bit.ly/LoanTap-Kashti",
+    url: "https://bit.ly/3XyEQNY",
     logo: LoanTapOffer,
   },
   EarlySalary: {
-    url: "https://bit.ly/FibeKashti",
+    url: "https://bit.ly/45Ivgda",
     logo: FibeOffer,
   },
   Upwards: {
-    url: "https://bit.ly/Upwards-Kashti",
+    url: "https://bit.ly/4eCLs3Y",
     logo: UpwardOffer,
   },
   Paysense: {
-    url: "https://bit.ly/Paysense-Kashti",
+    url: "https://bit.ly/3xv2znF",
     logo: PaysenseOffer,
   },
   Zype: {
-    url: "https://bit.ly/Zype-Kashti",
+    url: "https://bit.ly/3xv2259",
     logo: ZypeOffer,
   },
 };
