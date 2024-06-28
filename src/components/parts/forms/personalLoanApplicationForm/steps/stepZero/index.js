@@ -19,7 +19,7 @@ const StepZero = (props) => {
             label="Full Name*"
             type="text"
             name="name"
-            placeholder="Enter Name as per PAN"
+            placeholder="Enter Full Name"
             tooltip
             tooltipContent={"Your full name as per PAN!"}
           />

@@ -144,6 +144,7 @@ export function PersonalLoanProvider({ children }) {
   };
 
   const onAddCustomerData = async (data, slideIndex, slideName, slideIcon) => {
+    let creditCheckScreens = ["Business Detail","CoApplicant Details","Communication Address","Company Detail", "Have Co Applicant",   "More CoApplicant Details", "Office Address","Permanent Address"];
     let payload = {
       app_id: applicationDetail.appID,
       ...data,
@@ -162,6 +163,9 @@ export function PersonalLoanProvider({ children }) {
           }));
           resolve(response.data);
           updateLastSlide(slideIndex, slideName, slideIcon);
+          if(creditCheckScreens.includes(slideName)) {
+            pullBureauData();
+          }
         })
         .catch((err) => {
           reject(err);
