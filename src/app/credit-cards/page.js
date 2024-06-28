@@ -100,9 +100,7 @@ const Page = () => {
   }
 
   function addCompareHandler(val) {
-    const index = compareData.findIndex(
-      (obj) => obj.id === val.id && obj.name === val.name
-    );
+    const index = compareData.findIndex((obj) => obj.name === val.name);
 
     if (index !== -1) {
       // If the object exists, remove it from the array

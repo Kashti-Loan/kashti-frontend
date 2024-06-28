@@ -10,7 +10,7 @@
     .creditCardImg {
       @include flexContainer($alignItems: flex-start);
       > div {
-        width: 100%;
+        // width: 100%;
         &:nth-of-type(2) {
           h4 {
             margin: 0;

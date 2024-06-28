@@ -41,19 +41,11 @@ const CreditCardDetailBox = ({
     >
       <div className={styles.creditCardInfo}>
         <div className={styles.creditCardImg}>
-          <div
-            style={{
-              position: "relative",
-              width: "100%",
-              paddingBottom: "20%",
-            }}
-          >
-            <Image
-              className={"kashtiImg"}
-              layout="fill"
-              objectFit="cover"
-              src={`/assets/images/credit_card/${image}.png`}
-              alt={name}
+          <div>
+            <CustomImage
+              // src={`/assets/images/credit_card/${image}.png`}
+              src={creditCardImg}
+              alt="Credit Card"
             />
           </div>
           <div>
@@ -78,14 +70,14 @@ const CreditCardDetailBox = ({
                 {cardType}
               </span> */}
             </Text>
-            {/* <div>
+            <div>
               <Checkbox
                 name="add_to_compare"
                 label="Add to Compare"
                 onChange={() => onCompare({ id, name, image, theme })}
                 checked={isCompared}
               />
-            </div> */}
+            </div>
           </div>
         </div>
         <div className={styles.creditCardDetail}>
