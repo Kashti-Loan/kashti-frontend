@@ -1,6 +1,7 @@
 import { Text } from "@styles/styledComponent";
 import CustomImage from "../customImage";
 import styles from "./style.module.scss";
+import { creditCardImg } from "@public/assets";
 
 const ComparisonCardBox = (props) => {
   return (
@@ -9,7 +10,7 @@ const ComparisonCardBox = (props) => {
         className={styles.comparisonCardImg}
         style={{ backgroundColor: props.theme }}
       >
-        <CustomImage src={props.image} alt="Credit Card" />
+        <CustomImage src={creditCardImg} alt="Credit Card" />
       </div>
       <div className={styles.cardInfo}>
         <h4>{props.name}</h4>
