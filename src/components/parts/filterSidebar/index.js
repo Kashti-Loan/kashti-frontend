@@ -6,34 +6,33 @@ import { ChevronDown, ChevronUp, Search } from "react-bootstrap-icons";
 import Checkbox from "@components/ui/checkbox";
 import { creditCardProviderData, creditCardTypeData } from "@utils/data";
 
-const FilterSidebar = ({ filterValues, removeFilter, resetRemoveFilter }) => {
-  const [filterData, setFilterData] = useState({
-    provider: [],
-    type: [],
-    features: [],
-    annualIncome: [],
-  });
+const FilterSidebar = ({
+  filterValues,
+  setFilterValues,
+  removeFilter,
+  resetRemoveFilter,
+}) => {
   const [totalFilter, setTotalFilter] = useState(0);
-  // console.log("filter data", filterData);
+  // console.log("filter data", filterValues);
 
   useEffect(() => {
-    filterValues(filterData);
-    setTotalFilter(filterData.provider.length + filterData.type.length);
-  }, [filterData]);
+    setFilterValues(filterValues);
+    setTotalFilter(filterValues.provider.length + filterValues.type.length);
+  }, [filterValues]);
 
   useEffect(() => {
     if (removeFilter) {
-      if (removeFilter.parent === "provider") {
-        setFilterData((prev) => ({
+      if (removeFilter.parent === "Provider") {
+        setFilterValues((prev) => ({
           ...prev,
           provider: prev.provider.filter(
-            (val) => val !== removeFilter.id.toString()
+            (val) => val !== removeFilter.name.toString()
           ),
         }));
       } else if (removeFilter.parent === "type") {
-        setFilterData((prev) => ({
+        setFilterValues((prev) => ({
           ...prev,
-          type: prev.type.filter((val) => val !== removeFilter.id.toString()),
+          type: prev.type.filter((val) => val !== removeFilter.name.toString()),
         }));
       }
       resetRemoveFilter(null);
@@ -41,13 +40,13 @@ const FilterSidebar = ({ filterValues, removeFilter, resetRemoveFilter }) => {
   }, [removeFilter]);
 
   const providerHandler = (e) => {
-    if (filterData.provider.indexOf(e.target.value) !== -1) {
-      setFilterData((prev) => ({
+    if (filterValues.provider.indexOf(e.target.value) !== -1) {
+      setFilterValues((prev) => ({
         ...prev,
         provider: prev.provider.filter((val) => val !== e.target.value),
       }));
     } else {
-      setFilterData((prev) => ({
+      setFilterValues((prev) => ({
         ...prev,
         provider: [...prev.provider, e.target.value],
       }));
@@ -55,13 +54,13 @@ const FilterSidebar = ({ filterValues, removeFilter, resetRemoveFilter }) => {
   };
 
   const typeHandler = (e) => {
-    if (filterData.type.indexOf(e.target.value) !== -1) {
-      setFilterData((prev) => ({
+    if (filterValues.type.indexOf(e.target.value) !== -1) {
+      setFilterValues((prev) => ({
         ...prev,
         type: prev.type.filter((val) => val !== e.target.value),
       }));
     } else {
-      setFilterData((prev) => ({
+      setFilterValues((prev) => ({
         ...prev,
         type: [...prev.type, e.target.value],
       }));
@@ -76,7 +75,7 @@ const FilterSidebar = ({ filterValues, removeFilter, resetRemoveFilter }) => {
         </SectionTitle>
         <button
           onClick={() =>
-            setFilterData({
+            setFilterValues({
               provider: [],
               type: [],
               features: [],
@@ -101,10 +100,10 @@ const FilterSidebar = ({ filterValues, removeFilter, resetRemoveFilter }) => {
               <li key={i}>
                 <Checkbox
                   name={item.name}
-                  value={item.id}
+                  value={item.name}
                   label={item.name}
                   onChange={providerHandler}
-                  checked={filterData.provider.includes(item.id.toString())}
+                  checked={filterValues.provider.includes(item.name.toString())}
                 />
               </li>
             ))}
@@ -126,10 +125,10 @@ const FilterSidebar = ({ filterValues, removeFilter, resetRemoveFilter }) => {
               <li key={i}>
                 <Checkbox
                   name={item.name}
-                  value={item.id}
+                  value={item.name}
                   label={item.name}
                   onChange={typeHandler}
-                  checked={filterData.type.includes(item.id.toString())}
+                  checked={filterValues.type.includes(item.name.toString())}
                 />
               </li>
             ))}
@@ -137,15 +136,15 @@ const FilterSidebar = ({ filterValues, removeFilter, resetRemoveFilter }) => {
           {/* <button className={styles.filterViewMoreBtn}>View more</button> */}
         </div>
       </div>
-      <div className={styles.filterBlock}>
+      {/* <div className={styles.filterBlock}>
         <div>
           <h3>Features</h3>
           <div>
-            {/* <Search /> */}
+            <Search />
             <ChevronDown />
           </div>
         </div>
-        {/* <div>
+        <div>
           <ul className={styles.filterList}>
             {creditCardProviderData.map((item, i) => (
               <li key={i}>
@@ -158,17 +157,17 @@ const FilterSidebar = ({ filterValues, removeFilter, resetRemoveFilter }) => {
             ))}
           </ul>
           <button className={styles.filterViewMoreBtn}>View more</button>
-        </div> */}
+        </div>
       </div>
       <div className={styles.filterBlock}>
         <div>
           <h3>Annual Income</h3>
           <div>
-            {/* <Search /> */}
+            <Search />
             <ChevronDown />
           </div>
         </div>
-        {/* <div>
+        <div>
           <ul className={styles.filterList}>
             {creditCardProviderData.map((item, i) => (
               <li key={i}>
@@ -181,8 +180,8 @@ const FilterSidebar = ({ filterValues, removeFilter, resetRemoveFilter }) => {
             ))}
           </ul>
           <button className={styles.filterViewMoreBtn}>View more</button>
-        </div> */}
-      </div>
+        </div>
+      </div> */}
     </aside>
   );
 };

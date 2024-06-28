@@ -77,18 +77,12 @@ const Page = () => {
 
   useEffect(() => {
     const data = creditCardFilterHandler(allCreditCardsList, filter);
-    const providerFilterName = [];
-    const typeFilterName = [];
-    allCreditCardsList.map((item) => {
-      if (!providerFilterName.includes(item.provider)) {
-        providerFilterName.push(item.provider);
-      }
-    });
-    filter.provider = providerFilterName;
-
-    // creditCardTypeData.filter((item) =>
-    //   filter?.type.includes(item.id.toString())
-    // );
+    const providerFilterName = creditCardProviderData.filter((item) =>
+      filter?.provider.includes(item.name.toString())
+    );
+    const typeFilterName = creditCardTypeData.filter((item) =>
+      filter?.type.includes(item.name.toString())
+    );
     setCardData(data);
     setActiveFilterData([...providerFilterName, ...typeFilterName]);
   }, [filter]);
@@ -106,9 +100,7 @@ const Page = () => {
   }
 
   function addCompareHandler(val) {
-    const index = compareData.findIndex(
-      (obj) => obj.id === val.id && obj.name === val.name
-    );
+    const index = compareData.findIndex((obj) => obj.name === val.name);
 
     if (index !== -1) {
       // If the object exists, remove it from the array
@@ -121,7 +113,6 @@ const Page = () => {
     }
   }
 
-  console.log("compare data", compareData);
   return (
     <main className={styles.creditCardPage}>
       {/* Banner Section */}
@@ -190,7 +181,7 @@ const Page = () => {
         <Container>
           <Row>
             <Col md={6} lg={6}>
-              <h4>Showing 1-9 of 80 results</h4>
+              <h4>Showing {cardData ? cardData.length : "0"} results</h4>
             </Col>
             <Col md={12} lg={6}>
               <button
@@ -207,7 +198,7 @@ const Page = () => {
                 style={{ backgroundImage: `url(${selectArrow.src})` }}
               >
                 <option value={"recommended"}>Recommended</option>
-                <option value="popularity">Popularity</option>
+                {/* <option value="popularity">Popularity</option> */}
                 <option value="asc">Low to High Fee</option>
                 <option value="dsc">High to Low Fee</option>
               </select>
@@ -218,7 +209,26 @@ const Page = () => {
               <div className={styles.activeFilters}>
                 {activeFilterData.map((item, i) => (
                   <span key={i}>
-                    {item.name} <Plus onClick={() => setRemoveFilter(item)} />
+                    {item.name}{" "}
+                    <Plus
+                      onClick={() => {
+                        if (item.parent === "Provider") {
+                          setFilter((prev) => ({
+                            ...prev,
+                            provider: prev.provider.filter(
+                              (val) => val !== item.name.toString()
+                            ),
+                          }));
+                        } else if (item.parent === "type") {
+                          setFilter((prev) => ({
+                            ...prev,
+                            type: prev.type.filter(
+                              (val) => val !== item.name.toString()
+                            ),
+                          }));
+                        }
+                      }}
+                    />
                   </span>
                 ))}
               </div>
@@ -227,7 +237,8 @@ const Page = () => {
           <Row>
             <Col md={12} lg={3}>
               <FilterSidebar
-                filterValues={setFilter}
+                filterValues={filter}
+                setFilterValues={setFilter}
                 removeFilter={removeFilter}
                 resetRemoveFilter={setRemoveFilter}
               />
@@ -240,7 +251,7 @@ const Page = () => {
                       key={i}
                       id={item.id}
                       theme={item.theme_color}
-                      currentQues={active === item.id ? true : false}
+                      currentQues={active === item.name ? true : false}
                       currentFaq={(val) => setActive(val)}
                       name={item.name}
                       type={item.types}
@@ -264,11 +275,11 @@ const Page = () => {
               </ul>
             </Col>
           </Row>
-          <Row className={styles.creditCardBtnRow}>
+          {/* <Row className={styles.creditCardBtnRow}>
             <Col lg={12}>
               <button className="secondaryBtn">View All</button>
             </Col>
-          </Row>
+          </Row> */}
         </Container>
       </section>
 

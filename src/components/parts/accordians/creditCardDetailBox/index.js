@@ -28,6 +28,7 @@ const CreditCardDetailBox = ({
   welcomeBenefits,
   onCompare,
   isCompared,
+  url,
 }) => {
   return (
     <li
@@ -36,32 +37,26 @@ const CreditCardDetailBox = ({
           ? `${styles.activeCard} ${styles.creditCardDetailBox}`
           : styles.creditCardDetailBox
       }
-      onClick={() => {
-        currentQues ? currentFaq(false) : currentFaq(id);
-      }}
       //   style={{backgroundColor: currentQues ? activeColor : "var(--globalWhite)"}}
     >
       <div className={styles.creditCardInfo}>
         <div className={styles.creditCardImg}>
-          <div
-            style={{
-              position: "relative",
-              width: "100%",
-              paddingBottom: "20%",
-            }}
-          >
-            <Image
-              className={"kashtiImg"}
-              layout="fill"
-              objectFit="cover"
-              src={`/assets/images/credit_card/${image}.png`}
-              alt={name}
+          <div>
+            <CustomImage
+              // src={`/assets/images/credit_card/${image}.png`}
+              src={creditCardImg}
+              alt="Credit Card"
             />
           </div>
           <div>
             <h4>{name}</h4>
             <Text>
-              <span>{type.map((item) => `${capitalize(item)}, `)}</span>
+              <span>
+                {type.map(
+                  (item, index) =>
+                    `${capitalize(item)} ${index + 1 < type.length ? "," : ""} `
+                )}
+              </span>
               {/* <span
                 style={{
                   background:
@@ -105,13 +100,14 @@ const CreditCardDetailBox = ({
         style={{ backgroundColor: theme || "##EAEBF3" }}
       >
         <motion.button initial={false} className={styles.creditCardBtn}>
-          <span>
+          <span
+            onClick={() => {
+              currentQues ? currentFaq(false) : currentFaq(name);
+            }}
+          >
             Card Details <ChevronDown />
           </span>
-          <Link
-            href={routesConstant.CREDIT_CARD_APPLICATION_FORM}
-            className="primaryBtn"
-          >
+          <Link href={url ? url : "#"} className="primaryBtn">
             Apply Now
           </Link>
         </motion.button>

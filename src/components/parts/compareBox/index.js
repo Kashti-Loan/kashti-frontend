@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import CustomImage from "@components/ui/customImage";
 import styles from "./style.module.scss";
-import { axis_card } from "@public/assets";
+import { axis_card, creditCardImg } from "@public/assets";
 import { Plus } from "react-bootstrap-icons";
 import Link from "next/link";
 import { routesConstant } from "@utils/routesConstant";
@@ -37,7 +37,7 @@ const CompareBox = ({ compareData, onRemoveAll, onRemoveCard, cardData }) => {
               key={i}
             >
               <div>
-                <CustomImage src={item.image} />
+                <CustomImage src={creditCardImg} />
               </div>
               <div>
                 <h3>{item.name}</h3>

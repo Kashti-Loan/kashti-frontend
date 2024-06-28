@@ -211,14 +211,11 @@ import personalLoanQuestionairreModel from "./images/personalLoanQuestionairreMo
 import loadingLogo from "./images/loading-logo.png";
 import creditCardModel from "./images/creditCardModel.png";
 import kreditBeeOffer from "./images/kreditBeeOffer.png";
-import LoanTap from "./images/ourPartners/loantap.png";
 import LoanTapOffer from "./images/ourPartners/loantap_offer.png";
 import UpwardOffer from "./images/ourPartners/upward_offer.png";
 import ZypeOffer from "./images/ourPartners/zype_offer.png";
 import PaysenseOffer from "./images/ourPartners/paysense_offer.png";
 import FibeOffer from "./images/ourPartners/fibe_offer.png";
-import Upward from "./images/ourPartners/upward.png";
-import Zype from "./images/ourPartners/zype.png";
 
 export {
   siteLogo,
@@ -434,9 +431,6 @@ export {
   newyes,
   newmuthoot,
   loadingLogo,
-  LoanTap,
-  Upward,
-  Zype,
   FibeOffer,
   LoanTapOffer,
   PaysenseOffer,
