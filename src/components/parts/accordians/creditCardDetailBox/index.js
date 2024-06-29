@@ -43,8 +43,11 @@ const CreditCardDetailBox = ({
         <div className={styles.creditCardImg}>
           <div>
             <CustomImage
-              // src={`/assets/images/credit_card/${image}.png`}
-              src={creditCardImg}
+              src={{
+                src: `/assets/images/credit_card/${image}.png`,
+                width: 199,
+                height: 128,
+              }}
               alt="Credit Card"
             />
           </div>
