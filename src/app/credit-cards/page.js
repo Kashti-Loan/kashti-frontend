@@ -74,8 +74,10 @@ const Page = () => {
   const [cardData, setCardData] = useState(null);
   const [compareData, setCompareData] = useState([]);
   const [displayFilter, setDisplayFilter] = useState(false);
+  const [creditCardVisibleCount, setCreditCardVisibleCount] = useState(10);
 
   useEffect(() => {
+    setCreditCardVisibleCount(10);
     const data = creditCardFilterHandler(allCreditCardsList, filter);
     const providerFilterName = creditCardProviderData.filter((item) =>
       filter?.provider.includes(item.name.toString())
@@ -181,7 +183,15 @@ const Page = () => {
         <Container>
           <Row>
             <Col md={6} lg={6}>
-              <h4>Showing {cardData ? cardData.length : "0"} results</h4>
+              <h4>
+                Showing{" "}
+                {cardData && cardData.length > 0
+                  ? cardData.length > creditCardVisibleCount
+                    ? `1-${creditCardVisibleCount} of`
+                    : `1-${cardData.length} of`
+                  : ""}{" "}
+                {cardData ? cardData.length : "0"} results
+              </h4>
             </Col>
             <Col md={12} lg={6}>
               <button
@@ -246,40 +256,52 @@ const Page = () => {
             <Col md={12} lg={9}>
               <ul>
                 {cardData &&
-                  cardData.map((item, i) => (
-                    <CreditCardDetailBox
-                      key={i}
-                      id={item.id}
-                      theme={item.theme_color}
-                      currentQues={active === item.name ? true : false}
-                      currentFaq={(val) => setActive(val)}
-                      name={item.name}
-                      type={item.types}
-                      image={item.image}
-                      cardType={item.card_type}
-                      annualFee={item.annual_fee}
-                      joiningFee={item.joining_fee}
-                      creditScore={item.credit_score}
-                      features={item.features}
-                      welcomeBenefits={item.welcome_benefits}
-                      onCompare={addCompareHandler}
-                      isCompared={
-                        compareData.findIndex(
-                          (obj) => obj.id === item.id && obj.name === item.name
-                        ) !== -1
-                          ? true
-                          : false
-                      }
-                    />
-                  ))}
+                  cardData
+                    .slice(0, creditCardVisibleCount)
+                    .map((item, i) => (
+                      <CreditCardDetailBox
+                        key={i}
+                        id={item.id}
+                        theme={item.theme_color}
+                        currentQues={active === item.name ? true : false}
+                        currentFaq={(val) => setActive(val)}
+                        name={item.name}
+                        type={item.types}
+                        image={item.image}
+                        cardType={item.card_type}
+                        annualFee={item.annual_fee}
+                        joiningFee={item.joining_fee}
+                        creditScore={item.credit_score}
+                        features={item.features}
+                        welcomeBenefits={item.welcome_benefits}
+                        onCompare={addCompareHandler}
+                        isCompared={
+                          compareData.findIndex(
+                            (obj) =>
+                              obj.id === item.id && obj.name === item.name
+                          ) !== -1
+                            ? true
+                            : false
+                        }
+                      />
+                    ))}
               </ul>
             </Col>
           </Row>
-          {/* <Row className={styles.creditCardBtnRow}>
-            <Col lg={12}>
-              <button className="secondaryBtn">View All</button>
-            </Col>
-          </Row> */}
+          {cardData && cardData.length > creditCardVisibleCount && (
+            <Row className={styles.creditCardBtnRow}>
+              <Col lg={12}>
+                <button
+                  onClick={() =>
+                    setCreditCardVisibleCount((prevData) => prevData + 10)
+                  }
+                  className="secondaryBtn"
+                >
+                  View More
+                </button>
+              </Col>
+            </Row>
+          )}
         </Container>
       </section>
 

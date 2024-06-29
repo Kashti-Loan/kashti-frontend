@@ -37,7 +37,13 @@ const CompareBox = ({ compareData, onRemoveAll, onRemoveCard, cardData }) => {
               key={i}
             >
               <div>
-                <CustomImage src={creditCardImg} />
+                <CustomImage
+                  src={{
+                    src: `/assets/images/credit_card/${item.image}.png`,
+                    width: 199,
+                    height: 128,
+                  }}
+                />
               </div>
               <div>
                 <h3>{item.name}</h3>

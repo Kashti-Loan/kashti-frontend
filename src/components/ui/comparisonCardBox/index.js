@@ -10,7 +10,14 @@ const ComparisonCardBox = (props) => {
         className={styles.comparisonCardImg}
         style={{ backgroundColor: props.theme }}
       >
-        <CustomImage src={creditCardImg} alt="Credit Card" />
+        <CustomImage
+          src={{
+            src: `/assets/images/credit_card/${props.image}.png`,
+            width: 199,
+            height: 128,
+          }}
+          alt="Credit Card"
+        />
       </div>
       <div className={styles.cardInfo}>
         <h4>{props.name}</h4>
