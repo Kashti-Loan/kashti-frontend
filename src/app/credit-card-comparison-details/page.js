@@ -6,12 +6,37 @@ import { Col, Container, Row } from "react-bootstrap";
 import { Checkbox, ComparisonCardBox, ComparisonDetailBox } from "@components";
 import { useState } from "react";
 import { routesConstant } from "@utils/routesConstant";
-import { capitalize } from "@utils/constant";
+import {
+  capitalize,
+  createCreditCardCompareUrl,
+  objectToParams,
+} from "@utils/constant";
+import { allCreditCardsList } from "@utils/data";
 
 const Page = () => {
   const routerParams = useSearchParams();
   const router = useRouter();
-  const data = JSON.parse(routerParams.get("data"));
+  const cardOne = routerParams.get("cardone");
+  const cardTwo = routerParams.get("cardtwo");
+  const cardThree = routerParams.get("cardthree");
+  let data = [];
+  let cardOneData = null;
+  let cardTwoData = null;
+  let cardThreeData = null;
+  if (cardOne) {
+    cardOneData = allCreditCardsList.find((card) => card.name === cardOne);
+    data.push(cardOneData);
+  }
+  if (cardTwo) {
+    cardTwoData = allCreditCardsList.find((card) => card.name === cardTwo);
+    data.push(cardTwoData);
+  }
+  if (cardThree) {
+    cardThreeData = allCreditCardsList.find((card) => card.name === cardThree);
+    data.push(cardThreeData);
+  }
+  console.log("data", data);
+
   const [annualCharge, setAnnualCharge] = useState(true);
   const [monthlyInterestRate, setMonthlyInterestRate] = useState(true);
   const [rewards, setRewards] = useState(true);
@@ -55,16 +80,29 @@ const Page = () => {
                   name={item.name}
                   creditScore={item.credit_score}
                   removeCard={() => {
-                    // router.replace('/credit-card-comparison-details', '/product/some-product?sortBy=price', { shallow: true })
+                    const cardsTempList = data.filter(
+                      (card) => card.name != item.name
+                    );
+                    if (cardsTempList.length > 0) {
+                      router.push(
+                        `${
+                          routesConstant.CREDIT_CARD_COMPARISON
+                        }?${objectToParams(
+                          createCreditCardCompareUrl(cardsTempList)
+                        )}`
+                      );
+                    } else {
+                      router.push(routesConstant.CREDIT_CARD_QUESTIONAIRRE);
+                    }
                   }}
                 />
               ))}
           </Col>
         </Row>
         <Row className={styles.mobileShowDifference}>
-          <Col xs={12} md={12} lg={12}>
+          {/* <Col xs={12} md={12} lg={12}>
             <Checkbox label="Show only differences" />
-          </Col>
+          </Col> */}
         </Row>
         <Row className={styles.featuresContainer}>
           <Col>
@@ -134,47 +172,28 @@ const Page = () => {
         <Row className={styles.mobileFeatureContainer}>
           <Col xs={12}>
             <ComparisonDetailBox
+              event={monthlyInterestRate}
+              onEventChange={() => setMonthlyInterestRate((prev) => !prev)}
+              title="Joining Fee"
+              comparisonOne={`${cardOneData?.joining_fee != "Free" ? "₹" : ""}${
+                cardOneData?.joining_fee
+              }`}
+              comparisonTwo={`${cardTwoData?.joining_fee != "Free" ? "₹" : ""}${
+                cardTwoData?.joining_fee
+              }`}
+            />
+          </Col>
+          <Col xs={12}>
+            <ComparisonDetailBox
               event={annualCharge}
               onEventChange={() => setAnnualCharge((prev) => !prev)}
               title="Annual Charges"
-              comparisonOne="₹1500"
-              comparisonTwo="₹1500"
-            />
-          </Col>
-          <Col xs={12}>
-            <ComparisonDetailBox
-              event={monthlyInterestRate}
-              onEventChange={() => setMonthlyInterestRate((prev) => !prev)}
-              title="Monthly Interest Rate"
-              comparisonOne="3%"
-              comparisonTwo="3%"
-            />
-          </Col>
-          <Col xs={12}>
-            <ComparisonDetailBox
-              event={rewards}
-              onEventChange={() => setRewards((prev) => !prev)}
-              title="Rewards"
-              comparisonOne="10 reward points on every ₹250 spent"
-              comparisonTwo="10 reward points on every ₹250 spent"
-            />
-          </Col>
-          <Col xs={12}>
-            <ComparisonDetailBox
-              event={rewardsExpiry}
-              onEventChange={() => setRewardsExpiry((prev) => !prev)}
-              title="Rewards Expiry"
-              comparisonOne="10 reward points on every ₹250 spent"
-              comparisonTwo="10 reward points on every ₹250 spent"
-            />
-          </Col>
-          <Col xs={12}>
-            <ComparisonDetailBox
-              event={atmInterest}
-              onEventChange={() => setAtmInterest((prev) => !prev)}
-              title="Interest on ATM Cash Withdrawal"
-              comparisonOne="10 reward points on every ₹250 spent"
-              comparisonTwo="10 reward points on every ₹250 spent"
+              comparisonOne={`${cardOneData?.annual_fee != "Free" ? "₹" : ""}${
+                cardOneData?.annual_fee
+              }`}
+              comparisonTwo={`${cardTwoData?.annual_fee != "Free" ? "₹" : ""}${
+                cardTwoData?.annual_fee
+              }`}
             />
           </Col>
           <Col xs={12}>
@@ -182,44 +201,67 @@ const Page = () => {
               event={creditScore}
               onEventChange={() => setCreditScore((prev) => !prev)}
               title="Credit Score"
-              comparisonOne="10 reward points on every ₹250 spent"
-              comparisonTwo="10 reward points on every ₹250 spent"
+              comparisonOne={cardOneData?.credit_score}
+              comparisonTwo={cardTwoData?.credit_score}
             />
           </Col>
           <Col xs={12}>
             <ComparisonDetailBox
               event={greatFor}
               onEventChange={() => setGreatFor((prev) => !prev)}
-              title="Great for"
-              comparisonOne="10 reward points on every ₹250 spent"
-              comparisonTwo="10 reward points on every ₹250 spent"
+              title="Benefits"
+              comparisonOne={capitalize(cardOneData?.types.join(", "))}
+              comparisonTwo={capitalize(cardTwoData?.types.join(", "))}
             />
           </Col>
           <Col xs={12}>
             <ComparisonDetailBox
               event={bonusOffer}
               onEventChange={() => setBonusOffer((prev) => !prev)}
-              title="Bonus Offer"
-              comparisonOne="10 reward points on every ₹250 spent"
-              comparisonTwo="10 reward points on every ₹250 spent"
+              title="Features"
+              comparisonOne={
+                <ul>
+                  {cardOneData?.features
+                    ? cardOneData?.features.map((item, i) => (
+                        <li key={i}>{item}.</li>
+                      ))
+                    : "-"}
+                </ul>
+              }
+              comparisonTwo={
+                <ul>
+                  {cardTwoData?.features
+                    ? cardTwoData?.features.map((item, i) => (
+                        <li key={i}>{item}.</li>
+                      ))
+                    : "-"}
+                </ul>
+              }
             />
           </Col>
           <Col xs={12}>
             <ComparisonDetailBox
               event={pros}
               onEventChange={() => setPros((prev) => !prev)}
-              title="Pros"
-              comparisonOne="10 reward points on every ₹250 spent"
-              comparisonTwo="10 reward points on every ₹250 spent"
-            />
-          </Col>
-          <Col xs={12}>
-            <ComparisonDetailBox
-              event={cons}
-              onEventChange={() => setCons((prev) => !prev)}
-              title="Cons"
-              comparisonOne="10 reward points on every ₹250 spent"
-              comparisonTwo="10 reward points on every ₹250 spent"
+              title="Welcome Offer"
+              comparisonOne={
+                <ul>
+                  {cardOneData?.welcome_benefits
+                    ? cardOneData?.welcome_benefits.map((item, i) => (
+                        <li key={i}>{item}.</li>
+                      ))
+                    : "-"}
+                </ul>
+              }
+              comparisonTwo={
+                <ul>
+                  {cardTwoData?.welcome_benefits
+                    ? cardTwoData?.welcome_benefits.map((item, i) => (
+                        <li key={i}>{item}.</li>
+                      ))
+                    : "-"}
+                </ul>
+              }
             />
           </Col>
         </Row>
