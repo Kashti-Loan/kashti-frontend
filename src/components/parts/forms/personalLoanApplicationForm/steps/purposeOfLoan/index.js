@@ -139,6 +139,7 @@ const PurposeLoan = (props) => {
               data-testid="purpose"
               data-event="PurposeDetailsFilled"
               id="purpose-details"
+              disabled={isLoading}
               onClick={() => onSubmit(loanData?.purposeOfLoan)}
               type="button"
               className="primaryBtn"

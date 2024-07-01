@@ -138,6 +138,7 @@ const LoanDetails = (props) => {
               id="income-details"
               type="submit"
               className="primaryBtn income-details"
+              disabled={isLoading}
               style={{ opacity: isLoading ? 0.6 : 1 }}
             >
               {isLoading && (

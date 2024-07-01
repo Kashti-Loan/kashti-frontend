@@ -260,6 +260,7 @@ const BasicDetailStep = (props) => {
               id="individual-details"
               type="submit"
               className="primaryBtn individual-details"
+              disabled={isLoading}
               style={{ opacity: isLoading ? 0.6 : 1 }}
             >
               {isLoading && (

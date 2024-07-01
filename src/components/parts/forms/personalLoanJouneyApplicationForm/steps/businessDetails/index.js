@@ -128,6 +128,7 @@ const BusinessDetails = (props) => {
               data-event="BusinessDetailsFilled"
               id="business-detail"
               type="submit"
+              disabled={isLoading}
               className="primaryBtn"
               style={{ opacity: isLoading ? 0.6 : 1 }}
             >
