@@ -392,3 +392,31 @@ export const indianRupeeConvert = (x) => {
 };
 
 export const getBankURLLogo = (bankName) => {};
+
+export const createCreditCardCompareUrl = (data) => {
+  if (data.length === 0) return undefined;
+  return data.length > 2
+    ? {
+        cardone: data.length && data[0].name,
+        cardtwo: data.length > 1 && data[1].name,
+        cardthree: data[2].name,
+      }
+    : data.length > 1
+    ? {
+        cardone: data.length && data[0].name,
+        cardtwo: data.length > 1 && data[1].name,
+      }
+    : {
+        cardone: data.length && data[0].name,
+      };
+};
+
+export const objectToParams = (object) => {
+  if (object && Object.keys(object).length > 0) {
+    const resultArr = [];
+    Object.keys(object).map((key) => {
+      resultArr.push(`${key}=${object[key]}`);
+    });
+    return resultArr.join("&");
+  }
+};
