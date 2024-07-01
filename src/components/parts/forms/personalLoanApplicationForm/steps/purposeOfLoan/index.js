@@ -1,5 +1,7 @@
 "use client";
 import { useState } from "react";
+import { Spinner } from "react-bootstrap";
+
 import InputTag from "@components/ui/inputTag";
 import styles from "./styles.module.scss";
 import PhoneInputTag from "@components/ui/moneyPhoneInputTag";
@@ -26,8 +28,13 @@ import RadioImageButton from "@components/ui/radioImageButton";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
 
 const PurposeLoan = (props) => {
-  const { setCurrentStep, setCompletedSteps, onAddCustomerData, loanData } =
-    usePersonalLoan();
+  const {
+    setCurrentStep,
+    setCompletedSteps,
+    onAddCustomerData,
+    loanData,
+    isLoading,
+  } = usePersonalLoan();
 
   async function onSubmit(data) {
     try {
@@ -38,8 +45,8 @@ const PurposeLoan = (props) => {
       );
       setCurrentStep(5);
       setCompletedSteps((prev) => [...prev, 4]);
-      fbq('trackCustom', "PurposeDetailsFilled");
-      console.log('PurposeDetailsFilled');
+      fbq("trackCustom", "PurposeDetailsFilled");
+      console.log("PurposeDetailsFilled");
 
       return;
     } catch (error) {
@@ -131,14 +138,16 @@ const PurposeLoan = (props) => {
             <button
               data-testid="purpose"
               data-event="PurposeDetailsFilled"
-
               id="purpose-details"
-
               onClick={() => onSubmit(loanData?.purposeOfLoan)}
               type="button"
               className="primaryBtn"
+              style={{ opacity: isLoading ? 0.6 : 1 }}
             >
-              Continue
+              {isLoading && (
+                <Spinner size="sm" animation="border" variant="light" />
+              )}
+              {isLoading ? "Updating Data..." : "Continue"}
             </button>
           </div>
         </div>
