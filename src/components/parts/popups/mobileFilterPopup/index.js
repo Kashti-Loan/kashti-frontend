@@ -12,28 +12,30 @@ const MobileFilter = ({
   resetRemoveFilter,
   onClose,
   filterSavedData,
+  setFilterValues,
 }) => {
   const [activeFilter, setActiveFilter] = useState("provider");
   const [totalFilter, setTotalFilter] = useState(0);
   const [filterData, setFilterData] = useState(filterSavedData);
 
   useEffect(() => {
-    setTotalFilter(filterData.provider.length + filterData.type.length);
-  }, [filterData]);
+    setFilterValues(filterValues);
+    setTotalFilter(filterValues.provider.length + filterValues.type.length);
+  }, [filterValues]);
 
   useEffect(() => {
     if (removeFilter) {
-      if (removeFilter.parent === "provider") {
-        setFilterData((prev) => ({
+      if (removeFilter.parent === "Provider") {
+        setFilterValues((prev) => ({
           ...prev,
           provider: prev.provider.filter(
-            (val) => val !== removeFilter.id.toString()
+            (val) => val !== removeFilter.name.toString()
           ),
         }));
       } else if (removeFilter.parent === "type") {
-        setFilterData((prev) => ({
+        setFilterValues((prev) => ({
           ...prev,
-          type: prev.type.filter((val) => val !== removeFilter.id.toString()),
+          type: prev.type.filter((val) => val !== removeFilter.name.toString()),
         }));
       }
       resetRemoveFilter(null);
@@ -41,13 +43,13 @@ const MobileFilter = ({
   }, [removeFilter]);
 
   const providerHandler = (e) => {
-    if (filterData.provider.indexOf(e.target.value) !== -1) {
-      setFilterData((prev) => ({
+    if (filterValues.provider.indexOf(e.target.value) !== -1) {
+      setFilterValues((prev) => ({
         ...prev,
         provider: prev.provider.filter((val) => val !== e.target.value),
       }));
     } else {
-      setFilterData((prev) => ({
+      setFilterValues((prev) => ({
         ...prev,
         provider: [...prev.provider, e.target.value],
       }));
@@ -55,13 +57,13 @@ const MobileFilter = ({
   };
 
   const typeHandler = (e) => {
-    if (filterData.type.indexOf(e.target.value) !== -1) {
-      setFilterData((prev) => ({
+    if (filterValues.type.indexOf(e.target.value) !== -1) {
+      setFilterValues((prev) => ({
         ...prev,
         type: prev.type.filter((val) => val !== e.target.value),
       }));
     } else {
-      setFilterData((prev) => ({
+      setFilterValues((prev) => ({
         ...prev,
         type: [...prev.type, e.target.value],
       }));
@@ -103,26 +105,6 @@ const MobileFilter = ({
             >
               Type {filterData.type.length > 0 && `(${filterData.type.length})`}
             </li>
-            <li
-              className={
-                activeFilter === "annualIncome"
-                  ? styles.activeFilter
-                  : styles.notActiveFilter
-              }
-              onClick={() => setActiveFilter("annualIncome")}
-            >
-              Annual Income
-            </li>
-            <li
-              className={
-                activeFilter === "features"
-                  ? styles.activeFilter
-                  : styles.notActiveFilter
-              }
-              onClick={() => setActiveFilter("features")}
-            >
-              Features
-            </li>
           </ul>
         </div>
         <div>
@@ -132,10 +114,12 @@ const MobileFilter = ({
                 <li key={i}>
                   <Checkbox
                     name={item.name}
-                    value={item.id}
+                    value={item.name}
                     label={item.name}
                     onChange={providerHandler}
-                    checked={filterData.provider.includes(item.id.toString())}
+                    checked={filterValues.provider.includes(
+                      item.name.toString()
+                    )}
                   />
                 </li>
               ))}
@@ -147,10 +131,10 @@ const MobileFilter = ({
                 <li key={i}>
                   <Checkbox
                     name={item.name}
-                    value={item.id}
+                    value={item.name}
                     label={item.name}
                     onChange={typeHandler}
-                    checked={filterData.type.includes(item.id.toString())}
+                    checked={filterValues.type.includes(item.name.toString())}
                   />
                 </li>
               ))}
