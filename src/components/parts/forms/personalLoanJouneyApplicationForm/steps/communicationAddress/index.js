@@ -4,6 +4,7 @@ import { Controller, FormProvider, useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Link from "next/link";
+import { Spinner } from "react-bootstrap";
 
 import InputTag from "@components/ui/inputTag";
 import styles from "./styles.module.scss";
@@ -59,6 +60,7 @@ const CommunicationAddress = (props) => {
     getStateCityUsingPincode,
     loanData,
     setLoanData,
+    isLoading,
   } = usePersonalLoan();
 
   const [isPermenentAddressSame, setIsPermenentAddressSame] = useState(false);
@@ -298,8 +300,12 @@ const CommunicationAddress = (props) => {
               id="communication-address"
               type="submit"
               className="primaryBtn"
+              style={{ opacity: isLoading ? 0.6 : 1 }}
             >
-              {isSubmitting ? "Updating Data..." : "Continue"}
+              {isLoading && (
+                <Spinner size="sm" animation="border" variant="light" />
+              )}
+              {isLoading ? "Updating Data..." : "Continue"}
             </button>
           </div>
         </form>

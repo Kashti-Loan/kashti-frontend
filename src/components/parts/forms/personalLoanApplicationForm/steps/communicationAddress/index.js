@@ -4,6 +4,7 @@ import { Controller, FormProvider, useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Link from "next/link";
+import { Spinner } from "react-bootstrap";
 
 import InputTag from "@components/ui/inputTag";
 import styles from "./styles.module.scss";
@@ -58,6 +59,7 @@ const CommunicationAddress = (props) => {
     getStateCityUsingPincode,
     loanData,
     setLoanData,
+    isLoading,
   } = usePersonalLoan();
 
   const [isPermenentAddressSame, setIsPermenentAddressSame] = useState(false);
@@ -126,11 +128,10 @@ const CommunicationAddress = (props) => {
       );
       isPermenentAddressSame ? setCurrentStep(8) : setCurrentStep(7);
       setCompletedSteps((prev) => [...prev, 6]);
-      fbq('trackCustom', "CommAddressFilled");
-      fbq('track', "ViewContent");
+      fbq("trackCustom", "CommAddressFilled");
+      fbq("track", "ViewContent");
 
-      console.log('CommAddressFilled');
-
+      console.log("CommAddressFilled");
 
       return;
     } catch (error) {
@@ -293,12 +294,15 @@ const CommunicationAddress = (props) => {
             <button
               data-testid="communication-address"
               data-event="CommunicationAddressFilled"
-
               id="communication-address"
               type="submit"
               className="primaryBtn"
+              style={{ opacity: isLoading ? 0.6 : 1 }}
             >
-              {isSubmitting ? "Updating Data..." : "Continue"}
+              {isLoading && (
+                <Spinner size="sm" animation="border" variant="light" />
+              )}
+              {isLoading ? "Updating Data..." : "Continue"}
             </button>
           </div>
         </form>

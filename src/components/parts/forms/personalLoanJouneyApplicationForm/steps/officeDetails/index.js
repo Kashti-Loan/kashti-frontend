@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { Spinner } from "react-bootstrap";
 
 import InputTag from "@components/ui/inputTag";
 import styles from "./styles.module.scss";
@@ -24,6 +25,7 @@ const OfficeDetails = (props) => {
     onAddCustomerData,
     loanData,
     getStateCityUsingPincode,
+    isLoading,
   } = usePersonalLoan();
   const router = useRouter();
   const { isJourneyOne } = props;
@@ -188,8 +190,12 @@ const OfficeDetails = (props) => {
               id="office-address"
               type="submit"
               className="primaryBtn"
+              style={{ opacity: isLoading ? 0.6 : 1 }}
             >
-              {isSubmitting ? "Updating Data..." : "Continue"}
+              {isLoading && (
+                <Spinner size="sm" animation="border" variant="light" />
+              )}
+              {isLoading ? "Updating Data..." : "Continue"}
             </button>
           </div>
         </form>

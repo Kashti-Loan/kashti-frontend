@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { Spinner } from "react-bootstrap";
 
 import InputTag from "@components/ui/inputTag";
 import styles from "./styles.module.scss";
@@ -21,6 +22,7 @@ const PermanentAddress = (props) => {
     setCompletedSteps,
     onAddCustomerData,
     getStateCityUsingPincode,
+    isLoading,
   } = usePersonalLoan();
 
   const BasicSchema = Yup.object().shape({
@@ -56,8 +58,8 @@ const PermanentAddress = (props) => {
       );
       setCurrentStep(8);
       setCompletedSteps((prev) => [...prev, 7]);
-      fbq('trackCustom', "PermanentAddressDetailsFilled");
-      console.log('PermanentAddressDetailsFilled');
+      fbq("trackCustom", "PermanentAddressDetailsFilled");
+      console.log("PermanentAddressDetailsFilled");
 
       return;
     } catch (error) {
@@ -175,12 +177,15 @@ const PermanentAddress = (props) => {
             <button
               data-testid="permanent-address"
               data-event="PermanentAddressFilled"
-
               id="permanent-address"
               type="submit"
               className="primaryBtn"
+              style={{ opacity: isLoading ? 0.6 : 1 }}
             >
-              {isSubmitting ? "Updating Data..." : "Continue"}
+              {isLoading && (
+                <Spinner size="sm" animation="border" variant="light" />
+              )}
+              {isLoading ? "Updating Data..." : "Continue"}
             </button>
           </div>
         </form>

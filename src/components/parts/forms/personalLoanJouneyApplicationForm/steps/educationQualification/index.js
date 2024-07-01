@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { Spinner } from "react-bootstrap";
 
 import InputTag from "@components/ui/inputTag";
 import styles from "./styles.module.scss";
@@ -12,8 +13,13 @@ import RadioTextButton from "@components/ui/radioTextButton";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
 
 const EducationQualification = (props) => {
-  const { setCurrentStep, setCompletedSteps, onAddCustomerData, loanData } =
-    usePersonalLoan();
+  const {
+    setCurrentStep,
+    setCompletedSteps,
+    onAddCustomerData,
+    loanData,
+    isLoading,
+  } = usePersonalLoan();
 
   async function onSubmit(data) {
     try {
@@ -24,9 +30,9 @@ const EducationQualification = (props) => {
       );
       setCurrentStep(3);
       setCompletedSteps((prev) => [...prev, 2]);
-      fbq('trackCustom', "EducationalQualificationFilled");
-      fbq('track', "FindLocation");
-      console.log('EducationalQualificationFilled');
+      fbq("trackCustom", "EducationalQualificationFilled");
+      fbq("track", "FindLocation");
+      console.log("EducationalQualificationFilled");
 
       return;
     } catch (error) {
@@ -66,13 +72,16 @@ const EducationQualification = (props) => {
             <button
               data-testid="educational-qualification"
               data-event="EducationalQualificationFilled"
-
               id="educational-qualification"
               onClick={() => onSubmit(loanData?.educational_qualification)}
               type="button"
               className="primaryBtn"
+              style={{ opacity: isLoading ? 0.6 : 1 }}
             >
-              Continue
+              {isLoading && (
+                <Spinner size="sm" animation="border" variant="light" />
+              )}
+              {isLoading ? "Updating Data..." : "Continue"}
             </button>
           </div>
         </div>

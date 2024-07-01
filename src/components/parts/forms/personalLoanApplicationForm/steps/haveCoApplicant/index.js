@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { Spinner } from "react-bootstrap";
 
 import styles from "./styles.module.scss";
 import { GenderFemale, GenderMale } from "@public/assets";
@@ -11,8 +12,13 @@ import { routesConstant } from "@utils/routesConstant";
 
 const HaveCoApplicant = (props) => {
   const router = useRouter();
-  const { setCurrentStep, setCompletedSteps, onAddCustomerData, loanData } =
-    usePersonalLoan();
+  const {
+    setCurrentStep,
+    setCompletedSteps,
+    onAddCustomerData,
+    loanData,
+    isLoading,
+  } = usePersonalLoan();
 
   const handleChange = async (value) => {
     try {
@@ -24,8 +30,8 @@ const HaveCoApplicant = (props) => {
       if (value === true) {
         setCurrentStep(12);
       } else {
-        fbq('track', "SubmitApplication");
-        router.replace(routesConstant.RECOMMENDED_PERSONAL_LOAN);
+        fbq("track", "SubmitApplication");
+        router.replace(routesConstant.PERSONAL_LOAN_OFFER);
       }
       setCompletedSteps((prev) => [...prev, 11]);
       return;
@@ -42,7 +48,9 @@ const HaveCoApplicant = (props) => {
             <h3>Do you have a Co-Applicant?</h3>
             <CommonTooltip
               id={"haveCoApplicant"}
-              content={"Required information in the presence of a co-applicant for your loan."}
+              content={
+                "Required information in the presence of a co-applicant for your loan."
+              }
               place={"right"}
             />
           </div>
@@ -62,14 +70,16 @@ const HaveCoApplicant = (props) => {
             <button
               data-testid="have-co-applicant"
               data-event="HaveCoApplicantOrNotFilled"
-
               id="have-co-applicant"
-
               onClick={() => handleChange(loanData?.has_coApplicant)}
               type="button"
               className="primaryBtn"
+              style={{ opacity: isLoading ? 0.6 : 1 }}
             >
-              Continue
+              {isLoading && (
+                <Spinner size="sm" animation="border" variant="light" />
+              )}
+              {isLoading ? "Updating Data..." : "Continue"}
             </button>
           </div>
         </div>

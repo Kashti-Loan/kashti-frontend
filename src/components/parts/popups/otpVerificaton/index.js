@@ -1,10 +1,12 @@
 "use client";
 import toast, { Toaster } from "react-hot-toast";
+import { Spinner } from "react-bootstrap";
 import { LinkText, SectionTitle, Text } from "@styles/styledComponent";
 import styles from "./style.module.scss";
 import DataSafetyIcon from "@components/ui/svg/dataSafetyIcon";
 import { useEffect, useRef, useState } from "react";
 import EditIcon from "@components/ui/svg/editIcon";
+import { usePersonalLoan } from "@context/PersonalLoanContext";
 
 const OtpVerfication = (props) => {
   const [resendTimer, setResendTimer] = useState(30);
@@ -13,6 +15,7 @@ const OtpVerfication = (props) => {
   const [isVerifying, setVerifying] = useState(false);
   const inputRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
   const [otpValues, setOTPValues] = useState(["", "", "", ""]);
+  const { isLoading } = usePersonalLoan();
 
   useEffect(() => {
     if (startTimer) {
@@ -151,7 +154,15 @@ const OtpVerfication = (props) => {
               </LinkText>
             )}
           </div>
-          <button type="button" className="primaryBtn" onClick={onVerify}>
+          <button
+            type="button"
+            className="primaryBtn"
+            onClick={onVerify}
+            style={{ opacity: isLoading ? 0.6 : 1 }}
+          >
+            {isLoading && (
+              <Spinner size="sm" animation="border" variant="light" />
+            )}
             {isVerifying ? `Verifying...` : `Verify OTP`}
           </button>
         </form>
