@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { Spinner } from "react-bootstrap";
 
 import InputTag from "@components/ui/inputTag";
 import styles from "./styles.module.scss";
@@ -52,9 +53,8 @@ const CompanyDetails = (props) => {
     onAddCustomerData,
     loanData,
     getPreApprovedLoans,
+    isLoading,
   } = usePersonalLoan();
-
-  const [isLoading, setIsLoading] = useState(false);
 
   const BasicSchema = Yup.object().shape({
     company_name: Yup.string().required("Company name is required"),
@@ -90,7 +90,6 @@ const CompanyDetails = (props) => {
         fbq("track", "SubmitApplication");
 
         if (pathname.includes("personal-loan-questionairre-journey3")) {
-          setIsLoading(true);
           const loanOffersList = await getPreApprovedLoans();
           if (loanOffersList && loanOffersList.length > 0) {
             window.open(
@@ -175,8 +174,12 @@ const CompanyDetails = (props) => {
               id="company-detail"
               type="submit"
               className="primaryBtn"
+              style={{ opacity: isLoading ? 0.6 : 1 }}
             >
-              {isSubmitting || isLoading ? "Updating Data..." : "Continue"}
+              {isLoading && (
+                <Spinner size="sm" animation="border" variant="light" />
+              )}
+              {isLoading ? "Updating Data..." : "Continue"}
             </button>
           </div>
         </form>

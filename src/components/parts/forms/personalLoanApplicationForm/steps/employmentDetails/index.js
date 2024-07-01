@@ -4,6 +4,7 @@ import { Controller, FormProvider, useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Link from "next/link";
+import { Spinner } from "react-bootstrap";
 
 import InputTag from "@components/ui/inputTag";
 import styles from "./styles.module.scss";
@@ -17,8 +18,13 @@ import { usePersonalLoan } from "@context/PersonalLoanContext";
 import { EMAIL_REGX } from "@utils/constant";
 
 const EmploymentDetails = (props) => {
-  const { setCurrentStep, setCompletedSteps, onAddCustomerData, loanData } =
-    usePersonalLoan();
+  const {
+    setCurrentStep,
+    setCompletedSteps,
+    onAddCustomerData,
+    loanData,
+    isLoading,
+  } = usePersonalLoan();
 
   const BasicSchema = Yup.object().shape({
     email: Yup.string()
@@ -74,10 +80,10 @@ const EmploymentDetails = (props) => {
       const response = await onAddCustomerData(data, 5, "Employment Details");
       setCurrentStep(6);
       setCompletedSteps((prev) => [...prev, 5]);
-      fbq('trackCustom', "EmploymentDetailsFilled");
-      fbq('track', "Subscribe");
+      fbq("trackCustom", "EmploymentDetailsFilled");
+      fbq("track", "Subscribe");
 
-      console.log('EmploymentDetailsFilled');
+      console.log("EmploymentDetailsFilled");
 
       return;
     } catch (error) {
@@ -200,12 +206,15 @@ const EmploymentDetails = (props) => {
             <button
               data-testid="employment-details"
               data-event="EmploymentDetailsFilled"
-
               id="employment-details"
               type="submit"
               className="primaryBtn"
+              style={{ opacity: isLoading ? 0.6 : 1 }}
             >
-              {isSubmitting ? "Updating Data..." : "Continue"}
+              {isLoading && (
+                <Spinner size="sm" animation="border" variant="light" />
+              )}
+              {isLoading ? "Updating Data..." : "Continue"}
             </button>
           </div>
         </form>

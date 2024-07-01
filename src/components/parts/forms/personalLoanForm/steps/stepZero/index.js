@@ -26,11 +26,13 @@ import StepperContainer from "@components/container/stepperContainer";
 import { routesConstant } from "@utils/routesConstant";
 import DatePickerInputTag from "@components/ui/datePickerInput";
 import moment from "moment";
+import { Spinner } from "react-bootstrap";
 
 const StepZero = (props) => {
   const [otpSent, setOtpSent] = useState(false);
 
-  const { basicDetail, sendOtp, onVerifyOTP, onResendOTP } = usePersonalLoan();
+  const { basicDetail, sendOtp, onVerifyOTP, onResendOTP, isLoading } =
+    usePersonalLoan();
 
   const BasicSchema = Yup.object().shape({
     full_name: Yup.string().required("Name is required"),
@@ -159,7 +161,7 @@ const StepZero = (props) => {
                 />
                 <span className="checkmark tcagree"></span>
                 <span>
-                  By Continuing, I agree to Kashti's {" "}
+                  By Continuing, I agree to Kashti's{" "}
                   <Link target="_blank" href={routesConstant.PRIVACY_POLICY}>
                     Privacy Policy
                   </Link>{" "}
@@ -176,8 +178,11 @@ const StepZero = (props) => {
                 disabled={!watch("tcagree")}
                 type="submit"
                 className="primaryBtn"
-                style={{ opacity: watch("tcagree") ? 1 : 0.6 }}
+                style={{ opacity: watch("tcagree") && !isLoading ? 1 : 0.6 }}
               >
+                {isLoading && (
+                  <Spinner size="sm" animation="border" variant="light" />
+                )}
                 {isSubmitting ? `Sending OTP...` : `Proceed and Verify`}
               </button>
             </div>

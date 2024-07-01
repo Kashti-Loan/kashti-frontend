@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { Spinner } from "react-bootstrap";
 
 import InputTag from "@components/ui/inputTag";
 import styles from "./styles.module.scss";
@@ -19,8 +20,13 @@ import { useRouter } from "next/navigation";
 import { routesConstant } from "@utils/routesConstant";
 
 const LoanDetails = (props) => {
-  const { setCurrentStep, setCompletedSteps, onAddCustomerData, loanData } =
-    usePersonalLoan();
+  const {
+    setCurrentStep,
+    setCompletedSteps,
+    onAddCustomerData,
+    loanData,
+    isLoading,
+  } = usePersonalLoan();
   const router = useRouter();
 
   const BasicSchema = Yup.object().shape({});
@@ -132,8 +138,12 @@ const LoanDetails = (props) => {
               id="income-details"
               type="submit"
               className="primaryBtn income-details"
+              style={{ opacity: isLoading ? 0.6 : 1 }}
             >
-              {isSubmitting ? "Updating Data..." : "Continue"}
+              {isLoading && (
+                <Spinner size="sm" animation="border" variant="light" />
+              )}
+              {isLoading ? "Updating Data..." : "Continue"}
             </button>
           </div>
         </form>

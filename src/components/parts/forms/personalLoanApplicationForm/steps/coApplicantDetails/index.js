@@ -3,6 +3,7 @@ import { useState } from "react";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Controller, FormProvider, useForm } from "react-hook-form";
+import { Spinner } from "react-bootstrap";
 
 import InputTag from "@components/ui/inputTag";
 import styles from "./styles.module.scss";
@@ -19,8 +20,13 @@ import moment from "moment";
 import DatePickerInputTag from "@components/ui/datePickerInput";
 
 const CoApplicantDetails = (props) => {
-  const { setCurrentStep, setCompletedSteps, onAddCustomerData, loanData } =
-    usePersonalLoan();
+  const {
+    setCurrentStep,
+    setCompletedSteps,
+    onAddCustomerData,
+    loanData,
+    isLoading,
+  } = usePersonalLoan();
 
   const BasicSchema = Yup.object().shape({
     coAppplicantDOB: Yup.date()
@@ -70,8 +76,8 @@ const CoApplicantDetails = (props) => {
       const response = await onAddCustomerData(data, 12, "CoApplicant Details");
       setCurrentStep(13);
       setCompletedSteps((prev) => [...prev, 12]);
-      fbq('trackCustom', "CoApplicantDetailsFilled");
-      console.log('CoApplicantDetailsFilled');
+      fbq("trackCustom", "CoApplicantDetailsFilled");
+      console.log("CoApplicantDetailsFilled");
       return;
     } catch (error) {
       console.log("error", error);
@@ -149,12 +155,15 @@ const CoApplicantDetails = (props) => {
             <button
               data-testid="coapplicant-details"
               data-event="CoApplicantDetailsFilled"
-
               id="coapplicant-details"
               type="submit"
               className="primaryBtn"
+              style={{ opacity: isLoading ? 0.6 : 1 }}
             >
-              {isSubmitting ? "Updating Data..." : "Continue"}
+              {isLoading && (
+                <Spinner size="sm" animation="border" variant="light" />
+              )}
+              {isLoading ? "Updating Data..." : "Continue"}
             </button>
           </div>
         </form>

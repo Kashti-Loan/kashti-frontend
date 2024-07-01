@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { Spinner } from "react-bootstrap";
 
 import InputTag from "@components/ui/inputTag";
 import styles from "./styles.module.scss";
@@ -17,8 +18,13 @@ import InputRange from "@components/ui/inputRange";
 import { usePersonalLoan } from "@context/PersonalLoanContext";
 
 const IncomeDetails = (props) => {
-  const { setCurrentStep, setCompletedSteps, onAddCustomerData, loanData } =
-    usePersonalLoan();
+  const {
+    setCurrentStep,
+    setCompletedSteps,
+    onAddCustomerData,
+    loanData,
+    isLoading,
+  } = usePersonalLoan();
 
   const salaryDemoData = [
     {
@@ -37,7 +43,9 @@ const IncomeDetails = (props) => {
 
   const BasicSchema = Yup.object().shape({
     salary_type: Yup.string().required("Salary mode is required."),
-    your_net_monthly_income: Yup.string().required("Monthly salary is required."),
+    your_net_monthly_income: Yup.string().required(
+      "Monthly salary is required."
+    ),
   });
 
   const defaultValues = {
@@ -66,9 +74,9 @@ const IncomeDetails = (props) => {
       const response = await onAddCustomerData(data, 3, "Income Details");
       setCurrentStep(4);
       setCompletedSteps((prev) => [...prev, 3]);
-      fbq('trackCustom', "IncomeDetailsFilled");
-      fbq('track', "StartTrial");
-      console.log('IncomeDetailsFilled');
+      fbq("trackCustom", "IncomeDetailsFilled");
+      fbq("track", "StartTrial");
+      console.log("IncomeDetailsFilled");
 
       return;
     } catch (error) {
@@ -182,8 +190,12 @@ const IncomeDetails = (props) => {
               id="income-details"
               type="submit"
               className="primaryBtn income-details"
+              style={{ opacity: isLoading ? 0.6 : 1 }}
             >
-              {isSubmitting ? "Updating Data..." : "Continue"}
+              {isLoading && (
+                <Spinner size="sm" animation="border" variant="light" />
+              )}
+              {isLoading ? "Updating Data..." : "Continue"}
             </button>
           </div>
         </form>

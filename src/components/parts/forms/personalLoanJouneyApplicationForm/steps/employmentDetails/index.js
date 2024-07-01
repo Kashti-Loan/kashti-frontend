@@ -4,6 +4,7 @@ import { Controller, FormProvider, useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Link from "next/link";
+import { Spinner } from "react-bootstrap";
 
 import InputTag from "@components/ui/inputTag";
 import styles from "./styles.module.scss";
@@ -18,8 +19,13 @@ import { EMAIL_REGX } from "@utils/constant";
 import SelectTag from "@components/ui/selectTag";
 
 const EmploymentDetails = (props) => {
-  const { setCurrentStep, setCompletedSteps, onAddCustomerData, loanData } =
-    usePersonalLoan();
+  const {
+    setCurrentStep,
+    setCompletedSteps,
+    onAddCustomerData,
+    loanData,
+    isLoading,
+  } = usePersonalLoan();
   const { isJourneyOne } = props;
 
   const salaryDemoData = [
@@ -129,8 +135,12 @@ const EmploymentDetails = (props) => {
               id="employment-details"
               type="submit"
               className="primaryBtn"
+              style={{ opacity: isLoading ? 0.6 : 1 }}
             >
-              {isSubmitting ? "Updating Data..." : "Continue"}
+              {isLoading && (
+                <Spinner size="sm" animation="border" variant="light" />
+              )}
+              {isLoading ? "Updating Data..." : "Continue"}
             </button>
           </div>
         </form>

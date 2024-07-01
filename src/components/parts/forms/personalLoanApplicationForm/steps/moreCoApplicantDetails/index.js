@@ -3,6 +3,7 @@ import { useState } from "react";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Controller, FormProvider, useForm } from "react-hook-form";
+import { Spinner } from "react-bootstrap";
 
 import InputTag from "@components/ui/inputTag";
 import styles from "./styles.module.scss";
@@ -32,9 +33,13 @@ const MoreCoApplicantDetails = (props) => {
   const [selectedValue, setSelectedValue] = useState("Spouse");
   const pathname = usePathname();
 
-  const { setCurrentStep, getPreApprovedLoans, onAddCustomerData, loanData } =
-    usePersonalLoan();
-  const [isLoading, setIsLoading] = useState(false);
+  const {
+    setCurrentStep,
+    getPreApprovedLoans,
+    onAddCustomerData,
+    loanData,
+    isLoading,
+  } = usePersonalLoan();
 
   const BasicSchema = Yup.object().shape({
     coApplicantMobile: Yup.string()
@@ -79,7 +84,6 @@ const MoreCoApplicantDetails = (props) => {
       fbq("trackCustom", "MoreCoApplicantDetailsFilled");
       fbq("track", "SubmitApplication");
       if (pathname.includes("personal-loan-questionairre-journey3")) {
-        setIsLoading(true);
         const loanOffersList = await getPreApprovedLoans();
         if (loanOffersList && loanOffersList.length > 0) {
           window.open(loanOffersList[0]?.apply_link);
@@ -197,8 +201,12 @@ const MoreCoApplicantDetails = (props) => {
               id="more-coapplicant-details"
               type="submit"
               className="primaryBtn"
+              style={{ opacity: isLoading ? 0.6 : 1 }}
             >
-              {isSubmitting || isLoading ? "Updating Data..." : "Continue"}
+              {isLoading && (
+                <Spinner size="sm" animation="border" variant="light" />
+              )}
+              {isLoading ? "Updating Data..." : "Continue"}
             </button>
           </div>
         </form>

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { Spinner } from "react-bootstrap";
 
 import InputTag from "@components/ui/inputTag";
 import styles from "./styles.module.scss";
@@ -33,8 +34,13 @@ const BusinessDetails = (props) => {
     },
   ];
 
-  const { setCurrentStep, setCompletedSteps, onAddCustomerData, loanData } =
-    usePersonalLoan();
+  const {
+    setCurrentStep,
+    setCompletedSteps,
+    onAddCustomerData,
+    loanData,
+    isLoading,
+  } = usePersonalLoan();
 
   const BasicSchema = Yup.object().shape({
     nature_business: Yup.string().required("Nature of business is required"),
@@ -70,8 +76,8 @@ const BusinessDetails = (props) => {
       const response = await onAddCustomerData(data, 10, "Business Detail");
       setCurrentStep(11);
       setCompletedSteps((prev) => [...prev, 10]);
-      fbq('trackCustom', "BusinessDetailsFilled");
-      console.log('BusinessDetailsFilled');
+      fbq("trackCustom", "BusinessDetailsFilled");
+      console.log("BusinessDetailsFilled");
 
       return;
     } catch (error) {
@@ -123,8 +129,12 @@ const BusinessDetails = (props) => {
               id="business-detail"
               type="submit"
               className="primaryBtn"
+              style={{ opacity: isLoading ? 0.6 : 1 }}
             >
-              {isSubmitting ? "Updating Data..." : "Continue"}
+              {isLoading && (
+                <Spinner size="sm" animation="border" variant="light" />
+              )}
+              {isLoading ? "Updating Data..." : "Continue"}
             </button>
           </div>
         </form>

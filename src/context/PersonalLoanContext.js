@@ -21,6 +21,7 @@ export function PersonalLoanProvider({ children }) {
   const [completedSteps, setCompletedSteps] = useState([]);
   const [accessToken, setAccessToken] = useState(null);
   const [loanData, setLoanData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   //Save Secret and API Key
   useEffect(() => {
@@ -41,6 +42,7 @@ export function PersonalLoanProvider({ children }) {
       countryCode: "+91",
     };
     setBasicDetail(data);
+    setIsLoading(true);
     return new Promise((resolve, reject) => {
       fetch("https://api.db-ip.com/v2/free/self", {
         method: "GET",
@@ -51,12 +53,14 @@ export function PersonalLoanProvider({ children }) {
           loanAPI
             .post("/customer/api/v2/customer/lead/", payload)
             .then((response) => {
+              setIsLoading(false);
               console.log("Response:", response.data);
               setBasicDetail(data);
               setLeadDetail(response.data.data);
               resolve(response.data);
             })
             .catch((err) => {
+              setIsLoading(false);
               reject(err);
             });
         })
@@ -65,12 +69,14 @@ export function PersonalLoanProvider({ children }) {
           loanAPI
             .post("/customer/api/v2/customer/lead/", payload)
             .then((response) => {
+              setIsLoading(false);
               console.log("Response:", response.data);
               setBasicDetail(data);
               setLeadDetail(response.data.data);
               resolve(response.data);
             })
             .catch((err) => {
+              setIsLoading(false);
               reject(err);
             });
         });
@@ -83,14 +89,17 @@ export function PersonalLoanProvider({ children }) {
       countryCode: "+91",
       type: "text",
     };
+    setIsLoading(true);
     return new Promise((resolve, reject) => {
       loanAPI
         .post("/customer/api/v2/customer/lead/otp/resend/", payload)
         .then((response) => {
+          setIsLoading(false);
           console.log("Response:", response.data);
           resolve(response.data);
         })
         .catch((err) => {
+          setIsLoading(false);
           reject(err);
         });
     });
@@ -101,10 +110,12 @@ export function PersonalLoanProvider({ children }) {
       phone: basicDetail.phone,
       otp,
     };
+    setIsLoading(true);
     return new Promise((resolve, reject) => {
       loanAPI
         .post("/customer/api/v2/customer/lead/otp/verifiy", payload)
         .then((response) => {
+          setIsLoading(false);
           if (response.data.statusCode === 200) {
             console.log("response.data", response.data.data.token);
             setApplicationDetail(response.data.data);
@@ -116,6 +127,7 @@ export function PersonalLoanProvider({ children }) {
           }
         })
         .catch((err) => {
+          setIsLoading(false);
           reject(err);
         });
     });
@@ -127,6 +139,7 @@ export function PersonalLoanProvider({ children }) {
       pan,
       contactId: leadDetail?.contact.id,
     };
+    setIsLoading(true);
     return new Promise((resolve, reject) => {
       YO_INDI_API.post("/api/v2/customer/lead/pan-ocr/", payload)
         .then((response) => {
@@ -144,11 +157,21 @@ export function PersonalLoanProvider({ children }) {
   };
 
   const onAddCustomerData = async (data, slideIndex, slideName, slideIcon) => {
-    let creditCheckScreens = ["Business Detail","CoApplicant Details","Communication Address","Company Detail", "Have Co Applicant",   "More CoApplicant Details", "Office Address","Permanent Address"];
+    let creditCheckScreens = [
+      "Business Detail",
+      "CoApplicant Details",
+      "Communication Address",
+      "Company Detail",
+      "Have Co Applicant",
+      "More CoApplicant Details",
+      "Office Address",
+      "Permanent Address",
+    ];
     let payload = {
       app_id: applicationDetail.appID,
       ...data,
     };
+    setIsLoading(true);
     return new Promise((resolve, reject) => {
       loanAPI
         .post(
@@ -156,6 +179,7 @@ export function PersonalLoanProvider({ children }) {
           payload
         )
         .then((response) => {
+          setIsLoading(false);
           console.log("Response:", response.data);
           setLoanData((prevData) => ({
             ...prevData,
@@ -163,11 +187,12 @@ export function PersonalLoanProvider({ children }) {
           }));
           resolve(response.data);
           updateLastSlide(slideIndex, slideName, slideIcon);
-          if(creditCheckScreens.includes(slideName)) {
+          if (creditCheckScreens.includes(slideName)) {
             pullBureauData();
           }
         })
         .catch((err) => {
+          setIsLoading(false);
           reject(err);
         });
     });
@@ -302,6 +327,7 @@ export function PersonalLoanProvider({ children }) {
         setLoanData,
         setAccessToken,
         leadDetail,
+        isLoading,
       }}
     >
       {children}
