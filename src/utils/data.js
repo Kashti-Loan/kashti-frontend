@@ -1076,7 +1076,7 @@ export const allCreditCardsList = [
     premium: null,
     provider: "Axis Bank",
     types: ["REWARDS", "DINE IN"],
-    welcome_benefits: [],
+    welcome_benefits: ["N/A"],
   },
   {
     annual_fee: 250,
@@ -1092,7 +1092,7 @@ export const allCreditCardsList = [
     premium: null,
     provider: "Axis Bank",
     types: ["REWARDS", "TRAVEL"],
-    welcome_benefits: [],
+    welcome_benefits: ["N/A"],
   },
   {
     annual_fee: 10000,
@@ -1144,7 +1144,9 @@ export const allCreditCardsList = [
     premium: null,
     provider: "Bajaj Finserve",
     types: ["SHOPPING", "REWARDS", "LIFESTYLE"],
-    welcome_benefits: [],
+    welcome_benefits: [
+      "Get 4,000 Reward points on payment of joining fee and spends of INR 2,000 made within 30 days of card issurance.",
+    ],
   },
   {
     annual_fee: "Free",
@@ -1331,7 +1333,7 @@ export const allCreditCardsList = [
     premium: null,
     provider: "Bank of Baroda",
     types: ["REWARDS", "TRAVEL"],
-    welcome_benefits: [],
+    welcome_benefits: ["N/A"],
   },
   {
     annual_fee: 499,
@@ -1781,7 +1783,7 @@ export const allCreditCardsList = [
     premium: null,
     provider: "HDFC Bank",
     types: ["REWARDS"],
-    welcome_benefits: [],
+    welcome_benefits: ["N/A"],
   },
   {
     annual_fee: 2500,
@@ -2005,7 +2007,7 @@ export const allCreditCardsList = [
     premium: null,
     provider: "HDFC Bank",
     types: ["SHOPPING", "DINE IN"],
-    welcome_benefits: [],
+    welcome_benefits: ["N/A"],
   },
   {
     annual_fee: 2500,
@@ -2059,7 +2061,7 @@ export const allCreditCardsList = [
     premium: null,
     provider: "HDFC Bank",
     types: ["REWARDS", "CASH BACK"],
-    welcome_benefits: [],
+    welcome_benefits: ["N/A"],
   },
   {
     annual_fee: 2500,
@@ -2096,7 +2098,7 @@ export const allCreditCardsList = [
     premium: null,
     provider: "HDFC Bank",
     types: ["REWARDS"],
-    welcome_benefits: [],
+    welcome_benefits: ["N/A"],
   },
   {
     annual_fee: 500,
@@ -2645,7 +2647,7 @@ export const allCreditCardsList = [
     premium: null,
     provider: "Indusind Bank",
     types: ["SHOPPING"],
-    welcome_benefits: [],
+    welcome_benefits: ["N/A"],
   },
   {
     annual_fee: "free",
@@ -2987,7 +2989,7 @@ export const allCreditCardsList = [
     premium: null,
     provider: "Kotak Mahindra Bank",
     types: ["SHOPPING", "TRAVEL"],
-    welcome_benefits: [],
+    welcome_benefits: ["N/A"],
   },
   {
     annual_fee: "Free",
@@ -3167,7 +3169,7 @@ export const allCreditCardsList = [
     premium: null,
     provider: "Kotak Mahindra Bank",
     types: ["LIFESTYLE", "MOVILES"],
-    welcome_benefits: [],
+    welcome_benefits: ["N/A"],
   },
   {
     annual_fee: 999,
@@ -3183,7 +3185,7 @@ export const allCreditCardsList = [
     premium: null,
     provider: "Kotak Mahindra Bank",
     types: ["FUEL", "REWARDS", "TRAVEL"],
-    welcome_benefits: [],
+    welcome_benefits: ["N/A"],
   },
   {
     annual_fee: "Free",
@@ -3199,7 +3201,7 @@ export const allCreditCardsList = [
     premium: null,
     provider: "One Card",
     types: ["SHOPPING", "REWARDS"],
-    welcome_benefits: [],
+    welcome_benefits: ["N/A"],
   },
   {
     annual_fee: 1200,
@@ -3348,7 +3350,7 @@ export const allCreditCardsList = [
     premium: null,
     provider: "RBL Bank",
     types: ["CASH BACK"],
-    welcome_benefits: [],
+    welcome_benefits: ["N/A"],
   },
   {
     annual_fee: 1000,
@@ -3547,7 +3549,7 @@ export const allCreditCardsList = [
     premium: null,
     provider: "State Bank of india",
     types: ["SHOPPING", "REWARDS", "CASH BACK"],
-    welcome_benefits: [],
+    welcome_benefits: ["N/A"],
   },
   {
     annual_fee: 300,
@@ -3711,7 +3713,7 @@ export const allCreditCardsList = [
     premium: null,
     provider: "State Bank of india",
     types: ["SHOPPING"],
-    welcome_benefits: [],
+    welcome_benefits: ["N/A"],
   },
   {
     annual_fee: 2999,
@@ -3934,7 +3936,7 @@ export const allCreditCardsList = [
     premium: null,
     provider: "Slice",
     types: ["REWARDS", "CASH BACK"],
-    welcome_benefits: [],
+    welcome_benefits: ["N/A"],
   },
   {
     annual_fee: 399,
@@ -3950,7 +3952,7 @@ export const allCreditCardsList = [
     premium: null,
     provider: "Yes Bank",
     types: ["REWARDS", "TRAVEL", "DINE IN"],
-    welcome_benefits: [],
+    welcome_benefits: ["N/A"],
   },
   {
     annual_fee: 9999,
@@ -4097,7 +4099,7 @@ export const allCreditCardsList = [
     premium: null,
     provider: "Yes Bank",
     types: ["REWARDS"],
-    welcome_benefits: [],
+    welcome_benefits: ["N/A"],
   },
   {
     annual_fee: 999,
