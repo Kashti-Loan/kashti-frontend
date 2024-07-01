@@ -9,8 +9,7 @@ export const routesConstant = {
   PERSONAL_LOAN: "/personal-loan",
   CREDIT_SCORE_REPORT:
     "/personal-loan-questionairre/656f180a06ccb91aba55f3b73c695443d4fa7984a70ff94d98253ac994d87feb/2f3eee0f3b49dd69ac5151d2f3964fd1094e6dc51146c3e5c60f523ba93efc4a",
-  CREDIT_CARD_QUESTIONAIRRE:
-    "/personal-loan-questionairre/8942ef63a139c7295abddd73442672329333839235809b3e4f2f9930788cd029/4991cd6520dc5ce80ed559599b3d0263db3ab5ad6d190c7ba75473c7a7ed4683",
+  CREDIT_CARD_QUESTIONAIRRE: "/credit-cards",
   PERSONAL_LOAN_QUESTIONAIRRE: "/personal-loan-questionairre",
   PERSONAL_LOAN_QUESTIONAIRRE_APPLICATION:
     "/personal-loan-questionairre-application",
