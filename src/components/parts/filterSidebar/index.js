@@ -136,52 +136,6 @@ const FilterSidebar = ({
           {/* <button className={styles.filterViewMoreBtn}>View more</button> */}
         </div>
       </div>
-      {/* <div className={styles.filterBlock}>
-        <div>
-          <h3>Features</h3>
-          <div>
-            <Search />
-            <ChevronDown />
-          </div>
-        </div>
-        <div>
-          <ul className={styles.filterList}>
-            {creditCardProviderData.map((item, i) => (
-              <li key={i}>
-                <Checkbox
-                  name={item.name}
-                  value={item.name}
-                  label={item.name}
-                />
-              </li>
-            ))}
-          </ul>
-          <button className={styles.filterViewMoreBtn}>View more</button>
-        </div>
-      </div>
-      <div className={styles.filterBlock}>
-        <div>
-          <h3>Annual Income</h3>
-          <div>
-            <Search />
-            <ChevronDown />
-          </div>
-        </div>
-        <div>
-          <ul className={styles.filterList}>
-            {creditCardProviderData.map((item, i) => (
-              <li key={i}>
-                <Checkbox
-                  name={item.name}
-                  value={item.name}
-                  label={item.name}
-                />
-              </li>
-            ))}
-          </ul>
-          <button className={styles.filterViewMoreBtn}>View more</button>
-        </div>
-      </div> */}
     </aside>
   );
 };
