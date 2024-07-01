@@ -27,7 +27,9 @@ const ComparisonCardBox = (props) => {
           <b>{props.creditScore}</b>
         </Text>
         <div className={styles.comparisonCardBtn}>
-          <button className="secondaryBtn">Remove</button>
+          <button onClick={props.removeCard} className="secondaryBtn">
+            Remove
+          </button>
           <button className="secondaryBtn">Apply Now</button>
         </div>
       </div>

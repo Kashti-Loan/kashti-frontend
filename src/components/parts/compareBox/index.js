@@ -1,16 +1,18 @@
 "use client";
 import { useEffect, useState } from "react";
+import { isMobile } from "react-device-detect";
+
 import CustomImage from "@components/ui/customImage";
 import styles from "./style.module.scss";
 import { axis_card, creditCardImg } from "@public/assets";
 import { Plus } from "react-bootstrap-icons";
 import Link from "next/link";
 import { routesConstant } from "@utils/routesConstant";
+import { Alert } from "@mui/material";
 
 const CompareBox = ({ compareData, onRemoveAll, onRemoveCard, cardData }) => {
   const [finalCompareData, setFinalCompareData] = useState([]);
   useEffect(() => {
-    console.log("finally vef", { cardData, compareData });
     const data = cardData.filter((item) => {
       return compareData.findIndex(
         (val) => val.id === item.id && val.name === item.name
@@ -21,10 +23,13 @@ const CompareBox = ({ compareData, onRemoveAll, onRemoveCard, cardData }) => {
     setFinalCompareData(data);
   }, [cardData, compareData]);
 
-  //   console.log("finally", finalCompareData);
-
   return (
     <div className={styles.compareBox}>
+      {compareData && compareData.length === (isMobile ? 2 : 3) && (
+        <Alert severity="error" color="error">
+          Remove a card to add another card to compare
+        </Alert>
+      )}
       <div className={styles.compareCards}>
         {compareData &&
           compareData.length > 0 &&

@@ -1,14 +1,17 @@
 "use client";
 import { PageTitle, SectionTitle } from "@styles/styledComponent";
 import styles from "./style.module.scss";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Col, Container, Row } from "react-bootstrap";
 import { Checkbox, ComparisonCardBox, ComparisonDetailBox } from "@components";
 import { useState } from "react";
+import { routesConstant } from "@utils/routesConstant";
+import { capitalize } from "@utils/constant";
 
 const Page = () => {
-  const router = useSearchParams();
-  const data = JSON.parse(router.get("data"));
+  const routerParams = useSearchParams();
+  const router = useRouter();
+  const data = JSON.parse(routerParams.get("data"));
   const [annualCharge, setAnnualCharge] = useState(true);
   const [monthlyInterestRate, setMonthlyInterestRate] = useState(true);
   const [rewards, setRewards] = useState(true);
@@ -19,7 +22,7 @@ const Page = () => {
   const [bonusOffer, setBonusOffer] = useState(false);
   const [pros, setPros] = useState(false);
   const [cons, setCons] = useState(false);
-  // console.log("search para", data);
+
   return (
     <main className={styles.comparisonPage}>
       <Container>
@@ -37,9 +40,9 @@ const Page = () => {
                   {data && data.map((item, i) => <li key={i}>{item.name}</li>)}
                 </ol>
               </div>
-              <div>
+              {/* <div>
                 <Checkbox label="Show only differences" />
-              </div>
+              </div> */}
             </div>
           </Col>
           <Col lg={9}>
@@ -51,6 +54,9 @@ const Page = () => {
                   theme={item.theme_color}
                   name={item.name}
                   creditScore={item.credit_score}
+                  removeCard={() => {
+                    // router.replace('/credit-card-comparison-details', '/product/some-product?sortBy=price', { shallow: true })
+                  }}
                 />
               ))}
           </Col>
@@ -70,27 +76,12 @@ const Page = () => {
               </thead>
               <tbody>
                 <tr>
-                  <td>Annual Charges</td>
+                  <td>Joining Fee</td>
                   {data &&
-                    data.map((item, i) => <td key={i}>{item.annual_fee}</td>)}
+                    data.map((item, i) => <td key={i}>{item.joining_fee}</td>)}
                 </tr>
                 <tr>
-                  <td>Monthly Interest Rate</td>
-                  {data &&
-                    data.map((item, i) => <td key={i}>{item.annual_fee}</td>)}
-                </tr>
-                <tr>
-                  <td>Rewards</td>
-                  {data &&
-                    data.map((item, i) => <td key={i}>{item.annual_fee}</td>)}
-                </tr>
-                <tr>
-                  <td>Rewards Expiry</td>
-                  {data &&
-                    data.map((item, i) => <td key={i}>{item.annual_fee}</td>)}
-                </tr>
-                <tr>
-                  <td>Interest on ATM Cash Withdrawal</td>
+                  <td>Annual Fee</td>
                   {data &&
                     data.map((item, i) => <td key={i}>{item.annual_fee}</td>)}
                 </tr>
@@ -100,24 +91,41 @@ const Page = () => {
                     data.map((item, i) => <td key={i}>{item.credit_score}</td>)}
                 </tr>
                 <tr>
-                  <td>Great for</td>
+                  <td>Benefits</td>
                   {data &&
-                    data.map((item, i) => <td key={i}>{item.credit_score}</td>)}
+                    data.map((item, i) => (
+                      <td key={i}>{capitalize(item.types.join(", "))}</td>
+                    ))}
                 </tr>
                 <tr>
-                  <td>Bonus Offer</td>
+                  <td>Features</td>
                   {data &&
-                    data.map((item, i) => <td key={i}>{item.credit_score}</td>)}
+                    data.map((item, i) => (
+                      <td key={i}>
+                        <ul>
+                          {item.features
+                            ? item.features.map((item, i) => (
+                                <li key={i}>{item}.</li>
+                              ))
+                            : "-"}
+                        </ul>
+                      </td>
+                    ))}
                 </tr>
                 <tr>
-                  <td>Pros</td>
+                  <td>Welcome Offer</td>
                   {data &&
-                    data.map((item, i) => <td key={i}>{item.credit_score}</td>)}
-                </tr>
-                <tr>
-                  <td>Cons</td>
-                  {data &&
-                    data.map((item, i) => <td key={i}>{item.credit_score}</td>)}
+                    data.map((item, i) => (
+                      <td key={i}>
+                        <ul>
+                          {item.welcome_benefits
+                            ? item.welcome_benefits.map((item, i) => (
+                                <li key={i}>{item}.</li>
+                              ))
+                            : "-"}
+                        </ul>
+                      </td>
+                    ))}
                 </tr>
               </tbody>
             </table>

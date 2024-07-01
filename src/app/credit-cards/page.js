@@ -4,6 +4,8 @@ import { Col, Container, Row } from "react-bootstrap";
 import styles from "./style.module.scss";
 import { PageTitle, SectionTitle, Text } from "@styles/styledComponent";
 import Link from "next/link";
+import { isMobile } from "react-device-detect";
+
 import {
   BusinessLoanIcon,
   CompareBox,
@@ -102,16 +104,18 @@ const Page = () => {
   }
 
   function addCompareHandler(val) {
-    const index = compareData.findIndex((obj) => obj.name === val.name);
+    if (compareData.length < (isMobile ? 2 : 3)) {
+      const index = compareData.findIndex((obj) => obj.name === val.name);
 
-    if (index !== -1) {
-      // If the object exists, remove it from the array
-      const updatedArray = [...compareData];
-      updatedArray.splice(index, 1);
-      setCompareData(updatedArray);
-    } else {
-      // If the object does not exist, add it to the array
-      setCompareData((prevArray) => [...prevArray, val]);
+      if (index !== -1) {
+        // If the object exists, remove it from the array
+        const updatedArray = [...compareData];
+        updatedArray.splice(index, 1);
+        setCompareData(updatedArray);
+      } else {
+        // If the object does not exist, add it to the array
+        setCompareData((prevArray) => [...prevArray, val]);
+      }
     }
   }
 
@@ -492,7 +496,9 @@ const Page = () => {
           compareData={compareData}
           onRemoveAll={() => setCompareData([])}
           onRemoveCard={(val) =>
-            setCompareData((prev) => prev.filter((item) => item.id !== val.id))
+            setCompareData((prev) =>
+              prev.filter((item) => item.name !== val.name)
+            )
           }
           cardData={cardData}
         />
@@ -501,7 +507,8 @@ const Page = () => {
         <PopupPortal display={displayFilter}>
           <div className="popupBox">
             <MobileFilter
-              filterValues={setFilter}
+              filterValues={filter}
+              setFilterValues={setFilter}
               removeFilter={removeFilter}
               resetRemoveFilter={setRemoveFilter}
               onClose={() => setDisplayFilter(false)}
