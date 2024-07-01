@@ -175,6 +175,7 @@ const CompanyDetails = (props) => {
               type="submit"
               className="primaryBtn"
               style={{ opacity: isLoading ? 0.6 : 1 }}
+              disabled={isLoading}
             >
               {isLoading && (
                 <Spinner size="sm" animation="border" variant="light" />

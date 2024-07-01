@@ -142,6 +142,7 @@ const PurposeLoan = (props) => {
               onClick={() => onSubmit(loanData?.purposeOfLoan)}
               type="button"
               className="primaryBtn"
+              disabled={isLoading}
               style={{ opacity: isLoading ? 0.6 : 1 }}
             >
               {isLoading && (

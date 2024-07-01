@@ -201,6 +201,7 @@ const MoreCoApplicantDetails = (props) => {
               id="more-coapplicant-details"
               type="submit"
               className="primaryBtn"
+              disabled={isLoading}
               style={{ opacity: isLoading ? 0.6 : 1 }}
             >
               {isLoading && (

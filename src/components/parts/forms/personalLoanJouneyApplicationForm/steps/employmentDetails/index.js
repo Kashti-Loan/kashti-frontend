@@ -135,6 +135,7 @@ const EmploymentDetails = (props) => {
               id="employment-details"
               type="submit"
               className="primaryBtn"
+              disabled={isLoading}
               style={{ opacity: isLoading ? 0.6 : 1 }}
             >
               {isLoading && (

@@ -74,6 +74,7 @@ const HaveCoApplicant = (props) => {
               onClick={() => handleChange(loanData?.has_coApplicant)}
               type="button"
               className="primaryBtn"
+              disabled={isLoading}
               style={{ opacity: isLoading ? 0.6 : 1 }}
             >
               {isLoading && (
