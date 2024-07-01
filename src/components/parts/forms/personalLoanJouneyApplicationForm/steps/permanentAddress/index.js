@@ -180,6 +180,7 @@ const PermanentAddress = (props) => {
               data-event="PermanentAddressFilled"
               id="permanent-address"
               type="submit"
+              disabled={isLoading}
               className="primaryBtn"
               style={{ opacity: isLoading ? 0.6 : 1 }}
             >

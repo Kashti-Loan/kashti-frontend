@@ -76,6 +76,7 @@ const EducationQualification = (props) => {
               onClick={() => onSubmit(loanData?.educational_qualification)}
               type="button"
               className="primaryBtn"
+              disabled={isLoading}
               style={{ opacity: isLoading ? 0.6 : 1 }}
             >
               {isLoading && (

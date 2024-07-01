@@ -300,6 +300,7 @@ const CommunicationAddress = (props) => {
               id="communication-address"
               type="submit"
               className="primaryBtn"
+              disabled={isLoading}
               style={{ opacity: isLoading ? 0.6 : 1 }}
             >
               {isLoading && (
