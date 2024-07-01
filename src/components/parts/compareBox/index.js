@@ -9,6 +9,7 @@ import { Plus } from "react-bootstrap-icons";
 import Link from "next/link";
 import { routesConstant } from "@utils/routesConstant";
 import { Alert } from "@mui/material";
+import { createCreditCardCompareUrl } from "@utils/constant";
 
 const CompareBox = ({ compareData, onRemoveAll, onRemoveCard, cardData }) => {
   const [finalCompareData, setFinalCompareData] = useState([]);
@@ -63,11 +64,17 @@ const CompareBox = ({ compareData, onRemoveAll, onRemoveCard, cardData }) => {
         <button className="secondaryBtn" onClick={onRemoveAll}>
           Remove All
         </button>
+        {console.log("finalCompareData", finalCompareData)}
         <Link
           href={{
             pathname: routesConstant.CREDIT_CARD_COMPARISON,
-            query: { data: JSON.stringify(finalCompareData) },
+            query: createCreditCardCompareUrl(finalCompareData),
           }}
+          style={
+            compareData.length < 2
+              ? { pointerEvents: "none", opacity: 0.5 }
+              : null
+          }
           className="primaryBtn"
         >
           <span>Compare</span>
